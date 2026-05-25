@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c8syq7nu4jmte"]
+
+[ext_resource type="Script" uid="uid://rkj8jf2dfnj0" path="res://scripts/PlayerCarController.gd" id="1_50v30"]
+[ext_resource type="PackedScene" uid="uid://bbnglff553i81" path="res://scenes/Car.tscn" id="1_q30tf"]
+
+[node name="Car" unique_id=1946404089 instance=ExtResource("1_q30tf")]
+script = ExtResource("1_50v30")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="." index="2" unique_id=1232498554]

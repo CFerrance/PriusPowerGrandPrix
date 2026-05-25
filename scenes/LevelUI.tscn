@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://clr5ex8wntf1a"]
+
+[ext_resource type="Script" uid="uid://dxunca8cbuejg" path="res://scripts/LevelUI.gd" id="1_kxct0"]
+[ext_resource type="PackedScene" uid="uid://c27qqkyhgb0gk" path="res://scenes/RacingUI.tscn" id="1_x3has"]
+[ext_resource type="PackedScene" uid="uid://o14i7a0v7hsv" path="res://scenes/StartLights.tscn" id="2_kxct0"]
+
+[node name="LevelUI" type="CanvasLayer" unique_id=618771844]
+script = ExtResource("1_kxct0")
+
+[node name="RacingUI" parent="." unique_id=1747457226 instance=ExtResource("1_x3has")]
+visible = false
+
+[node name="StartLights" parent="." unique_id=350034232 instance=ExtResource("2_kxct0")]

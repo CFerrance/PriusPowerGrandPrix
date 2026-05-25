@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://o14i7a0v7hsv"]
+
+[ext_resource type="Script" uid="uid://blcddk2otxkbu" path="res://scripts/StartLights.gd" id="1_kyjk0"]
+[ext_resource type="Texture2D" uid="uid://bdginhskvo4gr" path="res://assets/StartLight.png" id="2_7a2l6"]
+
+[node name="StartLights" type="Control" unique_id=350034232 node_paths=PackedStringArray("lights")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_kyjk0")
+lightInterval = 0.5
+minWait = 2.0
+maxWait = 5.0
+lights = [NodePath("HBoxContainer/StartLight"), NodePath("HBoxContainer/StartLight2"), NodePath("HBoxContainer/StartLight3"), NodePath("HBoxContainer/StartLight4"), NodePath("HBoxContainer/StartLight5")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=841815418]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 20.0
+offset_right = 737.0
+offset_bottom = 84.0
+grow_horizontal = 2
+
+[node name="StartLight" type="TextureRect" parent="HBoxContainer" unique_id=1376278139]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_7a2l6")
+
+[node name="StartLight2" type="TextureRect" parent="HBoxContainer" unique_id=125801876]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_7a2l6")
+
+[node name="StartLight3" type="TextureRect" parent="HBoxContainer" unique_id=1542058191]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_7a2l6")
+
+[node name="StartLight4" type="TextureRect" parent="HBoxContainer" unique_id=734871942]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_7a2l6")
+
+[node name="StartLight5" type="TextureRect" parent="HBoxContainer" unique_id=1914278830]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_7a2l6")

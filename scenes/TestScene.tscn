@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b26il4s04rve2"]
+
+[ext_resource type="PackedScene" uid="uid://bxtgowkx1hwe5" path="res://scenes/LevelManager.tscn" id="1_m5dm6"]
+[ext_resource type="PackedScene" uid="uid://ty1im2qwp1nv" path="res://scenes/PlayerCamera.tscn" id="2_fws1a"]
+[ext_resource type="PackedScene" uid="uid://donaacye71402" path="res://scenes/TutorialTrack.tscn" id="2_m5dm6"]
+[ext_resource type="PackedScene" uid="uid://bbnglff553i81" path="res://scenes/Car.tscn" id="3_fws1a"]
+[ext_resource type="PackedScene" uid="uid://clr5ex8wntf1a" path="res://scenes/LevelUI.tscn" id="4_nb1wl"]
+
+[node name="TestScene" type="Node" unique_id=1237806787]
+
+[node name="LevelManager" parent="." unique_id=1239925959 instance=ExtResource("1_m5dm6")]
+
+[node name="PlayerCamera" parent="." unique_id=124469184 instance=ExtResource("2_fws1a")]
+position = Vector2(-151, -65)
+
+[node name="TutorialTrack" parent="." unique_id=355394978 instance=ExtResource("2_m5dm6")]
+
+[node name="PlayerCar" parent="." unique_id=1276631271 instance=ExtResource("3_fws1a")]
+position = Vector2(-151, -65)
+rotation = 1.5707964
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerCar" unique_id=1160233026]
+remote_path = NodePath("../../PlayerCamera")
+
+[node name="GameInterface" parent="." unique_id=618771844 instance=ExtResource("4_nb1wl")]

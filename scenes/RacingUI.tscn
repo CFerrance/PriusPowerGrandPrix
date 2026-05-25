@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://c27qqkyhgb0gk"]
+
+[ext_resource type="Script" uid="uid://ci771locbbh0j" path="res://scripts/RacingUI.gd" id="1_mtuya"]
+
+[node name="RacingUI" type="Control" unique_id=1747457226]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mtuya")
+
+[node name="SpeedText" type="Label" parent="." unique_id=525549129]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+offset_right = 113.0
+grow_vertical = 0
+text = "SPEED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GearText" type="Label" parent="." unique_id=2087951587]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 86.0
+offset_top = -60.0
+offset_right = 193.0
+grow_vertical = 0
+text = "GEAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlaceText" type="Label" parent="." unique_id=711023101]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -103.0
+offset_bottom = -52.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "PLACE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lap Text" type="Label" parent="." unique_id=867539808]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -53.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "LAP"
+horizontal_alignment = 1
+vertical_alignment = 1

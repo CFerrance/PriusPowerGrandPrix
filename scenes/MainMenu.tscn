@@ -1,0 +1,215 @@
+[gd_scene format=3 uid="uid://cymmso7w4wlwi"]
+
+[ext_resource type="Script" uid="uid://doabq3ciagvd6" path="res://scripts/MainMenuManager.gd" id="1_yqorp"]
+[ext_resource type="Script" uid="uid://beycoqg1d7vvx" path="res://scripts/RaceOption.gd" id="2_2wh52"]
+[ext_resource type="Resource" uid="uid://cr2cm8k3v3g8x" path="res://assets/trackData/tutorialTrackData.tres" id="3_ow34m"]
+[ext_resource type="Script" uid="uid://c78pyble71xjs" path="res://scripts/CarData.gd" id="4_826wr"]
+[ext_resource type="Resource" uid="uid://dl3xnns4pss8n" path="res://assets/carData/prius.tres" id="5_ucygd"]
+[ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://assets/carData/miniCooper.tres" id="6_mipys"]
+
+[node name="MainMenu" type="Control" unique_id=1320039347 node_paths=PackedStringArray("background", "titleText", "titleButtons", "optionsMenu", "credits", "raceOptionsParent", "carOptionsParent")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqorp")
+background = NodePath("Background")
+titleText = NodePath("StartScreen/TitleText")
+titleButtons = NodePath("StartScreen/StartButtons")
+optionsMenu = NodePath("StartScreen/OptionsMenu")
+credits = NodePath("StartScreen/Credits")
+raceOptionsParent = NodePath("TrackSelectScreen/RaceOptions")
+carOptionsParent = NodePath("CarSelectScreen/CarOptions")
+tracks = Array[ExtResource("2_2wh52")]([ExtResource("3_ow34m")])
+cars = Array[ExtResource("4_826wr")]([ExtResource("5_ucygd"), ExtResource("6_mipys")])
+
+[node name="Background" type="TextureRect" parent="." unique_id=1151407728]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartScreen" type="Control" parent="." unique_id=1735440178]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleText" type="Label" parent="StartScreen" unique_id=602810458]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -103.5
+offset_right = 103.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "PRIUS POWER GRAND PRIX"
+
+[node name="StartButtons" type="VBoxContainer" parent="StartScreen" unique_id=1058322197]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="PlayButton" type="Button" parent="StartScreen/StartButtons" unique_id=1561312955]
+layout_mode = 2
+text = "Play"
+alignment = 2
+
+[node name="OptionsButton" type="Button" parent="StartScreen/StartButtons" unique_id=478322867]
+layout_mode = 2
+text = "Options"
+alignment = 2
+
+[node name="CreditsButton" type="Button" parent="StartScreen/StartButtons" unique_id=1162769408]
+layout_mode = 2
+text = "Credits
+"
+alignment = 2
+
+[node name="QuitButton" type="Button" parent="StartScreen/StartButtons" unique_id=133011902]
+layout_mode = 2
+text = "Quit
+
+"
+alignment = 2
+
+[node name="OptionsMenu" type="Panel" parent="StartScreen" unique_id=802850973]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="StartScreen/OptionsMenu" unique_id=1499476233]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+
+[node name="Credits" type="Panel" parent="StartScreen" unique_id=985478383]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ModeSelectScreen" type="Control" parent="." unique_id=756382559]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ModeSelectButtons" type="VBoxContainer" parent="ModeSelectScreen" unique_id=1581446103]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="SingleRaceButton" type="Button" parent="ModeSelectScreen/ModeSelectButtons" unique_id=2026633534]
+layout_mode = 2
+text = "Single Race"
+alignment = 2
+
+[node name="GrandPrixButton" type="Button" parent="ModeSelectScreen/ModeSelectButtons" unique_id=814609861]
+layout_mode = 2
+text = "Grand Prix"
+alignment = 2
+
+[node name="PracticeButton" type="Button" parent="ModeSelectScreen/ModeSelectButtons" unique_id=736493515]
+layout_mode = 2
+text = "Practice
+"
+alignment = 2
+
+[node name="TrackSelectScreen" type="Control" parent="." unique_id=1459104514]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RaceOptions" type="VBoxContainer" parent="TrackSelectScreen" unique_id=1163869659]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="CarSelectScreen" type="Control" parent="." unique_id=114481685]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CarOptions" type="VBoxContainer" parent="CarSelectScreen" unique_id=1129436630]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ReadyButton" type="Button" parent="CarSelectScreen" unique_id=344883265]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Ready"
+
+[connection signal="pressed" from="StartScreen/StartButtons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="StartScreen/StartButtons/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="StartScreen/StartButtons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="StartScreen/StartButtons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="StartScreen/OptionsMenu/BackButton" to="." method="_on_options_back_button_pressed"]
+[connection signal="pressed" from="ModeSelectScreen/ModeSelectButtons/SingleRaceButton" to="." method="_on_single_button_pressed"]
+[connection signal="pressed" from="ModeSelectScreen/ModeSelectButtons/GrandPrixButton" to="." method="_on_prix_button_pressed"]
+[connection signal="pressed" from="ModeSelectScreen/ModeSelectButtons/PracticeButton" to="." method="_on_practice_button_pressed"]
+[connection signal="pressed" from="CarSelectScreen/ReadyButton" to="." method="_on_ready_button_pressed"]

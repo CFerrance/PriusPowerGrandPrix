@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bbnglff553i81"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qt2eu"]
+radius = 17.0
+height = 88.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qt2eu"]
+load_path = "res://.godot/imported/prius.png-79dc21eaf5851df3e1f9b95d1205947d.ctex"
+
+[node name="Car" type="CharacterBody2D" unique_id=1946404089]
+motion_mode = 1
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1103997873]
+shape = SubResource("CapsuleShape2D_qt2eu")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=677048385]
+z_index = 10
+texture = SubResource("CompressedTexture2D_qt2eu")
