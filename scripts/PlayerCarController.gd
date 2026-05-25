@@ -38,7 +38,7 @@ func _physics_process(delta):
 			_apply_friction()
 			_calculate_steering(delta)
 			velocity -= acceleration * delta
-			move_and_slide()
+	move_and_slide()
 
 func _apply_friction():
 	if velocity.length() < 5:

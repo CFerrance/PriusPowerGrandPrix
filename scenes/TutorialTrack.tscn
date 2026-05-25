@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://b1putg7242y1m" path="res://scripts/TrackManager.gd" id="1_r1pug"]
 [ext_resource type="Texture2D" uid="uid://bnpvgqriqrdok" path="res://assets/RoadTest.png" id="1_sx2xh"]
 [ext_resource type="Texture2D" uid="uid://d2hqnvg2x4ods" path="res://assets/Ninety_2x2_Left.png" id="2_c5s34"]
+[ext_resource type="Texture2D" uid="uid://bfvxklxc3xkf3" path="res://assets/TrackDraft.png" id="4_1p2yq"]
 [ext_resource type="PackedScene" uid="uid://ba6xmd0sulldd" path="res://scenes/StartGate.tscn" id="4_6o0ev"]
 [ext_resource type="PackedScene" uid="uid://bppw7qv8bmrgm" path="res://scenes/Gate.tscn" id="4_ro4ik"]
 [ext_resource type="Script" uid="uid://bcoydaqfr6dw7" path="res://scripts/PanHandler.gd" id="7_1p2yq"]
+[ext_resource type="Script" uid="uid://c5i0hqod4mh1r" path="res://scripts/PitGate.gd" id="8_6854m"]
 
 [sub_resource type="Curve2D" id="Curve2D_ro4ik"]
 _data = {
@@ -19,6 +21,9 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6854m"]
+size = Vector2(153.9982, 22.13208)
+
 [node name="TutorialTrack" type="Node2D" unique_id=21804440 node_paths=PackedStringArray("startGate", "gatesDefault")]
 script = ExtResource("1_r1pug")
 startGate = NodePath("Gates/Start")
@@ -26,125 +31,145 @@ gatesDefault = [NodePath("Gates/gate"), NodePath("Gates/gate2"), NodePath("Gates
 
 [node name="Tracks" type="Node2D" parent="." unique_id=814720266]
 
-[node name="RoadTest" type="Sprite2D" parent="Tracks" unique_id=1930614291]
+[node name="Main" type="Node2D" parent="Tracks" unique_id=1004216569]
+
+[node name="RoadTest" type="Sprite2D" parent="Tracks/Main" unique_id=1930614291]
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest2" type="Sprite2D" parent="Tracks" unique_id=894020359]
+[node name="RoadTest2" type="Sprite2D" parent="Tracks/Main" unique_id=894020359]
 position = Vector2(300, 0)
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest3" type="Sprite2D" parent="Tracks" unique_id=1889198978]
+[node name="RoadTest3" type="Sprite2D" parent="Tracks/Main" unique_id=1889198978]
 position = Vector2(600, 0)
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest4" type="Sprite2D" parent="Tracks" unique_id=1322768227]
+[node name="RoadTest4" type="Sprite2D" parent="Tracks/Main" unique_id=1322768227]
 position = Vector2(900, 0)
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest5" type="Sprite2D" parent="Tracks" unique_id=2143689603]
+[node name="RoadTest5" type="Sprite2D" parent="Tracks/Main" unique_id=2143689603]
 position = Vector2(1200, 0)
 texture = ExtResource("1_sx2xh")
 
-[node name="Ninety2x2Left" type="Sprite2D" parent="Tracks" unique_id=1915571076]
+[node name="Ninety2x2Left" type="Sprite2D" parent="Tracks/Main" unique_id=1915571076]
 position = Vector2(1650, 150)
 texture = ExtResource("2_c5s34")
 
-[node name="Ninety2x2Left2" type="Sprite2D" parent="Tracks" unique_id=731455466]
+[node name="Ninety2x2Left2" type="Sprite2D" parent="Tracks/Main" unique_id=731455466]
 position = Vector2(1650, 1600)
 rotation = 1.5707964
 texture = ExtResource("2_c5s34")
 
-[node name="RoadTest6" type="Sprite2D" parent="Tracks" unique_id=794104159]
+[node name="RoadTest6" type="Sprite2D" parent="Tracks/Main" unique_id=794104159]
 position = Vector2(1800, 600)
 rotation = 1.5707964
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest7" type="Sprite2D" parent="Tracks" unique_id=953500156]
+[node name="RoadTest7" type="Sprite2D" parent="Tracks/Main" unique_id=953500156]
 position = Vector2(1800, 900)
 rotation = 1.5707964
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest8" type="Sprite2D" parent="Tracks" unique_id=1461368444]
+[node name="RoadTest8" type="Sprite2D" parent="Tracks/Main" unique_id=1461368444]
 position = Vector2(1800, 1200)
 rotation = 1.5707964
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest9" type="Sprite2D" parent="Tracks" unique_id=768659832]
+[node name="RoadTest9" type="Sprite2D" parent="Tracks/Main" unique_id=768659832]
 position = Vector2(0, 1750)
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest10" type="Sprite2D" parent="Tracks" unique_id=629174136]
+[node name="RoadTest10" type="Sprite2D" parent="Tracks/Main" unique_id=629174136]
 position = Vector2(300, 1750)
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest11" type="Sprite2D" parent="Tracks" unique_id=582010247]
+[node name="RoadTest11" type="Sprite2D" parent="Tracks/Main" unique_id=582010247]
 position = Vector2(600, 1750)
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest12" type="Sprite2D" parent="Tracks" unique_id=1207806757]
+[node name="RoadTest12" type="Sprite2D" parent="Tracks/Main" unique_id=1207806757]
 position = Vector2(900, 1750)
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest13" type="Sprite2D" parent="Tracks" unique_id=349986783]
+[node name="RoadTest13" type="Sprite2D" parent="Tracks/Main" unique_id=349986783]
 position = Vector2(1200, 1750)
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest14" type="Sprite2D" parent="Tracks" unique_id=1858898261]
+[node name="RoadTest14" type="Sprite2D" parent="Tracks/Main" unique_id=1858898261]
 position = Vector2(-300, 1750)
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest15" type="Sprite2D" parent="Tracks" unique_id=247682557]
+[node name="RoadTest15" type="Sprite2D" parent="Tracks/Main" unique_id=247682557]
 position = Vector2(-600, 1750)
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest16" type="Sprite2D" parent="Tracks" unique_id=1851624406]
+[node name="RoadTest16" type="Sprite2D" parent="Tracks/Main" unique_id=1851624406]
 position = Vector2(-900, 1750)
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest17" type="Sprite2D" parent="Tracks" unique_id=1464847903]
+[node name="RoadTest17" type="Sprite2D" parent="Tracks/Main" unique_id=1464847903]
 position = Vector2(-1200, 1750)
 texture = ExtResource("1_sx2xh")
 
-[node name="Ninety2x2Left3" type="Sprite2D" parent="Tracks" unique_id=147410356]
+[node name="Ninety2x2Left3" type="Sprite2D" parent="Tracks/Main" unique_id=147410356]
 position = Vector2(-1650, 1600)
 rotation = -3.1415925
 texture = ExtResource("2_c5s34")
 
-[node name="RoadTest18" type="Sprite2D" parent="Tracks" unique_id=1996780667]
+[node name="RoadTest18" type="Sprite2D" parent="Tracks/Main" unique_id=1996780667]
 position = Vector2(-1800, 1200)
 rotation = 1.5707964
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest19" type="Sprite2D" parent="Tracks" unique_id=484600598]
+[node name="RoadTest19" type="Sprite2D" parent="Tracks/Main" unique_id=484600598]
 position = Vector2(-1800, 900)
 rotation = 1.5707964
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest20" type="Sprite2D" parent="Tracks" unique_id=103187723]
+[node name="RoadTest20" type="Sprite2D" parent="Tracks/Main" unique_id=103187723]
 position = Vector2(-1800, 600)
 rotation = 1.5707964
 texture = ExtResource("1_sx2xh")
 
-[node name="Ninety2x2Left4" type="Sprite2D" parent="Tracks" unique_id=1527456504]
+[node name="Ninety2x2Left4" type="Sprite2D" parent="Tracks/Main" unique_id=1527456504]
 position = Vector2(-1650, 150)
 rotation = -1.5707964
 texture = ExtResource("2_c5s34")
 
-[node name="RoadTest21" type="Sprite2D" parent="Tracks" unique_id=799627671]
+[node name="RoadTest21" type="Sprite2D" parent="Tracks/Main" unique_id=799627671]
 position = Vector2(-300, 0)
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest22" type="Sprite2D" parent="Tracks" unique_id=306527953]
+[node name="RoadTest22" type="Sprite2D" parent="Tracks/Main" unique_id=306527953]
 position = Vector2(-600, 0)
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest23" type="Sprite2D" parent="Tracks" unique_id=245499545]
+[node name="RoadTest23" type="Sprite2D" parent="Tracks/Main" unique_id=245499545]
 position = Vector2(-900, 0)
 texture = ExtResource("1_sx2xh")
 
-[node name="RoadTest24" type="Sprite2D" parent="Tracks" unique_id=156367937]
+[node name="RoadTest24" type="Sprite2D" parent="Tracks/Main" unique_id=156367937]
 position = Vector2(-1200, 0)
 texture = ExtResource("1_sx2xh")
+
+[node name="Pits" type="Node2D" parent="Tracks" unique_id=1433587753]
+
+[node name="TrackDraft" type="Sprite2D" parent="Tracks/Pits" unique_id=1617507076]
+position = Vector2(-600, 300)
+texture = ExtResource("4_1p2yq")
+
+[node name="TrackDraft2" type="Sprite2D" parent="Tracks/Pits" unique_id=1287795641]
+position = Vector2(-450, 300)
+texture = ExtResource("4_1p2yq")
+
+[node name="TrackDraft3" type="Sprite2D" parent="Tracks/Pits" unique_id=644980058]
+position = Vector2(-300, 300)
+texture = ExtResource("4_1p2yq")
+
+[node name="TrackDraft4" type="Sprite2D" parent="Tracks/Pits" unique_id=2109434272]
+position = Vector2(-150, 300)
+texture = ExtResource("4_1p2yq")
 
 [node name="Gates" type="Node2D" parent="." unique_id=1409936964]
 
@@ -292,3 +317,14 @@ rotation = 0.0060851173
 scale = Vector2(0.99999994, 0.99999994)
 rotates = false
 loop = false
+
+[node name="PitEntrance" type="Area2D" parent="." unique_id=1087339047]
+position = Vector2(-679, 568)
+rotation = -1.5660197
+script = ExtResource("8_6854m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PitEntrance" unique_id=1409133213]
+position = Vector2(274.1498, 31.629395)
+shape = SubResource("RectangleShape2D_6854m")
+
+[connection signal="body_entered" from="PitEntrance" to="PitEntrance" method="_on_body_entered"]

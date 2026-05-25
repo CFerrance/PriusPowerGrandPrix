@@ -20,5 +20,9 @@ func attach_lap_data(lapData: LapData):
 	self.lapData = lapData
 	lapData.raceCompleted.connect(on_race_completed)
 
+func on_pit_entry():
+	print("Pit Entry!")
+	pass
+
 func on_race_completed():
 	print("Race Completed!")

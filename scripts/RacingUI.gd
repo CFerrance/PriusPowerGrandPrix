@@ -31,7 +31,7 @@ func _set_gear(gear):
 		gearText.text = "POWER"
 
 func _on_lap_update():
-	lapText.text = str(len(player.lapData.completedLaps)) + "/" + str(trackManager.lapCount)
+	lapText.text = str(len(player.lapData.completedLaps) + 1) + "/" + str(trackManager.lapCount)
 
 func _update_lap_and_place(places, data):
 	var place = places.find(player.teamName)
