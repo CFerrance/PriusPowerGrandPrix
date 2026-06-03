@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://beycoqg1d7vvx" path="res://scripts/RaceOption.gd" id="2_2wh52"]
 [ext_resource type="Resource" uid="uid://cr2cm8k3v3g8x" path="res://assets/trackData/tutorialTrackData.tres" id="3_ow34m"]
 [ext_resource type="Script" uid="uid://c78pyble71xjs" path="res://scripts/CarData.gd" id="4_826wr"]
+[ext_resource type="Resource" uid="uid://dotnvacggrljl" path="res://assets/trackData/trackA.tres" id="4_ucygd"]
 [ext_resource type="Resource" uid="uid://dl3xnns4pss8n" path="res://assets/carData/prius.tres" id="5_ucygd"]
 [ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://assets/carData/miniCooper.tres" id="6_mipys"]
 
@@ -22,7 +23,7 @@ optionsMenu = NodePath("StartScreen/OptionsMenu")
 credits = NodePath("StartScreen/Credits")
 raceOptionsParent = NodePath("TrackSelectScreen/RaceOptions")
 carOptionsParent = NodePath("CarSelectScreen/CarOptions")
-tracks = Array[ExtResource("2_2wh52")]([ExtResource("3_ow34m")])
+tracks = Array[ExtResource("2_2wh52")]([ExtResource("3_ow34m"), ExtResource("4_ucygd")])
 cars = Array[ExtResource("4_826wr")]([ExtResource("5_ucygd"), ExtResource("6_mipys")])
 
 [node name="Background" type="TextureRect" parent="." unique_id=1151407728]

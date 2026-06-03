@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bfvxklxc3xkf3" path="res://assets/TrackDraft.png" id="4_1p2yq"]
 [ext_resource type="PackedScene" uid="uid://ba6xmd0sulldd" path="res://scenes/StartGate.tscn" id="4_6o0ev"]
 [ext_resource type="PackedScene" uid="uid://bppw7qv8bmrgm" path="res://scenes/Gate.tscn" id="4_ro4ik"]
-[ext_resource type="Script" uid="uid://bcoydaqfr6dw7" path="res://scripts/PanHandler.gd" id="7_1p2yq"]
+[ext_resource type="PackedScene" uid="uid://bi6yysp80nfou" path="res://scenes/PanHandler.tscn" id="7_6854m"]
 [ext_resource type="Script" uid="uid://c5i0hqod4mh1r" path="res://scripts/PitGate.gd" id="8_6854m"]
 
 [sub_resource type="Curve2D" id="Curve2D_ro4ik"]
@@ -292,12 +292,8 @@ rotation = 1.5707964
 position = Vector2(-328, -25)
 rotation = 1.5707964
 
-[node name="PanHandler" type="Node2D" parent="." unique_id=763910368 node_paths=PackedStringArray("panPaths")]
-script = ExtResource("7_1p2yq")
-panSpeed = 600.0
+[node name="PanHandler" parent="." unique_id=2089272648 node_paths=PackedStringArray("panPaths") instance=ExtResource("7_6854m")]
 panPaths = [NodePath("FullTrackPan/PathFollow2D"), NodePath("TestPath/PathFollow2D")]
-
-[node name="PanCam" type="Camera2D" parent="PanHandler" unique_id=1844815890]
 
 [node name="FullTrackPan" type="Path2D" parent="PanHandler" unique_id=325583251]
 curve = SubResource("Curve2D_ro4ik")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RaceOption" format=3 uid="uid://dotnvacggrljl"]
+
+[ext_resource type="Script" uid="uid://beycoqg1d7vvx" path="res://scripts/RaceOption.gd" id="1_ebs0d"]
+[ext_resource type="PackedScene" uid="uid://cpoim6tvat132" path="res://scenes/TrackA.tscn" id="2_f0ckl"]
+
+[resource]
+script = ExtResource("1_ebs0d")
+name = "Track A"
+tracks = Array[PackedScene]([ExtResource("2_f0ckl")])
+description = "A Dope Ass High Speed Track"
+metadata/_custom_type_script = "uid://beycoqg1d7vvx"

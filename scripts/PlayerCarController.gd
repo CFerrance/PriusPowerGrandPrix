@@ -12,10 +12,22 @@ signal gearChange(newGear)
 var steeringDirection: float
 var acceleration = Vector2.ZERO
 
+var QTEs : Array[String] = ["QuickTimeOne", "QuickTimeTwo", "QuickTimeThree", "QuickTimeFour"]
+var currentQTEs: Array[String]
+var successes := 0
+var quickTimePenalty := 5.0
+
 func _ready():
 	super()
 	currentGear = GEAR.LOW
 	currentInputState = INPUT_STATES.DISABLED
+
+func _unhandled_input(event):
+	if currentInputState == INPUT_STATES.PIT_LANE and not currentQTEs.is_empty():
+		print("Quick Time Event Detected")
+		if event.is_action(currentQTEs[successes]):
+			print("Passed")
+			successes += 1
 
 func attach_camera(cam: Camera2D):
 	remoteTransform.remote_path = cam.get_path()
@@ -25,6 +37,16 @@ func get_speed():
 
 func set_input_state(state: INPUT_STATES):
 	currentInputState = state
+
+func on_pit_entry():
+	super()
+	print("override success")
+	generate_quick_time_sequence()
+
+func generate_quick_time_sequence():
+	var rng = RandomNumberGenerator.new()
+	currentQTEs = [QTEs[rng.randi_range(0, len(QTEs) - 1)]]
+	successes = 0
 
 func on_race_completed():
 	super()

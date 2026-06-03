@@ -1,0 +1,196 @@
+[gd_scene format=3 uid="uid://cpoim6tvat132"]
+
+[ext_resource type="Script" uid="uid://b1putg7242y1m" path="res://scripts/TrackManager.gd" id="1_h30r2"]
+[ext_resource type="Texture2D" uid="uid://cnlqe3rb1t2wg" path="res://assets/TrackArt/A_6_to_9.png" id="2_5mevf"]
+[ext_resource type="Texture2D" uid="uid://breu04cxevskm" path="res://assets/TrackArt/A_1_2.png" id="2_wfmkj"]
+[ext_resource type="Texture2D" uid="uid://hgs0s2fnvx4g" path="res://assets/TrackArt/Straight_1x1.png" id="3_8a5gd"]
+[ext_resource type="Texture2D" uid="uid://dfytiv1380gli" path="res://assets/TrackArt/A_10_11.png" id="4_ona5l"]
+[ext_resource type="Texture2D" uid="uid://bjdlh6v2of2r1" path="res://assets/TrackArt/A_12.png" id="5_iiee7"]
+[ext_resource type="Texture2D" uid="uid://cx8ft1lysfo4o" path="res://assets/TrackArt/Straight_3x1.png" id="5_ona5l"]
+[ext_resource type="Texture2D" uid="uid://bfua4axvy7cei" path="res://assets/TrackArt/Pit_Straight_3x1.png" id="6_wfmkj"]
+[ext_resource type="Texture2D" uid="uid://ccldqlgsekvp7" path="res://assets/TrackArt/Pit_Straight.png" id="7_aj7uw"]
+[ext_resource type="Texture2D" uid="uid://dwuvesc3o6pnk" path="res://assets/TrackArt/Ninety_2x2_Left_Curb.png" id="7_iiee7"]
+[ext_resource type="Texture2D" uid="uid://bhlperx10t2dn" path="res://assets/TrackArt/Pit_Ninety.png" id="10_wfmkj"]
+[ext_resource type="Texture2D" uid="uid://lyq6p0kloev3" path="res://assets/TrackArt/A_3_4.png" id="11_aj7uw"]
+[ext_resource type="PackedScene" uid="uid://ba6xmd0sulldd" path="res://scenes/StartGate.tscn" id="13_2wnya"]
+[ext_resource type="PackedScene" uid="uid://bppw7qv8bmrgm" path="res://scenes/Gate.tscn" id="14_wdew7"]
+[ext_resource type="PackedScene" uid="uid://bi6yysp80nfou" path="res://scenes/PanHandler.tscn" id="15_wdew7"]
+[ext_resource type="Script" uid="uid://c5i0hqod4mh1r" path="res://scripts/PitGate.gd" id="16_128jd"]
+
+[sub_resource type="Curve2D" id="Curve2D_128jd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1803, 225, 488.41672, -14.800507, -488.41672, 14.800507, 1137, 602, 7.4002533, 340.41165, -7.4002533, -340.41165, 730, 77, 266.40912, 22.20076, -266.40912, -22.20076, 463, -589, 22.20076, -296.01013, -22.20076, 296.01013, 152, 146, 393.73022, 8.559353, -393.73022, -8.559353, -313, 603)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_r74hk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -4147, -441, -436.61493, -103.603546, 436.61493, 103.603546, -3481, 424, 0, 0, 0, 0, -1579, 639)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_l24ry"]
+_data = {
+"points": PackedVector2Array(-86.3068, 169.16133, 86.3068, -169.16133, -3981, -1597, -208.86249, 0, 208.86249, 0, -3389, -1802, 0, 0, 0, 0, -2512, -1805)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r74hk"]
+size = Vector2(191.01685, 63.54895)
+
+[node name="TrackA" type="Node2D" unique_id=101209382 node_paths=PackedStringArray("startGate", "gatesDefault")]
+script = ExtResource("1_h30r2")
+startGate = NodePath("Gates/StartGate")
+gatesDefault = [NodePath("Gates/gate")]
+
+[node name="Tracks" type="Node2D" parent="." unique_id=514499246]
+
+[node name="Main" type="Node2D" parent="Tracks" unique_id=1077475381]
+
+[node name="Straight3x4" type="Sprite2D" parent="Tracks/Main" unique_id=1539906587]
+position = Vector2(-2250, -1800)
+texture = ExtResource("5_ona5l")
+
+[node name="A13" type="Sprite2D" parent="Tracks/Main" unique_id=1455087991]
+position = Vector2(-1050, -2250)
+texture = ExtResource("2_wfmkj")
+
+[node name="Straight3x5" type="Sprite2D" parent="Tracks/Main" unique_id=1365711842]
+position = Vector2(150, -2700)
+texture = ExtResource("5_ona5l")
+
+[node name="Straight3x6" type="Sprite2D" parent="Tracks/Main" unique_id=1354365197]
+position = Vector2(1050, -2700)
+texture = ExtResource("5_ona5l")
+
+[node name="Straight3x8" type="Sprite2D" parent="Tracks/Main" unique_id=461544861]
+position = Vector2(1950, -2700)
+texture = ExtResource("5_ona5l")
+
+[node name="Ninety2x2LeftCurb2" type="Sprite2D" parent="Tracks/Main" unique_id=255680162]
+position = Vector2(2700, -2550)
+texture = ExtResource("7_iiee7")
+
+[node name="Straight1x1" type="Sprite2D" parent="Tracks/Main" unique_id=422286853]
+position = Vector2(2850, -2100)
+rotation = 1.5707964
+texture = ExtResource("3_8a5gd")
+
+[node name="Straight3x7" type="Sprite2D" parent="Tracks/Main" unique_id=726391886]
+position = Vector2(2850, -1500)
+rotation = 1.5707964
+texture = ExtResource("5_ona5l")
+
+[node name="A34" type="Sprite2D" parent="Tracks/Main" unique_id=678082169]
+position = Vector2(2100, -150)
+texture = ExtResource("11_aj7uw")
+
+[node name="A6To9" type="Sprite2D" parent="Tracks/Main" unique_id=1007245404]
+position = Vector2(450, 0)
+texture = ExtResource("2_5mevf")
+
+[node name="Straight3x9" type="Sprite2D" parent="Tracks/Main" unique_id=1913417763]
+position = Vector2(-750, 600)
+texture = ExtResource("5_ona5l")
+
+[node name="A1011" type="Sprite2D" parent="Tracks/Main" unique_id=1992709436]
+position = Vector2(-1950, 450)
+texture = ExtResource("4_ona5l")
+
+[node name="Straight3x1" type="Sprite2D" parent="Tracks/Main" unique_id=1931466435]
+position = Vector2(-3150, 300)
+texture = ExtResource("5_ona5l")
+
+[node name="A12" type="Sprite2D" parent="Tracks/Main" unique_id=1502630865]
+position = Vector2(-3900, 150)
+texture = ExtResource("5_iiee7")
+
+[node name="Straight1x6" type="Sprite2D" parent="Tracks/Main" unique_id=260309621]
+position = Vector2(-4050, -300)
+rotation = 1.5707964
+texture = ExtResource("3_8a5gd")
+
+[node name="Straight3x2" type="Sprite2D" parent="Tracks/Main" unique_id=1595843064]
+position = Vector2(-4050, -900)
+rotation = 1.5707964
+texture = ExtResource("5_ona5l")
+
+[node name="Ninety2x2LeftCurb" type="Sprite2D" parent="Tracks/Main" unique_id=1615216924]
+position = Vector2(-3900, -1650)
+rotation = 4.712389
+texture = ExtResource("7_iiee7")
+
+[node name="Straight3x3" type="Sprite2D" parent="Tracks/Main" unique_id=1495486251]
+position = Vector2(-3150, -1800)
+texture = ExtResource("5_ona5l")
+
+[node name="Pits" type="Node2D" parent="Tracks" unique_id=1013920707]
+
+[node name="PitStraight3x1" type="Sprite2D" parent="Tracks/Pits" unique_id=1098697013]
+position = Vector2(-2925, 675)
+texture = ExtResource("6_wfmkj")
+
+[node name="PitStraight3x2" type="Sprite2D" parent="Tracks/Pits" unique_id=678925553]
+position = Vector2(-3375, 675)
+texture = ExtResource("6_wfmkj")
+
+[node name="PitStraight" type="Sprite2D" parent="Tracks/Pits" unique_id=207074651]
+position = Vector2(-3675, 675)
+texture = ExtResource("7_aj7uw")
+
+[node name="PitStraight2" type="Sprite2D" parent="Tracks/Pits" unique_id=1533151213]
+position = Vector2(-3825, 675)
+texture = ExtResource("7_aj7uw")
+
+[node name="PitNinety" type="Sprite2D" parent="Tracks/Pits" unique_id=1848797833]
+position = Vector2(-4050, 600)
+rotation = -3.1415925
+texture = ExtResource("10_wfmkj")
+
+[node name="Gates" type="Node2D" parent="." unique_id=1921205495]
+
+[node name="StartGate" parent="Gates" unique_id=661936391 instance=ExtResource("13_2wnya")]
+position = Vector2(-2450, -1800)
+rotation = 1.5707964
+
+[node name="gate" parent="Gates" unique_id=50231107 instance=ExtResource("14_wdew7")]
+position = Vector2(-1925, -1800)
+rotation = 1.5707964
+
+[node name="PanHandler" parent="." unique_id=2089272648 node_paths=PackedStringArray("panPaths") instance=ExtResource("15_wdew7")]
+panPaths = [NodePath("Path2D/PathFollow2D"), NodePath("PitPath/PathFollow2D"), NodePath("Path2D2/PathFollow2D")]
+
+[node name="Path2D" type="Path2D" parent="PanHandler" unique_id=1736528240]
+curve = SubResource("Curve2D_128jd")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PanHandler/Path2D" unique_id=342798212]
+position = Vector2(1803, 225)
+rotation = 2.0266469
+loop = false
+
+[node name="PitPath" type="Path2D" parent="PanHandler" unique_id=1707283712]
+curve = SubResource("Curve2D_r74hk")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PanHandler/PitPath" unique_id=1168894365]
+position = Vector2(-4147, -441)
+rotation = 1.278176
+loop = false
+
+[node name="Path2D2" type="Path2D" parent="PanHandler" unique_id=53457153]
+curve = SubResource("Curve2D_l24ry")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PanHandler/Path2D2" unique_id=1850629366]
+position = Vector2(-3981, -1597)
+rotation = -1.0990186
+loop = false
+
+[node name="PitEntrance" type="Area2D" parent="." unique_id=939008594]
+position = Vector2(-679, 568)
+rotation = -1.5660197
+script = ExtResource("16_128jd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PitEntrance" unique_id=862261364]
+position = Vector2(-112.590576, -1379.4779)
+shape = SubResource("RectangleShape2D_r74hk")
+
+[connection signal="body_entered" from="PitEntrance" to="PitEntrance" method="_on_body_entered"]
