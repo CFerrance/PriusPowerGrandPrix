@@ -1,4 +1,4 @@
-class_name Car extends CharacterBody2D
+class_name Car extends RigidBody2D
 
 @onready var carSprite := $Sprite
 

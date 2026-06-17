@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfua4axvy7cei"
-path="res://.godot/imported/Pit_Straight_3x1.png-3aae5a4e9485a6b8c202eadd9d339128.ctex"
+uid="uid://j3mi0uahp7i"
+path="res://.godot/imported/rock.png-b0527baed6187298d2b9b89b5e6c6e7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/trackArt/Pit_Straight_3x1.png"
-dest_files=["res://.godot/imported/Pit_Straight_3x1.png-3aae5a4e9485a6b8c202eadd9d339128.ctex"]
+source_file="res://assets/decorations/rock.png"
+dest_files=["res://.godot/imported/rock.png-b0527baed6187298d2b9b89b5e6c6e7e.ctex"]
 
 [params]
 

@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://cpoim6tvat132"]
 
 [ext_resource type="Script" uid="uid://b1putg7242y1m" path="res://scripts/TrackManager.gd" id="1_h30r2"]
-[ext_resource type="Texture2D" uid="uid://cnlqe3rb1t2wg" path="res://assets/TrackArt/A_6_to_9.png" id="2_5mevf"]
-[ext_resource type="Texture2D" uid="uid://breu04cxevskm" path="res://assets/TrackArt/A_1_2.png" id="2_wfmkj"]
-[ext_resource type="Texture2D" uid="uid://hgs0s2fnvx4g" path="res://assets/TrackArt/Straight_1x1.png" id="3_8a5gd"]
-[ext_resource type="Texture2D" uid="uid://dfytiv1380gli" path="res://assets/TrackArt/A_10_11.png" id="4_ona5l"]
-[ext_resource type="Texture2D" uid="uid://bjdlh6v2of2r1" path="res://assets/TrackArt/A_12.png" id="5_iiee7"]
-[ext_resource type="Texture2D" uid="uid://cx8ft1lysfo4o" path="res://assets/TrackArt/Straight_3x1.png" id="5_ona5l"]
-[ext_resource type="Texture2D" uid="uid://bfua4axvy7cei" path="res://assets/TrackArt/Pit_Straight_3x1.png" id="6_wfmkj"]
-[ext_resource type="Texture2D" uid="uid://ccldqlgsekvp7" path="res://assets/TrackArt/Pit_Straight.png" id="7_aj7uw"]
-[ext_resource type="Texture2D" uid="uid://dwuvesc3o6pnk" path="res://assets/TrackArt/Ninety_2x2_Left_Curb.png" id="7_iiee7"]
-[ext_resource type="Texture2D" uid="uid://bhlperx10t2dn" path="res://assets/TrackArt/Pit_Ninety.png" id="10_wfmkj"]
-[ext_resource type="Texture2D" uid="uid://lyq6p0kloev3" path="res://assets/TrackArt/A_3_4.png" id="11_aj7uw"]
+[ext_resource type="Texture2D" uid="uid://cnlqe3rb1t2wg" path="res://assets/trackArt/A_6_to_9.png" id="2_5mevf"]
+[ext_resource type="Texture2D" uid="uid://breu04cxevskm" path="res://assets/trackArt/A_1_2.png" id="2_wfmkj"]
+[ext_resource type="Texture2D" uid="uid://hgs0s2fnvx4g" path="res://assets/trackArt/Straight_1x1.png" id="3_8a5gd"]
+[ext_resource type="Texture2D" uid="uid://dfytiv1380gli" path="res://assets/trackArt/A_10_11.png" id="4_ona5l"]
+[ext_resource type="Texture2D" uid="uid://bjdlh6v2of2r1" path="res://assets/trackArt/A_12.png" id="5_iiee7"]
+[ext_resource type="Texture2D" uid="uid://cx8ft1lysfo4o" path="res://assets/trackArt/Straight_3x1.png" id="5_ona5l"]
+[ext_resource type="Texture2D" uid="uid://bfua4axvy7cei" path="res://assets/trackArt/Pit_Straight_3x1.png" id="6_wfmkj"]
+[ext_resource type="Texture2D" uid="uid://ccldqlgsekvp7" path="res://assets/trackArt/Pit_Straight.png" id="7_aj7uw"]
+[ext_resource type="Texture2D" uid="uid://dwuvesc3o6pnk" path="res://assets/trackArt/Ninety_2x2_Left_Curb.png" id="7_iiee7"]
+[ext_resource type="Texture2D" uid="uid://bhlperx10t2dn" path="res://assets/trackArt/Pit_Ninety.png" id="10_wfmkj"]
+[ext_resource type="Texture2D" uid="uid://lyq6p0kloev3" path="res://assets/trackArt/A_3_4.png" id="11_aj7uw"]
 [ext_resource type="PackedScene" uid="uid://ba6xmd0sulldd" path="res://scenes/StartGate.tscn" id="13_2wnya"]
 [ext_resource type="PackedScene" uid="uid://bppw7qv8bmrgm" path="res://scenes/Gate.tscn" id="14_wdew7"]
 [ext_resource type="PackedScene" uid="uid://bi6yysp80nfou" path="res://scenes/PanHandler.tscn" id="15_wdew7"]
@@ -37,6 +37,12 @@ point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r74hk"]
 size = Vector2(191.01685, 63.54895)
+
+[sub_resource type="Curve2D" id="Curve2D_8ryxv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1666, -1942, -265.82495, 55.236355, 265.82495, -55.236355, -606, -2566, -372.8454, 6.9045444, 372.8454, -6.9045444, 1055, -2658, -186.4227, -234.7545, 186.4227, 234.7545, 2649, -2482, 0, -193.32724, 0, 193.32724, 2815, -1642, 44.87954, -117.37725, -44.87954, 117.37725, 2718, -913, 103.56817, -113.92498, -103.56817, 113.92498, 2120, -140, 171.84143, -23.030294, -171.84143, 23.030294, 1383, 508, 118.694595, 155.89738, -118.694595, -155.89738, 868, 465, 47.83215, 157.66895, -47.83215, -157.66895, 625, -468, 70.86244, -171.84143, -70.86244, 171.84143, 264, -472, 65.54776, -141.72488, -65.54776, 141.72488, 20, 466, 161.21207, 7.0862446, -161.21207, -7.0862446, -704, 535, 186.01392, 38.974346, -186.01392, -38.974346, -1660, 447, 209.04422, 19.487173, -209.04422, -19.487173, -2567, 294, 157.66895, 196.64328, -157.66895, -196.64328, -3840, 90, -3.5431223, 148.81114, 3.5431223, -148.81114, -3994, -789, -168.29831, 129.32396, 168.29831, -129.32396, -3825, -1603, -474.77838, 1.7715611, 474.77838, -1.7715611, -2981, -1809)
+}
+point_count = 19
 
 [node name="TrackA" type="Node2D" unique_id=101209382 node_paths=PackedStringArray("startGate", "gatesDefault")]
 script = ExtResource("1_h30r2")
@@ -192,5 +198,8 @@ script = ExtResource("16_128jd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PitEntrance" unique_id=862261364]
 position = Vector2(-112.590576, -1379.4779)
 shape = SubResource("RectangleShape2D_r74hk")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1458639320]
+curve = SubResource("Curve2D_8ryxv")
 
 [connection signal="body_entered" from="PitEntrance" to="PitEntrance" method="_on_body_entered"]

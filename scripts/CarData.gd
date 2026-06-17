@@ -8,16 +8,21 @@ class_name CarData extends Resource
 	get: return wheelBase
 @export var brakePower: int:
 	get: return brakePower
+@export var grip: int:
+	get: return grip
 
 @export_category("Steering")
 #how sharply the car can turn
 @export var steeringAngle: int: 
 	get: return steeringAngle
+#how much traction the car has at low speeds
+@export var maxTraction: float:
+	get: return maxTraction
 #how fast the car can go before incurring a turn penalty
 @export var noPenaltyMax: float:
 	get: return noPenaltyMax
-#A curve for steeringAnglePenalty at speeds over NoPenaltyMax
-@export var steeringAnglePenalty: Curve
+#A curve for traction penalties at speeds over NoPenaltyMax
+@export var tractionPenalty: Curve
 
 @export_category("Drag and Friction")
 #should be a small, negative number (percent)
@@ -55,11 +60,11 @@ func get_engine_power(currentGear, speed):
 			return max(highGearEnginePower * highGearCurve.sample(speed / MAX_SPEED), highGearMinPower)
 
 
-func get_max_steering_angle(speed):
+func get_traction(speed):
 	if speed <= noPenaltyMax:
-		return steeringAngle
+		return maxTraction
 	else:
-		return steeringAnglePenalty.sample(speed / MAX_SPEED) * steeringAngle
+		return tractionPenalty.sample(speed / MAX_SPEED) * maxTraction
 
 
 func get_best_gear(speed):
