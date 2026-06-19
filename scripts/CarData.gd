@@ -3,40 +3,35 @@ class_name CarData extends Resource
 @export var model: String
 @export var sprite: Resource
 
-@export_category("Base Controls")
+@export_category("Basics")
+@export var mass: float:
+	get: return mass
 @export var wheelBase: int:
 	get: return wheelBase
 @export var brakePower: int:
 	get: return brakePower
-@export var grip: int:
-	get: return grip
 
 @export_category("Steering")
-#how sharply the car can turn
-@export var steeringAngle: int: 
-	get: return steeringAngle
-#how much traction the car has at low speeds
-@export var maxTraction: float:
-	get: return maxTraction
-#how fast the car can go before incurring a turn penalty
-@export var noPenaltyMax: float:
-	get: return noPenaltyMax
-#A curve for traction penalties at speeds over NoPenaltyMax
-@export var tractionPenalty: Curve
+@export var baseSteeringPower: int
+@export var steeringFloor: float
+#Speed to switch from low speed grip to high speed grip
+@export var gripCutoff: float
+#Zero to One
+@export var lowSpeedGrip:float
+#Zero to One
+@export var highSpeedGrip: float
 
 @export_category("Drag and Friction")
-#should be a small, negative number (percent)
+#should be a small number (percent)
 @export var drag: float:
 	get: return drag
 @export var baseFriction: float:
 	get: return baseFriction
 
-
 @export_category("Low Gear")
 @export var lowGearMinPower: int
 @export var lowGearEnginePower: int
 @export var lowGearCurve: Curve
-
 
 @export_category("Mid Gear")
 @export var midGearMinPower: int
@@ -50,7 +45,7 @@ class_name CarData extends Resource
 
 const MAX_SPEED = 1000.0
 
-func get_engine_power(currentGear, speed):
+func get_engine_power(currentGear: PlayerCarController.GEAR, speed: float):
 	match currentGear:
 		PlayerCarController.GEAR.LOW:
 			return max(lowGearEnginePower * lowGearCurve.sample(speed / MAX_SPEED), lowGearMinPower)
@@ -59,18 +54,23 @@ func get_engine_power(currentGear, speed):
 		PlayerCarController.GEAR.HIGH:
 			return max(highGearEnginePower * highGearCurve.sample(speed / MAX_SPEED), highGearMinPower)
 
-
-func get_traction(speed):
-	if speed <= noPenaltyMax:
-		return maxTraction
-	else:
-		return tractionPenalty.sample(speed / MAX_SPEED) * maxTraction
-
-
-func get_best_gear(speed):
+func get_best_gear(speed: float):
 	if lowGearEnginePower * lowGearCurve.sample(speed / MAX_SPEED) > midGearEnginePower * midGearCurve.sample(speed * MAX_SPEED):
 		return PlayerCarController.GEAR.LOW
 	elif midGearEnginePower * midGearCurve.sample(speed / MAX_SPEED) > highGearEnginePower * highGearCurve.sample(speed / MAX_SPEED):
 		return PlayerCarController.GEAR.MID
 	else:
 		return PlayerCarController.GEAR.HIGH
+
+func get_steering_power(speed: float):
+	if speed > steeringFloor:
+		return baseSteeringPower
+	else:
+		return baseSteeringPower * (speed / steeringFloor)
+
+func get_tire_grip(speed: float):
+	if speed > gripCutoff:
+		return highSpeedGrip
+	else:
+		return lowSpeedGrip
+	

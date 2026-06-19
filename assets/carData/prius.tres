@@ -15,28 +15,26 @@ point_count = 3
 _data = [Vector2(0.2, 0), 0.0, 0.0, 0, 0, Vector2(0.24999999, 1), 0.0, 0.0, 0, 0, Vector2(0.60499996, 1), 0.0, 0.0, 0, 0, Vector2(0.655, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="Curve" id="Curve_yxv80"]
-_data = [Vector2(0.24814813, 1), 0.0, 0.0, 0, 0, Vector2(0.74814814, 0.49922967), 0.0, 0.0, 0, 0]
-point_count = 2
-
 [resource]
 script = ExtResource("1_j54a6")
 model = "Prius"
 sprite = ExtResource("2_h8bvw")
+mass = 1.0
 wheelBase = 70
 brakePower = 300
-grip = 10
-steeringAngle = 30
-maxTraction = 10.0
-noPenaltyMax = 300.0
-tractionPenalty = SubResource("Curve_yxv80")
+baseSteeringPower = 3000
+steeringFloor = 200.0
+gripCutoff = 450.0
+lowSpeedGrip = 1.0
+highSpeedGrip = 0.95
 drag = 0.001
+baseFriction = 0.4
 lowGearMinPower = 400
-lowGearEnginePower = 750
+lowGearEnginePower = 600
 lowGearCurve = SubResource("Curve_h8bvw")
-midGearMinPower = 5000
-midGearEnginePower = 11000
+midGearMinPower = 450
+midGearEnginePower = 750
 midGearCurve = SubResource("Curve_4utno")
-highGearMinPower = 6000
-highGearEnginePower = 15000
+highGearMinPower = 500
+highGearEnginePower = 900
 highGearCurve = SubResource("Curve_j54a6")
