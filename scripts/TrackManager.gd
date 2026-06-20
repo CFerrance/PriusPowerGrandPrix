@@ -5,7 +5,8 @@ class_name TrackManager extends Node
 
 @onready var panHandler := $PanHandler
 
-var lapCount: int
+var lapCount: int:
+	get: return lapCount
 var gates: Array[Gate]
 var trackerEnabled := false
 

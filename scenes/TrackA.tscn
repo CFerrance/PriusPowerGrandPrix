@@ -16,6 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://bppw7qv8bmrgm" path="res://scenes/Gate.tscn" id="14_wdew7"]
 [ext_resource type="PackedScene" uid="uid://bi6yysp80nfou" path="res://scenes/PanHandler.tscn" id="15_wdew7"]
 [ext_resource type="Script" uid="uid://c5i0hqod4mh1r" path="res://scripts/PitGate.gd" id="16_128jd"]
+[ext_resource type="Texture2D" uid="uid://c2f5xd8eraw2v" path="res://assets/decorations/tree.png" id="17_ii7my"]
+[ext_resource type="Texture2D" uid="uid://c1uc0lntwy1p0" path="res://assets/decorations/tree3.png" id="18_coxep"]
+[ext_resource type="Texture2D" uid="uid://bj2uj7a6hsn05" path="res://assets/decorations/tree2.png" id="19_bu8q4"]
+[ext_resource type="Texture2D" uid="uid://bbylrs8u446lm" path="res://assets/decorations/bush.png" id="20_wj5o6"]
+[ext_resource type="Texture2D" uid="uid://dxm40pi6lhaue" path="res://assets/decorations/bush2.png" id="21_beg18"]
+[ext_resource type="Texture2D" uid="uid://j3mi0uahp7i" path="res://assets/decorations/rock.png" id="22_wlwk1"]
+[ext_resource type="Texture2D" uid="uid://b6yy161g70svu" path="res://assets/decorations/rock2.png" id="23_00u7r"]
 
 [sub_resource type="Curve2D" id="Curve2D_128jd"]
 _data = {
@@ -201,5 +208,79 @@ shape = SubResource("RectangleShape2D_r74hk")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1458639320]
 curve = SubResource("Curve2D_8ryxv")
+
+[node name="Decorations" type="Node2D" parent="." unique_id=1891910263]
+
+[node name="Tree" type="Sprite2D" parent="Decorations" unique_id=1607830825]
+position = Vector2(-62, -2945)
+texture = ExtResource("17_ii7my")
+
+[node name="Tree3" type="Sprite2D" parent="Decorations" unique_id=460959560]
+position = Vector2(811, -2528)
+texture = ExtResource("18_coxep")
+
+[node name="Tree2" type="Sprite2D" parent="Decorations" unique_id=1419042553]
+position = Vector2(1936, -2961)
+texture = ExtResource("19_bu8q4")
+
+[node name="Bush" type="Sprite2D" parent="Decorations" unique_id=1224391845]
+position = Vector2(3092, -1675)
+texture = ExtResource("20_wj5o6")
+
+[node name="Bush2" type="Sprite2D" parent="Decorations" unique_id=1243903639]
+position = Vector2(3120, -1646)
+texture = ExtResource("21_beg18")
+
+[node name="Tree4" type="Sprite2D" parent="Decorations" unique_id=127905354]
+position = Vector2(2565, -981)
+texture = ExtResource("18_coxep")
+
+[node name="Tree5" type="Sprite2D" parent="Decorations" unique_id=438216669]
+position = Vector2(996, 768)
+texture = ExtResource("18_coxep")
+
+[node name="Tree6" type="Sprite2D" parent="Decorations" unique_id=510117049]
+position = Vector2(1204, 761)
+texture = ExtResource("17_ii7my")
+
+[node name="Tree7" type="Sprite2D" parent="Decorations" unique_id=1205105979]
+position = Vector2(-83, 130)
+texture = ExtResource("18_coxep")
+
+[node name="Tree8" type="Sprite2D" parent="Decorations" unique_id=1205321068]
+position = Vector2(-2177, 529)
+texture = ExtResource("19_bu8q4")
+
+[node name="Tree9" type="Sprite2D" parent="Decorations" unique_id=517276713]
+position = Vector2(-3472, 78)
+texture = ExtResource("17_ii7my")
+
+[node name="Rock" type="Sprite2D" parent="Decorations" unique_id=1659178782]
+position = Vector2(-3850, -1091)
+texture = ExtResource("22_wlwk1")
+
+[node name="Rock2" type="Sprite2D" parent="Decorations" unique_id=913924011]
+position = Vector2(-4293, -795)
+texture = ExtResource("22_wlwk1")
+
+[node name="Rock3" type="Sprite2D" parent="Decorations" unique_id=72584951]
+position = Vector2(-4360, -886)
+texture = ExtResource("23_00u7r")
+
+[node name="Tree10" type="Sprite2D" parent="Decorations" unique_id=1058001444]
+position = Vector2(-2110, -2028)
+texture = ExtResource("18_coxep")
+
+[node name="Tree11" type="Sprite2D" parent="Decorations" unique_id=1611825988]
+position = Vector2(-3209, -1616)
+texture = ExtResource("19_bu8q4")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=781712060]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D" unique_id=2040384094]
+polygon = PackedVector2Array(-1925, 604, -3906, 604, -4012, 553, -4055, 465, -4053, 262, -3993, 326, -3857, 405, -3684, 447, -2297, 446, -2297, 476, -2142, 488, -1992, 581, -1971, 561)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1191229961]
+polygon = PackedVector2Array(-3599, -1656, -1756, -1654, -1521, -1696, -1378, -1801, -714, -2474, -690, -2452, -598, -2510, -491, -2526, -489, -2553, 2398, -2554, 2401, -2526, 2542, -2494, 2647, -2380, 2676, -2250, 2705, -2250, 2705, -1050, 2675, -1050, 2661, -950, 2603, -852, 2625, -826, 1423, 372, 1402, 351, 1322, 405, 1200, 425, 1199, 456, 989, 454, 989, 425, 925, 425, 925, 361, 896, 361, 894, -518, 847, -629, 752, -719, 629, -746, 225, -744, 112, -696, 36, -600, 5, -481, 4, 360, -25, 361, -26, 424, -88, 425, -90, 457, -1453, 456, -1457, 428, -1619, 410, -1759, 316, -1783, 344, -1920, 208, -2049, 158, -3600, 155, -3600, 127, -3752, 92, -3846, -23, -3876, -150, -3904, -150, -3907, -1352, -3875, -1352, -3837, -1511, -3743, -1592, -3600, -1624)
 
 [connection signal="body_entered" from="PitEntrance" to="PitEntrance" method="_on_body_entered"]

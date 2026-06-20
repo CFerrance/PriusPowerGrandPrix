@@ -10,6 +10,8 @@ var trackManager: TrackManager
 
 func connect_to_track_manager(trackManager: TrackManager):
 	self.trackManager = trackManager
+	_set_gear(0)
+	lapText.text = str(1) + "/" + str(trackManager.lapCount)
 
 func connect_to_player(player: PlayerCarController):
 	self.player = player
@@ -31,7 +33,8 @@ func _set_gear(gear):
 		gearText.text = "POWER"
 
 func _on_lap_update():
-	lapText.text = str(len(player.lapData.completedLaps) + 1) + "/" + str(trackManager.lapCount)
+	var laps = clampi(len(player.lapData.completedLaps) + 1, 1, trackManager.lapCount)
+	lapText.text = str(laps) + "/" + str(trackManager.lapCount)
 
 func _update_lap_and_place(places, data):
 	var place = places.find(player.teamName)
