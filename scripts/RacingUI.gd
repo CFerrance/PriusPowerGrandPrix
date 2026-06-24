@@ -3,10 +3,15 @@ class_name RacingUI extends Control
 @onready var speedText = $SpeedText
 @onready var gearText = $GearText
 @onready var placeText = $PlaceText
-@onready var lapText = $"Lap Text"
+@onready var lapText = $"LapText"
+@onready var timerText = $TimerText
+@onready var bestLapText = $BestLapText
 
 var player: PlayerCarController
 var trackManager: TrackManager
+
+var lastLapFinish: float
+var bestLapTime: float
 
 func connect_to_track_manager(trackManager: TrackManager):
 	self.trackManager = trackManager
@@ -20,9 +25,16 @@ func connect_to_player(player: PlayerCarController):
 
 func _process(delta):
 	_set_speed(player.get_speed())
+	_update_lap_time()
 
 func _set_speed(speed):
 	speedText.text = str(int(round(speed)))
+
+func _update_lap_time():
+	var lapTimeSec = snappedf((Time.get_ticks_msec() - lastLapFinish) / 1000.0, 0.01)
+	var lapTimeMin = floori(lapTimeSec / 60)
+	lapTimeSec -= lapTimeMin * 60
+	timerText.text = str(lapTimeMin) + ":" + str(lapTimeSec)
 
 func _set_gear(gear):
 	if gear == 0:

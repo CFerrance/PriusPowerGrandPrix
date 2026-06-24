@@ -52,7 +52,7 @@ text = "PLACE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Lap Text" type="Label" parent="." unique_id=867539808]
+[node name="LapText" type="Label" parent="." unique_id=867539808]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -66,3 +66,25 @@ grow_vertical = 0
 text = "LAP"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TimerText" type="Label" parent="." unique_id=763154559]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "LAP TIMER"
+
+[node name="BestLapText" type="Label" parent="." unique_id=1428327427]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -70.0
+offset_top = 25.0
+offset_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 0
+text = "BEST LAP"
