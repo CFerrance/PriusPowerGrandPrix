@@ -2,10 +2,18 @@
 
 [ext_resource type="Script" uid="uid://doabq3ciagvd6" path="res://scripts/MainMenuManager.gd" id="1_yqorp"]
 [ext_resource type="Script" uid="uid://beycoqg1d7vvx" path="res://scripts/RaceOption.gd" id="2_2wh52"]
-[ext_resource type="Resource" uid="uid://cr2cm8k3v3g8x" path="res://assets/trackData/tutorialTrackData.tres" id="3_ow34m"]
+[ext_resource type="Resource" uid="uid://cr2cm8k3v3g8x" path="res://data/track_data/tutorialTrackData.tres" id="3_ow34m"]
 [ext_resource type="Script" uid="uid://c78pyble71xjs" path="res://scripts/CarData.gd" id="4_826wr"]
-[ext_resource type="Resource" uid="uid://dl3xnns4pss8n" path="res://assets/carData/prius.tres" id="5_ucygd"]
-[ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://assets/carData/miniCooper.tres" id="6_mipys"]
+[ext_resource type="Resource" uid="uid://dotnvacggrljl" path="res://data/track_data/trackA.tres" id="4_ucygd"]
+[ext_resource type="Resource" uid="uid://dl3xnns4pss8n" path="res://data/car_data/prius.tres" id="5_ucygd"]
+[ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://data/car_data/miniCooper.tres" id="6_mipys"]
+[ext_resource type="FontFile" uid="uid://1scsx7eqnofu" path="res://assets/Chewy/Chewy-Regular.ttf" id="8_mipys"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8a8k8"]
+font = ExtResource("8_mipys")
+font_size = 64
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Control" unique_id=1320039347 node_paths=PackedStringArray("background", "titleText", "titleButtons", "optionsMenu", "credits", "raceOptionsParent", "carOptionsParent")]
 layout_mode = 3
@@ -22,7 +30,7 @@ optionsMenu = NodePath("StartScreen/OptionsMenu")
 credits = NodePath("StartScreen/Credits")
 raceOptionsParent = NodePath("TrackSelectScreen/RaceOptions")
 carOptionsParent = NodePath("CarSelectScreen/CarOptions")
-tracks = Array[ExtResource("2_2wh52")]([ExtResource("3_ow34m")])
+tracks = Array[ExtResource("2_2wh52")]([ExtResource("3_ow34m"), ExtResource("4_ucygd")])
 cars = Array[ExtResource("4_826wr")]([ExtResource("5_ucygd"), ExtResource("6_mipys")])
 
 [node name="Background" type="TextureRect" parent="." unique_id=1151407728]
@@ -51,6 +59,9 @@ offset_right = 103.5
 offset_bottom = 23.0
 grow_horizontal = 2
 text = "PRIUS POWER GRAND PRIX"
+label_settings = SubResource("LabelSettings_8a8k8")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StartButtons" type="VBoxContainer" parent="StartScreen" unique_id=1058322197]
 layout_mode = 1

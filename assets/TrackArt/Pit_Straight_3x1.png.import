@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1bp1p6golimy"
-path="res://.godot/imported/FinishLine.png-3ecbeacb0fc129519aa89a3aab3838c6.ctex"
+uid="uid://bfua4axvy7cei"
+path="res://.godot/imported/Pit_Straight_3x1.png-3aae5a4e9485a6b8c202eadd9d339128.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/FinishLine.png"
-dest_files=["res://.godot/imported/FinishLine.png-3ecbeacb0fc129519aa89a3aab3838c6.ctex"]
+source_file="res://assets/trackArt/Pit_Straight_3x1.png"
+dest_files=["res://.godot/imported/Pit_Straight_3x1.png-3aae5a4e9485a6b8c202eadd9d339128.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5ws4hlgjrila"
-path="res://.godot/imported/StartSpot.png-4ca4c2e3fae51e0bf2594a16bba9e9a7.ctex"
+uid="uid://breu04cxevskm"
+path="res://.godot/imported/A_1_2.png-1fa2ea7e806a7048e786e015f431acd0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/StartSpot.png"
-dest_files=["res://.godot/imported/StartSpot.png-4ca4c2e3fae51e0bf2594a16bba9e9a7.ctex"]
+source_file="res://assets/trackArt/A_1_2.png"
+dest_files=["res://.godot/imported/A_1_2.png-1fa2ea7e806a7048e786e015f431acd0.ctex"]
 
 [params]
 
