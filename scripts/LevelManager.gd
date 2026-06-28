@@ -42,10 +42,10 @@ func handle_level():
 	playerCamera.enabled = true
 	playerCar.set_input_state(PlayerCarController.INPUT_STATES.REVVING)
 	await levelUI.handle_start_lights()
-	trackManager.toggle_lap_tracker(true)
+	trackManager.start_racing()
 	playerCar.set_input_state(PlayerCarController.INPUT_STATES.DRIVING)
 	await trackManager.onPlayerFinished
-	trackManager.toggle_lap_tracker(false)
+	trackManager.end_racing()
 
 func _load_cars():
 	for id in gameManager.startOrder:

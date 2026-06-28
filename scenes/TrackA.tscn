@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://cnlqe3rb1t2wg" path="res://assets/trackArt/A_6_to_9.png" id="2_5mevf"]
 [ext_resource type="Texture2D" uid="uid://breu04cxevskm" path="res://assets/trackArt/A_1_2.png" id="2_wfmkj"]
 [ext_resource type="Texture2D" uid="uid://hgs0s2fnvx4g" path="res://assets/trackArt/Straight_1x1.png" id="3_8a5gd"]
+[ext_resource type="Texture2D" uid="uid://bbj3awrdl0wyo" path="res://assets/turn_marker.png" id="4_beg18"]
 [ext_resource type="Texture2D" uid="uid://dfytiv1380gli" path="res://assets/trackArt/A_10_11.png" id="4_ona5l"]
 [ext_resource type="Texture2D" uid="uid://bjdlh6v2of2r1" path="res://assets/trackArt/A_12.png" id="5_iiee7"]
 [ext_resource type="Texture2D" uid="uid://cx8ft1lysfo4o" path="res://assets/trackArt/Straight_3x1.png" id="5_ona5l"]
+[ext_resource type="LabelSettings" uid="uid://del70c4niieba" path="res://assets/turn_markers.tres" id="5_wlwk1"]
 [ext_resource type="Texture2D" uid="uid://bfua4axvy7cei" path="res://assets/trackArt/Pit_Straight_3x1.png" id="6_wfmkj"]
 [ext_resource type="Texture2D" uid="uid://ccldqlgsekvp7" path="res://assets/trackArt/Pit_Straight.png" id="7_aj7uw"]
 [ext_resource type="Texture2D" uid="uid://dwuvesc3o6pnk" path="res://assets/trackArt/Ninety_2x2_Left_Curb.png" id="7_iiee7"]
@@ -23,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://dxm40pi6lhaue" path="res://assets/decorations/bush2.png" id="21_beg18"]
 [ext_resource type="Texture2D" uid="uid://j3mi0uahp7i" path="res://assets/decorations/rock.png" id="22_wlwk1"]
 [ext_resource type="Texture2D" uid="uid://b6yy161g70svu" path="res://assets/decorations/rock2.png" id="23_00u7r"]
+[ext_resource type="LabelSettings" uid="uid://btsmuvjuk62mv" path="res://assets/barriers/barrier_text.tres" id="25_bu8q4"]
+[ext_resource type="Texture2D" uid="uid://sflka467hi08" path="res://assets/barriers/barrier_4x1_red.png" id="29_xixdt"]
 
 [sub_resource type="Curve2D" id="Curve2D_128jd"]
 _data = {
@@ -50,6 +54,8 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1666, -1942, -265.82495, 55.236355, 265.82495, -55.236355, -606, -2566, -372.8454, 6.9045444, 372.8454, -6.9045444, 1055, -2658, -186.4227, -234.7545, 186.4227, 234.7545, 2649, -2482, 0, -193.32724, 0, 193.32724, 2815, -1642, 44.87954, -117.37725, -44.87954, 117.37725, 2718, -913, 103.56817, -113.92498, -103.56817, 113.92498, 2120, -140, 171.84143, -23.030294, -171.84143, 23.030294, 1383, 508, 118.694595, 155.89738, -118.694595, -155.89738, 868, 465, 47.83215, 157.66895, -47.83215, -157.66895, 625, -468, 70.86244, -171.84143, -70.86244, 171.84143, 264, -472, 65.54776, -141.72488, -65.54776, 141.72488, 20, 466, 161.21207, 7.0862446, -161.21207, -7.0862446, -704, 535, 186.01392, 38.974346, -186.01392, -38.974346, -1660, 447, 209.04422, 19.487173, -209.04422, -19.487173, -2567, 294, 157.66895, 196.64328, -157.66895, -196.64328, -3840, 90, -3.5431223, 148.81114, 3.5431223, -148.81114, -3994, -789, -168.29831, 129.32396, 168.29831, -129.32396, -3825, -1603, -474.77838, 1.7715611, 474.77838, -1.7715611, -2981, -1809)
 }
 point_count = 19
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_coxep"]
 
 [node name="TrackA" type="Node2D" unique_id=101209382 node_paths=PackedStringArray("startGate", "gatesDefault")]
 script = ExtResource("1_h30r2")
@@ -79,6 +85,48 @@ texture = ExtResource("5_ona5l")
 [node name="Straight3x8" type="Sprite2D" parent="Tracks/Main" unique_id=461544861]
 position = Vector2(1950, -2700)
 texture = ExtResource("5_ona5l")
+
+[node name="TurnMarker" type="Sprite2D" parent="Tracks/Main/Straight3x8" unique_id=911668214]
+position = Vector2(150, -165)
+texture = ExtResource("4_beg18")
+
+[node name="Label" type="Label" parent="Tracks/Main/Straight3x8/TurnMarker" unique_id=813579608]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -40.0
+offset_right = -4.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+label_settings = ExtResource("5_wlwk1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TurnMarker2" type="Sprite2D" parent="Tracks/Main/Straight3x8" unique_id=605571381]
+position = Vector2(-450, -165)
+texture = ExtResource("4_beg18")
+
+[node name="Label" type="Label" parent="Tracks/Main/Straight3x8/TurnMarker2" unique_id=2091421987]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -40.0
+offset_right = -4.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "30"
+label_settings = ExtResource("5_wlwk1")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Ninety2x2LeftCurb2" type="Sprite2D" parent="Tracks/Main" unique_id=255680162]
 position = Vector2(2700, -2550)
@@ -236,11 +284,11 @@ position = Vector2(2565, -981)
 texture = ExtResource("18_coxep")
 
 [node name="Tree5" type="Sprite2D" parent="Decorations" unique_id=438216669]
-position = Vector2(996, 768)
+position = Vector2(529, 551)
 texture = ExtResource("18_coxep")
 
 [node name="Tree6" type="Sprite2D" parent="Decorations" unique_id=510117049]
-position = Vector2(1204, 761)
+position = Vector2(610, 678)
 texture = ExtResource("17_ii7my")
 
 [node name="Tree7" type="Sprite2D" parent="Decorations" unique_id=1205105979]
@@ -278,9 +326,37 @@ texture = ExtResource("19_bu8q4")
 [node name="Area2D" type="Area2D" parent="." unique_id=781712060]
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D" unique_id=2040384094]
+visible = false
 polygon = PackedVector2Array(-1925, 604, -3906, 604, -4012, 553, -4055, 465, -4053, 262, -3993, 326, -3857, 405, -3684, 447, -2297, 446, -2297, 476, -2142, 488, -1992, 581, -1971, 561)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1191229961]
+visible = false
 polygon = PackedVector2Array(-3599, -1656, -1756, -1654, -1521, -1696, -1378, -1801, -714, -2474, -690, -2452, -598, -2510, -491, -2526, -489, -2553, 2398, -2554, 2401, -2526, 2542, -2494, 2647, -2380, 2676, -2250, 2705, -2250, 2705, -1050, 2675, -1050, 2661, -950, 2603, -852, 2625, -826, 1423, 372, 1402, 351, 1322, 405, 1200, 425, 1199, 456, 989, 454, 989, 425, 925, 425, 925, 361, 896, 361, 894, -518, 847, -629, 752, -719, 629, -746, 225, -744, 112, -696, 36, -600, 5, -481, 4, 360, -25, 361, -26, 424, -88, 425, -90, 457, -1453, 456, -1457, 428, -1619, 410, -1759, 316, -1783, 344, -1920, 208, -2049, 158, -3600, 155, -3600, 127, -3752, 92, -3846, -23, -3876, -150, -3904, -150, -3907, -1352, -3875, -1352, -3837, -1511, -3743, -1592, -3600, -1624)
+
+[node name="Barrier4x1Red" type="Sprite2D" parent="." unique_id=292990498]
+position = Vector2(-2950, 450)
+texture = ExtResource("29_xixdt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Barrier4x1Red" unique_id=648823325]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier4x1Red/StaticBody2D" unique_id=526839131]
+position = Vector2(0, 15)
+scale = Vector2(60, 1.5)
+shape = SubResource("RectangleShape2D_coxep")
+
+[node name="Label" type="Label" parent="Barrier4x1Red" unique_id=998207342]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_top = -30.0
+offset_right = -600.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "KATZE KARTING  KATZE KARTING  KATZE KARTING  KATZE KARTING"
+label_settings = ExtResource("25_bu8q4")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="PitEntrance" to="PitEntrance" method="_on_body_entered"]

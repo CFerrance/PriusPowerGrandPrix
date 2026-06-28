@@ -8,7 +8,8 @@ class_name TrackManager extends Node
 var lapCount: int:
 	get: return lapCount
 var gates: Array[Gate]
-var trackerEnabled := false
+var lapTracking := false
+var raceStart : float
 
 signal onPlayerFinished
 
@@ -34,6 +35,13 @@ func attach_lap_data(cars: Array[Car]):
 func flyby():
 	await panHandler.handle_flyby()
 
+func start_racing():
+	lapTracking = true
+	raceStart = Time.get_ticks_msec()
+
+func end_racing():
+	lapTracking = false
+
 func on_lap_update():
 	pass
 
@@ -42,6 +50,3 @@ func on_race_completed(car: Car):
 		print("You finished the race!")
 		onPlayerFinished.emit()
 	pass
-
-func toggle_lap_tracker(toggle: bool):
-	trackerEnabled = toggle

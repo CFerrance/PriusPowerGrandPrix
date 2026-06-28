@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://doabq3ciagvd6" path="res://scripts/MainMenuManager.gd" id="1_yqorp"]
 [ext_resource type="Script" uid="uid://beycoqg1d7vvx" path="res://scripts/RaceOption.gd" id="2_2wh52"]
-[ext_resource type="Resource" uid="uid://cr2cm8k3v3g8x" path="res://assets/trackData/tutorialTrackData.tres" id="3_ow34m"]
+[ext_resource type="Resource" uid="uid://cr2cm8k3v3g8x" path="res://data/track_data/tutorialTrackData.tres" id="3_ow34m"]
 [ext_resource type="Script" uid="uid://c78pyble71xjs" path="res://scripts/CarData.gd" id="4_826wr"]
-[ext_resource type="Resource" uid="uid://dotnvacggrljl" path="res://assets/trackData/trackA.tres" id="4_ucygd"]
-[ext_resource type="Resource" uid="uid://dl3xnns4pss8n" path="res://assets/carData/prius.tres" id="5_ucygd"]
-[ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://assets/carData/miniCooper.tres" id="6_mipys"]
+[ext_resource type="Resource" uid="uid://dotnvacggrljl" path="res://data/track_data/trackA.tres" id="4_ucygd"]
+[ext_resource type="Resource" uid="uid://dl3xnns4pss8n" path="res://data/car_data/prius.tres" id="5_ucygd"]
+[ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://data/car_data/miniCooper.tres" id="6_mipys"]
 [ext_resource type="FontFile" uid="uid://1scsx7eqnofu" path="res://assets/Chewy/Chewy-Regular.ttf" id="8_mipys"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8a8k8"]

@@ -13,7 +13,7 @@ func _init(trackManager: TrackManager, car: Car):
 	car.attach_lap_data(self)
 
 func try_add_gate(gate: Gate):
-	if not trackManager.trackerEnabled:
+	if not trackManager.lapTracking:
 		return
 	if _try_add_gate(gate):
 		lapUpdate.emit()
