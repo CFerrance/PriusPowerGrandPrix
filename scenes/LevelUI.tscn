@@ -1,13 +1,138 @@
 [gd_scene format=3 uid="uid://clr5ex8wntf1a"]
 
 [ext_resource type="Script" uid="uid://dxunca8cbuejg" path="res://scripts/LevelUI.gd" id="1_kxct0"]
-[ext_resource type="PackedScene" uid="uid://c27qqkyhgb0gk" path="res://scenes/RacingUI.tscn" id="1_x3has"]
-[ext_resource type="PackedScene" uid="uid://o14i7a0v7hsv" path="res://scenes/StartLights.tscn" id="2_kxct0"]
+[ext_resource type="Texture2D" uid="uid://bdginhskvo4gr" path="res://assets/StartLight.png" id="2_a11i2"]
 
-[node name="LevelUI" type="CanvasLayer" unique_id=618771844]
+[node name="LevelUI" type="CanvasLayer" unique_id=618771844 node_paths=PackedStringArray("hud_parent", "speed_text", "gear_text", "place_text", "lap_text", "race_timer_text", "lap_timer_text", "lights")]
 script = ExtResource("1_kxct0")
+hud_parent = NodePath("HUD")
+speed_text = NodePath("HUD/SpeedText")
+gear_text = NodePath("HUD/GearText")
+place_text = NodePath("HUD/PlaceText")
+lap_text = NodePath("HUD/LapText")
+race_timer_text = NodePath("HUD/RaceTimer")
+lap_timer_text = NodePath("HUD/LapTimer")
+light_interval = 0.2
+min_wait = 1.0
+max_wait = 3.0
+lights = [NodePath("StartLights/StartLight"), NodePath("StartLights/StartLight2"), NodePath("StartLights/StartLight3"), NodePath("StartLights/StartLight4"), NodePath("StartLights/StartLight5")]
 
-[node name="RacingUI" parent="." unique_id=1747457226 instance=ExtResource("1_x3has")]
+[node name="HUD" type="Control" parent="." unique_id=1420571144]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpeedText" type="Label" parent="HUD" unique_id=740793305]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+offset_right = 113.0
+grow_vertical = 0
+text = "SPEED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GearText" type="Label" parent="HUD" unique_id=1596533554]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 86.0
+offset_top = -60.0
+offset_right = 193.0
+grow_vertical = 0
+text = "GEAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlaceText" type="Label" parent="HUD" unique_id=1726721972]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -103.0
+offset_bottom = -52.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "PLACE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LapText" type="Label" parent="HUD" unique_id=337252946]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -53.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "LAP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RaceTimer" type="Label" parent="HUD" unique_id=331976746]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "0:00:00"
+horizontal_alignment = 2
+
+[node name="LapTimer" type="Label" parent="HUD" unique_id=669189831]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -97.0
+offset_top = 25.0
+offset_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 0
+text = "0:00:00"
+horizontal_alignment = 2
+
+[node name="StartLights" type="HBoxContainer" parent="." unique_id=2130509817]
+offset_left = 401.0
+offset_top = 20.0
+offset_right = 737.0
+offset_bottom = 84.0
+grow_horizontal = 2
+
+[node name="StartLight" type="TextureRect" parent="StartLights" unique_id=1848781055]
 visible = false
+layout_mode = 2
+texture = ExtResource("2_a11i2")
 
-[node name="StartLights" parent="." unique_id=350034232 instance=ExtResource("2_kxct0")]
+[node name="StartLight2" type="TextureRect" parent="StartLights" unique_id=1511505366]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_a11i2")
+
+[node name="StartLight3" type="TextureRect" parent="StartLights" unique_id=1470847102]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_a11i2")
+
+[node name="StartLight4" type="TextureRect" parent="StartLights" unique_id=2011336974]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_a11i2")
+
+[node name="StartLight5" type="TextureRect" parent="StartLights" unique_id=879125055]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_a11i2")

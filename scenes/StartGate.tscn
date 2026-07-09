@@ -7,9 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jh01r"]
 size = Vector2(35.3, 20)
 
-[node name="StartGate" type="Area2D" unique_id=661936391 node_paths=PackedStringArray("startPositions")]
+[node name="StartGate" type="Area2D" unique_id=661936391 node_paths=PackedStringArray("start_positions")]
 script = ExtResource("1_0cul3")
-startPositions = [NodePath("Starts/StartSpot"), NodePath("Starts/StartSpot2"), NodePath("Starts/StartSpot3"), NodePath("Starts/StartSpot4"), NodePath("Starts/StartSpot5"), NodePath("Starts/StartSpot6")]
+start_positions = [NodePath("Starts/StartSpot"), NodePath("Starts/StartSpot2"), NodePath("Starts/StartSpot3"), NodePath("Starts/StartSpot4"), NodePath("Starts/StartSpot5"), NodePath("Starts/StartSpot6")]
 
 [node name="collider" type="CollisionShape2D" parent="." unique_id=593078535]
 scale = Vector2(12, 1)

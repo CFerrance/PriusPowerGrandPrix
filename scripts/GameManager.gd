@@ -1,65 +1,100 @@
 class_name GameManager extends Node
 
-@export var botCarChoices: Array[CarData]
+#exports
+@export var bot_car_choices: Array[CarData]
 
-var currentRace: int
-var selectedRaceType: RACE_TYPE:
-	get: return selectedRaceType
-var selectedRaceOption: RaceOption:
-	get: return selectedRaceOption
-var selectedCar: CarData:
-	get: return selectedCar
-var lapCount := 3
-var mirrorMode := false:
-	get: return mirrorMode
-var playerTeam := "PlayerTeam"
-var startOrder: Array[String]
-var scoreDict: Dictionary[String, int]
-var carDict: Dictionary[String, CarData]
+#variables
+var lap_count: int = 5
+var mirror_mode: bool = false
+var player_team_name: String = "Player Team"
+var start_order: Array[String]
+var score_dict: Dictionary[String, int]
+var car_dict: Dictionary[String, CarData]
+var track_queue: Array[PackedScene]
 
-var gameDirector: GameDirector
-var levelManager: LevelManager
+#constants
+const main_menu_packed: PackedScene = preload("res://scenes/MainMenu.tscn")
+const level_manager_packed: PackedScene = preload("res://scenes/LevelManager.tscn")
+const TEAM_NAMES: Array[String] = ["Furrari", "Purrcedes", "Catillac", "Pawsche", "MeowClaren", "Meowdi"]
+const BOT_COUNT: int = 5
 
-var levelManagerScene = preload("res://scenes/LevelManager.tscn")
+#dependencies
+var game_director: GameDirector
 
-const BOT_COUNT := 5
-var TEAM_NAMES = ["Furrari", "Purrcedes", "Catillac", "Pawsche", "MeowClaren", "Meowdi"]:
-	get: return TEAM_NAMES.duplicate()
+#children
+var main_menu_manager: MainMenuManager
+var level_manager: LevelManager
 
-enum RACE_TYPE{
-	SINGLE,
-	PRIX,
-	PRACTICE
-}
 
-func _ready():
-	gameDirector = get_tree().get_first_node_in_group("GameDirector")
-	currentRace = 0
+func bind_dependencies(director : GameDirector) -> void:
+	game_director = director
 
-func set_race_type(raceType: RACE_TYPE):
-	selectedRaceType = raceType
 
-func set_race_option(raceOption: RaceOption):
-	selectedRaceOption = raceOption
+func _ready() -> void:
+	_build_children()
+	_bind_child_dependencies()
+	_setup()
 
-func set_car(car: CarData):
-	selectedCar = car
 
-func choose_bot_cars():
-	var rng = RandomNumberGenerator.new()
-	for team in TEAM_NAMES:
-		if len(carDict) >= BOT_COUNT:
+func _build_children() -> void:
+	main_menu_manager = main_menu_packed.instantiate()
+	add_child(main_menu_manager)
+
+
+func _bind_child_dependencies() -> void:
+	main_menu_manager.bind_dependencies(self)
+
+
+func _setup() -> void:
+	main_menu_manager.selections_completed.connect(on_selections_completed)
+
+
+func on_selections_completed(option_type: MainMenuManager.RaceType, option: RaceOption,
+		 selected_car: CarData) -> void:
+	main_menu_manager.queue_free()
+	
+	#add bot cars
+	if option_type != MainMenuManager.RaceType.PRACTICE:
+		_choose_bot_cars()
+	start_order = car_dict.keys()
+	
+	#add player car (+ last)
+	car_dict[player_team_name] = selected_car
+	start_order.append(player_team_name)
+	
+	#handle all tracks in queue one at a time
+	track_queue = option.tracks.duplicate()
+	_start_next_track()
+
+
+func _start_next_track() -> void:
+	assert(level_manager == null)
+	level_manager = level_manager_packed.instantiate()
+	add_child(level_manager)
+	if not level_manager.is_node_ready():
+		await level_manager.ready
+	var next_track: PackedScene = track_queue.pop_front()
+	level_manager.handle_level(next_track, lap_count, mirror_mode, car_dict, 
+			player_team_name, start_order)
+	level_manager.race_completed.connect(on_race_completed)
+
+
+func on_race_completed() -> void:
+	if track_queue.is_empty():
+		print("All races complete!")
+	else:
+		_start_next_track()
+	pass
+
+
+func _choose_bot_cars() -> void:
+	#pick random car for each team
+	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+	for team: String in TEAM_NAMES:
+		if len(car_dict) >= BOT_COUNT:
 			break
-		carDict[team] = botCarChoices[rng.randi_range(0, len(botCarChoices) - 1)]
+		car_dict[team] = bot_car_choices[rng.randi_range(0, len(bot_car_choices) - 1)]
 
-func start_game():
-	levelManager = gameDirector.add_scene(levelManagerScene)
-	if selectedRaceType != RACE_TYPE.PRACTICE:
-		choose_bot_cars()
-		startOrder = carDict.keys()
-	carDict[playerTeam] = selectedCar
-	startOrder.append(playerTeam)
-	levelManager.handle_level()
 
-func get_current_race():
-	return selectedRaceOption.tracks[currentRace]
+func request_quit() -> void:
+	game_director.request_quit()

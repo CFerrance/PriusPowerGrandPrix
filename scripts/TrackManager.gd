@@ -1,52 +1,43 @@
 class_name TrackManager extends Node
 
-@export var startGate: StartGate
-@export var gatesDefault: Array[Gate]
+#exports
+@export_category("Lap Tracking")
+@export var start_gate: StartGate
+@export var gates: Array[Gate]
+@export_category("Other")
+@export var pan_handler: PanHandler
 
-@onready var panHandler := $PanHandler
+#vars
+var lap_count: int
 
-var lapCount: int:
-	get: return lapCount
-var gates: Array[Gate]
-var lapTracking := false
-var raceStart : float
 
-signal onPlayerFinished
+func get_lap_count() -> int:
+	return lap_count
 
-func set_laps(laps: int):
-	lapCount = laps
 
-func set_mirror_mode(mirror: bool):
-	gates = gatesDefault
+func set_lap_count(laps: int) -> void:
+	lap_count = laps
+
+
+func get_start_gate() -> StartGate:
+	return start_gate
+
+
+func get_gate_index(gate: Gate) -> int:
+	var index: int = gates.find(gate)
+	assert(index != -1)
+	return index
+
+
+func set_mirror_mode(mirror: bool) -> void:
 	if mirror:
-		startGate.rotation_degrees += 180
+		start_gate.rotation_degrees += 180
 		gates.reverse()
 
-func position_cars(cars: Array[Car]):
-	startGate.assign_starts(cars)
 
-func attach_lap_data(cars: Array[Car]):
-	for car in cars:
-		var lapData = LapData.new(self, car)
-		car.attach_lap_data(lapData)
-		lapData.lapUpdate.connect(on_lap_update)
-		lapData.raceCompleted.connect(on_race_completed.bind(car))
+func assign_starts(cars: Array[Car]) -> void:
+	start_gate.assign_starts(cars)
 
-func flyby():
-	await panHandler.handle_flyby()
 
-func start_racing():
-	lapTracking = true
-	raceStart = Time.get_ticks_msec()
-
-func end_racing():
-	lapTracking = false
-
-func on_lap_update():
-	pass
-
-func on_race_completed(car: Car):
-	if car is PlayerCarController:
-		print("You finished the race!")
-		onPlayerFinished.emit()
-	pass
+func flyby() -> void:
+	await pan_handler.handle_flyby()

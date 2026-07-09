@@ -1,8 +1,10 @@
 class_name StartGate extends Gate
 
-@export var startPositions: Array[Node2D]
+#exports
+@export var start_positions: Array[Node2D]
 
-func assign_starts(cars: Array[Car]):
-	for i in range(len(cars)):
-		cars[i].position = startPositions[i].global_position
-		cars[i].rotation = startPositions[i].global_rotation
+
+func assign_starts(cars: Array[Car]) -> void:
+	for i: int in range(len(cars)):
+		cars[i].position = start_positions[i].global_position
+		cars[i].rotation = start_positions[i].global_rotation

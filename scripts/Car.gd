@@ -1,29 +1,85 @@
+@abstract
 class_name Car extends RigidBody2D
 
-@onready var carSprite := $Sprite
+#signals
+signal gate_passed
+signal lap_completed
+signal race_completed
 
-var teamName: String
-var carData: Resource
-var lapData: LapData
+#exports
+@export var car_sprite: Sprite2D
 
-var levelManager : LevelManager
+#variables
+var team_name: String
+var car_data: CarData
+var completed_laps: Array[float]
+var passed_gates: Array[Gate]
 
-func _ready():
-	levelManager = get_tree().get_first_node_in_group("LevelManager")
+#dependencies
+var level_manager: LevelManager
+var track_manager: TrackManager
 
-func configure_car(teamName: String, carData: CarData):
-	self.teamName = teamName
-	self.carData = carData
-	self.mass = carData.mass
-	carSprite.texture = carData.sprite
 
-func attach_lap_data(lapData: LapData):
-	self.lapData = lapData
-	lapData.raceCompleted.connect(on_race_completed)
+func bind_dependencies(l_manager: LevelManager, t_manager: TrackManager) -> void:
+	level_manager = l_manager
+	track_manager = t_manager
 
-func on_pit_entry():
-	print("Pit Entry!")
-	pass
 
-func on_race_completed():
-	print("Race Completed!")
+func configure_car(team: String, data: CarData) -> void:
+	team_name = team
+	car_data = data
+	self.mass = car_data.mass
+	car_sprite.texture = car_data.sprite
+
+
+#region Lap Tracking
+func try_add_gate(gate: Gate) -> void:
+	if _try_add_gate(gate):
+		gate_passed.emit()
+		if len(completed_laps) == track_manager.get_lap_count():
+			race_completed.emit()
+
+
+func _try_add_gate(gate: Gate) -> bool:
+	if not level_manager.is_racing_enabled():
+		return false
+	if gate == track_manager.get_start_gate():
+		if len(completed_laps) == 0 and len(passed_gates) == 0:
+			#passing start lap one
+			passed_gates.append(gate)
+			return true
+		elif len(passed_gates) == len(track_manager.gates) + 1:
+			#completing a lap
+			completed_laps.append(Time.get_ticks_msec())
+			passed_gates = []
+			passed_gates.append(gate)
+			lap_completed.emit()
+			return true
+		return false
+	else:
+		if track_manager.get_gate_index(gate) == len(passed_gates) - 1:
+			passed_gates.append(gate)
+			print(len(passed_gates))
+			return true
+		return false
+
+
+func get_laps_completed() -> int:
+	return len(completed_laps)
+
+
+func get_lap_time_sec() -> float:
+	if len(completed_laps) == 0:
+		return (Time.get_ticks_msec() - level_manager.get_race_start()) / 1000.0
+	else:
+		return (Time.get_ticks_msec() - completed_laps[len(completed_laps) - 1]) / 1000.0
+
+#endregion
+
+
+@abstract
+func on_pit_entry() -> void
+
+
+@abstract
+func on_race_completed() -> void

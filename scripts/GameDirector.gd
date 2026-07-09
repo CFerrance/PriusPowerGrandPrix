@@ -1,19 +1,25 @@
 class_name GameDirector extends Node
 
-var gameManagerScene = preload("res://scenes/GameManager.tscn")
-var mainMenuScene = preload("res://scenes/MainMenu.tscn")
+#constants
+const  game_manager_packed: PackedScene = preload("res://scenes/GameManager.tscn")
 
-func _ready():
-	_load_at_start()
+#children
+var game_manager: GameManager
 
-func _load_at_start():
-	add_scene(gameManagerScene)
-	add_scene(mainMenuScene)
 
-func add_scene(path):
-	var newScene = path.instantiate()
-	add_child(newScene)
-	return newScene
+func _ready() -> void:
+	_build_children()
+	_bind_child_dependencies()
 
-func remove_scene(scene):
-	remove_child(scene)
+
+func _build_children() -> void:
+	game_manager = game_manager_packed.instantiate()
+	add_child(game_manager)
+
+
+func _bind_child_dependencies() -> void:
+	game_manager.bind_dependencies(self)
+
+
+func request_quit() -> void:
+	get_tree().quit()
