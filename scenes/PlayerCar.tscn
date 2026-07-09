@@ -3,7 +3,14 @@
 [ext_resource type="Script" uid="uid://rkj8jf2dfnj0" path="res://scripts/PlayerCarController.gd" id="1_50v30"]
 [ext_resource type="PackedScene" uid="uid://bbnglff553i81" path="res://scenes/Car.tscn" id="1_q30tf"]
 
-[node name="Car" unique_id=1946404089 instance=ExtResource("1_q30tf")]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ryxr2"]
+friction = 0.7
+bounce = 0.2
+
+[node name="Car" unique_id=1946404089 node_paths=PackedStringArray("remote_transform", "car_sprite") instance=ExtResource("1_q30tf")]
+physics_material_override = SubResource("PhysicsMaterial_ryxr2")
 script = ExtResource("1_50v30")
+remote_transform = NodePath("RemoteTransform2D")
+car_sprite = NodePath("Sprite")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="." index="2" unique_id=1232498554]

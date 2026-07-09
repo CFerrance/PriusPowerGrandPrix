@@ -1,25 +1,27 @@
 class_name PanHandler extends Node
 
-@export var panSpeed: float
-@export var panPaths: Array[PathFollow2D] = []
+#exports
+@export var pan_cam: Camera2D
+@export var pan_speed: float
+@export var pan_paths: Array[PathFollow2D] = []
 
-@onready var panCam: Camera2D = $PanCam
+#vars
+var current_path: int
+var current_progress: float
 
-var currentPath: int
-var currentProgress: float
 
-func handle_flyby():
-	panCam.enabled = true
-	currentPath = 0
-	currentProgress = 0
+func handle_flyby() -> void:
+	pan_cam.enabled = true
+	current_path = 0
+	current_progress = 0
 	while true:
-		if currentPath >= len(panPaths):
-			panCam.enabled = false
+		if current_path >= len(pan_paths):
+			pan_cam.enabled = false
 			return
-		currentProgress += get_process_delta_time() * panSpeed
-		panPaths[currentPath].progress = currentProgress
-		panCam.transform = panPaths[currentPath].transform
-		if panPaths[currentPath].progress_ratio >= 1.0:
-			currentPath += 1
-			currentProgress = 0
+		current_progress += get_process_delta_time() * pan_speed
+		pan_paths[current_path].progress = current_progress
+		pan_cam.transform = pan_paths[current_path].transform
+		if pan_paths[current_path].progress_ratio >= 1.0:
+			current_path += 1
+			current_progress = 0
 		await get_tree().process_frame

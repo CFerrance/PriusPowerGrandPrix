@@ -3,16 +3,16 @@
 [ext_resource type="Script" uid="uid://c78pyble71xjs" path="res://scripts/CarData.gd" id="1_j54a6"]
 [ext_resource type="Texture2D" uid="uid://c1beese8p63cy" path="res://assets/prius.png" id="2_h8bvw"]
 
-[sub_resource type="Curve" id="Curve_j54a6"]
-_data = [Vector2(0.505, 0), 0.0, 0.0, 0, 0, Vector2(0.54999995, 1), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_35b7a"]
+_data = [Vector2(0.5521739, 0), 0.0, 0.0, 0, 0, Vector2(0.6043478, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Curve" id="Curve_h8bvw"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.3, 1), 0.0, 0.0, 0, 0, Vector2(0.45, 0), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_wnlow"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.4478261, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Curve" id="Curve_4utno"]
-_data = [Vector2(0.2, 0), 0.0, 0.0, 0, 0, Vector2(0.24999999, 1), 0.0, 0.0, 0, 0, Vector2(0.60499996, 1), 0.0, 0.0, 0, 0, Vector2(0.655, 0), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_uiece"]
+_data = [Vector2(0.2956522, 0), 0.0, 0.0, 0, 0, Vector2(0.34782612, 1), 0.0, 0.0, 0, 0, Vector2(0.6956522, 1), 0.0, 0.0, 0, 0, Vector2(0.75217396, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [resource]
@@ -20,21 +20,22 @@ script = ExtResource("1_j54a6")
 model = "Prius"
 sprite = ExtResource("2_h8bvw")
 mass = 2.0
-wheelBase = 70
-brakePower = 300
-baseSteeringPower = 5500
-steeringFloor = 250.0
-gripCutoff = 450.0
-lowSpeedGrip = 8.5
-highSpeedGrip = 7.0
+brake_power = 300
+base_steering_power = 6500
+steering_floor = 250.0
+low_speed_grip_cutoff = 475.0
+mid_speed_grip_cutoff = 625.0
+low_speed_grip = 8.5
+mid_speed_grip = 6.5
+high_speed_grip = 4.5
 drag = 0.001
-baseFriction = 0.25
-lowGearMinPower = 400
-lowGearEnginePower = 600
-lowGearCurve = SubResource("Curve_h8bvw")
-midGearMinPower = 450
-midGearEnginePower = 750
-midGearCurve = SubResource("Curve_4utno")
-highGearMinPower = 500
-highGearEnginePower = 900
-highGearCurve = SubResource("Curve_j54a6")
+base_friction = 0.2
+low_gear_min_power = 400
+low_gear_engine_power = 600
+low_gear_curve = SubResource("Curve_wnlow")
+mid_gear_min_power = 450
+mid_gear_engine_power = 750
+mid_gear_curve = SubResource("Curve_uiece")
+high_gear_min_power = 500
+high_gear_engine_power = 900
+high_gear_curve = SubResource("Curve_35b7a")

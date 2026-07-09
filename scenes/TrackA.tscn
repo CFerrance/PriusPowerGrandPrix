@@ -55,12 +55,15 @@ _data = {
 }
 point_count = 19
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_coxep"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_beg18"]
+radius = 15.0
+height = 1190.0
 
-[node name="TrackA" type="Node2D" unique_id=101209382 node_paths=PackedStringArray("startGate", "gatesDefault")]
+[node name="TrackA" type="Node2D" unique_id=101209382 node_paths=PackedStringArray("start_gate", "gates", "pan_handler")]
 script = ExtResource("1_h30r2")
-startGate = NodePath("Gates/StartGate")
-gatesDefault = [NodePath("Gates/gate")]
+start_gate = NodePath("Gates/StartGate")
+gates = [NodePath("Gates/gate")]
+pan_handler = NodePath("PanHandler")
 
 [node name="Tracks" type="Node2D" parent="." unique_id=514499246]
 
@@ -218,8 +221,9 @@ rotation = 1.5707964
 position = Vector2(-1925, -1800)
 rotation = 1.5707964
 
-[node name="PanHandler" parent="." unique_id=2089272648 node_paths=PackedStringArray("panPaths") instance=ExtResource("15_wdew7")]
-panPaths = [NodePath("Path2D/PathFollow2D"), NodePath("PitPath/PathFollow2D"), NodePath("Path2D2/PathFollow2D")]
+[node name="PanHandler" parent="." unique_id=2089272648 node_paths=PackedStringArray("pan_paths") instance=ExtResource("15_wdew7")]
+pan_speed = 900.0
+pan_paths = [NodePath("Path2D/PathFollow2D"), NodePath("PitPath/PathFollow2D"), NodePath("Path2D2/PathFollow2D")]
 
 [node name="Path2D" type="Path2D" parent="PanHandler" unique_id=1736528240]
 curve = SubResource("Curve2D_128jd")
@@ -341,8 +345,8 @@ texture = ExtResource("29_xixdt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier4x1Red/StaticBody2D" unique_id=526839131]
 position = Vector2(0, 15)
-scale = Vector2(60, 1.5)
-shape = SubResource("RectangleShape2D_coxep")
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_beg18")
 
 [node name="Label" type="Label" parent="Barrier4x1Red" unique_id=998207342]
 anchors_preset = 15
