@@ -63,6 +63,7 @@ func _update_lap_time() -> void:
 	lap_time_sec = fmod(lap_time_sec, 60)
 	lap_timer_text.text = str(lap_time_min) + ":" + str(lap_time_sec).pad_decimals(2).pad_zeros(2)
 
+
 func _set_gear(gear: int) -> void:
 	if gear == 0:
 		gear_text.text = "ECO"
@@ -74,7 +75,7 @@ func _set_gear(gear: int) -> void:
 
 func _on_lap_completed() -> void:
 	print("Lap Completed!")
-	lap_text.text = str(player.get_laps_completed()) + "/" + str(track_manager.get_lap_count())
+	lap_text.text = str(player.get_laps_completed() + 1) + "/" + str(track_manager.get_lap_count())
 #endregion
 
 func handle_start_lights() -> void:

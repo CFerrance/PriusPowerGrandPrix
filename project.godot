@@ -24,6 +24,20 @@ gdscript/warnings/unsafe_method_access=1
 gdscript/warnings/unsafe_cast=1
 gdscript/warnings/unsafe_call_argument=1
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://assets/decorations/": "orange",
+"res://assets/decorations/environment/": "green",
+"res://assets/fonts/": "yellow",
+"res://assets/track_art/": "teal",
+"res://data/": "orange",
+"res://scenes/": "blue",
+"res://scripts/": "green",
+"res://shaders/": "pink"
+}
+
 [global_group]
 
 LevelManager=""
