@@ -1,5 +1,12 @@
 class_name GameManager extends Node
 
+#enums
+enum RaceType {
+	SINGLE,
+	PRIX,
+	PRACTICE,
+}
+
 #exports
 @export var bot_car_choices: Array[CarData]
 
@@ -10,7 +17,6 @@ var player_team_name: String = "Player Team"
 var start_order: Array[String]
 var score_dict: Dictionary[String, int]
 var car_dict: Dictionary[String, CarData]
-var track_queue: Array[PackedScene]
 
 #constants
 const main_menu_packed: PackedScene = preload("res://scenes/MainMenu.tscn")
@@ -47,14 +53,18 @@ func _bind_child_dependencies() -> void:
 
 func _setup() -> void:
 	main_menu_manager.selections_completed.connect(on_selections_completed)
+	car_dict = {}
+	score_dict = {}
+	start_order = []
+	mirror_mode = false
 
 
-func on_selections_completed(option_type: MainMenuManager.RaceType, option: RaceOption,
+func on_selections_completed(option_type: RaceType, option: RaceOption,
 		 selected_car: CarData) -> void:
 	main_menu_manager.queue_free()
 	
 	#add bot cars
-	if option_type != MainMenuManager.RaceType.PRACTICE:
+	if option_type != RaceType.PRACTICE:
 		_choose_bot_cars()
 	start_order = car_dict.keys()
 	
@@ -63,28 +73,20 @@ func on_selections_completed(option_type: MainMenuManager.RaceType, option: Race
 	start_order.append(player_team_name)
 	
 	#handle all tracks in queue one at a time
-	track_queue = option.tracks.duplicate()
-	_start_next_track()
-
-
-func _start_next_track() -> void:
-	assert(level_manager == null)
-	level_manager = level_manager_packed.instantiate()
-	add_child(level_manager)
-	if not level_manager.is_node_ready():
-		await level_manager.ready
-	var next_track: PackedScene = track_queue.pop_front()
-	level_manager.handle_level(next_track, lap_count, mirror_mode, car_dict, 
-			player_team_name, start_order)
-	level_manager.race_completed.connect(on_race_completed)
-
-
-func on_race_completed() -> void:
-	if track_queue.is_empty():
-		print("All races complete!")
-	else:
-		_start_next_track()
-	pass
+	for track: PackedScene in option.tracks:
+		assert(level_manager == null)
+		level_manager = level_manager_packed.instantiate()
+		add_child(level_manager)
+		if not level_manager.is_node_ready():
+			await level_manager.ready
+		level_manager.handle_level(track, option_type, lap_count, mirror_mode, car_dict, 
+				player_team_name, start_order)
+		await level_manager.level_completed
+	
+	#restart...
+	_build_children()
+	_bind_child_dependencies()
+	_setup()
 
 
 func _choose_bot_cars() -> void:

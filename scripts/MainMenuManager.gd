@@ -1,14 +1,7 @@
 class_name MainMenuManager extends Node
 
 #signals
-signal selections_completed(race_type: RaceType, race_option: RaceOption, car_choice: CarData)
-
-#parameter
-enum RaceType {
-	SINGLE,
-	PRIX,
-	PRACTICE,
-}
+signal selections_completed(race_type: GameManager.RaceType, race_option: RaceOption, car_choice: CarData)
 
 #enums
 enum Screen {
@@ -45,7 +38,7 @@ enum Screen {
 var current_screen: Screen = Screen.START
 var track_select_buttons: Array[Button] = []
 var car_select_buttons: Array[Button] = []
-var selected_race_type: RaceType
+var selected_race_type: GameManager.RaceType
 var selected_race_option: RaceOption
 var selected_car: CarData
 
@@ -80,17 +73,17 @@ func _on_options_back_button_pressed() -> void:
 
 
 func _on_single_button_pressed() -> void:
-	selected_race_type = RaceType.SINGLE
+	selected_race_type = GameManager.RaceType.SINGLE
 	_switch_screen(Screen.TRACK_SELECT)
 
 
 func _on_prix_button_pressed() -> void:
-	selected_race_type = RaceType.PRIX
+	selected_race_type = GameManager.RaceType.PRIX
 	_switch_screen(Screen.TRACK_SELECT)
 
 
 func _on_practice_button_pressed() -> void:
-	selected_race_type = RaceType.PRACTICE
+	selected_race_type = GameManager.RaceType.PRACTICE
 	_switch_screen(Screen.TRACK_SELECT)
 
 
@@ -117,10 +110,10 @@ func _switch_screen(new_screen: Screen) -> void:
 		Screen.TRACK_SELECT:
 			_set_background(selection_background)
 			track_select_screen.show()
-			if selected_race_type == RaceType.SINGLE or selected_race_type == RaceType.PRACTICE:
-				_display_race_options(tracks)
-			elif selected_race_type == RaceType.PRIX:
+			if selected_race_type == GameManager.RaceType.PRIX:
 				_display_race_options(prix_options)
+			else:
+				_display_race_options(tracks)
 		Screen.CAR_SELECT:
 			_set_background(selection_background)
 			car_select_screen.show()

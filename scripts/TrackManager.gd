@@ -23,6 +23,10 @@ func get_start_gate() -> StartGate:
 	return start_gate
 
 
+func get_gate_count() -> int:
+	return len(gates)
+
+
 func get_gate_index(gate: Gate) -> int:
 	var index: int = gates.find(gate)
 	assert(index != -1)

@@ -1,7 +1,7 @@
 class_name LevelManager extends Node
 
 #signals
-signal race_completed
+signal level_completed
 
 #exports
 
@@ -30,7 +30,7 @@ func bind_dependencies(manager: GameManager) -> void:
 	game_manager = manager
 
 
-func handle_level(race: PackedScene, laps: int, mirror: bool, car_dict: Dictionary[String, CarData], 
+func handle_level(race: PackedScene, race_type: GameManager.RaceType, laps: int, mirror: bool, car_dict: Dictionary[String, CarData], 
 		player_team: String, start_order: Array[String]) -> void:
 	track_manager = race.instantiate()
 	add_child(track_manager)
@@ -60,8 +60,22 @@ func handle_level(race: PackedScene, laps: int, mirror: bool, car_dict: Dictiona
 	racing_enabled = true
 	race_start_time = Time.get_ticks_msec()
 	player_car.set_input_state(PlayerCarController.InputState.DRIVING)
+	
+	#podium + standings + next race
 	await player_car.race_completed
-	race_completed.emit()
+	level_ui.toggle_hud(false)
+	if race_type != GameManager.RaceType.PRACTICE:
+		level_ui.toggle_podium(true)
+		await level_ui.continue_pressed
+		level_ui.toggle_podium(false)
+		if race_type == GameManager.RaceType.PRIX:
+			level_ui.toggle_standings(true)
+			await  level_ui.continue_pressed
+	else:
+		level_ui.toggle_practice_stats(true)
+		await level_ui.continue_pressed
+	
+	level_completed.emit()
 	self.queue_free()
 
 

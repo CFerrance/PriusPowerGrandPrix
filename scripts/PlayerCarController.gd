@@ -19,9 +19,9 @@ enum Gear {
 
 #exports
 @export_category("Quick Time Events")
-@export var quickTimeLimit: float = 5.0
-@export var incorrectPenalty: float = 3.5
-@export var overTimePenalty: float = 2.0
+@export var qte_time_limit: float = 5.0
+@export var incorrect_penalty: float = 3.5
+@export var too_slow_penalty: float = 2.0
 @export_category("Other")
 @export var remote_transform: RemoteTransform2D
 

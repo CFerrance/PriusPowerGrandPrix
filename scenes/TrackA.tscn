@@ -320,7 +320,7 @@ position = Vector2(-4360, -886)
 texture = ExtResource("23_00u7r")
 
 [node name="Tree10" type="Sprite2D" parent="Decorations" unique_id=1058001444]
-position = Vector2(-2110, -2028)
+position = Vector2(-2108, -2026)
 texture = ExtResource("18_coxep")
 
 [node name="Tree11" type="Sprite2D" parent="Decorations" unique_id=1611825988]
