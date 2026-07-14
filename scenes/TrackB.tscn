@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://b7442pag2g35o"]
+
+[ext_resource type="Texture2D" uid="uid://cx8ft1lysfo4o" path="res://assets/track_art/misc/straight_3x1.png" id="1_m8v1p"]
+[ext_resource type="Texture2D" uid="uid://hgs0s2fnvx4g" path="res://assets/track_art/misc/straight_1x1.png" id="2_74fr7"]
+[ext_resource type="Texture2D" uid="uid://dfto3pgvj2dn7" path="res://assets/track_art/track_b/B_1_2.png" id="3_78xc0"]
+[ext_resource type="Texture2D" uid="uid://cffqiwt8d7r4q" path="res://assets/track_art/misc/Ninety_1x1_Curb.png" id="4_8oacr"]
+[ext_resource type="Texture2D" uid="uid://lyq6p0kloev3" path="res://assets/track_art/track_a/a_3_4.png" id="5_jj7n2"]
+[ext_resource type="Texture2D" uid="uid://civdh1xdy4q7s" path="res://assets/track_art/misc/Hairpin_2.5x1.5.png" id="6_cbyqf"]
+[ext_resource type="Texture2D" uid="uid://dwuvesc3o6pnk" path="res://assets/track_art/misc/ninety_2x2_left_curb.png" id="7_6rq1i"]
+[ext_resource type="Texture2D" uid="uid://d1nrd0tn5epp1" path="res://assets/track_art/track_b/B_10_13.png" id="8_5dglk"]
+[ext_resource type="Texture2D" uid="uid://1gcmf0pfk838" path="res://assets/track_art/track_b/B_14_15.png" id="9_km5vr"]
+[ext_resource type="PackedScene" uid="uid://ba6xmd0sulldd" path="res://scenes/StartGate.tscn" id="10_lyksx"]
+[ext_resource type="PackedScene" uid="uid://bi6yysp80nfou" path="res://scenes/PanHandler.tscn" id="11_80c7s"]
+
+[node name="TrackB" type="Node2D" unique_id=323551593]
+
+[node name="Tracks" type="Node2D" parent="." unique_id=626002899]
+
+[node name="Main" type="Node2D" parent="Tracks" unique_id=178635594]
+
+[node name="Straight3x2" type="Sprite2D" parent="Tracks/Main" unique_id=747890477]
+position = Vector2(0, -900)
+rotation = 1.5707964
+texture = ExtResource("1_m8v1p")
+
+[node name="Straight1x1" type="Sprite2D" parent="Tracks/Main" unique_id=1118679072]
+position = Vector2(0, -1500)
+rotation = 1.5707964
+texture = ExtResource("2_74fr7")
+
+[node name="B12" type="Sprite2D" parent="Tracks/Main" unique_id=2087121063]
+position = Vector2(-450, -2100)
+texture = ExtResource("3_78xc0")
+
+[node name="Straight1x2" type="Sprite2D" parent="Tracks/Main" unique_id=146352262]
+position = Vector2(-900, -2700)
+rotation = 1.5707964
+texture = ExtResource("2_74fr7")
+
+[node name="Straight1x3" type="Sprite2D" parent="Tracks/Main" unique_id=299175521]
+position = Vector2(-900, -3000)
+rotation = 1.5707964
+texture = ExtResource("2_74fr7")
+
+[node name="Ninety1x1Curb" type="Sprite2D" parent="Tracks/Main" unique_id=1589067134]
+position = Vector2(-750, -3450)
+texture = ExtResource("4_8oacr")
+
+[node name="Straight3x4" type="Sprite2D" parent="Tracks/Main" unique_id=1776585646]
+position = Vector2(0, -3600)
+texture = ExtResource("1_m8v1p")
+
+[node name="A34" type="Sprite2D" parent="Tracks/Main" unique_id=3512100]
+position = Vector2(1350, -2850)
+rotation = 1.5707964
+texture = ExtResource("5_jj7n2")
+flip_h = true
+flip_v = true
+
+[node name="Straight1x4" type="Sprite2D" parent="Tracks/Main" unique_id=672333404]
+position = Vector2(2100, -1800)
+rotation = 1.5707964
+texture = ExtResource("2_74fr7")
+
+[node name="Ninety1x1Curb2" type="Sprite2D" parent="Tracks/Main" unique_id=1823933479]
+position = Vector2(2250, -1350)
+rotation = -1.5707964
+texture = ExtResource("4_8oacr")
+
+[node name="Straight3x5" type="Sprite2D" parent="Tracks/Main" unique_id=2049512210]
+position = Vector2(3000, -1200)
+texture = ExtResource("1_m8v1p")
+
+[node name="Straight1x5" type="Sprite2D" parent="Tracks/Main" unique_id=1104977336]
+position = Vector2(3600, -1200)
+texture = ExtResource("2_74fr7")
+
+[node name="Ninety1x1Curb3" type="Sprite2D" parent="Tracks/Main" unique_id=1417291734]
+position = Vector2(4050, -1350)
+rotation = -3.1415925
+texture = ExtResource("4_8oacr")
+
+[node name="Straight1x6" type="Sprite2D" parent="Tracks/Main" unique_id=911599603]
+position = Vector2(4200, -1800)
+rotation = 1.5707964
+texture = ExtResource("2_74fr7")
+
+[node name="Hairpin2_5x1_5" type="Sprite2D" parent="Tracks/Main" unique_id=1178125240]
+position = Vector2(4425, -2137)
+texture = ExtResource("6_cbyqf")
+
+[node name="Straight3x1" type="Sprite2D" parent="Tracks/Main" unique_id=1199232959]
+position = Vector2(4650, -1500)
+rotation = 1.5707964
+texture = ExtResource("1_m8v1p")
+
+[node name="Straight3x3" type="Sprite2D" parent="Tracks/Main" unique_id=1881908193]
+position = Vector2(4650, -600)
+rotation = 1.5707964
+texture = ExtResource("1_m8v1p")
+
+[node name="Straight3x6" type="Sprite2D" parent="Tracks/Main" unique_id=1178364109]
+position = Vector2(4650, 300)
+rotation = 1.5707964
+texture = ExtResource("1_m8v1p")
+
+[node name="Ninety2x2LeftCurb" type="Sprite2D" parent="Tracks/Main" unique_id=626829205]
+position = Vector2(4500, 1050)
+rotation = 1.5707964
+texture = ExtResource("7_6rq1i")
+
+[node name="B1013" type="Sprite2D" parent="Tracks/Main" unique_id=1663088066]
+position = Vector2(2900, 1650)
+texture = ExtResource("8_5dglk")
+
+[node name="Straight3x7" type="Sprite2D" parent="Tracks/Main" unique_id=963924665]
+position = Vector2(1150, 1200)
+texture = ExtResource("1_m8v1p")
+
+[node name="Straight1x9" type="Sprite2D" parent="Tracks/Main" unique_id=18378921]
+position = Vector2(550, 1200)
+texture = ExtResource("2_74fr7")
+
+[node name="B1415" type="Sprite2D" parent="Tracks/Main" unique_id=1891298937]
+position = Vector2(-325, 450)
+texture = ExtResource("9_km5vr")
+
+[node name="Pits" type="Node2D" parent="Tracks" unique_id=1974167603]
+
+[node name="Gates" type="Node2D" parent="." unique_id=946155184]
+
+[node name="StartGate" parent="Gates" unique_id=661936391 instance=ExtResource("10_lyksx")]
+position = Vector2(0, -1050)
+
+[node name="PanHandler" parent="." unique_id=2089272648 instance=ExtResource("11_80c7s")]
+
+[node name="Decorations" type="Node2D" parent="." unique_id=290368803]
