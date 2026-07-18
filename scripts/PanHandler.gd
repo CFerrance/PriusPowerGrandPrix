@@ -1,14 +1,15 @@
 class_name PanHandler extends Node
 
 #exports
-@export var pan_cam: Camera2D
-@export var pan_speed: float
+@export var pan_speed: int = 900
 @export var pan_paths: Array[PathFollow2D] = []
 
 #vars
 var current_path: int
 var current_progress: float
 
+#onready
+@onready var pan_cam: Camera2D = $PanCam
 
 func handle_flyby() -> void:
 	pan_cam.enabled = true

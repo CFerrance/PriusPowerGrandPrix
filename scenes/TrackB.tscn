@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b7442pag2g35o"]
 
+[ext_resource type="Script" uid="uid://b1putg7242y1m" path="res://scripts/TrackManager.gd" id="1_jj7n2"]
 [ext_resource type="Texture2D" uid="uid://cx8ft1lysfo4o" path="res://assets/track_art/misc/straight_3x1.png" id="1_m8v1p"]
 [ext_resource type="Texture2D" uid="uid://hgs0s2fnvx4g" path="res://assets/track_art/misc/straight_1x1.png" id="2_74fr7"]
 [ext_resource type="Texture2D" uid="uid://dfto3pgvj2dn7" path="res://assets/track_art/track_b/B_1_2.png" id="3_78xc0"]
@@ -9,10 +10,29 @@
 [ext_resource type="Texture2D" uid="uid://dwuvesc3o6pnk" path="res://assets/track_art/misc/ninety_2x2_left_curb.png" id="7_6rq1i"]
 [ext_resource type="Texture2D" uid="uid://d1nrd0tn5epp1" path="res://assets/track_art/track_b/B_10_13.png" id="8_5dglk"]
 [ext_resource type="Texture2D" uid="uid://1gcmf0pfk838" path="res://assets/track_art/track_b/B_14_15.png" id="9_km5vr"]
+[ext_resource type="Texture2D" uid="uid://bfua4axvy7cei" path="res://assets/track_art/misc/pit_straight_3x1.png" id="10_78xc0"]
 [ext_resource type="PackedScene" uid="uid://ba6xmd0sulldd" path="res://scenes/StartGate.tscn" id="10_lyksx"]
+[ext_resource type="Texture2D" uid="uid://ccldqlgsekvp7" path="res://assets/track_art/misc/pit_straight.png" id="11_8oacr"]
 [ext_resource type="PackedScene" uid="uid://bi6yysp80nfou" path="res://scenes/PanHandler.tscn" id="11_80c7s"]
+[ext_resource type="PackedScene" uid="uid://bppw7qv8bmrgm" path="res://scenes/Gate.tscn" id="14_cbyqf"]
 
-[node name="TrackB" type="Node2D" unique_id=323551593]
+[sub_resource type="Curve2D" id="Curve2D_cbyqf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1780, -2479, -68.3805, -127.32921, 68.3805, 127.32921, 2090, -2143, -46.34552, -158.6531, 46.34552, 158.6531, 2123, -1692, -469.23172, -4.7158966, 469.23172, 4.7158966, 3213, -1221, 9.431793, 249.94252, -9.431793, -249.94252, 4222, -1739)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_jj7n2"]
+_data = {
+"points": PackedVector2Array(-202.57133, 288.16486, 202.57133, -288.16486, -855, 811, -99.85911, 276.75238, 99.85911, -276.75238, -129, -111, 6.6550007, 208.96701, -6.6550007, -208.96701, 6, -939)
+}
+point_count = 3
+
+[node name="TrackB" type="Node2D" unique_id=323551593 node_paths=PackedStringArray("start_gate", "gates", "pan_handler")]
+script = ExtResource("1_jj7n2")
+start_gate = NodePath("Gates/StartGate")
+gates = [NodePath("Gates/gate")]
+pan_handler = NodePath("PanHandler")
 
 [node name="Tracks" type="Node2D" parent="." unique_id=626002899]
 
@@ -127,11 +147,51 @@ texture = ExtResource("9_km5vr")
 
 [node name="Pits" type="Node2D" parent="Tracks" unique_id=1974167603]
 
+[node name="PitStraight3x1" type="Sprite2D" parent="Tracks/Pits" unique_id=1010376525]
+position = Vector2(-975, -675)
+rotation = 1.5707964
+texture = ExtResource("10_78xc0")
+
+[node name="PitStraight3x2" type="Sprite2D" parent="Tracks/Pits" unique_id=396628999]
+position = Vector2(-975, -1125)
+rotation = 1.5707964
+texture = ExtResource("10_78xc0")
+
+[node name="PitStraight" type="Sprite2D" parent="Tracks/Pits" unique_id=2110426101]
+position = Vector2(-975, -1425)
+rotation = 1.5707964
+texture = ExtResource("11_8oacr")
+
+[node name="PitStraight2" type="Sprite2D" parent="Tracks/Pits" unique_id=290889553]
+position = Vector2(-975, -1575)
+rotation = 1.5707964
+texture = ExtResource("11_8oacr")
+
 [node name="Gates" type="Node2D" parent="." unique_id=946155184]
 
 [node name="StartGate" parent="Gates" unique_id=661936391 instance=ExtResource("10_lyksx")]
 position = Vector2(0, -1050)
 
-[node name="PanHandler" parent="." unique_id=2089272648 instance=ExtResource("11_80c7s")]
+[node name="gate" parent="Gates" unique_id=2087212437 instance=ExtResource("14_cbyqf")]
+position = Vector2(15, -1746)
+
+[node name="PanHandler" parent="." unique_id=2089272648 node_paths=PackedStringArray("pan_paths") instance=ExtResource("11_80c7s")]
+pan_paths = [NodePath("Path2D2/PathFollow2D"), NodePath("Path2D/PathFollow2D")]
+
+[node name="Path2D2" type="Path2D" parent="PanHandler" unique_id=1065691560]
+curve = SubResource("Curve2D_cbyqf")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PanHandler/Path2D2" unique_id=421123148]
+position = Vector2(1780, -2479)
+rotation = 0.71235645
+loop = false
+
+[node name="Path2D" type="Path2D" parent="PanHandler" unique_id=287273040]
+curve = SubResource("Curve2D_jj7n2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PanHandler/Path2D" unique_id=726190344]
+position = Vector2(-855, 811)
+rotation = -0.95807964
+loop = false
 
 [node name="Decorations" type="Node2D" parent="." unique_id=290368803]
