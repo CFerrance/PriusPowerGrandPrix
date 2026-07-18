@@ -14,6 +14,7 @@ var team_name: String
 var car_data: CarData
 var completed_laps: Array[float]
 var passed_gates: Array[Gate]
+var last_gate_msec: int
 
 #dependencies
 var level_manager: LevelManager
@@ -36,6 +37,7 @@ func configure_car(team: String, data: CarData) -> void:
 func try_add_gate(gate: Gate) -> void:
 	if _try_add_gate(gate):
 		gate_passed.emit()
+		last_gate_msec = Time.get_ticks_msec()
 
 
 func _try_add_gate(gate: Gate) -> bool:
@@ -66,6 +68,16 @@ func _try_add_gate(gate: Gate) -> bool:
 
 func get_laps_completed() -> int:
 	return len(completed_laps)
+
+
+func get_gates_this_lap() -> int:
+	return len(passed_gates)
+
+
+func get_last_gate_msec() -> int:
+	if len(passed_gates) == 0:
+		return level_manager.get_race_start()
+	return last_gate_msec
 
 
 func get_lap_time_msec() -> float:

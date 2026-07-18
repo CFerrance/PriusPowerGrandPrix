@@ -102,6 +102,11 @@ func handle_start_lights() -> void:
 		l.hide()
 
 
+func populate_podium(standings: StandingsTracker) -> void:
+	
+	pass
+
+
 func toggle_podium(toggle: bool) -> void:
 	if toggle:
 		podium_parent.show()

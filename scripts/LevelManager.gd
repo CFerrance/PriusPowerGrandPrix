@@ -8,7 +8,7 @@ signal level_completed
 #variables
 var player_car: PlayerCarController
 var racing_enabled: bool
-var race_start_time: float
+var race_start_time: int
 
 #constants
 const SKIP_FLYBY: bool = false
@@ -41,6 +41,7 @@ func handle_level(race: PackedScene, race_type: GameManager.RaceType, laps: int,
 	track_manager.set_mirror_mode(mirror)
 	
 	_load_cars(car_dict, player_team, start_order)
+	var standings_tracker: StandingsTracker = StandingsTracker.new(cars)
 	
 	level_ui = level_ui_packed.instantiate()
 	add_child(level_ui)
@@ -63,8 +64,10 @@ func handle_level(race: PackedScene, race_type: GameManager.RaceType, laps: int,
 	
 	#podium + standings + next race
 	await player_car.race_completed
+	racing_enabled = false
 	level_ui.toggle_hud(false)
 	if race_type != GameManager.RaceType.PRACTICE:
+		level_ui.populate_podium(standings_tracker)
 		level_ui.toggle_podium(true)
 		await level_ui.continue_pressed
 		level_ui.toggle_podium(false)
@@ -107,5 +110,5 @@ func is_racing_enabled() -> bool:
 	return racing_enabled
 
 
-func get_race_start() -> float:
+func get_race_start() -> int:
 	return race_start_time
