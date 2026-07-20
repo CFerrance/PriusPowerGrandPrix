@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bhlperx10t2dn" path="res://assets/track_art/misc/pit_ninety.png" id="10_wfmkj"]
 [ext_resource type="Texture2D" uid="uid://lyq6p0kloev3" path="res://assets/track_art/track_a/a_3_4.png" id="11_aj7uw"]
 [ext_resource type="PackedScene" uid="uid://ba6xmd0sulldd" path="res://scenes/StartGate.tscn" id="13_2wnya"]
+[ext_resource type="Texture2D" uid="uid://bsobgwbaxe2uq" path="res://assets/track_art/misc/deceleration_end.png" id="13_wlwk1"]
 [ext_resource type="PackedScene" uid="uid://bppw7qv8bmrgm" path="res://scenes/Gate.tscn" id="14_wdew7"]
 [ext_resource type="PackedScene" uid="uid://bi6yysp80nfou" path="res://scenes/PanHandler.tscn" id="15_wdew7"]
 [ext_resource type="Script" uid="uid://c5i0hqod4mh1r" path="res://scripts/PitGate.gd" id="16_128jd"]
@@ -27,6 +28,15 @@
 [ext_resource type="Texture2D" uid="uid://b6yy161g70svu" path="res://assets/decorations/environment/rock2.png" id="23_00u7r"]
 [ext_resource type="LabelSettings" uid="uid://btsmuvjuk62mv" path="res://assets/decorations/barriers/barrier_text.tres" id="25_bu8q4"]
 [ext_resource type="Texture2D" uid="uid://sflka467hi08" path="res://assets/decorations/barriers/barrier_4x1_red.png" id="29_xixdt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r74hk"]
+size = Vector2(148, 63.54895)
+
+[sub_resource type="Curve2D" id="Curve2D_wlwk1"]
+_data = {
+"points": PackedVector2Array(39.906437, -1.0906937, -39.906437, 1.0906937, -2299, 674, 152.44896, 0.10033417, -152.44896, -0.10033417, -2812, 677, 190.77945, -6.430768, -190.77945, 6.430768, -3158, 816)
+}
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_128jd"]
 _data = {
@@ -46,9 +56,6 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r74hk"]
-size = Vector2(191.01685, 63.54895)
-
 [sub_resource type="Curve2D" id="Curve2D_8ryxv"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1666, -1942, -265.82495, 55.236355, 265.82495, -55.236355, -606, -2566, -372.8454, 6.9045444, 372.8454, -6.9045444, 1055, -2658, -186.4227, -234.7545, 186.4227, 234.7545, 2649, -2482, 0, -193.32724, 0, 193.32724, 2815, -1642, 44.87954, -117.37725, -44.87954, 117.37725, 2718, -913, 103.56817, -113.92498, -103.56817, 113.92498, 2120, -140, 171.84143, -23.030294, -171.84143, 23.030294, 1383, 508, 118.694595, 155.89738, -118.694595, -155.89738, 868, 465, 47.83215, 157.66895, -47.83215, -157.66895, 625, -468, 70.86244, -171.84143, -70.86244, 171.84143, 264, -472, 65.54776, -141.72488, -65.54776, 141.72488, 20, 466, 161.21207, 7.0862446, -161.21207, -7.0862446, -704, 535, 186.01392, 38.974346, -186.01392, -38.974346, -1660, 447, 209.04422, 19.487173, -209.04422, -19.487173, -2567, 294, 157.66895, 196.64328, -157.66895, -196.64328, -3840, 90, -3.5431223, 148.81114, 3.5431223, -148.81114, -3994, -789, -168.29831, 129.32396, 168.29831, -129.32396, -3825, -1603, -474.77838, 1.7715611, 474.77838, -1.7715611, -2981, -1809)
@@ -59,10 +66,12 @@ point_count = 19
 radius = 15.0
 height = 1190.0
 
-[node name="TrackA" type="Node2D" unique_id=101209382 node_paths=PackedStringArray("start_gate", "gates", "pan_handler")]
+[node name="TrackA" type="Node2D" unique_id=101209382 node_paths=PackedStringArray("start_gate", "gates", "pit_entrance", "pit_path", "pan_handler")]
 script = ExtResource("1_h30r2")
 start_gate = NodePath("Gates/StartGate")
 gates = [NodePath("Gates/gate")]
+pit_entrance = NodePath("Tracks/Pits/PitEntrance")
+pit_path = NodePath("Tracks/Pits/PitPath/PathFollow2D")
 pan_handler = NodePath("PanHandler")
 
 [node name="Tracks" type="Node2D" parent="." unique_id=514499246]
@@ -190,6 +199,19 @@ texture = ExtResource("5_ona5l")
 
 [node name="Pits" type="Node2D" parent="Tracks" unique_id=1013920707]
 
+[node name="PitEntrance" type="Area2D" parent="Tracks/Pits" unique_id=939008594]
+position = Vector2(-2000, 675)
+rotation = 1.5707964
+script = ExtResource("16_128jd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tracks/Pits/PitEntrance" unique_id=862261364]
+shape = SubResource("RectangleShape2D_r74hk")
+
+[node name="DecelerationEnd" type="Sprite2D" parent="Tracks/Pits/PitEntrance" unique_id=769250813]
+position = Vector2(6.1035156e-05, 300)
+rotation = -1.5707964
+texture = ExtResource("13_wlwk1")
+
 [node name="PitStraight3x1" type="Sprite2D" parent="Tracks/Pits" unique_id=1098697013]
 position = Vector2(-2925, 675)
 texture = ExtResource("6_wfmkj")
@@ -211,6 +233,15 @@ position = Vector2(-4050, 600)
 rotation = -3.1415925
 texture = ExtResource("10_wfmkj")
 
+[node name="PitPath" type="Path2D" parent="Tracks/Pits" unique_id=115959929]
+curve = SubResource("Curve2D_wlwk1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Tracks/Pits/PitPath" unique_id=1923964176]
+position = Vector2(-2299, 674)
+rotation = 3.114268
+cubic_interp = false
+loop = false
+
 [node name="Gates" type="Node2D" parent="." unique_id=1921205495]
 
 [node name="StartGate" parent="Gates" unique_id=661936391 instance=ExtResource("13_2wnya")]
@@ -222,7 +253,6 @@ position = Vector2(-1925, -1800)
 rotation = 1.5707964
 
 [node name="PanHandler" parent="." unique_id=2089272648 node_paths=PackedStringArray("pan_paths") instance=ExtResource("15_wdew7")]
-pan_speed = 900.0
 pan_paths = [NodePath("Path2D/PathFollow2D"), NodePath("PitPath/PathFollow2D"), NodePath("Path2D2/PathFollow2D")]
 
 [node name="Path2D" type="Path2D" parent="PanHandler" unique_id=1736528240]
@@ -248,15 +278,6 @@ curve = SubResource("Curve2D_l24ry")
 position = Vector2(-3981, -1597)
 rotation = -1.0990186
 loop = false
-
-[node name="PitEntrance" type="Area2D" parent="." unique_id=939008594]
-position = Vector2(-679, 568)
-rotation = -1.5660197
-script = ExtResource("16_128jd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PitEntrance" unique_id=862261364]
-position = Vector2(-112.590576, -1379.4779)
-shape = SubResource("RectangleShape2D_r74hk")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1458639320]
 curve = SubResource("Curve2D_8ryxv")
@@ -363,4 +384,4 @@ label_settings = ExtResource("25_bu8q4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="body_entered" from="PitEntrance" to="PitEntrance" method="_on_body_entered"]
+[connection signal="body_entered" from="Tracks/Pits/PitEntrance" to="Tracks/Pits/PitEntrance" method="_on_body_entered"]

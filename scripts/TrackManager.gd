@@ -4,6 +4,9 @@ class_name TrackManager extends Node
 @export_category("Lap Tracking")
 @export var start_gate: StartGate
 @export var gates: Array[Gate]
+@export_category("Pit Paths")
+@export var pit_entrance: PitGate
+@export var pit_path: PathFollow2D
 @export_category("Other")
 @export var pan_handler: PanHandler
 
@@ -31,6 +34,14 @@ func get_gate_index(gate: Gate) -> int:
 	var index: int = gates.find(gate)
 	assert(index != -1)
 	return index
+
+
+func get_pit_entry() -> PitGate:
+	return pit_entrance
+
+
+func get_pit_path() -> PathFollow2D:
+	return pit_path
 
 
 func set_mirror_mode(mirror: bool) -> void:

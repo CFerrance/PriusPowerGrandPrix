@@ -37,7 +37,7 @@ const QTEs : Array[String] = ["QuickTimeOne", "QuickTimeTwo", "QuickTimeThree", 
 
 
 func _ready() -> void:
-	pass
+	freeze_mode = RigidBody2D.FREEZE_MODE_STATIC
 
 
 func _physics_process(_delta: float) -> void:
@@ -46,7 +46,7 @@ func _physics_process(_delta: float) -> void:
 			_handle_shifting()
 			_calculate_steering()
 			_handle_acceleration()
-	_apply_friction()
+			_apply_friction()
 
 #region Driving Controls
 func _handle_shifting() -> void:
@@ -92,10 +92,58 @@ func _apply_friction() -> void:
 
 #region Pit Lane
 func on_pit_entry() -> void:
-	generate_quick_time_sequence()
+	set_input_state(InputState.PIT_LANE)
+	await _handle_deceleration_zone()
+	await _handle_pit_navigation()
+	_generate_quick_time_sequence()
+	await _handle_pit_exit()
+	#set_input_state(InputState.DRIVING)
 
 
-func generate_quick_time_sequence() -> void:
+func _handle_deceleration_zone() -> void:
+	var deceleration_zone: PitGate = track_manager.get_pit_entry()
+	var entry_speed: float = get_speed()
+	var entry_direction: Vector2 = -transform.y
+	var exit_direction: Vector2 = deceleration_zone.get_exit_vector()
+	while true:
+		var progress: float = deceleration_zone.get_progress(self.global_position)
+		if progress >= 1.0:
+			linear_velocity = Vector2.ZERO
+			return
+		var speed: float = lerpf(entry_speed, PIT_SPEED, progress)
+		var direction: Vector2 = entry_direction.lerp(exit_direction, progress)
+		linear_velocity = direction * speed
+		rotation = linear_velocity.angle() + deg_to_rad(90)
+		await get_tree().physics_frame
+
+
+func _handle_pit_navigation() -> void:
+	var pit_path: PathFollow2D = track_manager.get_pit_path()
+	#v_offset is offset perpendicular to curve
+	var elapsed_time: float = 0.0
+	var initial_offset: float = pit_path.transform.y.dot(global_position - pit_path.global_position) 
+	pit_path.v_offset = initial_offset
+	while true:
+		if pit_path.progress_ratio >= 1.0:
+			return
+		pit_path.progress += PIT_SPEED * get_process_delta_time()
+		elapsed_time += get_process_delta_time()
+		if elapsed_time > 1.0:
+			pit_path.v_offset = 0.0
+			global_position = pit_path.global_position
+			rotation = pit_path.transform.x.angle() + deg_to_rad(90)
+		else:
+			pit_path.v_offset = lerpf(initial_offset, 0.0, clampf(elapsed_time, 0.0, 1.0))
+			global_position = pit_path.global_position
+			rotation = (pit_path.transform.x * PIT_SPEED - transform.x * initial_offset).angle() + deg_to_rad(90)
+		await get_tree().process_frame
+
+
+func _handle_pit_exit() -> void:
+	pass
+
+
+func _generate_quick_time_sequence() -> void:
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 	current_qtes = [QTEs[rng.randi_range(0, len(QTEs) - 1)]]
 	successes = 0
@@ -132,6 +180,10 @@ func get_speed() -> float:
 
 func set_input_state(state: InputState) -> void:
 	current_input_state = state
+	if current_input_state == InputState.PIT_LANE:
+		freeze = true
+	else:
+		freeze = false
 
 
 func on_race_completed() -> void:

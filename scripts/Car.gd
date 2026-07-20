@@ -16,6 +16,9 @@ var completed_laps: Array[float]
 var passed_gates: Array[Gate]
 var last_gate_msec: int
 
+#constants
+const PIT_SPEED: float = 250.0
+
 #dependencies
 var level_manager: LevelManager
 var track_manager: TrackManager
