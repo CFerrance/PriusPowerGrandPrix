@@ -93,11 +93,26 @@ func _apply_friction() -> void:
 #region Pit Lane
 func on_pit_entry() -> void:
 	set_input_state(InputState.PIT_LANE)
+	current_gear = Gear.LOW
+	gear_changed.emit(current_gear)
 	await _handle_deceleration_zone()
 	await _handle_pit_navigation()
 	_generate_quick_time_sequence()
+	await get_tree().create_timer(qte_time_limit).timeout
+	if current_qtes.is_empty():
+		return
+	else:
+		print("TOO SLOW, ADMINISTERING PENALTY")
+		current_qtes.clear()
+		await get_tree().create_timer(too_slow_penalty).timeout
+		print("PENALTY COMPLETE")
+		_exit_pit()
+
+
+func _exit_pit() -> void:
 	await _handle_pit_exit()
-	#set_input_state(InputState.DRIVING)
+	linear_velocity = -transform.y * PIT_SPEED
+	set_input_state(InputState.DRIVING)
 
 
 func _handle_deceleration_zone() -> void:
@@ -111,36 +126,47 @@ func _handle_deceleration_zone() -> void:
 			linear_velocity = Vector2.ZERO
 			return
 		var speed: float = lerpf(entry_speed, PIT_SPEED, progress)
-		var direction: Vector2 = entry_direction.lerp(exit_direction, progress)
+		var direction: Vector2 = entry_direction.slerp(exit_direction, progress)
 		linear_velocity = direction * speed
 		rotation = linear_velocity.angle() + deg_to_rad(90)
 		await get_tree().physics_frame
 
 
 func _handle_pit_navigation() -> void:
-	var pit_path: PathFollow2D = track_manager.get_pit_path()
+	var entry_follow: PathFollow2D = track_manager.get_pit_path()
 	#v_offset is offset perpendicular to curve
 	var elapsed_time: float = 0.0
-	var initial_offset: float = pit_path.transform.y.dot(global_position - pit_path.global_position) 
-	pit_path.v_offset = initial_offset
+	var initial_offset: float = entry_follow.transform.y.dot(global_position - entry_follow.global_position) 
+	entry_follow.v_offset = initial_offset
+	var entry_angle: float = -transform.y.angle() - deg_to_rad(90)
+	var correction_angle: float = (entry_follow.transform.x * PIT_SPEED - transform.x * initial_offset).angle() + deg_to_rad(90)
 	while true:
-		if pit_path.progress_ratio >= 1.0:
+		if entry_follow.progress_ratio >= 1.0:
+			entry_follow.queue_free()
 			return
-		pit_path.progress += PIT_SPEED * get_process_delta_time()
+		entry_follow.progress += PIT_SPEED * get_process_delta_time()
 		elapsed_time += get_process_delta_time()
+		global_position = entry_follow.global_position
 		if elapsed_time > 1.0:
-			pit_path.v_offset = 0.0
-			global_position = pit_path.global_position
-			rotation = pit_path.transform.x.angle() + deg_to_rad(90)
+			entry_follow.v_offset = 0.0
+			rotation = entry_follow.transform.x.angle() + deg_to_rad(90)
 		else:
-			pit_path.v_offset = lerpf(initial_offset, 0.0, clampf(elapsed_time, 0.0, 1.0))
-			global_position = pit_path.global_position
-			rotation = (pit_path.transform.x * PIT_SPEED - transform.x * initial_offset).angle() + deg_to_rad(90)
+			var smooth_correct: float = 1 - absf(2 * elapsed_time - 1)
+			entry_follow.v_offset = lerpf(initial_offset, 0.0, clampf(elapsed_time, 0.0, 1.0))
+			rotation = lerp_angle(entry_angle, correction_angle, smooth_correct)
 		await get_tree().process_frame
 
 
 func _handle_pit_exit() -> void:
-	pass
+	var exit_follow: PathFollow2D = track_manager.get_pit_exit()
+	while true:
+		if exit_follow.progress_ratio >= 1.0:
+			exit_follow.queue_free()
+			return
+		exit_follow.progress += PIT_SPEED * get_process_delta_time()
+		global_position = exit_follow.global_position
+		rotation = exit_follow.transform.x.angle() + deg_to_rad(90)
+		await get_tree().process_frame
 
 
 func _generate_quick_time_sequence() -> void:
@@ -148,17 +174,23 @@ func _generate_quick_time_sequence() -> void:
 	current_qtes = [QTEs[rng.randi_range(0, len(QTEs) - 1)]]
 	successes = 0
 	print("TODO: DISPLAY QTE BUTTONS")
+	print(current_qtes)
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if current_input_state == InputState.PIT_LANE and not current_qtes.is_empty():
 		if event.is_action(current_qtes[successes]):
 			successes += 1
+			print("Success")
 			if successes == len(current_qtes):
 				print("passed QTE")
 				current_qtes = []
+				_exit_pit()
 		else:
 			print("failed QTE")
+			current_qtes.clear()
+			await get_tree().create_timer(incorrect_penalty).timeout
+			_exit_pit()
 
 #endregion
 

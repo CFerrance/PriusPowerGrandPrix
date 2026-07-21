@@ -6,7 +6,8 @@ class_name TrackManager extends Node
 @export var gates: Array[Gate]
 @export_category("Pit Paths")
 @export var pit_entrance: PitGate
-@export var pit_path: PathFollow2D
+@export var pit_path: Path2D
+@export var pit_exit: Path2D
 @export_category("Other")
 @export var pan_handler: PanHandler
 
@@ -41,7 +42,17 @@ func get_pit_entry() -> PitGate:
 
 
 func get_pit_path() -> PathFollow2D:
-	return pit_path
+	var new_follow: PathFollow2D = PathFollow2D.new()
+	pit_path.add_child(new_follow)
+	new_follow.loop = false
+	return new_follow
+
+
+func get_pit_exit() -> PathFollow2D:
+	var new_follow: PathFollow2D = PathFollow2D.new()
+	pit_exit.add_child(new_follow)
+	new_follow.loop = false
+	return new_follow
 
 
 func set_mirror_mode(mirror: bool) -> void:

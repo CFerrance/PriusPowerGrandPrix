@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bhlperx10t2dn" path="res://assets/track_art/misc/pit_ninety.png" id="10_wfmkj"]
 [ext_resource type="Texture2D" uid="uid://lyq6p0kloev3" path="res://assets/track_art/track_a/a_3_4.png" id="11_aj7uw"]
 [ext_resource type="PackedScene" uid="uid://ba6xmd0sulldd" path="res://scenes/StartGate.tscn" id="13_2wnya"]
-[ext_resource type="Texture2D" uid="uid://bsobgwbaxe2uq" path="res://assets/track_art/misc/deceleration_end.png" id="13_wlwk1"]
+[ext_resource type="Texture2D" uid="uid://bsobgwbaxe2uq" path="res://assets/track_art/misc/pit_marker.png" id="13_wlwk1"]
 [ext_resource type="PackedScene" uid="uid://bppw7qv8bmrgm" path="res://scenes/Gate.tscn" id="14_wdew7"]
 [ext_resource type="PackedScene" uid="uid://bi6yysp80nfou" path="res://scenes/PanHandler.tscn" id="15_wdew7"]
 [ext_resource type="Script" uid="uid://c5i0hqod4mh1r" path="res://scripts/PitGate.gd" id="16_128jd"]
@@ -30,13 +30,19 @@
 [ext_resource type="Texture2D" uid="uid://sflka467hi08" path="res://assets/decorations/barriers/barrier_4x1_red.png" id="29_xixdt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r74hk"]
-size = Vector2(148, 63.54895)
+size = Vector2(148, 25.774475)
 
 [sub_resource type="Curve2D" id="Curve2D_wlwk1"]
 _data = {
 "points": PackedVector2Array(39.906437, -1.0906937, -39.906437, 1.0906937, -2299, 674, 152.44896, 0.10033417, -152.44896, -0.10033417, -2812, 677, 190.77945, -6.430768, -190.77945, 6.430768, -3158, 816)
 }
 point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_00u7r"]
+_data = {
+"points": PackedVector2Array(152.35426, 3.5431223, -152.35426, -3.5431223, -3157, 816, 182.81831, 0.5615611, -182.81831, -0.5615611, -3522, 680, 62.750553, 80.80948, -62.750553, -80.80948, -4056, 619, 0, 88.57806, 0, -88.57806, -4125, 413)
+}
+point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_128jd"]
 _data = {
@@ -66,12 +72,13 @@ point_count = 19
 radius = 15.0
 height = 1190.0
 
-[node name="TrackA" type="Node2D" unique_id=101209382 node_paths=PackedStringArray("start_gate", "gates", "pit_entrance", "pit_path", "pan_handler")]
+[node name="TrackA" type="Node2D" unique_id=101209382 node_paths=PackedStringArray("start_gate", "gates", "pit_entrance", "pit_path", "pit_exit", "pan_handler")]
 script = ExtResource("1_h30r2")
 start_gate = NodePath("Gates/StartGate")
 gates = [NodePath("Gates/gate")]
 pit_entrance = NodePath("Tracks/Pits/PitEntrance")
-pit_path = NodePath("Tracks/Pits/PitPath/PathFollow2D")
+pit_path = NodePath("Tracks/Pits/PitPath")
+pit_exit = NodePath("Tracks/Pits/PitExit")
 pan_handler = NodePath("PanHandler")
 
 [node name="Tracks" type="Node2D" parent="." unique_id=514499246]
@@ -204,13 +211,15 @@ position = Vector2(-2000, 675)
 rotation = 1.5707964
 script = ExtResource("16_128jd")
 
+[node name="EntranceMarker" type="Sprite2D" parent="Tracks/Pits/PitEntrance" unique_id=769250813]
+rotation = -1.5707964
+texture = ExtResource("13_wlwk1")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tracks/Pits/PitEntrance" unique_id=862261364]
 shape = SubResource("RectangleShape2D_r74hk")
 
-[node name="DecelerationEnd" type="Sprite2D" parent="Tracks/Pits/PitEntrance" unique_id=769250813]
-position = Vector2(6.1035156e-05, 300)
-rotation = -1.5707964
-texture = ExtResource("13_wlwk1")
+[node name="DecelerationEnd" type="Node2D" parent="Tracks/Pits/PitEntrance" unique_id=711099340]
+position = Vector2(0, 300)
 
 [node name="PitStraight3x1" type="Sprite2D" parent="Tracks/Pits" unique_id=1098697013]
 position = Vector2(-2925, 675)
@@ -233,14 +242,16 @@ position = Vector2(-4050, 600)
 rotation = -3.1415925
 texture = ExtResource("10_wfmkj")
 
+[node name="PitMarker" type="Sprite2D" parent="Tracks/Pits" unique_id=2071323700]
+position = Vector2(-4125, 400)
+rotation = 1.5707964
+texture = ExtResource("13_wlwk1")
+
 [node name="PitPath" type="Path2D" parent="Tracks/Pits" unique_id=115959929]
 curve = SubResource("Curve2D_wlwk1")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Tracks/Pits/PitPath" unique_id=1923964176]
-position = Vector2(-2299, 674)
-rotation = 3.114268
-cubic_interp = false
-loop = false
+[node name="PitExit" type="Path2D" parent="Tracks/Pits" unique_id=1588558163]
+curve = SubResource("Curve2D_00u7r")
 
 [node name="Gates" type="Node2D" parent="." unique_id=1921205495]
 
