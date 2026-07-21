@@ -1,14 +1,14 @@
 class_name LevelManager extends Node
 
 #signals
-signal race_completed
+signal level_completed
 
 #exports
 
 #variables
 var player_car: PlayerCarController
 var racing_enabled: bool
-var race_start_time: float
+var race_start_time: int
 
 #constants
 const SKIP_FLYBY: bool = false
@@ -30,7 +30,7 @@ func bind_dependencies(manager: GameManager) -> void:
 	game_manager = manager
 
 
-func handle_level(race: PackedScene, laps: int, mirror: bool, car_dict: Dictionary[String, CarData], 
+func handle_level(race: PackedScene, race_type: GameManager.RaceType, laps: int, mirror: bool, car_dict: Dictionary[String, CarData], 
 		player_team: String, start_order: Array[String]) -> void:
 	track_manager = race.instantiate()
 	add_child(track_manager)
@@ -41,6 +41,7 @@ func handle_level(race: PackedScene, laps: int, mirror: bool, car_dict: Dictiona
 	track_manager.set_mirror_mode(mirror)
 	
 	_load_cars(car_dict, player_team, start_order)
+	var standings_tracker: StandingsTracker = StandingsTracker.new(cars)
 	
 	level_ui = level_ui_packed.instantiate()
 	add_child(level_ui)
@@ -60,8 +61,24 @@ func handle_level(race: PackedScene, laps: int, mirror: bool, car_dict: Dictiona
 	racing_enabled = true
 	race_start_time = Time.get_ticks_msec()
 	player_car.set_input_state(PlayerCarController.InputState.DRIVING)
+	
+	#podium + standings + next race
 	await player_car.race_completed
-	race_completed.emit()
+	racing_enabled = false
+	level_ui.toggle_hud(false)
+	if race_type != GameManager.RaceType.PRACTICE:
+		level_ui.populate_podium(standings_tracker)
+		level_ui.toggle_podium(true)
+		await level_ui.continue_pressed
+		level_ui.toggle_podium(false)
+		if race_type == GameManager.RaceType.PRIX:
+			level_ui.toggle_standings(true)
+			await  level_ui.continue_pressed
+	else:
+		level_ui.toggle_practice_stats(true)
+		await level_ui.continue_pressed
+	
+	level_completed.emit()
 	self.queue_free()
 
 
@@ -93,5 +110,5 @@ func is_racing_enabled() -> bool:
 	return racing_enabled
 
 
-func get_race_start() -> float:
+func get_race_start() -> int:
 	return race_start_time

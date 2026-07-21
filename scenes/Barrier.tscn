@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b563tpdvuqo01"]
+
+[ext_resource type="Script" uid="uid://bfmhexhrvd3nq" path="res://scripts/BarrierUpdateTool.gd" id="1_5q2fs"]
+[ext_resource type="Texture2D" uid="uid://sflka467hi08" path="res://assets/decorations/barriers/barrier_4x1_red.png" id="1_j5455"]
+[ext_resource type="LabelSettings" uid="uid://btsmuvjuk62mv" path="res://assets/decorations/barriers/barrier_text.tres" id="2_5q2fs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_beg18"]
+radius = 15.0
+height = 1190.0
+
+[node name="Barrier" type="Node2D" unique_id=2029414673]
+script = ExtResource("1_5q2fs")
+barrier_art = ExtResource("1_j5455")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=971445468]
+texture = ExtResource("1_j5455")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=653720083]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=1676171792]
+position = Vector2(0, 15)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_beg18")
+
+[node name="Label" type="Label" parent="Sprite2D" unique_id=303334900]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_top = -30.0
+offset_right = -600.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLACEHOLDER"
+label_settings = ExtResource("2_5q2fs")
+horizontal_alignment = 1
+vertical_alignment = 1

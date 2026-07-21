@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://bbnglff553i81"]
 
+[ext_resource type="Shader" uid="uid://dukf64ph3i3km" path="res://shaders/color_switch.gdshader" id="1_7u4s5"]
+[ext_resource type="Texture2D" uid="uid://dq18l8f6bd8h1" path="res://assets/cars/palettes/base_palette.png" id="2_qn377"]
+[ext_resource type="Texture2D" uid="uid://bfwslwhyy1kr0" path="res://assets/cars/palettes/orange_palette.png" id="3_fbyd5"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qt2eu"]
 radius = 17.0
 height = 88.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ys5ts"]
+shader = ExtResource("1_7u4s5")
+shader_parameter/original_palette = ExtResource("2_qn377")
+shader_parameter/replacement_palette = ExtResource("3_fbyd5")
+shader_parameter/num_colors = 8
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qt2eu"]
 load_path = "res://.godot/imported/prius.png-79dc21eaf5851df3e1f9b95d1205947d.ctex"
@@ -16,4 +26,6 @@ shape = SubResource("CapsuleShape2D_qt2eu")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=677048385]
 z_index = 10
+texture_filter = 1
+material = SubResource("ShaderMaterial_ys5ts")
 texture = SubResource("CompressedTexture2D_qt2eu")

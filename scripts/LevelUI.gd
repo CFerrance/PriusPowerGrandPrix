@@ -1,5 +1,8 @@
 class_name LevelUI extends Node
 
+#signals
+signal continue_pressed
+
 #exports
 @export_category("HUD")
 @export var hud_parent: Control
@@ -15,6 +18,21 @@ class_name LevelUI extends Node
 @export var min_wait: float
 @export var max_wait: float
 @export var lights: Array[Control]
+
+@export_category("Podium")
+@export var podium_parent: Control
+
+@export_category("Standings")
+@export var standings_parent: Control
+
+@export_category("Practice Report")
+@export var report_parent: Control
+@export var final_time_text: Label
+@export var best_lap_text: Label
+@export var average_lap_text: Label
+
+@export_category("Other")
+@export var continue_button: Button
 
 #dependencies
 var level_manager: LevelManager
@@ -53,15 +71,9 @@ func _set_speed_text(speed: float) -> void:
 
 
 func _update_lap_time() -> void:
-	var race_time_sec: float = (Time.get_ticks_msec() - level_manager.get_race_start()) / 1000.0
-	var race_time_min: int = int(race_time_sec / 60) 
-	race_time_sec = fmod(race_time_sec, 60)
-	race_timer_text.text = str(race_time_min) + ":" + str(race_time_sec).pad_decimals(2).pad_zeros(2)
-	
-	var lap_time_sec: float = player.get_lap_time_sec()
-	var lap_time_min: int = int(lap_time_sec / 60)
-	lap_time_sec = fmod(lap_time_sec, 60)
-	lap_timer_text.text = str(lap_time_min) + ":" + str(lap_time_sec).pad_decimals(2).pad_zeros(2)
+	race_timer_text.text = Utils.msec_to_time_string(Time.get_ticks_msec() - level_manager.get_race_start())
+	lap_timer_text.text = Utils.msec_to_time_string(player.get_lap_time_msec())
+
 
 func _set_gear(gear: int) -> void:
 	if gear == 0:
@@ -74,8 +86,9 @@ func _set_gear(gear: int) -> void:
 
 func _on_lap_completed() -> void:
 	print("Lap Completed!")
-	lap_text.text = str(player.get_laps_completed()) + "/" + str(track_manager.get_lap_count())
+	lap_text.text = str(player.get_laps_completed() + 1) + "/" + str(track_manager.get_lap_count())
 #endregion
+
 
 func handle_start_lights() -> void:
 	for i: int in range(0, len(lights)):
@@ -87,3 +100,39 @@ func handle_start_lights() -> void:
 	
 	for l: Control in lights:
 		l.hide()
+
+
+func populate_podium(standings: StandingsTracker) -> void:
+	
+	pass
+
+
+func toggle_podium(toggle: bool) -> void:
+	if toggle:
+		podium_parent.show()
+		continue_button.show()
+	else:
+		podium_parent.hide()
+
+
+func toggle_standings(toggle: bool) -> void:
+	if toggle:
+		standings_parent.show()
+		continue_button.show()
+	else:
+		standings_parent.hide()
+
+
+func toggle_practice_stats(toggle: bool) -> void:
+	if toggle:
+		report_parent.show()
+		continue_button.show()
+		final_time_text.text = player.get_final_time_string()
+		best_lap_text.text = player.get_best_lap_time_string()
+		average_lap_text.text = player.get_average_lap_time_string()
+	else:
+		report_parent.hide()
+
+
+func _on_continue_button_pressed() -> void:
+	continue_pressed.emit()

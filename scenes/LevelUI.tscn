@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dxunca8cbuejg" path="res://scripts/LevelUI.gd" id="1_kxct0"]
 [ext_resource type="Texture2D" uid="uid://bdginhskvo4gr" path="res://assets/StartLight.png" id="2_a11i2"]
 
-[node name="LevelUI" type="CanvasLayer" unique_id=618771844 node_paths=PackedStringArray("hud_parent", "speed_text", "gear_text", "place_text", "lap_text", "race_timer_text", "lap_timer_text", "lights")]
+[node name="LevelUI" type="CanvasLayer" unique_id=618771844 node_paths=PackedStringArray("hud_parent", "speed_text", "gear_text", "place_text", "lap_text", "race_timer_text", "lap_timer_text", "lights", "podium_parent", "standings_parent", "report_parent", "final_time_text", "best_lap_text", "average_lap_text", "continue_button")]
 script = ExtResource("1_kxct0")
 hud_parent = NodePath("HUD")
 speed_text = NodePath("HUD/SpeedText")
@@ -16,8 +16,16 @@ light_interval = 0.2
 min_wait = 1.0
 max_wait = 3.0
 lights = [NodePath("StartLights/StartLight"), NodePath("StartLights/StartLight2"), NodePath("StartLights/StartLight3"), NodePath("StartLights/StartLight4"), NodePath("StartLights/StartLight5")]
+podium_parent = NodePath("Podium")
+standings_parent = NodePath("Standings")
+report_parent = NodePath("PracticeReport")
+final_time_text = NodePath("PracticeReport/HBoxContainer/VBoxContainer2/FinalTimeText")
+best_lap_text = NodePath("PracticeReport/HBoxContainer/VBoxContainer2/BestLapText")
+average_lap_text = NodePath("PracticeReport/HBoxContainer/VBoxContainer2/AverageLapText")
+continue_button = NodePath("ContinueButton")
 
 [node name="HUD" type="Control" parent="." unique_id=1420571144]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -136,3 +144,125 @@ texture = ExtResource("2_a11i2")
 visible = false
 layout_mode = 2
 texture = ExtResource("2_a11i2")
+
+[node name="Podium" type="Panel" parent="." unique_id=1936714018]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PodiumLabel" type="Label" parent="Podium" unique_id=1871887499]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "PODIUM"
+
+[node name="Standings" type="Panel" parent="." unique_id=316097456]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StandingsLabel" type="Label" parent="Standings" unique_id=1622791942]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -38.0
+offset_right = 38.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Standings"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Standings" unique_id=1615239807]
+layout_mode = 0
+offset_left = 538.0
+offset_right = 578.0
+offset_bottom = 40.0
+
+[node name="PracticeReport" type="Panel" parent="." unique_id=243354417]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReportHeader" type="Label" parent="PracticeReport" unique_id=1196917179]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "PRACTICE REPORT"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PracticeReport" unique_id=454877448]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PracticeReport/HBoxContainer" unique_id=1870690563]
+layout_mode = 2
+
+[node name="FinalTimeLabel" type="Label" parent="PracticeReport/HBoxContainer/VBoxContainer" unique_id=456558359]
+layout_mode = 2
+text = "Final Time:"
+
+[node name="BestLapLabel" type="Label" parent="PracticeReport/HBoxContainer/VBoxContainer" unique_id=1456285322]
+layout_mode = 2
+text = "Best Lap Time:"
+
+[node name="AverageLapLabel" type="Label" parent="PracticeReport/HBoxContainer/VBoxContainer" unique_id=497277220]
+layout_mode = 2
+text = "Average Lap Time:"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PracticeReport/HBoxContainer" unique_id=1466361918]
+layout_mode = 2
+
+[node name="FinalTimeText" type="Label" parent="PracticeReport/HBoxContainer/VBoxContainer2" unique_id=1301162013]
+layout_mode = 2
+text = "0:00:00"
+
+[node name="BestLapText" type="Label" parent="PracticeReport/HBoxContainer/VBoxContainer2" unique_id=174382759]
+layout_mode = 2
+text = "0:00:00"
+
+[node name="AverageLapText" type="Label" parent="PracticeReport/HBoxContainer/VBoxContainer2" unique_id=2096383791]
+layout_mode = 2
+text = "0:00:00"
+
+[node name="ContinueButton" type="Button" parent="." unique_id=681573647]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "->"
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
