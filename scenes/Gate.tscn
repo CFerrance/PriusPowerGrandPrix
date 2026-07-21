@@ -6,6 +6,7 @@
 size = Vector2(35.3, 20)
 
 [node name="gate" type="Area2D" unique_id=661936391]
+collision_layer = 4
 script = ExtResource("1_xfvdi")
 
 [node name="collider" type="CollisionShape2D" parent="." unique_id=593078535]

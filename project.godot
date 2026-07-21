@@ -101,6 +101,12 @@ QuickTimeFour={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Collidables"
+2d_physics/layer_2="FrictionZone"
+2d_physics/layer_3="Gates"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

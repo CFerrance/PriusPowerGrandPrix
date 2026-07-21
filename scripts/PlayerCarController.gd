@@ -81,6 +81,7 @@ func _handle_acceleration() -> void:
 		acceleration = forwards * car_data.get_engine_power(current_gear, get_speed())
 	apply_central_force(acceleration)
 
+
 func _apply_friction() -> void:
 	if get_speed() < 5:
 		linear_velocity = Vector2.ZERO

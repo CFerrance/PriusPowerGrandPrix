@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://iieicv2kf1yx"]
+
+[ext_resource type="Texture2D" uid="uid://bbj3awrdl0wyo" path="res://assets/turn_marker.png" id="1_t3u2w"]
+[ext_resource type="Script" uid="uid://cflhvmok113ll" path="res://scripts/LabelUpdateTool.gd" id="2_i5pa1"]
+[ext_resource type="LabelSettings" uid="uid://del70c4niieba" path="res://assets/turn_markers.tres" id="2_o0kac"]
+
+[node name="TurnMarker" type="Sprite2D" unique_id=1612218603]
+texture = ExtResource("1_t3u2w")
+script = ExtResource("2_i5pa1")
+display_text = "10"
+
+[node name="Label" type="Label" parent="." unique_id=794113022]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -40.0
+offset_right = -4.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+label_settings = ExtResource("2_o0kac")
+horizontal_alignment = 1
+vertical_alignment = 1
