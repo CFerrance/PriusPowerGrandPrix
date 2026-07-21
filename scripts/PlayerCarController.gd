@@ -23,6 +23,7 @@ enum Gear {
 @export var incorrect_penalty: float = 3.5
 @export var too_slow_penalty: float = 2.0
 @export_category("Other")
+@export var brake_light: PointLight2D
 @export var remote_transform: RemoteTransform2D
 
 #variables
@@ -75,8 +76,10 @@ func _calculate_steering() -> void:
 func _handle_acceleration() -> void:
 	var forwards: Vector2 = -transform.y
 	var acceleration:  Vector2
+	brake_light.hide()
 	if Input.is_action_pressed("Brake"):
 		acceleration = -forwards * car_data.brake_power
+		brake_light.show()
 	elif Input.is_action_pressed("Accelerate"):
 		acceleration = forwards * car_data.get_engine_power(current_gear, get_speed())
 	apply_central_force(acceleration)
@@ -96,7 +99,10 @@ func on_pit_entry() -> void:
 	set_input_state(InputState.PIT_LANE)
 	current_gear = Gear.LOW
 	gear_changed.emit(current_gear)
+	brake_light.show()
 	await _handle_deceleration_zone()
+	brake_light.hide()
+	set_deferred("freeze", true)
 	await _handle_pit_navigation()
 	_generate_quick_time_sequence()
 	await get_tree().create_timer(qte_time_limit).timeout
@@ -112,6 +118,7 @@ func on_pit_entry() -> void:
 
 func _exit_pit() -> void:
 	await _handle_pit_exit()
+	set_deferred("freeze", false)
 	linear_velocity = -transform.y * PIT_SPEED
 	set_input_state(InputState.DRIVING)
 
@@ -213,10 +220,6 @@ func get_speed() -> float:
 
 func set_input_state(state: InputState) -> void:
 	current_input_state = state
-	if current_input_state == InputState.PIT_LANE:
-		freeze = true
-	else:
-		freeze = false
 
 
 func on_race_completed() -> void:

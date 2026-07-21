@@ -204,6 +204,7 @@ texture = ExtResource("13_wlwk1")
 
 [node name="PitEntrance" type="Area2D" parent="Tracks/Pits/EntranceMarker" unique_id=939008594]
 rotation = 1.5707964
+collision_layer = 4
 script = ExtResource("16_128jd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tracks/Pits/EntranceMarker/PitEntrance" unique_id=862261364]
