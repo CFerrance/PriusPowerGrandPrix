@@ -7,13 +7,7 @@
 [ext_resource type="Resource" uid="uid://dotnvacggrljl" path="res://data/track_data/trackA.tres" id="4_ucygd"]
 [ext_resource type="Resource" uid="uid://dl3xnns4pss8n" path="res://data/car_data/prius.tres" id="5_ucygd"]
 [ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://data/car_data/miniCooper.tres" id="6_mipys"]
-[ext_resource type="FontFile" uid="uid://1scsx7eqnofu" path="res://assets/fonts/chewy/Chewy-Regular.ttf" id="8_mipys"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_8a8k8"]
-font = ExtResource("8_mipys")
-font_size = 64
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="Theme" uid="uid://dme8vyv2gjtot" path="res://assets/ui_art/main_menu_theme.tres" id="8_mipys"]
 
 [node name="MainMenu" type="Control" unique_id=1320039347 node_paths=PackedStringArray("background", "title_text", "title_buttons", "options_menu", "credits", "race_options_parent", "car_options_parent", "start_screen", "mode_select_screen", "track_select_screen", "car_select_screen")]
 layout_mode = 3
@@ -62,8 +56,9 @@ offset_left = -103.5
 offset_right = 103.5
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = ExtResource("8_mipys")
+theme_override_font_sizes/font_size = 64
 text = "PRIUS POWER GRAND PRIX <3"
-label_settings = SubResource("LabelSettings_8a8k8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -81,22 +76,26 @@ grow_vertical = 0
 
 [node name="PlayButton" type="Button" parent="StartScreen/StartButtons" unique_id=1561312955]
 layout_mode = 2
+theme = ExtResource("8_mipys")
 text = "Play"
 alignment = 2
 
 [node name="OptionsButton" type="Button" parent="StartScreen/StartButtons" unique_id=478322867]
 layout_mode = 2
+theme = ExtResource("8_mipys")
 text = "Options"
 alignment = 2
 
 [node name="CreditsButton" type="Button" parent="StartScreen/StartButtons" unique_id=1162769408]
 layout_mode = 2
+theme = ExtResource("8_mipys")
 text = "Credits
 "
 alignment = 2
 
 [node name="QuitButton" type="Button" parent="StartScreen/StartButtons" unique_id=133011902]
 layout_mode = 2
+theme = ExtResource("8_mipys")
 text = "Quit
 
 "
@@ -123,6 +122,7 @@ offset_top = -8.0
 offset_right = 4.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("8_mipys")
 text = "Back"
 
 [node name="Credits" type="Panel" parent="StartScreen" unique_id=985478383]
@@ -157,16 +157,19 @@ grow_vertical = 0
 
 [node name="SingleRaceButton" type="Button" parent="ModeSelectScreen/ModeSelectButtons" unique_id=2026633534]
 layout_mode = 2
+theme = ExtResource("8_mipys")
 text = "Single Race"
 alignment = 2
 
 [node name="GrandPrixButton" type="Button" parent="ModeSelectScreen/ModeSelectButtons" unique_id=814609861]
 layout_mode = 2
+theme = ExtResource("8_mipys")
 text = "Grand Prix"
 alignment = 2
 
 [node name="PracticeButton" type="Button" parent="ModeSelectScreen/ModeSelectButtons" unique_id=736493515]
 layout_mode = 2
+theme = ExtResource("8_mipys")
 text = "Practice
 "
 alignment = 2

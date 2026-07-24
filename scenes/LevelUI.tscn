@@ -1,17 +1,20 @@
 [gd_scene format=3 uid="uid://clr5ex8wntf1a"]
 
 [ext_resource type="Script" uid="uid://dxunca8cbuejg" path="res://scripts/LevelUI.gd" id="1_kxct0"]
-[ext_resource type="Texture2D" uid="uid://bdginhskvo4gr" path="res://assets/StartLight.png" id="2_a11i2"]
+[ext_resource type="Texture2D" uid="uid://n7dsrm7ftq1g" path="res://assets/ui_art/dashboard.png" id="2_8klgi"]
+[ext_resource type="Texture2D" uid="uid://bdginhskvo4gr" path="res://assets/ui_art/StartLight.png" id="2_a11i2"]
+[ext_resource type="Theme" uid="uid://bbg3p1op4fcix" path="res://assets/ui_art/level_ui_theme.tres" id="3_3xbq7"]
 
-[node name="LevelUI" type="CanvasLayer" unique_id=618771844 node_paths=PackedStringArray("hud_parent", "speed_text", "gear_text", "place_text", "lap_text", "race_timer_text", "lap_timer_text", "lights", "podium_parent", "standings_parent", "report_parent", "final_time_text", "best_lap_text", "average_lap_text", "continue_button")]
+[node name="LevelUI" type="CanvasLayer" unique_id=618771844 node_paths=PackedStringArray("hud_parent", "speed_text", "gear_text", "place_text", "lap_text", "race_timer_text", "lap_timer_text", "level_name", "lights", "podium_parent", "standings_parent", "report_parent", "final_time_text", "best_lap_text", "average_lap_text", "continue_button")]
 script = ExtResource("1_kxct0")
 hud_parent = NodePath("HUD")
-speed_text = NodePath("HUD/SpeedText")
-gear_text = NodePath("HUD/GearText")
+speed_text = NodePath("HUD/TextureRect/SpeedText")
+gear_text = NodePath("HUD/TextureRect/GearText")
 place_text = NodePath("HUD/PlaceText")
 lap_text = NodePath("HUD/LapText")
 race_timer_text = NodePath("HUD/RaceTimer")
 lap_timer_text = NodePath("HUD/LapTimer")
+level_name = NodePath("LevelText")
 light_interval = 0.2
 min_wait = 1.0
 max_wait = 3.0
@@ -25,35 +28,51 @@ average_lap_text = NodePath("PracticeReport/HBoxContainer/VBoxContainer2/Average
 continue_button = NodePath("ContinueButton")
 
 [node name="HUD" type="Control" parent="." unique_id=1420571144]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 0.0025424862
 
-[node name="SpeedText" type="Label" parent="HUD" unique_id=740793305]
+[node name="TextureRect" type="TextureRect" parent="HUD" unique_id=148417481]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -60.0
-offset_right = 113.0
+offset_top = -119.0
+offset_right = 248.0
 grow_vertical = 0
-text = "SPEED"
+texture = ExtResource("2_8klgi")
+stretch_mode = 4
+
+[node name="SpeedText" type="Label" parent="HUD/TextureRect" unique_id=740793305]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -84.0
+offset_right = 86.0
+offset_bottom = -24.0
+grow_vertical = 0
+theme = ExtResource("3_3xbq7")
+theme_override_font_sizes/font_size = 48
+text = "XX"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GearText" type="Label" parent="HUD" unique_id=1596533554]
+[node name="GearText" type="Label" parent="HUD/TextureRect" unique_id=1596533554]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 86.0
-offset_top = -60.0
-offset_right = 193.0
+offset_left = 109.0
+offset_top = -56.0
+offset_right = 216.0
 grow_vertical = 0
+theme = ExtResource("3_3xbq7")
 text = "GEAR"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -65,12 +84,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -112.0
-offset_top = -103.0
-offset_bottom = -52.0
+offset_left = -222.0
+offset_top = -63.0
+offset_right = -112.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "PLACE"
+theme = ExtResource("3_3xbq7")
+theme_override_font_sizes/font_size = 48
+text = "X"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -81,11 +102,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -110.0
-offset_top = -53.0
+offset_left = -112.0
+offset_top = -63.0
+offset_right = -2.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "LAP"
+theme = ExtResource("3_3xbq7")
+theme_override_font_sizes/font_size = 48
+text = "X/X"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -94,24 +118,26 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -100.0
-offset_bottom = 23.0
+offset_left = -115.0
+offset_bottom = 42.0
 grow_horizontal = 0
+theme = ExtResource("3_3xbq7")
+theme_override_font_sizes/font_size = 32
 text = "0:00:00"
-horizontal_alignment = 2
 
 [node name="LapTimer" type="Label" parent="HUD" unique_id=669189831]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -97.0
-offset_top = 25.0
+offset_left = -92.0
+offset_top = 44.0
 offset_right = 1.0
-offset_bottom = 48.0
+offset_bottom = 76.0
 grow_horizontal = 0
+theme = ExtResource("3_3xbq7")
+theme_override_font_sizes/font_size = 24
 text = "0:00:00"
-horizontal_alignment = 2
 
 [node name="StartLights" type="HBoxContainer" parent="." unique_id=2130509817]
 offset_left = 401.0
@@ -264,5 +290,19 @@ offset_top = -31.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "->"
+
+[node name="LevelText" type="Label" parent="." unique_id=171461113]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.5
+offset_top = 75.0
+offset_right = 45.5
+offset_bottom = 98.0
+grow_horizontal = 2
+theme = ExtResource("3_3xbq7")
+theme_override_font_sizes/font_size = 64
+text = "Level Name"
 
 [connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

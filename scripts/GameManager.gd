@@ -79,7 +79,7 @@ func on_selections_completed(option_type: RaceType, option: RaceOption,
 		add_child(level_manager)
 		if not level_manager.is_node_ready():
 			await level_manager.ready
-		level_manager.handle_level(track, option_type, lap_count, mirror_mode, car_dict, 
+		level_manager.handle_level(option.name, track, option_type, lap_count, mirror_mode, car_dict, 
 				player_team_name, start_order)
 		await level_manager.level_completed
 	

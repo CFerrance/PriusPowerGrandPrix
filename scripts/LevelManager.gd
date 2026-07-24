@@ -30,8 +30,9 @@ func bind_dependencies(manager: GameManager) -> void:
 	game_manager = manager
 
 
-func handle_level(race: PackedScene, race_type: GameManager.RaceType, laps: int, mirror: bool, car_dict: Dictionary[String, CarData], 
-		player_team: String, start_order: Array[String]) -> void:
+func handle_level(race_name : String, race: PackedScene, race_type: GameManager.RaceType, laps: int, 
+		mirror: bool, car_dict: Dictionary[String, CarData], player_team: String, start_order: Array[String]
+		) -> void:
 	track_manager = race.instantiate()
 	add_child(track_manager)
 	if not track_manager.is_node_ready():
@@ -51,7 +52,10 @@ func handle_level(race: PackedScene, race_type: GameManager.RaceType, laps: int,
 	
 	#flyby
 	if not SKIP_FLYBY:
+		level_ui.set_level_name(race_name)
+		level_ui.toggle_level_name(true)
 		await track_manager.flyby()
+		level_ui.toggle_level_name(false)
 	
 	#start sequence
 	level_ui.toggle_hud(true)

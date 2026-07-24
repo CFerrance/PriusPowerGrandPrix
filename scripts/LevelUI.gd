@@ -13,7 +13,8 @@ signal continue_pressed
 @export var race_timer_text: Label
 @export var lap_timer_text: Label
 
-@export_category("Start Lights")
+@export_category("Level Start")
+@export var level_name: Label
 @export var light_interval: float
 @export var min_wait: float
 @export var max_wait: float
@@ -53,7 +54,7 @@ func bind_dependencies(l_manager: LevelManager, player_: PlayerCarController, t_
 
 
 func _process(_delta: float) -> void:
-	_set_speed_text(player.get_speed())
+	_set_speed_text(player.get_speed_cosmetic())
 	if level_manager.is_racing_enabled():
 		_update_lap_time()
 
@@ -88,6 +89,17 @@ func _on_lap_completed() -> void:
 	print("Lap Completed!")
 	lap_text.text = str(player.get_laps_completed() + 1) + "/" + str(track_manager.get_lap_count())
 #endregion
+
+
+func set_level_name(race_name: String) -> void:
+	level_name.text = race_name
+
+
+func toggle_level_name(toggle: bool) -> void:
+	if toggle:
+		level_name.show()
+	else:
+		level_name.hide()
 
 
 func handle_start_lights() -> void:

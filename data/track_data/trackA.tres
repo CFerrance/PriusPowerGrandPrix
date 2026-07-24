@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_ebs0d")
-name = "Track A"
+name = "Woodland Ring"
 tracks = Array[PackedScene]([ExtResource("2_f0ckl")])
-description = "A Dope Ass High Speed Track"
+description = "A high-speed track through the woods of Coopersburg"
 metadata/_custom_type_script = "uid://beycoqg1d7vvx"

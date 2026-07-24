@@ -210,6 +210,13 @@ func attach_camera(cam: Camera2D) -> void:
 	cam.enabled = false
 
 
+func get_speed_cosmetic() -> int:
+	if current_input_state == InputState.DRIVING:
+		return int(get_speed() / 10)
+	elif current_input_state == InputState.PIT_LANE and current_qtes.is_empty():
+		return int(PIT_SPEED / 10)
+	return 0
+
 func toggle_player_camera(toggle: bool) -> void:
 	player_cam.enabled = toggle
 

@@ -32,6 +32,7 @@ folder_colors={
 "res://assets/decorations/environment/": "green",
 "res://assets/fonts/": "yellow",
 "res://assets/track_art/": "teal",
+"res://assets/ui_art/": "pink",
 "res://data/": "orange",
 "res://scenes/": "blue",
 "res://scripts/": "green",
