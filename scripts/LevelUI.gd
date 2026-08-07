@@ -80,7 +80,7 @@ func _set_gear(gear: int) -> void:
 	if gear == 0:
 		gear_text.text = "ECO"
 	elif gear == 1:
-		gear_text.text = "NORMAL"
+		gear_text.text = "NORM."
 	else:
 		gear_text.text = "POWER"
 

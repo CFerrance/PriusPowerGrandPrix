@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CarPalette" format=3 uid="uid://dk8jvenyw21qf"]
+
+[ext_resource type="Texture2D" uid="uid://bfwslwhyy1kr0" path="res://assets/cars/palettes/orange_palette.png" id="1_seqjy"]
+[ext_resource type="Script" uid="uid://bvdikpevrwctm" path="res://scripts/resource_scripts/CarPalette.gd" id="2_nq2r0"]
+
+[resource]
+resource_name = "Orange"
+script = ExtResource("2_nq2r0")
+palette = ExtResource("1_seqjy")
+base_color = Color(0.93333334, 0.5058824, 0.007843138, 1)
+metadata/_custom_type_script = "uid://bvdikpevrwctm"

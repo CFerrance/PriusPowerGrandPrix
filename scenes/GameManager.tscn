@@ -1,9 +1,24 @@
 [gd_scene format=3 uid="uid://b4k6es57lp1lr"]
 
 [ext_resource type="Script" uid="uid://jjow5k64wwu3" path="res://scripts/GameManager.gd" id="1_34tde"]
-[ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://data/car_data/miniCooper.tres" id="2_4dhvd"]
-[ext_resource type="Resource" uid="uid://dl3xnns4pss8n" path="res://data/car_data/prius.tres" id="3_3dus2"]
+[ext_resource type="Script" uid="uid://c78pyble71xjs" path="res://scripts/resource_scripts/CarData.gd" id="2_440lp"]
+[ext_resource type="Resource" uid="uid://2qvi76dhc81p" path="res://data/car_data/bug.tres" id="3_3lvuv"]
+[ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://data/car_data/miniCooper.tres" id="4_vxpsb"]
+[ext_resource type="Resource" uid="uid://dl3xnns4pss8n" path="res://data/car_data/prius.tres" id="5_eb8tr"]
+[ext_resource type="Script" uid="uid://mtibpa4dn4p0" path="res://scripts/resource_scripts/Team.gd" id="6_1guj1"]
+[ext_resource type="Resource" uid="uid://dey7w3stjn6p6" path="res://data/team_data/catillac.tres" id="7_8m0j7"]
+[ext_resource type="Resource" uid="uid://dxftspocfjii8" path="res://data/team_data/furrari.tres" id="8_i4y7w"]
+[ext_resource type="Resource" uid="uid://cbdgvk5gdkl01" path="res://data/team_data/jagrawr.tres" id="9_c2ngu"]
+[ext_resource type="Resource" uid="uid://j0vsth5mrxwn" path="res://data/team_data/meowclaren.tres" id="10_lb30e"]
+[ext_resource type="Resource" uid="uid://cw2630ajpkjyp" path="res://data/team_data/meowdi.tres" id="11_3jmxs"]
+[ext_resource type="Resource" uid="uid://bba5nwh1upl2k" path="res://data/team_data/pawsche.tres" id="12_q8a5h"]
+[ext_resource type="Resource" uid="uid://bjlbj5ce674g8" path="res://data/team_data/purrcedes.tres" id="13_cliqf"]
+[ext_resource type="Script" uid="uid://beycoqg1d7vvx" path="res://scripts/resource_scripts/RaceOption.gd" id="14_3yw2i"]
+[ext_resource type="Resource" uid="uid://dotnvacggrljl" path="res://data/track_data/trackA.tres" id="15_s1ex7"]
+[ext_resource type="Resource" uid="uid://c1wxno3txhhg6" path="res://data/track_data/trackB.tres" id="16_ptb65"]
 
 [node name="GameManager" type="Node" unique_id=800928349 groups=["GameManager"]]
 script = ExtResource("1_34tde")
-bot_car_choices = Array[Object]([ExtResource("2_4dhvd"), ExtResource("3_3dus2")])
+available_cars = Array[ExtResource("2_440lp")]([ExtResource("3_3lvuv"), ExtResource("4_vxpsb"), ExtResource("5_eb8tr")])
+bot_teams = Array[ExtResource("6_1guj1")]([ExtResource("7_8m0j7"), ExtResource("8_i4y7w"), ExtResource("9_c2ngu"), ExtResource("10_lb30e"), ExtResource("11_3jmxs"), ExtResource("12_q8a5h"), ExtResource("13_cliqf")])
+available_tracks = Array[ExtResource("14_3yw2i")]([ExtResource("15_s1ex7"), ExtResource("16_ptb65")])

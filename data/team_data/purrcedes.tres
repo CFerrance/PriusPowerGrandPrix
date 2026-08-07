@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Team" format=3 uid="uid://bjlbj5ce674g8"]
+
+[ext_resource type="Resource" uid="uid://gjbxtw1jgllf" path="res://data/palette_data/blue_palette.tres" id="1_auhdx"]
+[ext_resource type="Script" uid="uid://mtibpa4dn4p0" path="res://scripts/resource_scripts/Team.gd" id="2_2cqq0"]
+
+[resource]
+script = ExtResource("2_2cqq0")
+team_name = "Purrcedes"
+preferred_palette = ExtResource("1_auhdx")
+metadata/_custom_type_script = "uid://mtibpa4dn4p0"

@@ -3,12 +3,15 @@ class_name GameManager extends Node
 #enums
 enum RaceType {
 	SINGLE,
-	PRIX,
+	CUP,
 	PRACTICE,
 }
 
 #exports
-@export var bot_car_choices: Array[CarData]
+@export var available_cars: Array[CarData]
+@export var bot_teams: Array[Team]
+@export var available_tracks: Array[RaceOption]
+@export var available_cups: Array[RaceOption]
 
 #variables
 var lap_count: int = 5
@@ -17,11 +20,11 @@ var player_team_name: String = "Player Team"
 var start_order: Array[String]
 var score_dict: Dictionary[String, int]
 var car_dict: Dictionary[String, CarData]
+var palette_dict: Dictionary[String, CarPalette]
 
 #constants
 const main_menu_packed: PackedScene = preload("res://scenes/MainMenu.tscn")
 const level_manager_packed: PackedScene = preload("res://scenes/LevelManager.tscn")
-const TEAM_NAMES: Array[String] = ["Furrari", "Purrcedes", "Catillac", "Pawsche", "MeowClaren", "Meowdi"]
 const BOT_COUNT: int = 5
 
 #dependencies
@@ -57,19 +60,23 @@ func _setup() -> void:
 	score_dict = {}
 	start_order = []
 	mirror_mode = false
+	palette_dict = {}
+	for team: Team in bot_teams:
+		palette_dict[team.team_name] = team.preferred_palette
 
 
 func on_selections_completed(option_type: RaceType, option: RaceOption,
-		 selected_car: CarData) -> void:
+		 selected_car: CarData, selected_palette: CarPalette) -> void:
 	main_menu_manager.queue_free()
 	
 	#add bot cars
 	if option_type != RaceType.PRACTICE:
-		_choose_bot_cars()
+		_choose_bot_cars(selected_palette)
 	start_order = car_dict.keys()
 	
 	#add player car (+ last)
 	car_dict[player_team_name] = selected_car
+	palette_dict[player_team_name] = selected_palette
 	start_order.append(player_team_name)
 	
 	#handle all tracks in queue one at a time
@@ -80,7 +87,7 @@ func on_selections_completed(option_type: RaceType, option: RaceOption,
 		if not level_manager.is_node_ready():
 			await level_manager.ready
 		level_manager.handle_level(option.name, track, option_type, lap_count, mirror_mode, car_dict, 
-				player_team_name, start_order)
+				player_team_name, start_order, palette_dict)
 		await level_manager.level_completed
 	
 	#restart...
@@ -89,13 +96,31 @@ func on_selections_completed(option_type: RaceType, option: RaceOption,
 	_setup()
 
 
-func _choose_bot_cars() -> void:
+func _choose_bot_cars(player_palette: CarPalette) -> void:
 	#pick random car for each team
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-	for team: String in TEAM_NAMES:
+	
+	for team: Team in bot_teams:
+		#correct car count
 		if len(car_dict) >= BOT_COUNT:
 			break
-		car_dict[team] = bot_car_choices[rng.randi_range(0, len(bot_car_choices) - 1)]
+		#teams have different names and colors
+		if player_palette.resource_path == team.preferred_palette.resource_path or player_team_name == team.team_name:
+			continue
+		
+		car_dict[team.team_name] = available_cars[rng.randi_range(0, len(available_cars) - 1)]
+
+
+func get_track_options() -> Array[RaceOption]:
+	return available_tracks.duplicate()
+
+
+func get_cup_options() -> Array[RaceOption]:
+	return available_cups.duplicate()
+
+
+func get_available_cars() -> Array[CarData]:
+	return available_cars.duplicate()
 
 
 func request_quit() -> void:

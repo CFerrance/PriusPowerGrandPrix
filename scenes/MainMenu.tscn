@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://cymmso7w4wlwi"]
 
 [ext_resource type="Script" uid="uid://doabq3ciagvd6" path="res://scripts/MainMenuManager.gd" id="1_yqorp"]
-[ext_resource type="Script" uid="uid://beycoqg1d7vvx" path="res://scripts/RaceOption.gd" id="2_2wh52"]
-[ext_resource type="Script" uid="uid://c78pyble71xjs" path="res://scripts/CarData.gd" id="4_826wr"]
-[ext_resource type="Resource" uid="uid://c1wxno3txhhg6" path="res://data/track_data/trackB.tres" id="4_mipys"]
-[ext_resource type="Resource" uid="uid://dotnvacggrljl" path="res://data/track_data/trackA.tres" id="4_ucygd"]
-[ext_resource type="Resource" uid="uid://dl3xnns4pss8n" path="res://data/car_data/prius.tres" id="5_ucygd"]
-[ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://data/car_data/miniCooper.tres" id="6_mipys"]
+[ext_resource type="Resource" uid="uid://gjbxtw1jgllf" path="res://data/palette_data/blue_palette.tres" id="7_l4mxc"]
+[ext_resource type="Resource" uid="uid://b58va0xqi154l" path="res://data/palette_data/gray_palette.tres" id="8_5faoh"]
 [ext_resource type="Theme" uid="uid://dme8vyv2gjtot" path="res://assets/ui_art/main_menu_theme.tres" id="8_mipys"]
+[ext_resource type="Resource" uid="uid://bwpki56117xlc" path="res://data/palette_data/green_palette.tres" id="9_ptake"]
+[ext_resource type="PackedScene" uid="uid://b6uwjp6yey6ag" path="res://scenes/CarouselSelect.tscn" id="10_7la6k"]
+[ext_resource type="Resource" uid="uid://dk8jvenyw21qf" path="res://data/palette_data/orange_palette.tres" id="10_hubol"]
+[ext_resource type="Resource" uid="uid://dk0wu7gv60qyx" path="res://data/palette_data/purple_palette.tres" id="11_8vx4p"]
+[ext_resource type="Resource" uid="uid://b2t6gxyg31sa7" path="res://data/palette_data/red_palette.tres" id="12_tdapf"]
+[ext_resource type="Resource" uid="uid://crhxa63vaqt6x" path="res://data/palette_data/yellow_palette.tres" id="13_v41fp"]
 
-[node name="MainMenu" type="Control" unique_id=1320039347 node_paths=PackedStringArray("background", "title_text", "title_buttons", "options_menu", "credits", "race_options_parent", "car_options_parent", "start_screen", "mode_select_screen", "track_select_screen", "car_select_screen")]
+[node name="MainMenu" type="Control" unique_id=1320039347 node_paths=PackedStringArray("background", "title_text", "title_buttons", "options_menu", "credits", "race_options_parent", "start_screen", "mode_select_screen", "track_select_screen", "car_select_screen", "car_select", "color_select")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,13 +25,12 @@ title_buttons = NodePath("StartScreen/StartButtons")
 options_menu = NodePath("StartScreen/OptionsMenu")
 credits = NodePath("StartScreen/Credits")
 race_options_parent = NodePath("TrackSelectScreen/RaceOptions")
-car_options_parent = NodePath("CarSelectScreen/CarOptions")
 start_screen = NodePath("StartScreen")
 mode_select_screen = NodePath("ModeSelectScreen")
 track_select_screen = NodePath("TrackSelectScreen")
 car_select_screen = NodePath("CarSelectScreen")
-tracks = Array[ExtResource("2_2wh52")]([ExtResource("4_ucygd"), ExtResource("4_mipys")])
-cars = Array[ExtResource("4_826wr")]([ExtResource("5_ucygd"), ExtResource("6_mipys")])
+car_select = NodePath("CarSelectScreen/CarOptions/CarSelect")
+color_select = NodePath("CarSelectScreen/CarOptions/ColorSelect")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1151407728]
 layout_mode = 1
@@ -57,7 +58,7 @@ offset_right = 103.5
 offset_bottom = 23.0
 grow_horizontal = 2
 theme = ExtResource("8_mipys")
-theme_override_font_sizes/font_size = 64
+theme_type_variation = &"Title"
 text = "PRIUS POWER GRAND PRIX <3"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -69,8 +70,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
+offset_left = -217.0
+offset_top = -168.0
+offset_right = -17.0
+offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -78,28 +81,25 @@ grow_vertical = 0
 layout_mode = 2
 theme = ExtResource("8_mipys")
 text = "Play"
-alignment = 2
+alignment = 0
 
 [node name="OptionsButton" type="Button" parent="StartScreen/StartButtons" unique_id=478322867]
 layout_mode = 2
 theme = ExtResource("8_mipys")
 text = "Options"
-alignment = 2
+alignment = 0
 
 [node name="CreditsButton" type="Button" parent="StartScreen/StartButtons" unique_id=1162769408]
 layout_mode = 2
 theme = ExtResource("8_mipys")
-text = "Credits
-"
-alignment = 2
+text = "Credits"
+alignment = 0
 
 [node name="QuitButton" type="Button" parent="StartScreen/StartButtons" unique_id=133011902]
 layout_mode = 2
 theme = ExtResource("8_mipys")
-text = "Quit
-
-"
-alignment = 2
+text = "Quit"
+alignment = 0
 
 [node name="OptionsMenu" type="Panel" parent="StartScreen" unique_id=802850973]
 visible = false
@@ -150,8 +150,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
+offset_left = -217.0
+offset_top = -128.0
+offset_right = -17.0
+offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -159,20 +161,20 @@ grow_vertical = 0
 layout_mode = 2
 theme = ExtResource("8_mipys")
 text = "Single Race"
-alignment = 2
+alignment = 0
 
-[node name="GrandPrixButton" type="Button" parent="ModeSelectScreen/ModeSelectButtons" unique_id=814609861]
+[node name="CupButton" type="Button" parent="ModeSelectScreen/ModeSelectButtons" unique_id=814609861]
 layout_mode = 2
 theme = ExtResource("8_mipys")
 text = "Grand Prix"
-alignment = 2
+alignment = 0
 
 [node name="PracticeButton" type="Button" parent="ModeSelectScreen/ModeSelectButtons" unique_id=736493515]
 layout_mode = 2
 theme = ExtResource("8_mipys")
 text = "Practice
 "
-alignment = 2
+alignment = 0
 
 [node name="TrackSelectScreen" type="Control" parent="." unique_id=1459104514]
 visible = false
@@ -182,6 +184,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("8_mipys")
 
 [node name="RaceOptions" type="VBoxContainer" parent="TrackSelectScreen" unique_id=1163869659]
 layout_mode = 1
@@ -190,8 +193,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
+offset_left = -237.0
+offset_top = -88.0
+offset_right = -17.0
+offset_bottom = 32.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -204,22 +209,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CarOptions" type="VBoxContainer" parent="CarSelectScreen" unique_id=1129436630]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="ReadyButton" type="Button" parent="CarSelectScreen" unique_id=344883265]
+[node name="CarOptions" type="VBoxContainer" parent="CarSelectScreen" unique_id=24365405]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 918.0
+offset_top = 274.0
+offset_right = 1137.0
+offset_bottom = 425.0
+theme = ExtResource("8_mipys")
+theme_override_constants/separation = 20
+
+[node name="CarSelect" parent="CarSelectScreen/CarOptions" unique_id=1934654072 instance=ExtResource("10_7la6k")]
+layout_mode = 2
+
+[node name="ColorSelect" parent="CarSelectScreen/CarOptions" unique_id=965423956 instance=ExtResource("10_7la6k")]
+layout_mode = 2
+options = Array[Resource]([ExtResource("7_l4mxc"), ExtResource("8_5faoh"), ExtResource("9_ptake"), ExtResource("10_hubol"), ExtResource("11_8vx4p"), ExtResource("12_tdapf"), ExtResource("13_v41fp")])
+
+[node name="ReadyButton" type="Button" parent="CarSelectScreen/CarOptions" unique_id=344883265]
+layout_mode = 2
 text = "Ready"
 
 [connection signal="pressed" from="StartScreen/StartButtons/PlayButton" to="." method="_on_play_button_pressed"]
@@ -228,6 +235,6 @@ text = "Ready"
 [connection signal="pressed" from="StartScreen/StartButtons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="StartScreen/OptionsMenu/BackButton" to="." method="_on_options_back_button_pressed"]
 [connection signal="pressed" from="ModeSelectScreen/ModeSelectButtons/SingleRaceButton" to="." method="_on_single_button_pressed"]
-[connection signal="pressed" from="ModeSelectScreen/ModeSelectButtons/GrandPrixButton" to="." method="_on_prix_button_pressed"]
+[connection signal="pressed" from="ModeSelectScreen/ModeSelectButtons/CupButton" to="." method="_on_cup_button_pressed"]
 [connection signal="pressed" from="ModeSelectScreen/ModeSelectButtons/PracticeButton" to="." method="_on_practice_button_pressed"]
-[connection signal="pressed" from="CarSelectScreen/ReadyButton" to="." method="_on_ready_button_pressed"]
+[connection signal="pressed" from="CarSelectScreen/CarOptions/ReadyButton" to="." method="_on_ready_button_pressed"]

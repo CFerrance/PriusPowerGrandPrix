@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Team" format=3 uid="uid://cw2630ajpkjyp"]
+
+[ext_resource type="Resource" uid="uid://b58va0xqi154l" path="res://data/palette_data/gray_palette.tres" id="1_wt4mh"]
+[ext_resource type="Script" uid="uid://mtibpa4dn4p0" path="res://scripts/resource_scripts/Team.gd" id="2_16luy"]
+
+[resource]
+script = ExtResource("2_16luy")
+team_name = "Meowdi"
+preferred_palette = ExtResource("1_wt4mh")
+metadata/_custom_type_script = "uid://mtibpa4dn4p0"
