@@ -123,6 +123,8 @@ func toggle_podium(toggle: bool) -> void:
 	if toggle:
 		podium_parent.show()
 		continue_button.show()
+		if Input.get_connected_joypads():
+			continue_button.grab_focus.call_deferred()
 	else:
 		podium_parent.hide()
 
@@ -131,6 +133,8 @@ func toggle_standings(toggle: bool) -> void:
 	if toggle:
 		standings_parent.show()
 		continue_button.show()
+		if Input.get_connected_joypads():
+			continue_button.grab_focus.call_deferred()
 	else:
 		standings_parent.hide()
 
@@ -142,6 +146,8 @@ func toggle_practice_stats(toggle: bool) -> void:
 		final_time_text.text = player.get_final_time_string()
 		best_lap_text.text = player.get_best_lap_time_string()
 		average_lap_text.text = player.get_average_lap_time_string()
+		if Input.get_connected_joypads():
+			continue_button.grab_focus.call_deferred()
 	else:
 		report_parent.hide()
 

@@ -20,3 +20,26 @@ theme_type_variation = &"Carousel"
 disabled = true
 text = "Carousel"
 script = ExtResource("1_owrd8")
+
+[node name="ScrollLeftButton" type="Button" parent="." unique_id=1304115821]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 29.0
+offset_bottom = 37.0
+theme_type_variation = &"ScrollButton"
+text = "<"
+
+[node name="ScrollRightButton" type="Button" parent="." unique_id=1715798438]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -29.0
+offset_right = -10.0
+offset_bottom = 37.0
+grow_horizontal = 0
+theme_type_variation = &"ScrollButton"
+text = ">"
+
+[connection signal="pressed" from="ScrollLeftButton" to="." method="_on_scroll_left_button_pressed"]
+[connection signal="pressed" from="ScrollRightButton" to="." method="_on_scroll_right_button_pressed"]

@@ -55,6 +55,11 @@ func setup() -> void:
 	
 	selected_color = color_select.get_default() as CarPalette
 	color_select.on_carousel_update.connect(_color_selected)
+	
+	#if playing with controller, focus on play button
+	if Input.get_connected_joypads():
+		var play_button: Control = title_buttons.get_child(0) as Control
+		play_button.grab_focus.call_deferred()
 
 
 #region ui button connections 
@@ -110,9 +115,17 @@ func _switch_screen(new_screen: Screen) -> void:
 		Screen.START:
 			_set_background(start_background)
 			start_screen.show()
+			if Input.get_connected_joypads():
+				var play_button: Control = title_buttons.get_child(0) as Control
+				play_button.grab_focus.call_deferred()
+		
 		Screen.MODE_SELECT:
 			_set_background(start_background)
 			mode_select_screen.show()
+			if Input.get_connected_joypads():
+				var play_button: Control = mode_select_screen.get_child(0).get_child(0) as Control
+				play_button.grab_focus.call_deferred()
+		
 		Screen.TRACK_SELECT:
 			_set_background(selection_background)
 			track_select_screen.show()
@@ -120,9 +133,15 @@ func _switch_screen(new_screen: Screen) -> void:
 				_display_race_options(game_manager.get_cup_options())
 			else:
 				_display_race_options(game_manager.get_track_options())
+			if Input.get_connected_joypads():
+				var option: Control = race_options_parent.get_child(0) as Control
+				option.grab_focus.call_deferred()
+		
 		Screen.CAR_SELECT:
 			_set_background(selection_background)
 			car_select_screen.show()
+			if Input.get_connected_joypads():
+				car_select.grab_focus.call_deferred()
 
 
 func _set_background(bg: Texture2D) -> void:

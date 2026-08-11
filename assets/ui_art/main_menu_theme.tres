@@ -43,6 +43,8 @@ expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkbk0"]
+
 [resource]
 Button/constants/outline_size = 5
 Button/font_sizes/font_size = 28
@@ -58,6 +60,11 @@ Carousel/styles/focus = SubResource("StyleBoxFlat_noycd")
 Label/constants/outline_size = 5
 Label/font_sizes/font_size = 28
 Label/fonts/font = ExtResource("1_fkbk0")
+ScrollButton/base_type = &"Button"
+ScrollButton/styles/hover = SubResource("StyleBoxEmpty_fkbk0")
+ScrollButton/styles/hover_pressed = SubResource("StyleBoxEmpty_fkbk0")
+ScrollButton/styles/normal = SubResource("StyleBoxEmpty_fkbk0")
+ScrollButton/styles/pressed = SubResource("StyleBoxEmpty_fkbk0")
 Title/base_type = &"Label"
 Title/constants/outline_size = 10
 Title/font_sizes/font_size = 64
