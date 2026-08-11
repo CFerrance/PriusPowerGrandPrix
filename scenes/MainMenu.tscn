@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://cymmso7w4wlwi"]
 
 [ext_resource type="Script" uid="uid://doabq3ciagvd6" path="res://scripts/MainMenuManager.gd" id="1_yqorp"]
-[ext_resource type="Resource" uid="uid://gjbxtw1jgllf" path="res://data/palette_data/blue_palette.tres" id="7_l4mxc"]
-[ext_resource type="Resource" uid="uid://b58va0xqi154l" path="res://data/palette_data/gray_palette.tres" id="8_5faoh"]
+[ext_resource type="Resource" uid="uid://2qvi76dhc81p" path="res://data/car_data/bug.tres" id="4_l4mxc"]
+[ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://data/car_data/miniCooper.tres" id="5_5faoh"]
+[ext_resource type="Resource" uid="uid://dl3xnns4pss8n" path="res://data/car_data/prius.tres" id="6_ptake"]
+[ext_resource type="Resource" uid="uid://gjbxtw1jgllf" path="res://data/palette_data/blue_palette.tres" id="7_hubol"]
+[ext_resource type="Resource" uid="uid://b58va0xqi154l" path="res://data/palette_data/gray_palette.tres" id="8_8vx4p"]
 [ext_resource type="Theme" uid="uid://dme8vyv2gjtot" path="res://assets/ui_art/main_menu_theme.tres" id="8_mipys"]
-[ext_resource type="Resource" uid="uid://bwpki56117xlc" path="res://data/palette_data/green_palette.tres" id="9_ptake"]
+[ext_resource type="Resource" uid="uid://bwpki56117xlc" path="res://data/palette_data/green_palette.tres" id="9_tdapf"]
 [ext_resource type="PackedScene" uid="uid://b6uwjp6yey6ag" path="res://scenes/CarouselSelect.tscn" id="10_7la6k"]
-[ext_resource type="Resource" uid="uid://dk8jvenyw21qf" path="res://data/palette_data/orange_palette.tres" id="10_hubol"]
-[ext_resource type="Resource" uid="uid://dk0wu7gv60qyx" path="res://data/palette_data/purple_palette.tres" id="11_8vx4p"]
-[ext_resource type="Resource" uid="uid://b2t6gxyg31sa7" path="res://data/palette_data/red_palette.tres" id="12_tdapf"]
-[ext_resource type="Resource" uid="uid://crhxa63vaqt6x" path="res://data/palette_data/yellow_palette.tres" id="13_v41fp"]
+[ext_resource type="Resource" uid="uid://dk8jvenyw21qf" path="res://data/palette_data/orange_palette.tres" id="10_v41fp"]
+[ext_resource type="Resource" uid="uid://dk0wu7gv60qyx" path="res://data/palette_data/purple_palette.tres" id="11_7shrw"]
+[ext_resource type="Resource" uid="uid://b2t6gxyg31sa7" path="res://data/palette_data/red_palette.tres" id="12_viowm"]
+[ext_resource type="Resource" uid="uid://crhxa63vaqt6x" path="res://data/palette_data/yellow_palette.tres" id="13_1n6yq"]
 
 [node name="MainMenu" type="Control" unique_id=1320039347 node_paths=PackedStringArray("background", "title_text", "title_buttons", "options_menu", "credits", "race_options_parent", "start_screen", "mode_select_screen", "track_select_screen", "car_select_screen", "car_select", "color_select")]
 layout_mode = 3
@@ -117,9 +120,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -8.0
-offset_right = 4.0
+offset_left = -50.0
+offset_top = -68.0
+offset_right = 50.0
+offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("8_mipys")
@@ -166,7 +170,7 @@ alignment = 0
 [node name="CupButton" type="Button" parent="ModeSelectScreen/ModeSelectButtons" unique_id=814609861]
 layout_mode = 2
 theme = ExtResource("8_mipys")
-text = "Grand Prix"
+text = "Cup"
 alignment = 0
 
 [node name="PracticeButton" type="Button" parent="ModeSelectScreen/ModeSelectButtons" unique_id=736493515]
@@ -220,10 +224,11 @@ theme_override_constants/separation = 20
 
 [node name="CarSelect" parent="CarSelectScreen/CarOptions" unique_id=1934654072 instance=ExtResource("10_7la6k")]
 layout_mode = 2
+options = Array[Resource]([ExtResource("4_l4mxc"), ExtResource("5_5faoh"), ExtResource("6_ptake")])
 
 [node name="ColorSelect" parent="CarSelectScreen/CarOptions" unique_id=965423956 instance=ExtResource("10_7la6k")]
 layout_mode = 2
-options = Array[Resource]([ExtResource("7_l4mxc"), ExtResource("8_5faoh"), ExtResource("9_ptake"), ExtResource("10_hubol"), ExtResource("11_8vx4p"), ExtResource("12_tdapf"), ExtResource("13_v41fp")])
+options = Array[Resource]([ExtResource("7_hubol"), ExtResource("8_8vx4p"), ExtResource("9_tdapf"), ExtResource("10_v41fp"), ExtResource("11_7shrw"), ExtResource("12_viowm"), ExtResource("13_1n6yq")])
 
 [node name="ReadyButton" type="Button" parent="CarSelectScreen/CarOptions" unique_id=344883265]
 layout_mode = 2

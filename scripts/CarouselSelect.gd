@@ -3,16 +3,20 @@ class_name CarouselSelect extends Button
 #signals
 signal on_carousel_update(selected: Resource)
 
-#exports
-@export var options: Array[Resource]
-
 #vars
 var selected: int = 0
+
+#export
+@export var options: Array[Resource]
 
 
 func _ready() -> void:
 	disabled = true
-	self.text = options[selected].resource_name
+	self.text = get_default().resource_name
+
+
+func get_default() -> Resource:
+	return options[0]
 
 
 func _gui_input(event: InputEvent) -> void:

@@ -16,9 +16,11 @@
 [ext_resource type="Script" uid="uid://beycoqg1d7vvx" path="res://scripts/resource_scripts/RaceOption.gd" id="14_3yw2i"]
 [ext_resource type="Resource" uid="uid://dotnvacggrljl" path="res://data/track_data/trackA.tres" id="15_s1ex7"]
 [ext_resource type="Resource" uid="uid://c1wxno3txhhg6" path="res://data/track_data/trackB.tres" id="16_ptb65"]
+[ext_resource type="Resource" uid="uid://b0cn4m8788rx2" path="res://data/track_data/test_cup.tres" id="17_3lvuv"]
 
 [node name="GameManager" type="Node" unique_id=800928349 groups=["GameManager"]]
 script = ExtResource("1_34tde")
 available_cars = Array[ExtResource("2_440lp")]([ExtResource("3_3lvuv"), ExtResource("4_vxpsb"), ExtResource("5_eb8tr")])
 bot_teams = Array[ExtResource("6_1guj1")]([ExtResource("7_8m0j7"), ExtResource("8_i4y7w"), ExtResource("9_c2ngu"), ExtResource("10_lb30e"), ExtResource("11_3jmxs"), ExtResource("12_q8a5h"), ExtResource("13_cliqf")])
 available_tracks = Array[ExtResource("14_3yw2i")]([ExtResource("15_s1ex7"), ExtResource("16_ptb65")])
+available_cups = Array[ExtResource("14_3yw2i")]([ExtResource("17_3lvuv")])

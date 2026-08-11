@@ -29,6 +29,7 @@ enum Screen {
 @export_category("Assets")
 @export var start_background: Texture2D
 @export var selection_background: Texture2D
+@export var available_colors: Array[CarPalette]
 
 #variables
 var current_screen: Screen = Screen.START
@@ -37,7 +38,7 @@ var car_select_buttons: Array[Button] = []
 var selected_race_type: GameManager.RaceType
 var selected_race_option: RaceOption
 var selected_car: CarData
-var selected_palette: CarPalette
+var selected_color: CarPalette
 
 #dependencies
 var game_manager: GameManager
@@ -45,10 +46,14 @@ var game_manager: GameManager
 
 func bind_dependencies(manager: GameManager) -> void:
 	game_manager = manager
+	setup()
 
 
-func _ready() -> void:
+func setup() -> void:
+	selected_car = car_select.get_default() as CarData
 	car_select.on_carousel_update.connect(_car_selected)
+	
+	selected_color = color_select.get_default() as CarPalette
 	color_select.on_carousel_update.connect(_color_selected)
 
 
@@ -175,10 +180,10 @@ func _car_selected(car: CarData) -> void:
 	selected_car = car
 
 
-func _color_selected(palette: CarPalette) -> void:
-	selected_palette = palette
+func _color_selected(color: CarPalette) -> void:
+	selected_color = color
 
 
 func _try_start_game() -> void:
 	if selected_race_type != null and selected_race_option != null and selected_car != null:
-		selections_completed.emit(selected_race_type, selected_race_option, selected_car, selected_palette)
+		selections_completed.emit(selected_race_type, selected_race_option, selected_car, selected_color)
