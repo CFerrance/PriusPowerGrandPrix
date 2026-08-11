@@ -19,20 +19,17 @@ enum Screen {
 @export var options_menu: Control
 @export var credits: Control
 @export var race_options_parent: Control
-@export var car_options_parent: Control
 @export var start_screen: Control
 @export var mode_select_screen: Control
 @export var track_select_screen: Control
 @export var car_select_screen: Control
-
-@export_category("Data")
-@export var tracks: Array[RaceOption]
-@export var prix_options: Array[RaceOption]
-@export var cars: Array[CarData]
+@export var car_select: CarouselSelect
+@export var color_select: CarouselSelect
 
 @export_category("Assets")
 @export var start_background: Texture2D
 @export var selection_background: Texture2D
+@export var available_colors: Array[CarPalette]
 
 #variables
 var current_screen: Screen = Screen.START
@@ -41,15 +38,29 @@ var car_select_buttons: Array[Button] = []
 var selected_race_type: GameManager.RaceType
 var selected_race_option: RaceOption
 var selected_car: CarData
+var selected_color: CarPalette
 
 #dependencies
 var game_manager: GameManager
 
+
 func bind_dependencies(manager: GameManager) -> void:
 	game_manager = manager
+	setup()
 
-func _ready() -> void:
-	pass
+
+func setup() -> void:
+	selected_car = car_select.get_default() as CarData
+	car_select.on_carousel_update.connect(_car_selected)
+	
+	selected_color = color_select.get_default() as CarPalette
+	color_select.on_carousel_update.connect(_color_selected)
+	
+	#if playing with controller, focus on play button
+	if Input.get_connected_joypads():
+		var play_button: Control = title_buttons.get_child(0) as Control
+		play_button.grab_focus.call_deferred()
+
 
 #region ui button connections 
 func _on_play_button_pressed() -> void:
@@ -77,8 +88,8 @@ func _on_single_button_pressed() -> void:
 	_switch_screen(Screen.TRACK_SELECT)
 
 
-func _on_prix_button_pressed() -> void:
-	selected_race_type = GameManager.RaceType.PRIX
+func _on_cup_button_pressed() -> void:
+	selected_race_type = GameManager.RaceType.CUP
 	_switch_screen(Screen.TRACK_SELECT)
 
 
@@ -104,20 +115,33 @@ func _switch_screen(new_screen: Screen) -> void:
 		Screen.START:
 			_set_background(start_background)
 			start_screen.show()
+			if Input.get_connected_joypads():
+				var play_button: Control = title_buttons.get_child(0) as Control
+				play_button.grab_focus.call_deferred()
+		
 		Screen.MODE_SELECT:
 			_set_background(start_background)
 			mode_select_screen.show()
+			if Input.get_connected_joypads():
+				var play_button: Control = mode_select_screen.get_child(0).get_child(0) as Control
+				play_button.grab_focus.call_deferred()
+		
 		Screen.TRACK_SELECT:
 			_set_background(selection_background)
 			track_select_screen.show()
-			if selected_race_type == GameManager.RaceType.PRIX:
-				_display_race_options(prix_options)
+			if selected_race_type == GameManager.RaceType.CUP:
+				_display_race_options(game_manager.get_cup_options())
 			else:
-				_display_race_options(tracks)
+				_display_race_options(game_manager.get_track_options())
+			if Input.get_connected_joypads():
+				var option: Control = race_options_parent.get_child(0) as Control
+				option.grab_focus.call_deferred()
+		
 		Screen.CAR_SELECT:
 			_set_background(selection_background)
 			car_select_screen.show()
-			_display_car_options()
+			if Input.get_connected_joypads():
+				car_select.grab_focus.call_deferred()
 
 
 func _set_background(bg: Texture2D) -> void:
@@ -171,24 +195,14 @@ func _race_option_selected(option : RaceOption) -> void:
 	_switch_screen(Screen.CAR_SELECT)
 
 
-func _display_car_options() -> void:
-	if len(car_select_buttons) < len(cars):
-		for i: int in range(len(car_select_buttons), len(cars)):
-			var button: Button = Button.new()
-			car_select_buttons.append(button)
-			car_options_parent.add_child(button)
-	for i: int in range(len(car_select_buttons)):
-		if i < len(cars):
-			car_select_buttons[i].text = cars[i].model
-			car_select_buttons[i].pressed.connect(_car_selected.bind(cars[i]))
-		else:
-			car_select_buttons[i].hide()
-
-
 func _car_selected(car: CarData) -> void:
 	selected_car = car
 
 
+func _color_selected(color: CarPalette) -> void:
+	selected_color = color
+
+
 func _try_start_game() -> void:
 	if selected_race_type != null and selected_race_option != null and selected_car != null:
-		selections_completed.emit(selected_race_type, selected_race_option, selected_car)
+		selections_completed.emit(selected_race_type, selected_race_option, selected_car, selected_color)

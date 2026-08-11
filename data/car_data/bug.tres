@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CarData" format=3 uid="uid://2qvi76dhc81p"]
+
+[ext_resource type="Script" uid="uid://c78pyble71xjs" path="res://scripts/resource_scripts/CarData.gd" id="1_8efmd"]
+[ext_resource type="Texture2D" uid="uid://smtcethejv1g" path="res://assets/cars/vw_bug.png" id="2_8efmd"]
+
+[resource]
+resource_name = "VW Bug"
+script = ExtResource("1_8efmd")
+model = "Bug"
+sprite = ExtResource("2_8efmd")

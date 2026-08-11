@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RaceOption" format=3 uid="uid://b0cn4m8788rx2"]
+
+[ext_resource type="Script" uid="uid://beycoqg1d7vvx" path="res://scripts/resource_scripts/RaceOption.gd" id="1_vhkte"]
+[ext_resource type="PackedScene" uid="uid://cpoim6tvat132" path="res://scenes/TrackA.tscn" id="2_pttfk"]
+[ext_resource type="PackedScene" uid="uid://b7442pag2g35o" path="res://scenes/TrackB.tscn" id="3_pypk5"]
+
+[resource]
+script = ExtResource("1_vhkte")
+name = "TEST"
+tracks = Array[PackedScene]([ExtResource("2_pttfk"), ExtResource("3_pypk5")])
+description = "TEST CUP"
+metadata/_custom_type_script = "uid://beycoqg1d7vvx"

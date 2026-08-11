@@ -29,11 +29,16 @@ func bind_dependencies(l_manager: LevelManager, t_manager: TrackManager) -> void
 	track_manager = t_manager
 
 
-func configure_car(team: String, data: CarData) -> void:
+func configure_car(team: String, data: CarData, palette: CarPalette) -> void:
 	team_name = team
 	car_data = data
 	self.mass = car_data.mass
+	
+	#visuals
 	car_sprite.texture = car_data.sprite
+	car_sprite.material = car_sprite.material.duplicate()
+	var shader_material: ShaderMaterial = car_sprite.material as ShaderMaterial
+	shader_material.set_shader_parameter("replacement_palette", palette.palette)
 
 
 #region Lap Tracking

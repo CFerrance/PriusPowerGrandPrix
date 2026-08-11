@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://bbg3p1op4fcix"]
+
+[ext_resource type="FontFile" uid="uid://1scsx7eqnofu" path="res://assets/fonts/chewy/Chewy-Regular.ttf" id="1_vcyfy"]
+
+[resource]
+Label/constants/outline_size = 5
+Label/fonts/font = ExtResource("1_vcyfy")

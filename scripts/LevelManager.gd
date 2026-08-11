@@ -30,8 +30,9 @@ func bind_dependencies(manager: GameManager) -> void:
 	game_manager = manager
 
 
-func handle_level(race: PackedScene, race_type: GameManager.RaceType, laps: int, mirror: bool, car_dict: Dictionary[String, CarData], 
-		player_team: String, start_order: Array[String]) -> void:
+func handle_level(race_name : String, race: PackedScene, race_type: GameManager.RaceType, laps: int, 
+		mirror: bool, car_dict: Dictionary[String, CarData], player_team: String, start_order: Array[String],
+		palette_dict: Dictionary[String, CarPalette]) -> void:
 	track_manager = race.instantiate()
 	add_child(track_manager)
 	if not track_manager.is_node_ready():
@@ -40,7 +41,7 @@ func handle_level(race: PackedScene, race_type: GameManager.RaceType, laps: int,
 	track_manager.set_lap_count(laps)
 	track_manager.set_mirror_mode(mirror)
 	
-	_load_cars(car_dict, player_team, start_order)
+	_load_cars(car_dict, player_team, start_order, palette_dict)
 	var standings_tracker: StandingsTracker = StandingsTracker.new(cars)
 	
 	level_ui = level_ui_packed.instantiate()
@@ -51,7 +52,10 @@ func handle_level(race: PackedScene, race_type: GameManager.RaceType, laps: int,
 	
 	#flyby
 	if not SKIP_FLYBY:
+		level_ui.set_level_name(race_name)
+		level_ui.toggle_level_name(true)
 		await track_manager.flyby()
+		level_ui.toggle_level_name(false)
 	
 	#start sequence
 	level_ui.toggle_hud(true)
@@ -71,7 +75,7 @@ func handle_level(race: PackedScene, race_type: GameManager.RaceType, laps: int,
 		level_ui.toggle_podium(true)
 		await level_ui.continue_pressed
 		level_ui.toggle_podium(false)
-		if race_type == GameManager.RaceType.PRIX:
+		if race_type == GameManager.RaceType.CUP:
 			level_ui.toggle_standings(true)
 			await  level_ui.continue_pressed
 	else:
@@ -83,7 +87,7 @@ func handle_level(race: PackedScene, race_type: GameManager.RaceType, laps: int,
 
 
 func _load_cars(car_dict: Dictionary[String, CarData], player_team: String, 
-		start_order: Array[String]) -> void:
+		start_order: Array[String], palette_dict: Dictionary[String, CarPalette]) -> void:
 	#instantiate + configure cars
 	cars = []
 	for id: String in start_order:
@@ -95,7 +99,7 @@ func _load_cars(car_dict: Dictionary[String, CarData], player_team: String,
 			car = bot_car_packed.instantiate()
 		add_child(car)
 		car.bind_dependencies(self, track_manager)
-		car.configure_car(id, car_dict[id])
+		car.configure_car(id, car_dict[id], palette_dict[id])
 		cars.append(car)
 	
 	#attach player cam

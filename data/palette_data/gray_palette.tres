@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CarPalette" format=3 uid="uid://b58va0xqi154l"]
+
+[ext_resource type="Texture2D" uid="uid://yw1n2ys7sbcx" path="res://assets/cars/palettes/gray_palette.png" id="1_1fwy8"]
+[ext_resource type="Script" uid="uid://bvdikpevrwctm" path="res://scripts/resource_scripts/CarPalette.gd" id="2_568kd"]
+
+[resource]
+resource_name = "Gray"
+script = ExtResource("2_568kd")
+palette = ExtResource("1_1fwy8")
+base_color = Color(0.6666667, 0.65882355, 0.64705884, 1)
+metadata/_custom_type_script = "uid://bvdikpevrwctm"
