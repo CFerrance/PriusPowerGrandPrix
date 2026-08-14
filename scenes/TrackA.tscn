@@ -70,7 +70,7 @@ point_count = 19
 [node name="TrackA" type="Node2D" unique_id=101209382 node_paths=PackedStringArray("start_gate", "gates", "pit_entrance", "pit_path", "pit_exit", "pan_handler")]
 script = ExtResource("1_h30r2")
 start_gate = NodePath("Gates/StartGate")
-gates = [NodePath("Gates/gate")]
+gates = [NodePath("Gates/gate"), NodePath("Gates/gate2"), NodePath("Gates/gate3"), NodePath("Gates/gate4"), NodePath("Gates/gate5"), NodePath("Gates/gate6"), NodePath("Gates/gate7"), NodePath("Gates/gate8"), NodePath("Gates/gate9"), NodePath("Gates/gate10"), NodePath("Gates/gate11"), NodePath("Gates/gate12"), NodePath("Gates/gate13"), NodePath("Gates/gate14"), NodePath("Gates/gate15"), NodePath("Gates/gate16"), NodePath("Gates/gate17"), NodePath("Gates/gate18"), NodePath("Gates/gate19"), NodePath("Gates/gate20"), NodePath("Gates/gate21"), NodePath("Gates/gate22"), NodePath("Gates/gate23"), NodePath("Gates/gate24"), NodePath("Gates/gate25"), NodePath("Gates/gate26"), NodePath("Gates/gate27"), NodePath("Gates/gate28"), NodePath("Gates/gate29")]
 pit_entrance = NodePath("Tracks/Pits/EntranceMarker/PitEntrance")
 pit_path = NodePath("Tracks/Pits/PitPath")
 pit_exit = NodePath("Tracks/Pits/PitExit")
@@ -234,6 +234,123 @@ rotation = 1.5707964
 position = Vector2(-1925, -1800)
 rotation = 1.5707964
 
+[node name="gate2" parent="Gates" unique_id=2092726943 instance=ExtResource("14_wdew7")]
+position = Vector2(-1422, -1955)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="gate3" parent="Gates" unique_id=412618240 instance=ExtResource("14_wdew7")]
+position = Vector2(-876.00006, -2515.0002)
+rotation = 0.7853982
+
+[node name="gate4" parent="Gates" unique_id=1319989834 instance=ExtResource("14_wdew7")]
+position = Vector2(-321, -2698)
+rotation = 1.5707964
+
+[node name="gate5" parent="Gates" unique_id=753541750 instance=ExtResource("14_wdew7")]
+position = Vector2(578, -2698)
+rotation = 1.5707964
+
+[node name="gate6" parent="Gates" unique_id=1662614127 instance=ExtResource("14_wdew7")]
+position = Vector2(1502, -2679)
+rotation = 1.5707964
+
+[node name="gate7" parent="Gates" unique_id=574794585 instance=ExtResource("14_wdew7")]
+position = Vector2(2342, -2689)
+rotation = 1.5707964
+
+[node name="gate8" parent="Gates" unique_id=1379327577 instance=ExtResource("14_wdew7")]
+position = Vector2(2855, -2212)
+
+[node name="gate9" parent="Gates" unique_id=1000297848 instance=ExtResource("14_wdew7")]
+position = Vector2(2862, -1653)
+
+[node name="gate10" parent="Gates" unique_id=1421883420 instance=ExtResource("14_wdew7")]
+position = Vector2(2847, -1084)
+
+[node name="gate11" parent="Gates" unique_id=1542036462 instance=ExtResource("14_wdew7")]
+position = Vector2(2683.0002, -662.00006)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="gate12" parent="Gates" unique_id=1321121464 instance=ExtResource("14_wdew7")]
+position = Vector2(2203, -185.99994)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="gate13" parent="Gates" unique_id=1267948584 instance=ExtResource("14_wdew7")]
+position = Vector2(1588, 415)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="gate14" parent="Gates" unique_id=1571682317 instance=ExtResource("14_wdew7")]
+position = Vector2(1182, 598)
+rotation = 1.5707964
+
+[node name="gate15" parent="Gates" unique_id=1740438139 instance=ExtResource("14_wdew7")]
+position = Vector2(783.00006, 555.00006)
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="gate16" parent="Gates" unique_id=1475227137 instance=ExtResource("14_wdew7")]
+position = Vector2(760, 9)
+
+[node name="gate17" parent="Gates" unique_id=937789767 instance=ExtResource("14_wdew7")]
+position = Vector2(698, -543)
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="gate18" parent="Gates" unique_id=1530816264 instance=ExtResource("14_wdew7")]
+position = Vector2(197, -543)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="gate19" parent="Gates" unique_id=1267219675 instance=ExtResource("14_wdew7")]
+position = Vector2(136, 11)
+
+[node name="gate20" parent="Gates" unique_id=1409652174 instance=ExtResource("14_wdew7")]
+position = Vector2(99.000015, 546.00006)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="gate21" parent="Gates" unique_id=1871564519 instance=ExtResource("14_wdew7")]
+position = Vector2(-472, 614)
+rotation = 1.5707964
+
+[node name="gate22" parent="Gates" unique_id=1352438450 instance=ExtResource("14_wdew7")]
+position = Vector2(-1342, 608)
+rotation = 1.5707964
+
+[node name="gate23" parent="Gates" unique_id=167016295 instance=ExtResource("14_wdew7")]
+position = Vector2(-2186.0002, 492.00006)
+rotation = -0.7853982
+scale = Vector2(2.5, 0.99999994)
+
+[node name="gate24" parent="Gates" unique_id=73919672 instance=ExtResource("14_wdew7")]
+position = Vector2(-2991, 475)
+rotation = 1.5707964
+scale = Vector2(2, 1)
+
+[node name="gate25" parent="Gates" unique_id=1991621517 instance=ExtResource("14_wdew7")]
+position = Vector2(-3857, 397.99988)
+rotation = -0.7853982
+scale = Vector2(1.9999999, 0.99999994)
+
+[node name="gate26" parent="Gates" unique_id=1047720531 instance=ExtResource("14_wdew7")]
+position = Vector2(-4062, -298)
+
+[node name="gate27" parent="Gates" unique_id=762428371 instance=ExtResource("14_wdew7")]
+position = Vector2(-4057, -1138)
+
+[node name="gate28" parent="Gates" unique_id=471600559 instance=ExtResource("14_wdew7")]
+position = Vector2(-3914.0005, -1661.0001)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="gate29" parent="Gates" unique_id=1234291436 instance=ExtResource("14_wdew7")]
+position = Vector2(-3074, -1793)
+rotation = 1.5707964
+
 [node name="PanHandler" parent="." unique_id=2089272648 node_paths=PackedStringArray("pan_paths") instance=ExtResource("15_wdew7")]
 pan_paths = [NodePath("Path2D/PathFollow2D"), NodePath("PitPath/PathFollow2D"), NodePath("Path2D2/PathFollow2D")]
 
@@ -331,7 +448,7 @@ position = Vector2(-3209, -1616)
 texture = ExtResource("19_bu8q4")
 
 [node name="FrictionZones" type="Area2D" parent="." unique_id=781712060]
-collision_layer = 2
+collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="FrictionZones" unique_id=2040384094]

@@ -9,9 +9,13 @@ signal level_completed
 var player_car: PlayerCarController
 var racing_enabled: bool
 var race_start_time: int
+var track_manager: TrackManager
+var cars: Array[Car]
+var bots: Array[BotCar]
+var level_ui: LevelUI
 
 #constants
-const SKIP_FLYBY: bool = false
+const SKIP_FLYBY: bool = true
 const player_car_packed: PackedScene = preload("res://scenes/PlayerCar.tscn")
 const player_camera_packed: PackedScene = preload("res://scenes/PlayerCamera.tscn")
 const bot_car_packed: PackedScene = preload("res://scenes/BotCar.tscn")
@@ -19,11 +23,6 @@ const level_ui_packed: PackedScene = preload("res://scenes/LevelUI.tscn")
 
 #dependencies
 var game_manager: GameManager
-
-#children
-var track_manager: TrackManager
-var cars: Array[Car]
-var level_ui: LevelUI
 
 
 func bind_dependencies(manager: GameManager) -> void:
@@ -65,6 +64,7 @@ func handle_level(race_name : String, race: PackedScene, race_type: GameManager.
 	racing_enabled = true
 	race_start_time = Time.get_ticks_msec()
 	player_car.set_input_state(PlayerCarController.InputState.DRIVING)
+	_start_bot_cars()
 	
 	#podium + standings + next race
 	await player_car.race_completed
@@ -90,6 +90,7 @@ func _load_cars(car_dict: Dictionary[String, CarData], player_team: String,
 		start_order: Array[String], palette_dict: Dictionary[String, CarPalette]) -> void:
 	#instantiate + configure cars
 	cars = []
+	bots = []
 	for id: String in start_order:
 		var car: Car
 		if id == player_team:
@@ -97,6 +98,7 @@ func _load_cars(car_dict: Dictionary[String, CarData], player_team: String,
 			player_car = car
 		else:
 			car = bot_car_packed.instantiate()
+			bots.append(car)
 		add_child(car)
 		car.bind_dependencies(self, track_manager)
 		car.configure_car(id, car_dict[id], palette_dict[id])
@@ -108,6 +110,11 @@ func _load_cars(car_dict: Dictionary[String, CarData], player_team: String,
 	player_car.attach_camera(player_cam)
 	#position cars
 	track_manager.assign_starts(cars)
+
+
+func _start_bot_cars() -> void:
+	for bot: BotCar in bots:
+		bot.set_driving_state(BotCar.DrivingState.DRIVING)
 
 
 func is_racing_enabled() -> bool:

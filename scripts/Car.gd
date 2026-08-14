@@ -74,6 +74,11 @@ func _try_add_gate(gate: Gate) -> bool:
 		return false
 
 
+func get_next_gate() -> Gate:
+	print(track_manager.get_gate(get_gates_this_lap()).name)
+	return track_manager.get_gate(get_gates_this_lap())
+
+
 func get_laps_completed() -> int:
 	return len(completed_laps)
 
@@ -132,6 +137,10 @@ func get_average_lap_time_string() -> String:
 	return Utils.msec_to_time_string(total_time)
 
 #endregion
+
+
+func get_speed() -> float:
+	return linear_velocity.length()
 
 
 @abstract

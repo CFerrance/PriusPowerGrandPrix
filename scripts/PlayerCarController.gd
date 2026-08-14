@@ -49,6 +49,7 @@ func _physics_process(_delta: float) -> void:
 			_handle_acceleration()
 			_apply_friction()
 
+
 #region Driving Controls
 func _handle_shifting() -> void:
 	if Input.is_action_just_pressed("Upshift"):
@@ -102,7 +103,8 @@ func on_pit_entry() -> void:
 	brake_light.show()
 	await _handle_deceleration_zone()
 	brake_light.hide()
-	set_deferred("freeze", true)
+	set_collision_mask_value(1, false)
+	set_collision_mask_value(2, false)
 	await _handle_pit_navigation()
 	_generate_quick_time_sequence()
 	await get_tree().create_timer(qte_time_limit).timeout
@@ -118,7 +120,8 @@ func on_pit_entry() -> void:
 
 func _exit_pit() -> void:
 	await _handle_pit_exit()
-	set_deferred("freeze", false)
+	set_collision_mask_value(1, true)
+	set_collision_mask_value(2, true)
 	linear_velocity = -transform.y * PIT_SPEED
 	set_input_state(InputState.DRIVING)
 
@@ -219,10 +222,6 @@ func get_speed_cosmetic() -> int:
 
 func toggle_player_camera(toggle: bool) -> void:
 	player_cam.enabled = toggle
-
-
-func get_speed() -> float:
-	return linear_velocity.length()
 
 
 func set_input_state(state: InputState) -> void:

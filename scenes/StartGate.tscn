@@ -8,6 +8,7 @@
 size = Vector2(35.3, 20)
 
 [node name="StartGate" type="Area2D" unique_id=661936391 node_paths=PackedStringArray("start_positions")]
+collision_layer = 4
 script = ExtResource("1_0cul3")
 start_positions = [NodePath("Starts/StartSpot"), NodePath("Starts/StartSpot2"), NodePath("Starts/StartSpot3"), NodePath("Starts/StartSpot4"), NodePath("Starts/StartSpot5"), NodePath("Starts/StartSpot6")]
 

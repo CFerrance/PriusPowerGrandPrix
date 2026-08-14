@@ -31,6 +31,10 @@ func get_gate_count() -> int:
 	return len(gates)
 
 
+func get_gate(index: int) -> Gate:
+	return gates[index]
+
+
 func get_gate_index(gate: Gate) -> int:
 	var index: int = gates.find(gate)
 	assert(index != -1)

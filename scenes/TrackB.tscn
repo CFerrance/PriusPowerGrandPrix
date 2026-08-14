@@ -28,10 +28,9 @@ _data = {
 }
 point_count = 3
 
-[node name="TrackB" type="Node2D" unique_id=323551593 node_paths=PackedStringArray("start_gate", "gates", "pan_handler")]
+[node name="TrackB" type="Node2D" unique_id=323551593 node_paths=PackedStringArray("start_gate", "pan_handler")]
 script = ExtResource("1_jj7n2")
 start_gate = NodePath("Gates/StartGate")
-gates = [NodePath("Gates/gate")]
 pan_handler = NodePath("PanHandler")
 
 [node name="Tracks" type="Node2D" parent="." unique_id=626002899]

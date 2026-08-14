@@ -25,7 +25,7 @@ var palette_dict: Dictionary[String, CarPalette]
 #constants
 const main_menu_packed: PackedScene = preload("res://scenes/MainMenu.tscn")
 const level_manager_packed: PackedScene = preload("res://scenes/LevelManager.tscn")
-const BOT_COUNT: int = 5
+const BOT_COUNT: int = 1
 
 #dependencies
 var game_director: GameDirector
