@@ -12,10 +12,6 @@ extends Node2D
 		barrier_art = new_texture
 		_update_sprite_art(barrier_art)
 
-#onready
-@onready var label: Label = $Sprite2D/Label
-@onready var sprite: Sprite2D = $Sprite2D
-
 
 func _ready() -> void:
 	_update_barrier_text(barrier_text)
@@ -23,10 +19,31 @@ func _ready() -> void:
 
 
 func _update_barrier_text(text: String) -> void:
-	if is_inside_tree() and label:
-		label.text = text
+	if not is_inside_tree():
+		return
+	
+	var label: Label = get_node_or_null("Sprite2D/Label")
+	
+	if label == null:
+		return
+	
+	label.text = text
 
 
 func _update_sprite_art(texture: Texture2D) -> void:
-	if is_inside_tree() and sprite:
-		sprite.texture = texture
+	if not is_inside_tree() or texture == null:
+		return
+	
+	var sprite: Sprite2D = get_node_or_null("Sprite2D")
+	var label: Label = get_node_or_null("Sprite2D/Label")
+	var collision_shape: CollisionShape2D = get_node_or_null("Sprite2D/StaticBody2D/CollisionShape2D")
+	
+	if sprite == null or label == null or collision_shape == null:
+		return
+	
+	sprite.texture = texture
+	label.position.x = sprite.position.x - texture.get_width() / 2.0
+	label.position.y = sprite.position.y - texture.get_height() / 2.
+	
+	var capsule: CapsuleShape2D = collision_shape.shape as CapsuleShape2D
+	capsule.height = texture.get_width() - 10.0

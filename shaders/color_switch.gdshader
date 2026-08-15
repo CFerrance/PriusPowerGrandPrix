@@ -18,7 +18,7 @@ void fragment() {
 		vec4 current_color = texture(original_palette, uv);
 		float color_dist = distance(tex_color, current_color);
 		
-		if (color_dist <= 0.001) {
+		if (color_dist <= 0.05) {
 			COLOR = texture(replacement_palette, uv);
 			break;
 		}

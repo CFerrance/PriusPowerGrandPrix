@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_ip8p6")
-name = "track B"
+name = "Coconut Circuit"
 tracks = Array[PackedScene]([ExtResource("2_2je3k")])
-description = "Track B is like tropical or something"
+description = "Coconut Circuit blends tropical environment with city streets to create an awesome smoothie full of long straights and tight corners."
 metadata/_custom_type_script = "uid://beycoqg1d7vvx"

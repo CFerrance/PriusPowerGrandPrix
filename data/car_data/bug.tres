@@ -8,5 +8,6 @@ resource_name = "VW Bug"
 script = ExtResource("1_8efmd")
 model = "Bug"
 sprite = ExtResource("2_8efmd")
+mass = 1.0
 drag = 0.001
 base_friction = 0.2

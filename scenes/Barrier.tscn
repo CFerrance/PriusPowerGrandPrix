@@ -5,6 +5,7 @@
 [ext_resource type="LabelSettings" uid="uid://btsmuvjuk62mv" path="res://assets/decorations/barriers/barrier_text.tres" id="2_5q2fs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_beg18"]
+resource_local_to_scene = true
 radius = 15.0
 height = 1190.0
 

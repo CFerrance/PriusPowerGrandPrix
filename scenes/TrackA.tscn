@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://b6yy161g70svu" path="res://assets/decorations/environment/rock2.png" id="23_00u7r"]
 [ext_resource type="PackedScene" uid="uid://b563tpdvuqo01" path="res://scenes/Barrier.tscn" id="26_wj5o6"]
 [ext_resource type="Texture2D" uid="uid://b2hlhjdj07pik" path="res://assets/decorations/barriers/barrier_4x1_blue.png" id="27_beg18"]
+[ext_resource type="Texture2D" uid="uid://c5ob1fq8uca5n" path="res://assets/decorations/barriers/barrier_2x1_yellow.png" id="28_wlwk1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r74hk"]
 size = Vector2(148, 25.774475)
@@ -472,5 +473,10 @@ barrier_art = ExtResource("27_beg18")
 [node name="Barrier2" parent="." unique_id=1220087703 instance=ExtResource("26_wj5o6")]
 position = Vector2(-2950, 450)
 barrier_text = "Katze Karting  Katze Karting  Katze Karting  Katze Karting  Katze Karting"
+
+[node name="Barrier3" parent="." unique_id=727768711 instance=ExtResource("26_wj5o6")]
+position = Vector2(1084, 748)
+barrier_text = "Remus Racing  Remus Racing"
+barrier_art = ExtResource("28_wlwk1")
 
 [connection signal="body_entered" from="Tracks/Pits/EntranceMarker/PitEntrance" to="Tracks/Pits/EntranceMarker/PitEntrance" method="_on_body_entered"]
