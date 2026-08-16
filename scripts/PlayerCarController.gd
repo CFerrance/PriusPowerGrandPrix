@@ -87,7 +87,7 @@ func _handle_acceleration() -> void:
 
 
 func _apply_friction() -> void:
-	if get_speed() < 5:
+	if get_speed() < 5 and not Input.is_action_pressed("Accelerate"):
 		linear_velocity = Vector2.ZERO
 	var friction_force: Vector2 = linear_velocity * -1 * car_data.base_friction
 	var drag_force: Vector2 = linear_velocity * linear_velocity.length() * -1 * car_data.drag
