@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://n7dsrm7ftq1g"
-path="res://.godot/imported/dashboard.png-a520f30c9bb938f15dbfdf18766e92a4.ctex"
+path="res://.godot/imported/dashboard.png-0be93201b1d64501666880afdd69e255.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui_art/dashboard.png"
-dest_files=["res://.godot/imported/dashboard.png-a520f30c9bb938f15dbfdf18766e92a4.ctex"]
+source_file="res://Assets/UI_Art/dashboard.png"
+dest_files=["res://.godot/imported/dashboard.png-0be93201b1d64501666880afdd69e255.ctex"]
 
 [params]
 

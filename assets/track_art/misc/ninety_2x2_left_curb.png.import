@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwuvesc3o6pnk"
-path="res://.godot/imported/ninety_2x2_left_curb.png-41be8a2f0072dcbe29ea76e9c009cc10.ctex"
+path="res://.godot/imported/ninety_2x2_left_curb.png-c56cf96ec6b4298d0e19919632aa169c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/track_art/misc/ninety_2x2_left_curb.png"
-dest_files=["res://.godot/imported/ninety_2x2_left_curb.png-41be8a2f0072dcbe29ea76e9c009cc10.ctex"]
+source_file="res://Assets/Track_Art/Misc/ninety_2x2_left_curb.png"
+dest_files=["res://.godot/imported/ninety_2x2_left_curb.png-c56cf96ec6b4298d0e19919632aa169c.ctex"]
 
 [params]
 

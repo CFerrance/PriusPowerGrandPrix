@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://dme8vyv2gjtot"]
 
-[ext_resource type="FontFile" uid="uid://1scsx7eqnofu" path="res://assets/fonts/chewy/Chewy-Regular.ttf" id="1_fkbk0"]
+[ext_resource type="FontFile" uid="uid://1scsx7eqnofu" path="res://Assets/Fonts/Chewy/Chewy-Regular.ttf" id="1_fkbk0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkbk0"]
 content_margin_left = 20.0

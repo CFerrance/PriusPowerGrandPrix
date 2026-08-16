@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://iieicv2kf1yx"]
 
-[ext_resource type="Texture2D" uid="uid://bbj3awrdl0wyo" path="res://assets/turn_marker.png" id="1_t3u2w"]
-[ext_resource type="Script" uid="uid://cflhvmok113ll" path="res://scripts/LabelUpdateTool.gd" id="2_i5pa1"]
-[ext_resource type="LabelSettings" uid="uid://del70c4niieba" path="res://assets/turn_markers.tres" id="2_o0kac"]
+[ext_resource type="Texture2D" uid="uid://bbj3awrdl0wyo" path="res://Assets/turn_marker.png" id="1_t3u2w"]
+[ext_resource type="Script" uid="uid://cflhvmok113ll" path="res://Scripts/LabelUpdateTool.gd" id="2_i5pa1"]
+[ext_resource type="LabelSettings" uid="uid://del70c4niieba" path="res://Assets/turn_markers.tres" id="2_o0kac"]
 
 [node name="TurnMarker" type="Sprite2D" unique_id=1612218603]
 texture = ExtResource("1_t3u2w")

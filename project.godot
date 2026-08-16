@@ -27,17 +27,17 @@ gdscript/warnings/unsafe_call_argument=1
 [file_customization]
 
 folder_colors={
-"res://assets/": "red",
-"res://assets/decorations/": "orange",
-"res://assets/decorations/environment/": "green",
-"res://assets/fonts/": "yellow",
-"res://assets/track_art/": "teal",
-"res://assets/ui_art/": "pink",
-"res://data/": "orange",
-"res://scenes/": "blue",
-"res://scripts/": "green",
-"res://scripts/resource_scripts/": "yellow",
-"res://shaders/": "pink"
+"res://Assets/": "red",
+"res://Assets/Decorations/": "orange",
+"res://Assets/Decorations/Environment/": "green",
+"res://Assets/Fonts/": "yellow",
+"res://Assets/Track_Art/": "teal",
+"res://Assets/UI_Art/": "pink",
+"res://Data/": "orange",
+"res://Scenes/": "blue",
+"res://Scripts/": "green",
+"res://Scripts/Resource_Scripts/": "yellow",
+"res://Shaders/": "pink"
 }
 
 [global_group]

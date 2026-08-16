@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdginhskvo4gr"
-path="res://.godot/imported/StartLight.png-93ec602af45cbe37cb18d052d70d6ea8.ctex"
+path="res://.godot/imported/StartLight.png-16b62df2d35cf257b8d520347503e9d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui_art/StartLight.png"
-dest_files=["res://.godot/imported/StartLight.png-93ec602af45cbe37cb18d052d70d6ea8.ctex"]
+source_file="res://Assets/UI_Art/StartLight.png"
+dest_files=["res://.godot/imported/StartLight.png-16b62df2d35cf257b8d520347503e9d2.ctex"]
 
 [params]
 

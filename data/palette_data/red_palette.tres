@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CarPalette" format=3 uid="uid://b2t6gxyg31sa7"]
 
-[ext_resource type="Script" uid="uid://bvdikpevrwctm" path="res://scripts/resource_scripts/CarPalette.gd" id="1_sfu02"]
-[ext_resource type="Texture2D" uid="uid://cko2i6arwx6eo" path="res://assets/cars/palettes/red_palette.png" id="1_ssnn2"]
+[ext_resource type="Script" uid="uid://bvdikpevrwctm" path="res://Scripts/Resource_Scripts/CarPalette.gd" id="1_sfu02"]
+[ext_resource type="Texture2D" uid="uid://cko2i6arwx6eo" path="res://Assets/Cars/Palettes/red_palette.png" id="1_ssnn2"]
 
 [resource]
 resource_name = "Red"

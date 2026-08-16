@@ -10,8 +10,8 @@ enum RaceType {
 #exports
 @export var available_cars: Array[CarData]
 @export var bot_teams: Array[Team]
-@export var available_tracks: Array[RaceOption]
-@export var available_cups: Array[RaceOption]
+@export var available_tracks: Array[TrackData]
+@export var available_cups: Array[CupData]
 
 #variables
 var lap_count: int = 5
@@ -80,15 +80,17 @@ func on_selections_completed(option_type: RaceType, option: RaceOption,
 	start_order.append(player_team_name)
 	
 	#handle all tracks in queue one at a time
-	for track: PackedScene in option.tracks:
+	for track: TrackData in option.get_race_queue():
 		assert(level_manager == null)
 		level_manager = level_manager_packed.instantiate()
 		add_child(level_manager)
 		if not level_manager.is_node_ready():
 			await level_manager.ready
-		level_manager.handle_level(option.name, track, option_type, lap_count, mirror_mode, car_dict, 
+		level_manager.handle_level(track, option_type, lap_count, mirror_mode, car_dict, 
 				player_team_name, start_order, palette_dict)
 		await level_manager.level_completed
+		level_manager.queue_free()
+		level_manager = null
 	
 	#restart...
 	_build_children()
@@ -112,11 +114,17 @@ func _choose_bot_cars(player_palette: CarPalette) -> void:
 
 
 func get_track_options() -> Array[RaceOption]:
-	return available_tracks.duplicate()
+	var tracks: Array[RaceOption] = []
+	for track: TrackData in available_tracks:
+		tracks.append(track as RaceOption)
+	return tracks
 
 
 func get_cup_options() -> Array[RaceOption]:
-	return available_cups.duplicate()
+	var cups: Array[RaceOption] = []
+	for cup: CupData in available_cups:
+		cups.append(cup as RaceOption)
+	return cups
 
 
 func get_available_cars() -> Array[CarData]:

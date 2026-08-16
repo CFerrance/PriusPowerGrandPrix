@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://clr5ex8wntf1a"]
 
-[ext_resource type="Script" uid="uid://dxunca8cbuejg" path="res://scripts/LevelUI.gd" id="1_kxct0"]
-[ext_resource type="Texture2D" uid="uid://n7dsrm7ftq1g" path="res://assets/ui_art/dashboard.png" id="2_8klgi"]
-[ext_resource type="Texture2D" uid="uid://bdginhskvo4gr" path="res://assets/ui_art/StartLight.png" id="2_a11i2"]
-[ext_resource type="Theme" uid="uid://bbg3p1op4fcix" path="res://assets/ui_art/level_ui_theme.tres" id="3_3xbq7"]
+[ext_resource type="Script" uid="uid://dxunca8cbuejg" path="res://Scripts/LevelUI.gd" id="1_kxct0"]
+[ext_resource type="Texture2D" uid="uid://n7dsrm7ftq1g" path="res://Assets/UI_Art/dashboard.png" id="2_8klgi"]
+[ext_resource type="Texture2D" uid="uid://bdginhskvo4gr" path="res://Assets/UI_Art/StartLight.png" id="2_a11i2"]
+[ext_resource type="Theme" uid="uid://bbg3p1op4fcix" path="res://Assets/UI_Art/level_ui_theme.tres" id="3_3xbq7"]
 
 [node name="LevelUI" type="CanvasLayer" unique_id=618771844 node_paths=PackedStringArray("hud_parent", "speed_text", "gear_text", "place_text", "lap_text", "race_timer_text", "lap_timer_text", "level_name", "lights", "podium_parent", "standings_parent", "report_parent", "final_time_text", "best_lap_text", "average_lap_text", "continue_button")]
 script = ExtResource("1_kxct0")

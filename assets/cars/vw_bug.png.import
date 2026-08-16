@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://smtcethejv1g"
-path="res://.godot/imported/vw_bug.png-7f2760757245c413d3de5d22d719b737.ctex"
+path="res://.godot/imported/vw_bug.png-d321eddda1c928da97406eaf3a025dfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cars/vw_bug.png"
-dest_files=["res://.godot/imported/vw_bug.png-7f2760757245c413d3de5d22d719b737.ctex"]
+source_file="res://Assets/Cars/vw_bug.png"
+dest_files=["res://.godot/imported/vw_bug.png-d321eddda1c928da97406eaf3a025dfb.ctex"]
 
 [params]
 

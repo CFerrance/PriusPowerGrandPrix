@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c8syq7nu4jmte"]
 
-[ext_resource type="Script" uid="uid://rkj8jf2dfnj0" path="res://scripts/PlayerCarController.gd" id="1_50v30"]
-[ext_resource type="PackedScene" uid="uid://bbnglff553i81" path="res://scenes/Car.tscn" id="1_q30tf"]
-[ext_resource type="Texture2D" uid="uid://co0rxh22fb32p" path="res://assets/prius_brake_light.png" id="3_v2hfv"]
+[ext_resource type="Script" uid="uid://rkj8jf2dfnj0" path="res://Scripts/PlayerCarController.gd" id="1_50v30"]
+[ext_resource type="PackedScene" uid="uid://bbnglff553i81" path="res://Scenes/Car.tscn" id="1_q30tf"]
+[ext_resource type="Texture2D" uid="uid://co0rxh22fb32p" path="res://Assets/prius_brake_light.png" id="3_v2hfv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ryxr2"]
 friction = 0.7

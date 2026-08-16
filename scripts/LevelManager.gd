@@ -15,7 +15,7 @@ var bots: Array[BotCar]
 var level_ui: LevelUI
 
 #constants
-const SKIP_FLYBY: bool = true
+const SKIP_FLYBY: bool = false
 const player_car_packed: PackedScene = preload("res://scenes/PlayerCar.tscn")
 const player_camera_packed: PackedScene = preload("res://scenes/PlayerCamera.tscn")
 const bot_car_packed: PackedScene = preload("res://scenes/BotCar.tscn")
@@ -29,10 +29,10 @@ func bind_dependencies(manager: GameManager) -> void:
 	game_manager = manager
 
 
-func handle_level(race_name : String, race: PackedScene, race_type: GameManager.RaceType, laps: int, 
+func handle_level(track: TrackData, race_type: GameManager.RaceType, laps: int, 
 		mirror: bool, car_dict: Dictionary[String, CarData], player_team: String, start_order: Array[String],
 		palette_dict: Dictionary[String, CarPalette]) -> void:
-	track_manager = race.instantiate()
+	track_manager = track.scene.instantiate()
 	add_child(track_manager)
 	if not track_manager.is_node_ready():
 		await track_manager.ready
@@ -51,7 +51,7 @@ func handle_level(race_name : String, race: PackedScene, race_type: GameManager.
 	
 	#flyby
 	if not SKIP_FLYBY:
-		level_ui.set_level_name(race_name)
+		level_ui.set_level_name(track.name)
 		level_ui.toggle_level_name(true)
 		await track_manager.flyby()
 		level_ui.toggle_level_name(false)
@@ -83,7 +83,6 @@ func handle_level(race_name : String, race: PackedScene, race_type: GameManager.
 		await level_ui.continue_pressed
 	
 	level_completed.emit()
-	self.queue_free()
 
 
 func _load_cars(car_dict: Dictionary[String, CarData], player_team: String, 

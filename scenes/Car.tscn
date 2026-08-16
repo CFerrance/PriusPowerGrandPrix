@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bbnglff553i81"]
 
-[ext_resource type="Shader" uid="uid://dukf64ph3i3km" path="res://shaders/color_switch.gdshader" id="1_7u4s5"]
-[ext_resource type="Texture2D" uid="uid://dq18l8f6bd8h1" path="res://assets/cars/palettes/base_palette.png" id="2_qn377"]
-[ext_resource type="Texture2D" uid="uid://cko2i6arwx6eo" path="res://assets/cars/palettes/red_palette.png" id="3_qn377"]
-[ext_resource type="Texture2D" uid="uid://c1beese8p63cy" path="res://assets/cars/prius.png" id="4_fbyd5"]
+[ext_resource type="Shader" uid="uid://dukf64ph3i3km" path="res://Shaders/color_switch.gdshader" id="1_7u4s5"]
+[ext_resource type="Texture2D" uid="uid://dq18l8f6bd8h1" path="res://Assets/Cars/Palettes/base_palette.png" id="2_qn377"]
+[ext_resource type="Texture2D" uid="uid://cko2i6arwx6eo" path="res://Assets/Cars/Palettes/red_palette.png" id="3_qn377"]
+[ext_resource type="Texture2D" uid="uid://c1beese8p63cy" path="res://Assets/Cars/prius.png" id="4_fbyd5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qt2eu"]
 radius = 17.0

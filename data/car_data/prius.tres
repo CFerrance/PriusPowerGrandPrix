@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CarData" format=3 uid="uid://dl3xnns4pss8n"]
 
-[ext_resource type="Script" uid="uid://c78pyble71xjs" path="res://scripts/resource_scripts/CarData.gd" id="1_j54a6"]
-[ext_resource type="Texture2D" uid="uid://c1beese8p63cy" path="res://assets/cars/prius.png" id="2_h8bvw"]
+[ext_resource type="Script" uid="uid://c78pyble71xjs" path="res://Scripts/Resource_Scripts/CarData.gd" id="1_j54a6"]
+[ext_resource type="Texture2D" uid="uid://c1beese8p63cy" path="res://Assets/Cars/prius.png" id="2_h8bvw"]
 
 [sub_resource type="Curve" id="Curve_35b7a"]
 _data = [Vector2(0.5521739, 0), 0.0, 0.0, 0, 0, Vector2(0.6043478, 1), 0.0, 0.0, 0, 0]

@@ -16,7 +16,7 @@ enum Screen {
 @export var title_text: Control
 @export var background : TextureRect
 @export var title_buttons: Control
-@export var tutorial_race_option: RaceOption
+@export var tutorial_race_option: TrackData
 @export var options_menu: Control
 @export var credits: Control
 @export var race_options_parent: Control
