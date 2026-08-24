@@ -9,5 +9,7 @@ script = ExtResource("1_58f2x")
 model = "Mini Cooper"
 sprite = ExtResource("2_k02yx")
 mass = 1.0
+brake_power = 300
+reverse_power = 200
 drag = 0.001
 base_friction = 0.2

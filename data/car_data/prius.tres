@@ -22,6 +22,7 @@ model = "Prius"
 sprite = ExtResource("2_h8bvw")
 mass = 2.0
 brake_power = 300
+reverse_power = 200
 base_steering_power = 6500
 steering_floor = 250.0
 low_speed_grip_cutoff = 475.0

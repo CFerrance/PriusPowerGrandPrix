@@ -5,10 +5,9 @@ class_name CarData extends Resource
 @export var sprite: Resource
 
 @export_category("Basics")
-@export var mass: float:
-	get: return mass
-@export var brake_power: int:
-	get: return brake_power
+@export var mass: float
+@export var brake_power: int
+@export var reverse_power: int
 
 @export_category("Steering")
 @export var base_steering_power: int

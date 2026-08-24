@@ -79,15 +79,20 @@ func _handle_acceleration() -> void:
 	var acceleration:  Vector2
 	brake_light.hide()
 	if Input.is_action_pressed("Brake"):
-		acceleration = -forwards * car_data.brake_power
-		brake_light.show()
+		var dot: float = forwards.dot(linear_velocity)
+		if dot > 0:
+			#speed and forwards are same direction, thus we brake
+			acceleration = -forwards * car_data.brake_power
+			brake_light.show()
+		else:
+			acceleration = -forwards * car_data.reverse_power
 	elif Input.is_action_pressed("Accelerate"):
 		acceleration = forwards * car_data.get_engine_power(current_gear, get_speed())
 	apply_central_force(acceleration)
 
 
 func _apply_friction() -> void:
-	if get_speed() < 5 and not Input.is_action_pressed("Accelerate"):
+	if get_speed() < 5 and not Input.is_action_pressed("Accelerate") and not Input.is_action_pressed("Brake"):
 		linear_velocity = Vector2.ZERO
 	var friction_force: Vector2 = linear_velocity * -1 * car_data.base_friction
 	var drag_force: Vector2 = linear_velocity * linear_velocity.length() * -1 * car_data.drag
