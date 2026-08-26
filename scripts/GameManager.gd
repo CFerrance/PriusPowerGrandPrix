@@ -5,9 +5,11 @@ enum RaceType {
 	SINGLE,
 	CUP,
 	PRACTICE,
+	TUTORIAL,
 }
 
 #exports
+@export var tutorial_track: TrackData
 @export var available_cars: Array[CarData]
 @export var bot_teams: Array[Team]
 @export var available_tracks: Array[TrackData]
@@ -16,6 +18,8 @@ enum RaceType {
 #variables
 var lap_count: int = 5
 var mirror_mode: bool = false
+var selected_race_type: RaceType
+var race_queue: Array[TrackData] 
 var player_team_name: String = "Player Team"
 var start_order: Array[String]
 var score_dict: Dictionary[String, int]
@@ -23,8 +27,6 @@ var car_dict: Dictionary[String, CarData]
 var palette_dict: Dictionary[String, CarPalette]
 
 #constants
-const main_menu_packed: PackedScene = preload("res://scenes/MainMenu.tscn")
-const level_manager_packed: PackedScene = preload("res://scenes/LevelManager.tscn")
 const BOT_COUNT: int = 1
 
 #dependencies
@@ -46,6 +48,7 @@ func _ready() -> void:
 
 
 func _build_children() -> void:
+	var main_menu_packed: PackedScene = load("res://scenes/MainMenu.tscn")
 	main_menu_manager = main_menu_packed.instantiate()
 	add_child(main_menu_manager)
 
@@ -65,37 +68,68 @@ func _setup() -> void:
 		palette_dict[team.team_name] = team.preferred_palette
 
 
+func start_tutorial() -> void:
+	pass
+
+
 func on_selections_completed(option_type: RaceType, option: RaceOption,
 		 selected_car: CarData, selected_palette: CarPalette) -> void:
+	
+	selected_race_type = option_type
+	assert(selected_race_type != RaceType.TUTORIAL)
+	
 	main_menu_manager.queue_free()
 	
-	#add bot cars
+	#add bot cars to dictionary
 	if option_type != RaceType.PRACTICE:
 		_choose_bot_cars(selected_palette)
-	start_order = car_dict.keys()
+		start_order = car_dict.keys()
 	
 	#add player car (+ last)
 	car_dict[player_team_name] = selected_car
 	palette_dict[player_team_name] = selected_palette
 	start_order.append(player_team_name)
 	
-	#handle all tracks in queue one at a time
-	for track: TrackData in option.get_race_queue():
-		assert(level_manager == null)
-		level_manager = level_manager_packed.instantiate()
-		add_child(level_manager)
-		if not level_manager.is_node_ready():
-			await level_manager.ready
-		level_manager.handle_level(track, option_type, lap_count, mirror_mode, car_dict, 
-				player_team_name, start_order, palette_dict)
-		await level_manager.level_completed
-		level_manager.queue_free()
-		level_manager = null
+	#create race queue
+	race_queue = option.get_race_queue()
 	
-	#restart...
-	_build_children()
-	_bind_child_dependencies()
-	_setup()
+	_start_next_race()
+
+
+func _start_next_race() -> void:
+	#add level manager to scene
+	assert(level_manager == null)
+	assert(len(race_queue) > 0)
+	
+	var track: TrackData = race_queue[0]
+	race_queue.pop_front()
+	
+	var level_manager_packed: PackedScene = load("res://scenes/LevelManager.tscn")
+	level_manager = level_manager_packed.instantiate()
+	add_child(level_manager)
+	if not level_manager.is_node_ready():
+		await level_manager.ready
+	
+	#handle level and connect to level complete
+	level_manager.handle_level(track, selected_race_type, lap_count, mirror_mode, 
+			car_dict, player_team_name, start_order, palette_dict)
+	level_manager.level_completed.connect(on_race_finished)
+
+
+func on_race_finished() -> void:
+	if level_manager.level_completed.is_connected(on_race_finished):
+		level_manager.level_completed.disconnect(on_race_finished)
+	
+	level_manager.queue_free()
+	level_manager = null
+	
+	if len(race_queue) > 0:
+		_start_next_race()
+	else:
+		#restart...
+		_build_children()
+		_bind_child_dependencies()
+		_setup()
 
 
 func _choose_bot_cars(player_palette: CarPalette) -> void:

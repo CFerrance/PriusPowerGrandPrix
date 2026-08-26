@@ -72,8 +72,8 @@ func _set_speed_text(speed: float) -> void:
 
 
 func _update_lap_time() -> void:
-	race_timer_text.text = Utils.msec_to_time_string(Time.get_ticks_msec() - level_manager.get_race_start())
-	lap_timer_text.text = Utils.msec_to_time_string(player.get_lap_time_msec())
+	race_timer_text.text = Utils.sec_to_time_string(level_manager.get_race_time_elapsed())
+	lap_timer_text.text = Utils.sec_to_time_string(player.get_lap_time_sec())
 
 
 func _set_gear(gear: int) -> void:

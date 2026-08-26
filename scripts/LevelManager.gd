@@ -3,12 +3,10 @@ class_name LevelManager extends Node
 #signals
 signal level_completed
 
-#exports
-
 #variables
 var player_car: PlayerCarController
 var racing_enabled: bool
-var race_start_time: int
+var race_time_elapsed: float
 var track_manager: TrackManager
 var cars: Array[Car]
 var bots: Array[BotCar]
@@ -16,10 +14,6 @@ var level_ui: LevelUI
 
 #constants
 const SKIP_FLYBY: bool = false
-const player_car_packed: PackedScene = preload("res://scenes/PlayerCar.tscn")
-const player_camera_packed: PackedScene = preload("res://scenes/PlayerCamera.tscn")
-const bot_car_packed: PackedScene = preload("res://scenes/BotCar.tscn")
-const level_ui_packed: PackedScene = preload("res://scenes/LevelUI.tscn")
 
 #dependencies
 var game_manager: GameManager
@@ -27,6 +21,11 @@ var game_manager: GameManager
 
 func bind_dependencies(manager: GameManager) -> void:
 	game_manager = manager
+
+
+func _process(delta: float) -> void:
+	if racing_enabled:
+		race_time_elapsed += delta
 
 
 func handle_level(track: TrackData, race_type: GameManager.RaceType, laps: int, 
@@ -43,6 +42,7 @@ func handle_level(track: TrackData, race_type: GameManager.RaceType, laps: int,
 	_load_cars(car_dict, player_team, start_order, palette_dict)
 	var standings_tracker: StandingsTracker = StandingsTracker.new(cars)
 	
+	var level_ui_packed: PackedScene = load("res://scenes/LevelUI.tscn")
 	level_ui = level_ui_packed.instantiate()
 	add_child(level_ui)
 	if not level_ui.is_node_ready():
@@ -62,7 +62,7 @@ func handle_level(track: TrackData, race_type: GameManager.RaceType, laps: int,
 	player_car.set_input_state(PlayerCarController.InputState.REVVING)
 	await level_ui.handle_start_lights()
 	racing_enabled = true
-	race_start_time = Time.get_ticks_msec()
+	race_time_elapsed = 0.0
 	player_car.set_input_state(PlayerCarController.InputState.DRIVING)
 	_start_bot_cars()
 	
@@ -90,9 +90,11 @@ func _load_cars(car_dict: Dictionary[String, CarData], player_team: String,
 	#instantiate + configure cars
 	cars = []
 	bots = []
+	var bot_car_packed: PackedScene = load("res://scenes/BotCar.tscn")
 	for id: String in start_order:
 		var car: Car
 		if id == player_team:
+			var player_car_packed: PackedScene = load("res://scenes/PlayerCar.tscn")
 			car = player_car_packed.instantiate()
 			player_car = car
 		else:
@@ -104,7 +106,8 @@ func _load_cars(car_dict: Dictionary[String, CarData], player_team: String,
 		cars.append(car)
 	
 	#attach player cam
-	var player_cam: Camera2D = player_camera_packed.instantiate()
+	var player_cam_packed: PackedScene = load("res://scenes/PlayerCamera.tscn")
+	var player_cam: Camera2D = player_cam_packed.instantiate()
 	add_child(player_cam)
 	player_car.attach_camera(player_cam)
 	#position cars
@@ -120,5 +123,5 @@ func is_racing_enabled() -> bool:
 	return racing_enabled
 
 
-func get_race_start() -> int:
-	return race_start_time
+func get_race_time_elapsed() -> float:
+	return race_time_elapsed

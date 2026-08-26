@@ -16,7 +16,6 @@ enum Screen {
 @export var title_text: Control
 @export var background : TextureRect
 @export var title_buttons: Control
-@export var tutorial_race_option: TrackData
 @export var options_menu: Control
 @export var credits: Control
 @export var race_options_parent: Control
@@ -69,9 +68,8 @@ func _on_play_button_pressed() -> void:
 
 
 func _on_tutorial_button_pressed() -> void:
-	selected_race_type = GameManager.RaceType.PRACTICE
-	selected_race_option = tutorial_race_option
-	_switch_screen(Screen.CAR_SELECT)
+	selected_race_type = GameManager.RaceType.TUTORIAL
+	game_manager.start_tutorial()
 
 
 func _on_options_button_pressed() -> void:
@@ -118,11 +116,7 @@ func _on_ready_button_pressed() -> void:
 
 
 func _on_car_select_back_button_pressed() -> void:
-	if selected_race_option == tutorial_race_option:
-		_switch_screen(Screen.START)
-		selected_race_option = null
-	else:
-		_switch_screen(Screen.TRACK_SELECT)
+	_switch_screen(Screen.TRACK_SELECT)
 
 #endregion
 

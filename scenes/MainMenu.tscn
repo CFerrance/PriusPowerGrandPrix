@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cymmso7w4wlwi"]
 
 [ext_resource type="Script" uid="uid://doabq3ciagvd6" path="res://Scripts/MainMenuManager.gd" id="1_yqorp"]
-[ext_resource type="Resource" uid="uid://dd8cf8d0ngsi2" path="res://Data/Track_Data/Driving_School.tres" id="2_8e205"]
 [ext_resource type="Resource" uid="uid://2qvi76dhc81p" path="res://Data/Car_Data/bug.tres" id="4_l4mxc"]
 [ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://Data/Car_Data/miniCooper.tres" id="5_5faoh"]
 [ext_resource type="Resource" uid="uid://dl3xnns4pss8n" path="res://Data/Car_Data/prius.tres" id="6_ptake"]
@@ -26,7 +25,6 @@ script = ExtResource("1_yqorp")
 title_text = NodePath("StartScreen/TitleText")
 background = NodePath("Background")
 title_buttons = NodePath("StartScreen/StartButtons")
-tutorial_race_option = ExtResource("2_8e205")
 options_menu = NodePath("StartScreen/OptionsMenu")
 credits = NodePath("StartScreen/Credits")
 race_options_parent = NodePath("TrackSelectScreen/RaceOptions")
