@@ -4,10 +4,8 @@ class_name LevelManager extends Node
 signal level_completed
 
 #variables
-var player_car: PlayerCarController
 var racing_enabled: bool
 var race_time_elapsed: float
-var track_manager: TrackManager
 var cars: Array[Car]
 var bots: Array[BotCar]
 var level_ui: LevelUI
@@ -17,6 +15,11 @@ const SKIP_FLYBY: bool = false
 
 #dependencies
 var game_manager: GameManager
+
+#children
+var track_manager: TrackManager
+var player_car: PlayerCarController
+var pause_menu: PauseMenu 
 
 
 func bind_dependencies(manager: GameManager) -> void:
@@ -48,6 +51,11 @@ func handle_level(track: TrackData, race_type: GameManager.RaceType, laps: int,
 	if not level_ui.is_node_ready():
 		await level_ui.ready
 	level_ui.bind_dependencies(self, player_car, track_manager)
+	
+	var pause_menu_packed: PackedScene = load("res://Scenes/PauseMenu.tscn")
+	pause_menu = pause_menu_packed.instantiate()
+	add_child(pause_menu)
+	pause_menu.bind_dependencies(game_manager, self)
 	
 	#flyby
 	if not SKIP_FLYBY:
@@ -125,3 +133,15 @@ func is_racing_enabled() -> bool:
 
 func get_race_time_elapsed() -> float:
 	return race_time_elapsed
+
+
+func request_toggle_pause() -> void:
+	pause_menu.toggle_pause()
+
+
+func request_quit_to_menu() -> void:
+	game_manager.request_quit_to_menu()
+
+
+func request_quit() -> void:
+	game_manager.request_quit()

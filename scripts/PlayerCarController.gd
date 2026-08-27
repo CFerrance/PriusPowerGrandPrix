@@ -2,6 +2,7 @@ class_name PlayerCarController extends Car
 
 #signals
 signal gear_changed
+signal pause_requested
 
 #enums
 enum InputState {

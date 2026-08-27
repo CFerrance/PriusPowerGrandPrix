@@ -102,13 +102,13 @@ func _start_next_race() -> void:
 	assert(len(race_queue) > 0)
 	
 	var track: TrackData = race_queue[0]
-	race_queue.pop_front()
 	
 	var level_manager_packed: PackedScene = load("res://scenes/LevelManager.tscn")
 	level_manager = level_manager_packed.instantiate()
 	add_child(level_manager)
 	if not level_manager.is_node_ready():
 		await level_manager.ready
+	level_manager.bind_dependencies(self)
 	
 	#handle level and connect to level complete
 	level_manager.handle_level(track, selected_race_type, lap_count, mirror_mode, 
@@ -117,6 +117,8 @@ func _start_next_race() -> void:
 
 
 func on_race_finished() -> void:
+	race_queue.pop_front()
+	
 	if level_manager.level_completed.is_connected(on_race_finished):
 		level_manager.level_completed.disconnect(on_race_finished)
 	
@@ -163,6 +165,36 @@ func get_cup_options() -> Array[RaceOption]:
 
 func get_available_cars() -> Array[CarData]:
 	return available_cars.duplicate()
+
+
+func get_race_type() -> RaceType:
+	return selected_race_type
+
+
+func request_level_restart() -> void:
+	assert(selected_race_type == RaceType.PRACTICE or selected_race_type == RaceType.TUTORIAL)
+	
+	if level_manager.level_completed.is_connected(on_race_finished):
+		level_manager.level_completed.disconnect(on_race_finished)
+	
+	level_manager.queue_free()
+	level_manager = null
+	
+	_start_next_race()
+
+
+func request_quit_to_menu() -> void:
+	if level_manager.level_completed.is_connected(on_race_finished):
+		level_manager.level_completed.disconnect(on_race_finished)
+	
+	level_manager.queue_free()
+	level_manager = null
+	race_queue.clear()
+	
+	#restart...
+	_build_children()
+	_bind_child_dependencies()
+	_setup()
 
 
 func request_quit() -> void:

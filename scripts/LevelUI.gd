@@ -104,11 +104,11 @@ func toggle_level_name(toggle: bool) -> void:
 
 func handle_start_lights() -> void:
 	for i: int in range(0, len(lights)):
-		await  get_tree().create_timer(light_interval).timeout
+		await  get_tree().create_timer(light_interval, false).timeout
 		lights[i].show()
 	
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-	await get_tree().create_timer(rng.randf_range(min_wait, max_wait)).timeout
+	await get_tree().create_timer(rng.randf_range(min_wait, max_wait), false).timeout
 	
 	for l: Control in lights:
 		l.hide()
