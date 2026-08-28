@@ -5,10 +5,9 @@ class_name CarData extends Resource
 @export var sprite: Resource
 
 @export_category("Basics")
-@export var mass: float:
-	get: return mass
-@export var brake_power: int:
-	get: return brake_power
+@export var mass: float
+@export var brake_power: int
+@export var reverse_power: int
 
 @export_category("Steering")
 @export var base_steering_power: int
@@ -46,14 +45,14 @@ class_name CarData extends Resource
 const MAX_SPEED: float = 1000.0
 
 
-func get_engine_power(currentGear: PlayerCarController.Gear, speed: float) -> float:
-	if currentGear == PlayerCarController.Gear.HIGH:
-		return max(high_gear_engine_power * high_gear_curve.sample(speed / MAX_SPEED), high_gear_min_power)
-	elif currentGear == PlayerCarController.Gear.MID:
-		return max(mid_gear_engine_power * mid_gear_curve.sample(speed / MAX_SPEED), mid_gear_min_power)
+func get_engine_power(current_gear: PlayerCarController.Gear, speed: float) -> float:
+	if current_gear == PlayerCarController.Gear.HIGH:
+		return max(high_gear_engine_power * high_gear_curve.sample(clampf((speed / MAX_SPEED), 0.0, 1.0)), high_gear_min_power)
+	elif current_gear == PlayerCarController.Gear.MID:
+		return max(mid_gear_engine_power * mid_gear_curve.sample(clampf((speed / MAX_SPEED), 0.0, 1.0)), mid_gear_min_power)
 	else :
-		assert(currentGear == PlayerCarController.Gear.LOW)
-		return max(low_gear_engine_power * low_gear_curve.sample(speed / MAX_SPEED), low_gear_min_power)
+		assert(current_gear == PlayerCarController.Gear.LOW)
+		return max(low_gear_engine_power * low_gear_curve.sample(clampf((speed / MAX_SPEED), 0.0, 1.0)), low_gear_min_power)
 
 
 func get_best_gear(speed: float) -> PlayerCarController.Gear:

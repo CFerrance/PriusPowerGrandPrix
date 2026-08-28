@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5ob1fq8uca5n"
-path="res://.godot/imported/barrier_2x1_yellow.png-b2f2999fdbfb045082768b2f46a59b92.ctex"
+path="res://.godot/imported/barrier_2x1_yellow.png-e853d380b41a57d6b0eaf018731e8134.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/decorations/barriers/barrier_2x1_yellow.png"
-dest_files=["res://.godot/imported/barrier_2x1_yellow.png-b2f2999fdbfb045082768b2f46a59b92.ctex"]
+source_file="res://Assets/Decorations/Barriers/barrier_2x1_yellow.png"
+dest_files=["res://.godot/imported/barrier_2x1_yellow.png-e853d380b41a57d6b0eaf018731e8134.ctex"]
 
 [params]
 

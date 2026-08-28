@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cffqiwt8d7r4q"
-path="res://.godot/imported/Ninety_1x1_Curb.png-93bb4f6356a6d07c1325b1995af9b6f8.ctex"
+path="res://.godot/imported/Ninety_1x1_Curb.png-f955ebab7173f7f4e8fb6dd2fb532262.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/track_art/misc/Ninety_1x1_Curb.png"
-dest_files=["res://.godot/imported/Ninety_1x1_Curb.png-93bb4f6356a6d07c1325b1995af9b6f8.ctex"]
+source_file="res://Assets/Track_Art/Misc/Ninety_1x1_Curb.png"
+dest_files=["res://.godot/imported/Ninety_1x1_Curb.png-f955ebab7173f7f4e8fb6dd2fb532262.ctex"]
 
 [params]
 

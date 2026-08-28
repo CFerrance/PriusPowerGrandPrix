@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1bp1p6golimy"
-path="res://.godot/imported/finish_line.png-60e4c5ab15e249810b61e97e818d1ca1.ctex"
+path="res://.godot/imported/finish_line.png-557192e6623255f883f235ade30f31db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/track_art/misc/finish_line.png"
-dest_files=["res://.godot/imported/finish_line.png-60e4c5ab15e249810b61e97e818d1ca1.ctex"]
+source_file="res://Assets/Track_Art/Misc/finish_line.png"
+dest_files=["res://.godot/imported/finish_line.png-557192e6623255f883f235ade30f31db.ctex"]
 
 [params]
 

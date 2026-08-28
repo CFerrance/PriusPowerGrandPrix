@@ -20,10 +20,10 @@ func get_default() -> Resource:
 
 
 func _gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_left"):
+	if event.is_action("ui_left") and Input.is_action_just_pressed("ui_left"):
 		previous_option()
 		accept_event()
-	elif  event.is_action_pressed("ui_right"):
+	elif event.is_action("ui_right") and Input.is_action_just_pressed("ui_right"):
 		next_option()
 		accept_event()
 

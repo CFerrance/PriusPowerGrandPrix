@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CarPalette" format=3 uid="uid://dk0wu7gv60qyx"]
 
-[ext_resource type="Texture2D" uid="uid://c35xmkqh5uuyi" path="res://assets/cars/palettes/purple_palette.png" id="1_mmjym"]
-[ext_resource type="Script" uid="uid://bvdikpevrwctm" path="res://scripts/resource_scripts/CarPalette.gd" id="2_r8vbj"]
+[ext_resource type="Texture2D" uid="uid://c35xmkqh5uuyi" path="res://Assets/Cars/Palettes/purple_palette.png" id="1_mmjym"]
+[ext_resource type="Script" uid="uid://bvdikpevrwctm" path="res://Scripts/Resource_Scripts/CarPalette.gd" id="2_r8vbj"]
 
 [resource]
 resource_name = "Purple"

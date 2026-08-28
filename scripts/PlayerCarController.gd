@@ -2,6 +2,7 @@ class_name PlayerCarController extends Car
 
 #signals
 signal gear_changed
+signal pause_requested
 
 #enums
 enum InputState {
@@ -49,6 +50,7 @@ func _physics_process(_delta: float) -> void:
 			_handle_acceleration()
 			_apply_friction()
 
+
 #region Driving Controls
 func _handle_shifting() -> void:
 	if Input.is_action_just_pressed("Upshift"):
@@ -78,15 +80,20 @@ func _handle_acceleration() -> void:
 	var acceleration:  Vector2
 	brake_light.hide()
 	if Input.is_action_pressed("Brake"):
-		acceleration = -forwards * car_data.brake_power
-		brake_light.show()
+		var dot: float = forwards.dot(linear_velocity)
+		if dot > 0:
+			#speed and forwards are same direction, thus we brake
+			acceleration = -forwards * car_data.brake_power
+			brake_light.show()
+		else:
+			acceleration = -forwards * car_data.reverse_power
 	elif Input.is_action_pressed("Accelerate"):
 		acceleration = forwards * car_data.get_engine_power(current_gear, get_speed())
 	apply_central_force(acceleration)
 
 
 func _apply_friction() -> void:
-	if get_speed() < 5:
+	if get_speed() < 5 and not Input.is_action_pressed("Accelerate") and not Input.is_action_pressed("Brake"):
 		linear_velocity = Vector2.ZERO
 	var friction_force: Vector2 = linear_velocity * -1 * car_data.base_friction
 	var drag_force: Vector2 = linear_velocity * linear_velocity.length() * -1 * car_data.drag
@@ -102,7 +109,8 @@ func on_pit_entry() -> void:
 	brake_light.show()
 	await _handle_deceleration_zone()
 	brake_light.hide()
-	set_deferred("freeze", true)
+	set_collision_mask_value(1, false)
+	set_collision_mask_value(2, false)
 	await _handle_pit_navigation()
 	_generate_quick_time_sequence()
 	await get_tree().create_timer(qte_time_limit).timeout
@@ -118,7 +126,8 @@ func on_pit_entry() -> void:
 
 func _exit_pit() -> void:
 	await _handle_pit_exit()
-	set_deferred("freeze", false)
+	set_collision_mask_value(1, true)
+	set_collision_mask_value(2, true)
 	linear_velocity = -transform.y * PIT_SPEED
 	set_input_state(InputState.DRIVING)
 
@@ -219,10 +228,6 @@ func get_speed_cosmetic() -> int:
 
 func toggle_player_camera(toggle: bool) -> void:
 	player_cam.enabled = toggle
-
-
-func get_speed() -> float:
-	return linear_velocity.length()
 
 
 func set_input_state(state: InputState) -> void:

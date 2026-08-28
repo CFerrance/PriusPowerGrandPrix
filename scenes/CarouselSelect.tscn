@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b6uwjp6yey6ag"]
 
-[ext_resource type="Theme" uid="uid://dme8vyv2gjtot" path="res://assets/ui_art/main_menu_theme.tres" id="1_38j12"]
-[ext_resource type="Script" uid="uid://bi31aowaarck8" path="res://scripts/CarouselSelect.gd" id="1_owrd8"]
+[ext_resource type="Theme" uid="uid://dme8vyv2gjtot" path="res://Assets/UI_Art/main_menu_theme.tres" id="1_38j12"]
+[ext_resource type="Script" uid="uid://bi31aowaarck8" path="res://Scripts/CarouselSelect.gd" id="1_owrd8"]
 
 [node name="CarouselSelect" type="Button" unique_id=1934654072]
 anchors_preset = 8

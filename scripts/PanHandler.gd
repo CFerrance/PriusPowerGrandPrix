@@ -19,10 +19,11 @@ func handle_flyby() -> void:
 		if current_path >= len(pan_paths):
 			pan_cam.enabled = false
 			return
-		current_progress += get_process_delta_time() * pan_speed
-		pan_paths[current_path].progress = current_progress
-		pan_cam.transform = pan_paths[current_path].transform
-		if pan_paths[current_path].progress_ratio >= 1.0:
-			current_path += 1
-			current_progress = 0
+		if not get_tree().paused:
+			current_progress += get_process_delta_time() * pan_speed
+			pan_paths[current_path].progress = current_progress
+			pan_cam.transform = pan_paths[current_path].transform
+			if pan_paths[current_path].progress_ratio >= 1.0:
+				current_path += 1
+				current_progress = 0
 		await get_tree().process_frame

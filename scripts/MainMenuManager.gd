@@ -13,8 +13,8 @@ enum Screen {
 
 #exports
 @export_category("References")
-@export var background : TextureRect
 @export var title_text: Control
+@export var background : TextureRect
 @export var title_buttons: Control
 @export var options_menu: Control
 @export var credits: Control
@@ -67,6 +67,11 @@ func _on_play_button_pressed() -> void:
 	_switch_screen(Screen.MODE_SELECT)
 
 
+func _on_tutorial_button_pressed() -> void:
+	selected_race_type = GameManager.RaceType.TUTORIAL
+	game_manager.start_tutorial()
+
+
 func _on_options_button_pressed() -> void:
 	_toggle_options_menu(true)
 
@@ -98,8 +103,21 @@ func _on_practice_button_pressed() -> void:
 	_switch_screen(Screen.TRACK_SELECT)
 
 
+func _on_mode_select_back_button_pressed() -> void:
+	_switch_screen(Screen.START)
+
+
+func _on_track_select_back_button_pressed() -> void:
+	_switch_screen(Screen.MODE_SELECT)
+
+
 func _on_ready_button_pressed() -> void:
 	_try_start_game()
+
+
+func _on_car_select_back_button_pressed() -> void:
+	_switch_screen(Screen.TRACK_SELECT)
+
 #endregion
 
 
@@ -185,7 +203,10 @@ func _display_race_options(options: Array[RaceOption]) -> void:
 	for i: int in range(len(track_select_buttons)):
 		if i < len(options):
 			track_select_buttons[i].text = options[i].name
+			if track_select_buttons[i].pressed.is_connected(_race_option_selected):
+				track_select_buttons[i].pressed.disconnect(_race_option_selected)
 			track_select_buttons[i].pressed.connect(_race_option_selected.bind(options[i]))
+			track_select_buttons[i].show()
 		else:
 			track_select_buttons[i].hide()
 

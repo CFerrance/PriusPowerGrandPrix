@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://1scsx7eqnofu"
-path="res://.godot/imported/Chewy-Regular.ttf-2020f4a1422497bd75067bc5a2000e0e.fontdata"
+path="res://.godot/imported/Chewy-Regular.ttf-a757447211d8f03c9bd97f70b58b7e01.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/chewy/Chewy-Regular.ttf"
-dest_files=["res://.godot/imported/Chewy-Regular.ttf-2020f4a1422497bd75067bc5a2000e0e.fontdata"]
+source_file="res://Assets/Fonts/Chewy/Chewy-Regular.ttf"
+dest_files=["res://.godot/imported/Chewy-Regular.ttf-a757447211d8f03c9bd97f70b58b7e01.fontdata"]
 
 [params]
 

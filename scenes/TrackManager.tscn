@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b30u4cp7weoi7"]
 
-[ext_resource type="Script" uid="uid://b1putg7242y1m" path="res://scripts/TrackManager.gd" id="1_wha5c"]
+[ext_resource type="Script" uid="uid://b1putg7242y1m" path="res://Scripts/TrackManager.gd" id="1_wha5c"]
 
 [node name="TrackManager" type="Node" unique_id=350578779]
 script = ExtResource("1_wha5c")

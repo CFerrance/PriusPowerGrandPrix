@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://ba6xmd0sulldd"]
 
-[ext_resource type="Script" uid="uid://cxm0uue8r0uxy" path="res://scripts/StartGate.gd" id="1_0cul3"]
-[ext_resource type="Texture2D" uid="uid://c1bp1p6golimy" path="res://assets/track_art/misc/finish_line.png" id="2_6ke72"]
-[ext_resource type="Texture2D" uid="uid://b5ws4hlgjrila" path="res://assets/track_art/misc/start_spot.png" id="3_mjx46"]
+[ext_resource type="Script" uid="uid://cxm0uue8r0uxy" path="res://Scripts/StartGate.gd" id="1_0cul3"]
+[ext_resource type="Texture2D" uid="uid://c1bp1p6golimy" path="res://Assets/Track_Art/Misc/finish_line.png" id="2_6ke72"]
+[ext_resource type="Texture2D" uid="uid://b5ws4hlgjrila" path="res://Assets/Track_Art/Misc/start_spot.png" id="3_mjx46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jh01r"]
 size = Vector2(35.3, 20)
 
 [node name="StartGate" type="Area2D" unique_id=661936391 node_paths=PackedStringArray("start_positions")]
+collision_layer = 4
 script = ExtResource("1_0cul3")
 start_positions = [NodePath("Starts/StartSpot"), NodePath("Starts/StartSpot2"), NodePath("Starts/StartSpot3"), NodePath("Starts/StartSpot4"), NodePath("Starts/StartSpot5"), NodePath("Starts/StartSpot6")]
 
