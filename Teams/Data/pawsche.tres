@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Team" format=3 uid="uid://bba5nwh1upl2k"]
+
+[ext_resource type="Resource" uid="uid://dk0wu7gv60qyx" path="res://Cars/Palettes/Palette_Data/purple_palette.tres" id="1_u5dfl"]
+[ext_resource type="Script" uid="uid://mtibpa4dn4p0" path="res://Teams/Team.gd" id="2_mbnvo"]
+
+[resource]
+script = ExtResource("2_mbnvo")
+team_name = "Pawsche"
+preferred_palette = ExtResource("1_u5dfl")
+metadata/_custom_type_script = "uid://mtibpa4dn4p0"

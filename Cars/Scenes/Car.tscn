@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bbnglff553i81"]
+
+[ext_resource type="Shader" uid="uid://dukf64ph3i3km" path="res://Misc/Shaders/color_switch.gdshader" id="1_7u4s5"]
+[ext_resource type="Texture2D" uid="uid://dq18l8f6bd8h1" path="res://Cars/Palettes/base_palette.png" id="2_qn377"]
+[ext_resource type="Texture2D" uid="uid://cko2i6arwx6eo" path="res://Cars/Palettes/red_palette.png" id="3_qn377"]
+[ext_resource type="Texture2D" uid="uid://smtcethejv1g" path="res://Cars/Art/vw_bug.png" id="4_qeqd0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qt2eu"]
+resource_local_to_scene = true
+radius = 17.0
+height = 78.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ys5ts"]
+shader = ExtResource("1_7u4s5")
+shader_parameter/original_palette = ExtResource("2_qn377")
+shader_parameter/replacement_palette = ExtResource("3_qn377")
+shader_parameter/num_colors = 8
+
+[node name="Car" type="RigidBody2D" unique_id=1378306937]
+collision_layer = 3
+collision_mask = 3
+gravity_scale = 0.0
+angular_damp = 3.0
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1103997873]
+shape = SubResource("CapsuleShape2D_qt2eu")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=677048385]
+z_index = 10
+texture_filter = 1
+material = SubResource("ShaderMaterial_ys5ts")
+texture = ExtResource("4_qeqd0")

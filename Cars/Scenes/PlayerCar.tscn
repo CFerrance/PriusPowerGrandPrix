@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c8syq7nu4jmte"]
+
+[ext_resource type="PackedScene" uid="uid://bbnglff553i81" path="res://Cars/Scenes/Car.tscn" id="1_fvo3r"]
+[ext_resource type="Script" uid="uid://rkj8jf2dfnj0" path="res://Cars/Scripts/PlayerCarController.gd" id="2_42yj7"]
+[ext_resource type="Texture2D" uid="uid://co0rxh22fb32p" path="res://Cars/Art/prius_brake_light.png" id="3_38t10"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ryxr2"]
+friction = 0.7
+bounce = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fvo3r"]
+resource_local_to_scene = true
+radius = 17.0
+height = 78.0
+
+[node name="Car" unique_id=1946404089 node_paths=PackedStringArray("brake_light", "remote_transform", "car_sprite", "collider") instance=ExtResource("1_fvo3r")]
+physics_material_override = SubResource("PhysicsMaterial_ryxr2")
+script = ExtResource("2_42yj7")
+brake_light = NodePath("PointLight2D")
+remote_transform = NodePath("RemoteTransform2D")
+car_sprite = NodePath("Sprite")
+collider = NodePath("Collider")
+
+[node name="Collider" parent="." index="0" unique_id=1103997873]
+shape = SubResource("CapsuleShape2D_fvo3r")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="." index="2" unique_id=1232498554]
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="3" unique_id=455313047]
+visible = false
+position = Vector2(0, 44)
+color = Color(1, 0, 0.050980393, 1)
+energy = 5.0
+texture = ExtResource("3_38t10")

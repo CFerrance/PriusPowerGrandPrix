@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b3uqlt0a7q0gh"]
+
+[ext_resource type="PackedScene" uid="uid://baoilvil0we8f" path="res://Decorations/Barriers/Scenes/Rotatable_Barrier_4x1.tscn" id="1_nfntd"]
+[ext_resource type="Texture2D" uid="uid://c4lpu7xkg408e" path="res://Decorations/Grandstands/Art/grandstand.png" id="2_jkrft"]
+[ext_resource type="Texture2D" uid="uid://b1pu1he2b4ehj" path="res://Decorations/Grandstands/Art/grandstand_2.png" id="3_xthj6"]
+
+[node name="Grandstands2Top" type="Node2D" unique_id=1238028799]
+
+[node name="RotatableBarrier4x4" parent="." unique_id=268916117 instance=ExtResource("1_nfntd")]
+position = Vector2(0, -165)
+
+[node name="Grandstand" type="Sprite2D" parent="RotatableBarrier4x4" unique_id=1363449465]
+position = Vector2(-300, -90)
+texture = ExtResource("2_jkrft")
+
+[node name="Grandstand2" type="Sprite2D" parent="RotatableBarrier4x4" unique_id=645196252]
+position = Vector2(300, -90)
+texture = ExtResource("3_xthj6")

@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="CarData" format=3 uid="uid://dl3xnns4pss8n"]
+
+[ext_resource type="Script" uid="uid://c78pyble71xjs" path="res://Cars/Scripts/CarData.gd" id="1_j54a6"]
+[ext_resource type="Texture2D" uid="uid://c1beese8p63cy" path="res://Cars/Art/prius.png" id="2_h8bvw"]
+
+[sub_resource type="Curve" id="Curve_35b7a"]
+_data = [Vector2(0.5521739, 0), 0.0, 0.0, 0, 0, Vector2(0.6043478, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_wnlow"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.4478261, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_uiece"]
+_data = [Vector2(0.2956522, 0), 0.0, 0.0, 0, 0, Vector2(0.34782612, 1), 0.0, 0.0, 0, 0, Vector2(0.6956522, 1), 0.0, 0.0, 0, 0, Vector2(0.75217396, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[resource]
+resource_name = "Prius"
+script = ExtResource("1_j54a6")
+model = "Prius"
+sprite = ExtResource("2_h8bvw")
+mass = 2.0
+brake_power = 300
+reverse_power = 200
+collider_radius = 17
+collider_height = 88
+base_steering_power = 6500
+steering_floor = 250.0
+low_speed_grip_cutoff = 475.0
+mid_speed_grip_cutoff = 625.0
+low_speed_grip = 8.5
+mid_speed_grip = 6.5
+high_speed_grip = 4.5
+drag = 0.001
+base_friction = 0.2
+low_gear_min_power = 400
+low_gear_engine_power = 600
+low_gear_curve = SubResource("Curve_wnlow")
+mid_gear_min_power = 450
+mid_gear_engine_power = 750
+mid_gear_curve = SubResource("Curve_uiece")
+high_gear_min_power = 500
+high_gear_engine_power = 900
+high_gear_curve = SubResource("Curve_35b7a")

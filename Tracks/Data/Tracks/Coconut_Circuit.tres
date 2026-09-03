@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrackData" format=3 uid="uid://c6jdpgbvroprf"]
+
+[ext_resource type="PackedScene" uid="uid://b7442pag2g35o" path="res://Tracks/Track_Scenes/TrackB.tscn" id="1_h8iui"]
+[ext_resource type="Script" uid="uid://5q72e4ce2w7w" path="res://Tracks/Scripts/TrackData.gd" id="1_jxxe4"]
+
+[resource]
+script = ExtResource("1_jxxe4")
+scene = ExtResource("1_h8iui")
+description = "Coconut Circuit blends a tropical setting with city streets to create an awesome smoothie of sharp corners and long straights."
+name = "Coconut Circuit"
+metadata/_custom_type_script = "uid://5q72e4ce2w7w"

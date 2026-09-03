@@ -1,0 +1,70 @@
+[gd_resource type="Theme" format=3 uid="uid://dme8vyv2gjtot"]
+
+[ext_resource type="FontFile" uid="uid://1scsx7eqnofu" path="res://UI/Fonts/Chewy/Chewy-Regular.ttf" id="1_fkbk0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkbk0"]
+content_margin_left = 20.0
+bg_color = Color(0.29803923, 0.65882355, 0.72156864, 1)
+skew = Vector2(0.5, 0)
+border_width_left = 10
+expand_margin_left = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obpur"]
+content_margin_left = 20.0
+bg_color = Color(0.29803923, 0.65882355, 0.72156864, 1)
+skew = Vector2(0.5, 0)
+border_width_left = 10
+expand_margin_left = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0w26"]
+content_margin_left = 10.0
+bg_color = Color(0.29844177, 0.6600018, 0.72043705, 1)
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq4mw"]
+bg_color = Color(0.29927102, 0.68788517, 0.48541844, 1)
+skew = Vector2(0.5, 0)
+border_width_left = 10
+expand_margin_left = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8cdo"]
+bg_color = Color(0.29803923, 0.65882355, 0.72156864, 1)
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_noycd"]
+bg_color = Color(0.29803923, 0.65882355, 0.72156864, 1)
+skew = Vector2(0.5, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkbk0"]
+
+[resource]
+Button/constants/outline_size = 5
+Button/font_sizes/font_size = 28
+Button/fonts/font = ExtResource("1_fkbk0")
+Button/styles/focus = SubResource("StyleBoxFlat_fkbk0")
+Button/styles/hover = SubResource("StyleBoxFlat_obpur")
+Button/styles/normal = SubResource("StyleBoxFlat_v0w26")
+Button/styles/pressed = SubResource("StyleBoxFlat_wq4mw")
+Carousel/base_type = &"Button"
+Carousel/colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+Carousel/styles/disabled = SubResource("StyleBoxFlat_u8cdo")
+Carousel/styles/focus = SubResource("StyleBoxFlat_noycd")
+Label/constants/outline_size = 5
+Label/font_sizes/font_size = 28
+Label/fonts/font = ExtResource("1_fkbk0")
+ScrollButton/base_type = &"Button"
+ScrollButton/styles/hover = SubResource("StyleBoxEmpty_fkbk0")
+ScrollButton/styles/hover_pressed = SubResource("StyleBoxEmpty_fkbk0")
+ScrollButton/styles/normal = SubResource("StyleBoxEmpty_fkbk0")
+ScrollButton/styles/pressed = SubResource("StyleBoxEmpty_fkbk0")
+Title/base_type = &"Label"
+Title/constants/outline_size = 10
+Title/font_sizes/font_size = 64

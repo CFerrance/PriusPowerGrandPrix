@@ -1,0 +1,303 @@
+[gd_scene format=3 uid="uid://cymmso7w4wlwi"]
+
+[ext_resource type="Script" uid="uid://doabq3ciagvd6" path="res://UI/Scripts/MainMenuManager.gd" id="1_yqorp"]
+[ext_resource type="Resource" uid="uid://2qvi76dhc81p" path="res://Cars/Data/bug.tres" id="4_l4mxc"]
+[ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://Cars/Data/miniCooper.tres" id="5_5faoh"]
+[ext_resource type="Resource" uid="uid://dl3xnns4pss8n" path="res://Cars/Data/prius.tres" id="6_ptake"]
+[ext_resource type="Resource" uid="uid://gjbxtw1jgllf" path="res://Cars/Palettes/Palette_Data/blue_palette.tres" id="7_hubol"]
+[ext_resource type="Resource" uid="uid://b58va0xqi154l" path="res://Cars/Palettes/Palette_Data/gray_palette.tres" id="8_8vx4p"]
+[ext_resource type="Theme" uid="uid://dme8vyv2gjtot" path="res://UI/main_menu_theme.tres" id="8_mipys"]
+[ext_resource type="Resource" uid="uid://bwpki56117xlc" path="res://Cars/Palettes/Palette_Data/green_palette.tres" id="9_tdapf"]
+[ext_resource type="PackedScene" uid="uid://b6uwjp6yey6ag" path="res://UI/Scenes/CarouselSelect.tscn" id="10_7la6k"]
+[ext_resource type="Resource" uid="uid://dk8jvenyw21qf" path="res://Cars/Palettes/Palette_Data/orange_palette.tres" id="10_v41fp"]
+[ext_resource type="Resource" uid="uid://dk0wu7gv60qyx" path="res://Cars/Palettes/Palette_Data/purple_palette.tres" id="11_7shrw"]
+[ext_resource type="Resource" uid="uid://b2t6gxyg31sa7" path="res://Cars/Palettes/Palette_Data/red_palette.tres" id="12_viowm"]
+[ext_resource type="Resource" uid="uid://crhxa63vaqt6x" path="res://Cars/Palettes/Palette_Data/yellow_palette.tres" id="13_1n6yq"]
+
+[node name="MainMenu" type="Control" unique_id=1320039347 node_paths=PackedStringArray("title_text", "background", "title_buttons", "options_menu", "credits", "race_options_parent", "start_screen", "mode_select_screen", "track_select_screen", "car_select_screen", "car_select", "color_select")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqorp")
+title_text = NodePath("StartScreen/TitleText")
+background = NodePath("Background")
+title_buttons = NodePath("StartScreen/StartButtons")
+options_menu = NodePath("StartScreen/OptionsMenu")
+credits = NodePath("StartScreen/Credits")
+race_options_parent = NodePath("TrackSelectScreen/RaceOptions")
+start_screen = NodePath("StartScreen")
+mode_select_screen = NodePath("ModeSelectScreen")
+track_select_screen = NodePath("TrackSelectScreen")
+car_select_screen = NodePath("CarSelectScreen")
+car_select = NodePath("CarSelectScreen/CarOptions/CarSelect")
+color_select = NodePath("CarSelectScreen/CarOptions/ColorSelect")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1151407728]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartScreen" type="Control" parent="." unique_id=1735440178]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleText" type="Label" parent="StartScreen" unique_id=602810458]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -103.5
+offset_right = 103.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("8_mipys")
+theme_type_variation = &"Title"
+text = "PRIUS POWER GRAND PRIX <3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButtons" type="VBoxContainer" parent="StartScreen" unique_id=1058322197]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -217.0
+offset_top = -168.0
+offset_right = -17.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("8_mipys")
+
+[node name="PlayButton" type="Button" parent="StartScreen/StartButtons" unique_id=1561312955]
+layout_mode = 2
+theme = ExtResource("8_mipys")
+text = "Play"
+alignment = 0
+
+[node name="TutorialButton" type="Button" parent="StartScreen/StartButtons" unique_id=1297448944]
+layout_mode = 2
+text = "Driving School"
+alignment = 0
+
+[node name="OptionsButton" type="Button" parent="StartScreen/StartButtons" unique_id=478322867]
+layout_mode = 2
+theme = ExtResource("8_mipys")
+text = "Options"
+alignment = 0
+
+[node name="CreditsButton" type="Button" parent="StartScreen/StartButtons" unique_id=1162769408]
+layout_mode = 2
+theme = ExtResource("8_mipys")
+text = "Credits"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="StartScreen/StartButtons" unique_id=133011902]
+layout_mode = 2
+theme = ExtResource("8_mipys")
+text = "Quit"
+alignment = 0
+
+[node name="OptionsMenu" type="Panel" parent="StartScreen" unique_id=802850973]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="StartScreen/OptionsMenu" unique_id=1499476233]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -68.0
+offset_right = 50.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("8_mipys")
+text = "Back"
+
+[node name="Credits" type="Panel" parent="StartScreen" unique_id=985478383]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ModeSelectScreen" type="Control" parent="." unique_id=756382559]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ModeSelectButtons" type="VBoxContainer" parent="ModeSelectScreen" unique_id=1581446103]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -217.0
+offset_top = -128.0
+offset_right = -17.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("8_mipys")
+
+[node name="SingleRaceButton" type="Button" parent="ModeSelectScreen/ModeSelectButtons" unique_id=2026633534]
+layout_mode = 2
+theme = ExtResource("8_mipys")
+text = "Single Race"
+alignment = 0
+
+[node name="CupButton" type="Button" parent="ModeSelectScreen/ModeSelectButtons" unique_id=814609861]
+layout_mode = 2
+theme = ExtResource("8_mipys")
+text = "Cup"
+alignment = 0
+
+[node name="PracticeButton" type="Button" parent="ModeSelectScreen/ModeSelectButtons" unique_id=736493515]
+layout_mode = 2
+theme = ExtResource("8_mipys")
+text = "Practice
+"
+alignment = 0
+
+[node name="BackButton" type="Button" parent="ModeSelectScreen/ModeSelectButtons" unique_id=516668492]
+layout_mode = 2
+text = "Back"
+alignment = 0
+
+[node name="TrackSelectScreen" type="Control" parent="." unique_id=1459104514]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_mipys")
+
+[node name="RaceOptions" type="VBoxContainer" parent="TrackSelectScreen" unique_id=1163869659]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -60.0
+offset_right = -17.0
+offset_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="BackButton" type="Button" parent="TrackSelectScreen" unique_id=1077521265]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -217.0
+offset_top = -48.0
+offset_right = -17.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back"
+
+[node name="CarSelectScreen" type="Control" parent="." unique_id=114481685]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_mipys")
+
+[node name="CarOptions" type="VBoxContainer" parent="CarSelectScreen" unique_id=24365405]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -74.0
+offset_right = -17.0
+offset_bottom = 77.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("8_mipys")
+theme_override_constants/separation = 20
+
+[node name="CarSelect" parent="CarSelectScreen/CarOptions" unique_id=1934654072 instance=ExtResource("10_7la6k")]
+layout_mode = 2
+options = Array[Resource]([ExtResource("4_l4mxc"), ExtResource("5_5faoh"), ExtResource("6_ptake")])
+
+[node name="ColorSelect" parent="CarSelectScreen/CarOptions" unique_id=965423956 instance=ExtResource("10_7la6k")]
+layout_mode = 2
+options = Array[Resource]([ExtResource("7_hubol"), ExtResource("8_8vx4p"), ExtResource("9_tdapf"), ExtResource("10_v41fp"), ExtResource("11_7shrw"), ExtResource("12_viowm"), ExtResource("13_1n6yq")])
+
+[node name="HSeparator" type="HSeparator" parent="CarSelectScreen/CarOptions" unique_id=1796293579]
+layout_mode = 2
+
+[node name="ReadyButton" type="Button" parent="CarSelectScreen/CarOptions" unique_id=344883265]
+layout_mode = 2
+text = "Ready"
+
+[node name="BackButton" type="Button" parent="CarSelectScreen" unique_id=770368560]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -217.0
+offset_top = -48.0
+offset_right = -17.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back"
+
+[connection signal="pressed" from="StartScreen/StartButtons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="StartScreen/StartButtons/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="StartScreen/StartButtons/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="StartScreen/StartButtons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="StartScreen/StartButtons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="StartScreen/OptionsMenu/BackButton" to="." method="_on_options_back_button_pressed"]
+[connection signal="pressed" from="ModeSelectScreen/ModeSelectButtons/SingleRaceButton" to="." method="_on_single_button_pressed"]
+[connection signal="pressed" from="ModeSelectScreen/ModeSelectButtons/CupButton" to="." method="_on_cup_button_pressed"]
+[connection signal="pressed" from="ModeSelectScreen/ModeSelectButtons/PracticeButton" to="." method="_on_practice_button_pressed"]
+[connection signal="pressed" from="ModeSelectScreen/ModeSelectButtons/BackButton" to="." method="_on_mode_select_back_button_pressed"]
+[connection signal="pressed" from="TrackSelectScreen/BackButton" to="." method="_on_track_select_back_button_pressed"]
+[connection signal="pressed" from="CarSelectScreen/CarOptions/ReadyButton" to="." method="_on_ready_button_pressed"]
+[connection signal="pressed" from="CarSelectScreen/BackButton" to="." method="_on_car_select_back_button_pressed"]

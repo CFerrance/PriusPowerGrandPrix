@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b1y8fi5de0vfo"]
+
+[ext_resource type="PackedScene" uid="uid://bbnglff553i81" path="res://Cars/Scenes/Car.tscn" id="1_1xaag"]
+[ext_resource type="Script" uid="uid://if7i4l1hgb3i" path="res://Cars/Scripts/BotCar.gd" id="2_c37ki"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1xaag"]
+resource_local_to_scene = true
+radius = 17.0
+height = 78.0
+
+[node name="BotCar" unique_id=1946404089 node_paths=PackedStringArray("car_sprite", "collider") instance=ExtResource("1_1xaag")]
+script = ExtResource("2_c37ki")
+car_sprite = NodePath("Sprite")
+collider = NodePath("Collider")
+
+[node name="Collider" parent="." index="0" unique_id=1103997873]
+shape = SubResource("CapsuleShape2D_1xaag")
