@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://d200gttkomp8o"]
+
+[ext_resource type="Script" uid="uid://cxsgcanuby66x" path="res://UI/Scripts/PauseMenu.gd" id="1_63cs0"]
+[ext_resource type="FontFile" uid="uid://1scsx7eqnofu" path="res://UI/Fonts/Chewy/Chewy-Regular.ttf" id="2_d6k42"]
+[ext_resource type="Texture2D" uid="uid://d1gj585lin88t" path="res://UI/Art/Pause_Menu_9Slice.png" id="3_43g23"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkbk0"]
+content_margin_left = 20.0
+bg_color = Color(0.29803923, 0.65882355, 0.72156864, 1)
+skew = Vector2(0.5, 0)
+border_width_left = 10
+expand_margin_left = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obpur"]
+content_margin_left = 20.0
+bg_color = Color(0.29803923, 0.65882355, 0.72156864, 1)
+skew = Vector2(0.5, 0)
+border_width_left = 10
+expand_margin_left = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0w26"]
+content_margin_left = 10.0
+bg_color = Color(0.29844177, 0.6600018, 0.72043705, 1)
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq4mw"]
+bg_color = Color(0.29927102, 0.68788517, 0.48541844, 1)
+skew = Vector2(0.5, 0)
+border_width_left = 10
+expand_margin_left = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8cdo"]
+bg_color = Color(0.29803923, 0.65882355, 0.72156864, 1)
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_noycd"]
+bg_color = Color(0.29803923, 0.65882355, 0.72156864, 1)
+skew = Vector2(0.5, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkbk0"]
+
+[sub_resource type="Theme" id="Theme_siy43"]
+Button/constants/outline_size = 5
+Button/font_sizes/font_size = 28
+Button/fonts/font = ExtResource("2_d6k42")
+Button/styles/focus = SubResource("StyleBoxFlat_fkbk0")
+Button/styles/hover = SubResource("StyleBoxFlat_obpur")
+Button/styles/normal = SubResource("StyleBoxFlat_v0w26")
+Button/styles/pressed = SubResource("StyleBoxFlat_wq4mw")
+Carousel/base_type = &"Button"
+Carousel/colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+Carousel/styles/disabled = SubResource("StyleBoxFlat_u8cdo")
+Carousel/styles/focus = SubResource("StyleBoxFlat_noycd")
+Label/constants/outline_size = 5
+Label/font_sizes/font_size = 28
+Label/fonts/font = ExtResource("2_d6k42")
+ScrollButton/base_type = &"Button"
+ScrollButton/styles/hover = SubResource("StyleBoxEmpty_fkbk0")
+ScrollButton/styles/hover_pressed = SubResource("StyleBoxEmpty_fkbk0")
+ScrollButton/styles/normal = SubResource("StyleBoxEmpty_fkbk0")
+ScrollButton/styles/pressed = SubResource("StyleBoxEmpty_fkbk0")
+Title/base_type = &"Label"
+Title/constants/outline_size = 10
+Title/font_sizes/font_size = 64
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=149169876 node_paths=PackedStringArray("resume_button", "restart_button")]
+process_mode = 3
+visible = false
+script = ExtResource("1_63cs0")
+resume_button = NodePath("Tint/Menu/VBoxContainer/ResumeButton")
+restart_button = NodePath("Tint/Menu/VBoxContainer/RestartButton")
+
+[node name="Tint" type="ColorRect" parent="." unique_id=2114926805]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_siy43")
+color = Color(0.08235294, 0.08235294, 0.08235294, 0.60784316)
+
+[node name="Menu" type="NinePatchRect" parent="Tint" unique_id=15153620]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.25
+offset_top = -144.5
+offset_right = 128.25
+offset_bottom = 144.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_43g23")
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tint/Menu" unique_id=1392071150]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -112.5
+offset_right = 100.0
+offset_bottom = 112.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Tint/Menu/VBoxContainer" unique_id=311582257]
+layout_mode = 2
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Tint/Menu/VBoxContainer" unique_id=35296487]
+layout_mode = 2
+text = "Resume"
+
+[node name="OptionsButton" type="Button" parent="Tint/Menu/VBoxContainer" unique_id=1415692402]
+layout_mode = 2
+text = "Options"
+
+[node name="RestartButton" type="Button" parent="Tint/Menu/VBoxContainer" unique_id=290511125]
+layout_mode = 2
+text = "Restart"
+
+[node name="QuitToMenuButton" type="Button" parent="Tint/Menu/VBoxContainer" unique_id=641570697]
+layout_mode = 2
+text = "Quit To Menu"
+
+[node name="QuitToDesktopButton" type="Button" parent="Tint/Menu/VBoxContainer" unique_id=1736373099]
+layout_mode = 2
+text = "Quit To Desktop"
+
+[connection signal="pressed" from="Tint/Menu/VBoxContainer/ResumeButton" to="." method="_resume_button_pressed"]
+[connection signal="pressed" from="Tint/Menu/VBoxContainer/OptionsButton" to="." method="_options_button_pressed"]
+[connection signal="pressed" from="Tint/Menu/VBoxContainer/RestartButton" to="." method="_restart_button_pressed"]
+[connection signal="pressed" from="Tint/Menu/VBoxContainer/QuitToMenuButton" to="." method="_quit_to_menu_button_pressed"]
+[connection signal="pressed" from="Tint/Menu/VBoxContainer/QuitToDesktopButton" to="." method="_quit_button_pressed"]

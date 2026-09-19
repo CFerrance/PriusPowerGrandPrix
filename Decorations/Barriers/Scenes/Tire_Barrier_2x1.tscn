@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://2pa2tatw2mdj"]
+
+[ext_resource type="Texture2D" uid="uid://bci3jiri0samu" path="res://Decorations/Barriers/Art/tire_barrier_edge.png" id="1_2bu8a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7ufs"]
+size = Vector2(580, 40)
+
+[node name="TireBarrier2x1" type="StaticBody2D" unique_id=400444298]
+collision_layer = 2
+
+[node name="TireBarrierEdge2" type="Sprite2D" parent="." unique_id=1515638422]
+position = Vector2(-150, 55)
+texture = ExtResource("1_2bu8a")
+flip_h = true
+
+[node name="TireBarrierEdge" type="Sprite2D" parent="." unique_id=1984502222]
+position = Vector2(150, 55)
+texture = ExtResource("1_2bu8a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1180870962]
+position = Vector2(0, 30)
+rotation = -3.1415925
+shape = SubResource("RectangleShape2D_l7ufs")

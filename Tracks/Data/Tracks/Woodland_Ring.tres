@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrackData" format=3 uid="uid://4jlsa11mh6n6"]
+
+[ext_resource type="PackedScene" uid="uid://cpoim6tvat132" path="res://Tracks/Track_Scenes/TrackA.tscn" id="1_p7kix"]
+[ext_resource type="Script" uid="uid://5q72e4ce2w7w" path="res://Tracks/Scripts/TrackData.gd" id="1_yby4v"]
+
+[resource]
+script = ExtResource("1_yby4v")
+name = "Woodland Ring"
+scene = ExtResource("1_p7kix")
+description = "A fast track through the forest, the Woodland Ring is a good starting track for beginners."
+metadata/_custom_type_script = "uid://5q72e4ce2w7w"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CarPalette" format=3 uid="uid://dk0wu7gv60qyx"]
+
+[ext_resource type="Texture2D" uid="uid://c35xmkqh5uuyi" path="res://Cars/Palettes/purple_palette.png" id="1_mmjym"]
+[ext_resource type="Script" uid="uid://bvdikpevrwctm" path="res://Cars/Scripts/CarPalette.gd" id="2_r8vbj"]
+
+[resource]
+resource_name = "Purple"
+script = ExtResource("2_r8vbj")
+palette = ExtResource("1_mmjym")
+base_color = Color(0.49411765, 0.39607844, 0.6039216, 1)
+metadata/_custom_type_script = "uid://bvdikpevrwctm"

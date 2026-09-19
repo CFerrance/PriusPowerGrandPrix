@@ -13,7 +13,6 @@ config_version=5
 config/name="PriusPowerGrandPrix"
 run/main_scene="uid://cm5pn46nacr77"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
 
 [debug]
 
@@ -27,17 +26,30 @@ gdscript/warnings/unsafe_call_argument=1
 [file_customization]
 
 folder_colors={
-"res://Assets/": "red",
-"res://Assets/Decorations/": "orange",
-"res://Assets/Decorations/Environment/": "green",
-"res://Assets/Fonts/": "yellow",
-"res://Assets/Track_Art/": "teal",
-"res://Assets/UI_Art/": "pink",
-"res://Data/": "orange",
-"res://Scenes/": "blue",
-"res://Scripts/": "green",
-"res://Scripts/Resource_Scripts/": "yellow",
-"res://Shaders/": "pink"
+"res://Cars/Art/": "red",
+"res://Cars/Data/": "orange",
+"res://Cars/Palettes/": "red",
+"res://Cars/Palettes/Palette_Data/": "yellow",
+"res://Cars/Scenes/": "yellow",
+"res://Cars/Scripts/": "green",
+"res://Decorations/Barriers/Art/": "red",
+"res://Decorations/Barriers/Scenes/": "yellow",
+"res://Decorations/Environment/Art/": "red",
+"res://Decorations/Grandstands/Art/": "red",
+"res://Decorations/Grandstands/Scenes/": "yellow",
+"res://Misc/Scenes/": "yellow",
+"res://Misc/Scripts/": "green",
+"res://Misc/Shaders/": "pink",
+"res://Teams/Data/": "orange",
+"res://Tracks/Data/": "orange",
+"res://Tracks/Data/Cups/": "orange",
+"res://Tracks/Scripts/": "green",
+"res://Tracks/Track_Art/": "red",
+"res://Tracks/Track_Scenes/": "purple",
+"res://UI/Art/": "red",
+"res://UI/Fonts/": "purple",
+"res://UI/Scenes/": "yellow",
+"res://UI/Scripts/": "green"
 }
 
 [global_group]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CarPalette" format=3 uid="uid://gjbxtw1jgllf"]
+
+[ext_resource type="Texture2D" uid="uid://dq18l8f6bd8h1" path="res://Cars/Palettes/base_palette.png" id="1_4tu7o"]
+[ext_resource type="Script" uid="uid://bvdikpevrwctm" path="res://Cars/Scripts/CarPalette.gd" id="2_u30ko"]
+
+[resource]
+resource_name = "Blue"
+script = ExtResource("2_u30ko")
+palette = ExtResource("1_4tu7o")
+base_color = Color(0.015686275, 0.6392157, 0.72156864, 1)
+metadata/_custom_type_script = "uid://bvdikpevrwctm"

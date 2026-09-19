@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bppw7qv8bmrgm"]
+
+[ext_resource type="Script" uid="uid://btsamuhdrxkgo" path="res://Tracks/Scripts/Gate.gd" id="1_xfvdi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jh01r"]
+size = Vector2(35.3, 20)
+
+[node name="gate" type="Area2D" unique_id=661936391]
+collision_layer = 4
+script = ExtResource("1_xfvdi")
+
+[node name="collider" type="CollisionShape2D" parent="." unique_id=593078535]
+scale = Vector2(12, 1)
+shape = SubResource("RectangleShape2D_jh01r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

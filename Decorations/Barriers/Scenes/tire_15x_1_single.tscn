@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cmk80dxs3kst5"]
+
+[ext_resource type="Texture2D" uid="uid://k4ui00pm6b35" path="res://Decorations/Barriers/Art/tire_1.5x1_single.png" id="1_1kfuf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kfuf"]
+size = Vector2(430, 40)
+
+[node name="Tire15x1Single" type="StaticBody2D" unique_id=208595637]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1574130593]
+position = Vector2(0, 55)
+texture = ExtResource("1_1kfuf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1229078186]
+position = Vector2(0, 30)
+shape = SubResource("RectangleShape2D_1kfuf")

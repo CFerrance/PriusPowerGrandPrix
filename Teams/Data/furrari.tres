@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Team" format=3 uid="uid://dxftspocfjii8"]
+
+[ext_resource type="Resource" uid="uid://b2t6gxyg31sa7" path="res://Cars/Palettes/Palette_Data/red_palette.tres" id="1_0oi0h"]
+[ext_resource type="Script" uid="uid://mtibpa4dn4p0" path="res://Teams/Team.gd" id="2_1mryo"]
+
+[resource]
+script = ExtResource("2_1mryo")
+team_name = "Furrari"
+preferred_palette = ExtResource("1_0oi0h")
+metadata/_custom_type_script = "uid://mtibpa4dn4p0"
