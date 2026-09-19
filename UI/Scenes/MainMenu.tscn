@@ -217,6 +217,31 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 20
 
+[node name="RaceSettings" type="VBoxContainer" parent="TrackSelectScreen" unique_id=475377943]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -60.0
+offset_right = -17.0
+offset_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="CheckBox" type="CheckBox" parent="TrackSelectScreen/RaceSettings" unique_id=766794403]
+layout_mode = 2
+text = "Mirror Mode"
+
+[node name="ConfirmButton" type="Button" parent="TrackSelectScreen/RaceSettings" unique_id=1771079545]
+layout_mode = 2
+text = "Confirm
+"
+
 [node name="BackButton" type="Button" parent="TrackSelectScreen" unique_id=1077521265]
 layout_mode = 1
 anchors_preset = 3
@@ -258,7 +283,7 @@ grow_vertical = 2
 theme = ExtResource("8_mipys")
 theme_override_constants/separation = 20
 
-[node name="CarSelect" parent="CarSelectScreen/CarOptions" unique_id=1934654072 instance=ExtResource("10_7la6k")]
+[node name="CarSelect" parent="CarSelectScreen/CarOptions" unique_id=1399328560 instance=ExtResource("10_7la6k")]
 layout_mode = 2
 options = Array[Resource]([ExtResource("4_l4mxc"), ExtResource("5_5faoh"), ExtResource("6_ptake")])
 
