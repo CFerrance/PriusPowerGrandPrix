@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrackData" format=3 uid="uid://ccgtlyvwfs8wq"]
+
+[ext_resource type="PackedScene" uid="uid://brtr8m33u0fbw" path="res://Tracks/Track_Scenes/TrackC.tscn" id="1_hr0ug"]
+[ext_resource type="Script" uid="uid://5q72e4ce2w7w" path="res://Tracks/Scripts/TrackData.gd" id="2_ovcbp"]
+
+[resource]
+script = ExtResource("2_ovcbp")
+scene = ExtResource("1_hr0ug")
+description = "A curvy track, track C needs a better description"
+name = "TrackC"
+metadata/_custom_type_script = "uid://5q72e4ce2w7w"

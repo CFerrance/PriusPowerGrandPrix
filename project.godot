@@ -52,12 +52,6 @@ folder_colors={
 "res://UI/Scripts/": "green"
 }
 
-[global_group]
-
-LevelManager=""
-GameManager=""
-GameDirector=""
-
 [input]
 
 ui_accept={

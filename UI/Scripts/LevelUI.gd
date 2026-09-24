@@ -36,13 +36,13 @@ signal continue_pressed
 @export var continue_button: Button
 
 #dependencies
-var level_manager: LevelManager
+var race_manager: RaceManager
 var player: PlayerCarController
 var track_manager: TrackManager
 
 
-func bind_dependencies(l_manager: LevelManager, player_: PlayerCarController, t_manager: TrackManager) -> void:
-	level_manager = l_manager
+func bind_dependencies(r_manager: RaceManager, player_: PlayerCarController, t_manager: TrackManager) -> void:
+	race_manager = r_manager
 	player = player_
 	track_manager = t_manager
 	
@@ -55,7 +55,7 @@ func bind_dependencies(l_manager: LevelManager, player_: PlayerCarController, t_
 
 func _process(_delta: float) -> void:
 	_set_speed_text(player.get_speed_cosmetic())
-	if level_manager.is_racing_enabled():
+	if race_manager.is_racing_enabled():
 		_update_lap_time()
 
 
@@ -72,7 +72,7 @@ func _set_speed_text(speed: float) -> void:
 
 
 func _update_lap_time() -> void:
-	race_timer_text.text = Utils.sec_to_time_string(level_manager.get_race_time_elapsed())
+	race_timer_text.text = Utils.sec_to_time_string(race_manager.get_race_time_elapsed())
 	lap_timer_text.text = Utils.sec_to_time_string(player.get_lap_time_sec())
 
 

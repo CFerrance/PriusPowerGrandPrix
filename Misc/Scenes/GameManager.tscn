@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b4k6es57lp1lr"]
+[gd_scene format=3 uid="uid://cm5pn46nacr77"]
 
 [ext_resource type="Script" uid="uid://jjow5k64wwu3" path="res://Misc/Scripts/GameManager.gd" id="1_tf73o"]
 [ext_resource type="Script" uid="uid://c78pyble71xjs" path="res://Cars/Scripts/CarData.gd" id="2_5p8nv"]
@@ -16,12 +16,13 @@
 [ext_resource type="Script" uid="uid://5q72e4ce2w7w" path="res://Tracks/Scripts/TrackData.gd" id="14_rvede"]
 [ext_resource type="Resource" uid="uid://c6jdpgbvroprf" path="res://Tracks/Data/Tracks/Coconut_Circuit.tres" id="15_yfpbv"]
 [ext_resource type="Resource" uid="uid://4jlsa11mh6n6" path="res://Tracks/Data/Tracks/Woodland_Ring.tres" id="16_65px1"]
+[ext_resource type="Resource" uid="uid://ccgtlyvwfs8wq" path="res://Tracks/Data/Tracks/Track_C.tres" id="17_8u2ln"]
 [ext_resource type="Script" uid="uid://b6nkqyjui4lah" path="res://Tracks/Scripts/CupData.gd" id="17_376fu"]
 [ext_resource type="Resource" uid="uid://cd1bgo1bna5dj" path="res://Tracks/Data/Cups/Test_Cup.tres" id="18_ikowh"]
 
-[node name="GameManager" type="Node" unique_id=800928349 groups=["GameManager"]]
+[node name="GameManager" type="Node" unique_id=984897483]
 script = ExtResource("1_tf73o")
 available_cars = Array[ExtResource("2_5p8nv")]([ExtResource("3_kw7i1"), ExtResource("4_stkq7"), ExtResource("5_kvdjo")])
-bot_teams = Array[ExtResource("6_rvede")]([ExtResource("7_yfpbv"), ExtResource("8_65px1"), ExtResource("9_376fu"), ExtResource("10_ikowh"), ExtResource("11_ts0ry"), ExtResource("12_1nj4m"), ExtResource("13_7gkxs")])
-available_tracks = Array[ExtResource("14_rvede")]([ExtResource("15_yfpbv"), ExtResource("16_65px1")])
+base_teams = Array[ExtResource("6_rvede")]([ExtResource("7_yfpbv"), ExtResource("8_65px1"), ExtResource("9_376fu"), ExtResource("10_ikowh"), ExtResource("11_ts0ry"), ExtResource("12_1nj4m"), ExtResource("13_7gkxs")])
+available_tracks = Array[ExtResource("14_rvede")]([ExtResource("15_yfpbv"), ExtResource("16_65px1"), ExtResource("17_8u2ln")])
 available_cups = Array[ExtResource("17_376fu")]([ExtResource("18_ikowh")])

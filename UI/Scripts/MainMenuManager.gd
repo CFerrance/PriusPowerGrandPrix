@@ -1,14 +1,15 @@
 class_name MainMenuManager extends Node
 
 #signals
-signal selections_completed(race_type: GameManager.RaceType, race_option: RaceOption, car_choice: CarData)
+signal selections_completed(main_menu: MainMenuManager)
+signal tutorial_selected
 
 #enums
 enum Screen {
 	START,
 	MODE_SELECT,
 	TRACK_SELECT,
-	CAR_SELECT
+	CAR_SELECT,
 }
 
 #exports
@@ -35,7 +36,7 @@ enum Screen {
 var current_screen: Screen = Screen.START
 var track_select_buttons: Array[Button] = []
 var car_select_buttons: Array[Button] = []
-var selected_race_type: GameManager.RaceType
+var selected_race_type: RaceContext.RaceType
 var selected_race_option: RaceOption
 var selected_car: CarData
 var selected_color: CarPalette
@@ -68,8 +69,7 @@ func _on_play_button_pressed() -> void:
 
 
 func _on_tutorial_button_pressed() -> void:
-	selected_race_type = GameManager.RaceType.TUTORIAL
-	game_manager.start_tutorial()
+	tutorial_selected.emit()
 
 
 func _on_options_button_pressed() -> void:
@@ -89,17 +89,17 @@ func _on_options_back_button_pressed() -> void:
 
 
 func _on_single_button_pressed() -> void:
-	selected_race_type = GameManager.RaceType.SINGLE
+	selected_race_type = RaceContext.RaceType.SINGLE
 	_switch_screen(Screen.TRACK_SELECT)
 
 
 func _on_cup_button_pressed() -> void:
-	selected_race_type = GameManager.RaceType.CUP
+	selected_race_type = RaceContext.RaceType.CUP
 	_switch_screen(Screen.TRACK_SELECT)
 
 
 func _on_practice_button_pressed() -> void:
-	selected_race_type = GameManager.RaceType.PRACTICE
+	selected_race_type = RaceContext.RaceType.PRACTICE
 	_switch_screen(Screen.TRACK_SELECT)
 
 
@@ -120,6 +120,37 @@ func _on_car_select_back_button_pressed() -> void:
 
 #endregion
 
+
+#region getters
+
+func get_selected_race_type() -> RaceContext.RaceType:
+	return selected_race_type
+
+
+func get_selected_race_option() -> RaceOption:
+	return selected_race_option
+
+
+func get_player_team_name() -> String:
+	return "Player Team"
+
+
+func get_selected_car() -> CarData:
+	return selected_car
+
+
+func get_selected_palette() -> CarPalette:
+	return selected_color
+
+
+func get_selected_lap_count() -> int:
+	return 5
+
+
+func get_mirror_mode() -> bool:
+	return false
+
+#endregion
 
 func _switch_screen(new_screen: Screen) -> void:
 	current_screen = new_screen
@@ -147,7 +178,7 @@ func _switch_screen(new_screen: Screen) -> void:
 		Screen.TRACK_SELECT:
 			_set_background(selection_background)
 			track_select_screen.show()
-			if selected_race_type == GameManager.RaceType.CUP:
+			if selected_race_type == RaceContext.RaceType.CUP:
 				_display_race_options(game_manager.get_cup_options())
 			else:
 				_display_race_options(game_manager.get_track_options())
@@ -226,4 +257,4 @@ func _color_selected(color: CarPalette) -> void:
 
 func _try_start_game() -> void:
 	if selected_race_type != null and selected_race_option != null and selected_car != null:
-		selections_completed.emit(selected_race_type, selected_race_option, selected_car, selected_color)
+		selections_completed.emit(self)
