@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="CarData" format=3 uid="uid://baao73vptlmx8"]
+
+[ext_resource type="Script" uid="uid://c78pyble71xjs" path="res://Cars/Scripts/CarData.gd" id="1_mecjs"]
+[ext_resource type="Texture2D" uid="uid://g230rktdlood" path="res://Cars/Art/mini_cooper.png" id="2_gnmtk"]
+
+[sub_resource type="Curve" id="Curve_6mgo1"]
+_data = [Vector2(0.5521739, 0), 0.0, 0.0, 0, 0, Vector2(0.6043478, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_axlqo"]
+_data = [Vector2(0.45217395, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_vjgwt"]
+_data = [Vector2(0.3, 0), 0.0, 0.0, 0, 0, Vector2(0.34782612, 1), 0.0, 0.0, 0, 0, Vector2(0.6956522, 1), 0.0, 0.0, 0, 0, Vector2(0.7478261, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[resource]
+resource_name = "Mini Cooper"
+script = ExtResource("1_mecjs")
+model = "Mini Cooper"
+sprite = ExtResource("2_gnmtk")
+mass = 2.0
+brake_power = 300
+reverse_power = 200
+collider_radius = 15
+collider_height = 70
+collider_offset = 2
+base_steering_power = 6000
+steering_floor = 250.0
+low_speed_grip_cutoff = 475.0
+mid_speed_grip_cutoff = 625.0
+low_speed_grip = 8.0
+mid_speed_grip = 6.0
+high_speed_grip = 4.0
+drag = 0.001
+base_friction = 0.1
+low_gear_min_power = 400
+low_gear_engine_power = 600
+low_gear_curve = SubResource("Curve_axlqo")
+mid_gear_min_power = 450
+mid_gear_engine_power = 750
+mid_gear_curve = SubResource("Curve_vjgwt")
+high_gear_min_power = 550
+high_gear_engine_power = 900
+high_gear_curve = SubResource("Curve_6mgo1")

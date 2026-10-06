@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://doabq3ciagvd6" path="res://UI/Scripts/MainMenuManager.gd" id="1_yqorp"]
 [ext_resource type="Resource" uid="uid://2qvi76dhc81p" path="res://Cars/Data/bug.tres" id="4_l4mxc"]
-[ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://Cars/Data/miniCooper.tres" id="5_5faoh"]
+[ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://Cars/Data/mini_cooper.tres" id="5_5faoh"]
 [ext_resource type="Resource" uid="uid://dl3xnns4pss8n" path="res://Cars/Data/prius.tres" id="6_ptake"]
 [ext_resource type="Resource" uid="uid://gjbxtw1jgllf" path="res://Cars/Palettes/Palette_Data/blue_palette.tres" id="7_hubol"]
 [ext_resource type="Resource" uid="uid://b58va0xqi154l" path="res://Cars/Palettes/Palette_Data/gray_palette.tres" id="8_8vx4p"]

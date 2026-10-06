@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://jjow5k64wwu3" path="res://Misc/Scripts/GameManager.gd" id="1_tf73o"]
 [ext_resource type="Script" uid="uid://c78pyble71xjs" path="res://Cars/Scripts/CarData.gd" id="2_5p8nv"]
 [ext_resource type="Resource" uid="uid://2qvi76dhc81p" path="res://Cars/Data/bug.tres" id="3_kw7i1"]
-[ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://Cars/Data/miniCooper.tres" id="4_stkq7"]
+[ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://Cars/Data/mini_cooper.tres" id="4_stkq7"]
 [ext_resource type="Resource" uid="uid://dl3xnns4pss8n" path="res://Cars/Data/prius.tres" id="5_kvdjo"]
 [ext_resource type="Script" uid="uid://mtibpa4dn4p0" path="res://Teams/Team.gd" id="6_rvede"]
 [ext_resource type="Resource" uid="uid://dey7w3stjn6p6" path="res://Teams/Data/catillac.tres" id="7_yfpbv"]
