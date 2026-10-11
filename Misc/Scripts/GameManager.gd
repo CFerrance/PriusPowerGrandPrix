@@ -50,16 +50,9 @@ func mount_tutorial_context() -> void:
 	add_child(current_context)
 
 
-func mount_race_context(main_menu: MainMenuManager) -> void:
+func mount_race_context(race_type: RaceContext.RaceType, race_option: RaceOption, player_team: String,
+		car: CarData, palette: CarPalette, laps: int, mirror: bool) -> void:
 	assert(current_context_type == Context.MAIN_MENU and current_context)
-	
-	var race_type: RaceContext.RaceType = main_menu.get_selected_race_type()
-	var race_option: RaceOption = main_menu.get_selected_race_option()
-	var player_team: String = main_menu.get_player_team_name()
-	var car: CarData = main_menu.get_selected_car()
-	var palette: CarPalette = main_menu.get_selected_palette()
-	var laps: int = main_menu.get_selected_lap_count()
-	var mirror: bool = main_menu.get_mirror_mode()
 	
 	current_context.queue_free()
 	

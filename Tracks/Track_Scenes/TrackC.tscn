@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://lyq6p0kloev3" path="res://Tracks/Track_Art/Track_A/a_3_4.png" id="4_eht0g"]
 [ext_resource type="Texture2D" uid="uid://hgs0s2fnvx4g" path="res://Tracks/Track_Art/Misc/straight_1x1.png" id="6_trcwe"]
 [ext_resource type="Texture2D" uid="uid://dfytiv1380gli" path="res://Tracks/Track_Art/Track_A/a_10_11.png" id="7_n3vn0"]
-[ext_resource type="Texture2D" uid="uid://cyxgnahydfwoh" path="res://Tracks/Track_Art/Track_C/Half_track.png" id="9_hqiyw"]
+[ext_resource type="Texture2D" uid="uid://cyxgnahydfwoh" path="res://Tracks/Track_Art/Misc/Half_track.png" id="9_hqiyw"]
 [ext_resource type="Texture2D" uid="uid://bhlperx10t2dn" path="res://Tracks/Track_Art/Misc/pit_ninety.png" id="9_ui2g6"]
 [ext_resource type="Texture2D" uid="uid://bfua4axvy7cei" path="res://Tracks/Track_Art/Misc/pit_straight_3x1.png" id="10_qqfna"]
 [ext_resource type="PackedScene" uid="uid://ba6xmd0sulldd" path="res://Tracks/Track_Scenes/StartGate.tscn" id="11_youpu"]
@@ -41,6 +41,14 @@ position = Vector2(-1875, -1650)
 [node name="Main" type="Node2D" parent="Tracks" unique_id=72951121]
 position = Vector2(1875, 1650)
 
+[node name="Straight3x3" type="Sprite2D" parent="Tracks/Main" unique_id=615305015]
+position = Vector2(-1350, -225)
+texture = ExtResource("2_guex6")
+
+[node name="Straight3x7" type="Sprite2D" parent="Tracks/Main" unique_id=1279946876]
+position = Vector2(-450, -225)
+texture = ExtResource("2_guex6")
+
 [node name="Hairpin2_5x1_5" type="Sprite2D" parent="Tracks/Main" unique_id=396677008]
 position = Vector2(187, 0)
 rotation = 1.5707964
@@ -54,28 +62,6 @@ texture = ExtResource("2_guex6")
 position = Vector2(-1350, 225)
 texture = ExtResource("2_guex6")
 
-[node name="Straight3x3" type="Sprite2D" parent="Tracks/Main" unique_id=615305015]
-position = Vector2(-1350, -225)
-texture = ExtResource("2_guex6")
-
-[node name="Straight3x4" type="Sprite2D" parent="Tracks/Main" unique_id=153785097]
-position = Vector2(-2250, -225)
-texture = ExtResource("2_guex6")
-
-[node name="Straight3x6" type="Sprite2D" parent="Tracks/Main" unique_id=1116175606]
-position = Vector2(-3150, -225)
-texture = ExtResource("2_guex6")
-
-[node name="Ninety2x2LeftCurb" type="Sprite2D" parent="Tracks/Main" unique_id=1549986432]
-position = Vector2(-3900, -375)
-rotation = -3.1415925
-texture = ExtResource("3_5ug2q")
-
-[node name="Ninety2x2LeftCurb2" type="Sprite2D" parent="Tracks/Main" unique_id=1156937685]
-position = Vector2(-3900, -975)
-rotation = -1.5707964
-texture = ExtResource("3_5ug2q")
-
 [node name="Ninety2x2LeftCurb3" type="Sprite2D" parent="Tracks/Main" unique_id=1571162000]
 position = Vector2(-2100, 375)
 rotation = -1.5707964
@@ -85,22 +71,6 @@ texture = ExtResource("3_5ug2q")
 position = Vector2(-1500, 1575)
 texture = ExtResource("4_eht0g")
 flip_h = true
-
-[node name="Straight3x7" type="Sprite2D" parent="Tracks/Main" unique_id=1279946876]
-position = Vector2(-450, -225)
-texture = ExtResource("2_guex6")
-
-[node name="Straight3x8" type="Sprite2D" parent="Tracks/Main" unique_id=2060838621]
-position = Vector2(-1650, -2025)
-texture = ExtResource("2_guex6")
-
-[node name="Straight3x9" type="Sprite2D" parent="Tracks/Main" unique_id=1953841815]
-position = Vector2(750, -1725)
-texture = ExtResource("2_guex6")
-
-[node name="A35" type="Sprite2D" parent="Tracks/Main" unique_id=340188735]
-position = Vector2(1200, 675)
-texture = ExtResource("4_eht0g")
 
 [node name="Ninety2x2LeftCurb4" type="Sprite2D" parent="Tracks/Main" unique_id=978728627]
 position = Vector2(-300, 2175)
@@ -112,15 +82,32 @@ position = Vector2(0, 1575)
 rotation = -1.5707964
 texture = ExtResource("3_5ug2q")
 
-[node name="Straight1x3" type="Sprite2D" parent="Tracks/Main" unique_id=212951493]
-position = Vector2(1950, -825)
+[node name="A35" type="Sprite2D" parent="Tracks/Main" unique_id=340188735]
+position = Vector2(1200, 675)
+texture = ExtResource("4_eht0g")
+
+[node name="HalfTrack" type="Sprite2D" parent="Tracks/Main" unique_id=267116883]
+position = Vector2(1950, -300)
 rotation = 1.5707964
-texture = ExtResource("6_trcwe")
+texture = ExtResource("9_hqiyw")
 
 [node name="Straight1x4" type="Sprite2D" parent="Tracks/Main" unique_id=1112107211]
 position = Vector2(1950, -525)
 rotation = 1.5707964
 texture = ExtResource("6_trcwe")
+
+[node name="Straight1x3" type="Sprite2D" parent="Tracks/Main" unique_id=212951493]
+position = Vector2(1950, -825)
+rotation = 1.5707964
+texture = ExtResource("6_trcwe")
+
+[node name="C7" type="Sprite2D" parent="Tracks/Main" unique_id=579992576]
+position = Vector2(1650, -1425)
+texture = ExtResource("16_nvprg")
+
+[node name="Straight3x9" type="Sprite2D" parent="Tracks/Main" unique_id=1953841815]
+position = Vector2(750, -1725)
+texture = ExtResource("2_guex6")
 
 [node name="A1011" type="Sprite2D" parent="Tracks/Main" unique_id=1283620566]
 position = Vector2(-450, -1875)
@@ -128,17 +115,46 @@ texture = ExtResource("7_n3vn0")
 flip_h = true
 flip_v = true
 
-[node name="HalfTrack" type="Sprite2D" parent="Tracks/Main" unique_id=267116883]
-position = Vector2(1950, -300)
-rotation = 1.5707964
-texture = ExtResource("9_hqiyw")
+[node name="Straight3x8" type="Sprite2D" parent="Tracks/Main" unique_id=2060838621]
+position = Vector2(-1650, -2025)
+texture = ExtResource("2_guex6")
 
-[node name="PitNinety" type="Sprite2D" parent="Tracks/Main" unique_id=2099062057]
-position = Vector2(1950, -2025)
-texture = ExtResource("9_ui2g6")
+[node name="A12" type="Sprite2D" parent="Tracks/Main" unique_id=1351961772]
+position = Vector2(-2850, -1575)
+texture = ExtResource("14_trcwe")
+
+[node name="Ninety2x2LeftCurb2" type="Sprite2D" parent="Tracks/Main" unique_id=1156937685]
+position = Vector2(-3900, -975)
+rotation = -1.5707964
+texture = ExtResource("3_5ug2q")
+
+[node name="Ninety2x2LeftCurb" type="Sprite2D" parent="Tracks/Main" unique_id=1549986432]
+position = Vector2(-3900, -375)
+rotation = -3.1415925
+texture = ExtResource("3_5ug2q")
+
+[node name="Straight3x6" type="Sprite2D" parent="Tracks/Main" unique_id=1116175606]
+position = Vector2(-3150, -225)
+texture = ExtResource("2_guex6")
+
+[node name="Straight3x4" type="Sprite2D" parent="Tracks/Main" unique_id=153785097]
+position = Vector2(-2250, -225)
+texture = ExtResource("2_guex6")
 
 [node name="Pits" type="Node2D" parent="Tracks" unique_id=1572259998]
 position = Vector2(1875, 1650)
+
+[node name="PitNinety" type="Sprite2D" parent="Tracks/Pits" unique_id=2099062057]
+position = Vector2(1950, -2025)
+texture = ExtResource("9_ui2g6")
+
+[node name="PitStraight" type="Sprite2D" parent="Tracks/Pits" unique_id=1248986551]
+position = Vector2(1725, -2100)
+texture = ExtResource("15_n3vn0")
+
+[node name="PitStraight3x1" type="Sprite2D" parent="Tracks/Pits" unique_id=428640541]
+position = Vector2(1425, -2100)
+texture = ExtResource("10_qqfna")
 
 [node name="PitStraight3x2" type="Sprite2D" parent="Tracks/Pits" unique_id=1568294514]
 position = Vector2(975, -2100)
@@ -176,19 +192,3 @@ curve = SubResource("Curve2D_eht0g")
 position = Vector2(-1184, 1963)
 rotation = 0.80539566
 loop = false
-
-[node name="A12" type="Sprite2D" parent="." unique_id=1351961772]
-position = Vector2(-2850, -1575)
-texture = ExtResource("14_trcwe")
-
-[node name="PitStraight3x1" type="Sprite2D" parent="." unique_id=428640541]
-position = Vector2(1425, -2100)
-texture = ExtResource("10_qqfna")
-
-[node name="PitStraight" type="Sprite2D" parent="." unique_id=1248986551]
-position = Vector2(1725, -2100)
-texture = ExtResource("15_n3vn0")
-
-[node name="C7" type="Sprite2D" parent="." unique_id=579992576]
-position = Vector2(1650, -1425)
-texture = ExtResource("16_nvprg")

@@ -1,7 +1,8 @@
 class_name MainMenuManager extends Node
 
 #signals
-signal selections_completed(main_menu: MainMenuManager)
+signal selections_completed(race_type: RaceContext.RaceType, race_option: RaceOption, player_team: String,
+		car: CarData, palette: CarPalette, laps: int, mirror: bool)
 signal tutorial_selected
 
 #enums
@@ -120,38 +121,6 @@ func _on_car_select_back_button_pressed() -> void:
 
 #endregion
 
-
-#region getters
-
-func get_selected_race_type() -> RaceContext.RaceType:
-	return selected_race_type
-
-
-func get_selected_race_option() -> RaceOption:
-	return selected_race_option
-
-
-func get_player_team_name() -> String:
-	return "Player Team"
-
-
-func get_selected_car() -> CarData:
-	return selected_car
-
-
-func get_selected_palette() -> CarPalette:
-	return selected_color
-
-
-func get_selected_lap_count() -> int:
-	return 5
-
-
-func get_mirror_mode() -> bool:
-	return false
-
-#endregion
-
 func _switch_screen(new_screen: Screen) -> void:
 	current_screen = new_screen
 	
@@ -257,4 +226,5 @@ func _color_selected(color: CarPalette) -> void:
 
 func _try_start_game() -> void:
 	if selected_race_type != null and selected_race_option != null and selected_car != null:
-		selections_completed.emit(self)
+		selections_completed.emit(selected_race_type, selected_race_option, "Player Team",
+			selected_car, selected_color, 5, false)
