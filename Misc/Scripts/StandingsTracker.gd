@@ -29,4 +29,4 @@ func _sort_cars(a: Car, b: Car) -> bool:
 	if gate_dif != 0:
 		return gate_dif > 0
 		
-	return a.get_last_gate_msec() < b.get_last_gate_msec()
+	return a.get_last_gate_sec() < b.get_last_gate_sec()

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bc80e7l8cwmrg"]
+
+[ext_resource type="Script" uid="uid://cpmp3bglafpfk" path="res://Misc/Scripts/TutorialContext.gd" id="1_xq71l"]
+
+[node name="TutorialContext" type="Node" unique_id=41786414]
+script = ExtResource("1_xq71l")

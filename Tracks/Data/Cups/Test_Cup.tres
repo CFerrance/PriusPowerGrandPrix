@@ -4,9 +4,11 @@
 [ext_resource type="Script" uid="uid://5q72e4ce2w7w" path="res://Tracks/Scripts/TrackData.gd" id="2_is2nh"]
 [ext_resource type="Resource" uid="uid://4jlsa11mh6n6" path="res://Tracks/Data/Tracks/Woodland_Ring.tres" id="3_u426l"]
 [ext_resource type="Resource" uid="uid://c6jdpgbvroprf" path="res://Tracks/Data/Tracks/Coconut_Circuit.tres" id="4_imec1"]
+[ext_resource type="Resource" uid="uid://ccgtlyvwfs8wq" path="res://Tracks/Data/Tracks/Track_C.tres" id="5_nu3ny"]
+[ext_resource type="Resource" uid="uid://cc6sl1h0lb5bs" path="res://Tracks/Data/Tracks/Track_D.tres" id="6_jlvv5"]
 
 [resource]
 script = ExtResource("1_direl")
-tracks = Array[ExtResource("2_is2nh")]([ExtResource("3_u426l"), ExtResource("4_imec1")])
+tracks = Array[ExtResource("2_is2nh")]([ExtResource("3_u426l"), ExtResource("4_imec1"), ExtResource("5_nu3ny"), ExtResource("6_jlvv5")])
 name = "Test Cup"
 metadata/_custom_type_script = "uid://b6nkqyjui4lah"

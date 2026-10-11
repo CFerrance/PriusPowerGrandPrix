@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ccehgx1pp1xlc"]
+
+[ext_resource type="Script" uid="uid://bfd4rvkdf63fe" path="res://Misc/Scripts/RaceContext.gd" id="1_sqqas"]
+
+[node name="RaceContext" type="Node" unique_id=1339276920]
+script = ExtResource("1_sqqas")

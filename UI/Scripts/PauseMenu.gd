@@ -5,17 +5,15 @@ class_name PauseMenu extends CanvasLayer
 @export var restart_button: Button
 
 #dependencies
-var game_manager: GameManager
-var level_manager: LevelManager
+var race_context: RaceContext
 
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
-func bind_dependencies(game: GameManager, level: LevelManager) -> void:
-	game_manager = game
-	level_manager = level
+func bind_dependencies(context: RaceContext) -> void:
+	race_context = context
 
 
 func _process(_delta: float) -> void:
@@ -27,8 +25,8 @@ func toggle_pause() -> void:
 	if get_tree().paused == false:
 		get_tree().paused = true
 		
-		var race_type: GameManager.RaceType = game_manager.get_race_type()
-		if race_type == GameManager.RaceType.PRACTICE or race_type == GameManager.RaceType.TUTORIAL:
+		var race_type: RaceContext.RaceType = race_context.get_race_type()
+		if race_type == RaceContext.RaceType.PRACTICE:
 			restart_button.show()
 		else:
 			restart_button.hide()
@@ -59,16 +57,16 @@ func _options_button_pressed() -> void:
 
 func _restart_button_pressed() -> void: 
 	get_tree().paused = false
-	game_manager.request_level_restart()
+	race_context.request_level_restart()
 
 
 func _quit_to_menu_button_pressed() -> void:
 	get_tree().paused = false
-	level_manager.request_quit_to_menu()
+	race_context.request_quit_to_menu()
 
 
 func _quit_button_pressed() -> void:
 	get_tree().paused = false
-	level_manager.request_quit()
+	race_context.request_quit()
 
 #endregion

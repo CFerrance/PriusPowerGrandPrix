@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c2x34ueseyfar"]
+
+[ext_resource type="Script" uid="uid://d0jlq70dc75tr" path="res://Misc/Scripts/RaceManager.gd" id="1_nbv87"]
+
+[node name="RaceManager" type="Node" unique_id=1330350861]
+script = ExtResource("1_nbv87")

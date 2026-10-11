@@ -21,12 +21,12 @@ var last_gate_sec: float
 const PIT_SPEED: float = 250.0
 
 #dependencies
-var level_manager: LevelManager
+var race_manager: RaceManager
 var track_manager: TrackManager
 
 
-func bind_dependencies(l_manager: LevelManager, t_manager: TrackManager) -> void:
-	level_manager = l_manager
+func bind_dependencies(r_manager: RaceManager, t_manager: TrackManager) -> void:
+	race_manager = r_manager
 	track_manager = t_manager
 
 
@@ -52,11 +52,11 @@ func configure_car(team: String, data: CarData, palette: CarPalette) -> void:
 func try_add_gate(gate: Gate) -> void:
 	if _try_add_gate(gate):
 		gate_passed.emit()
-		last_gate_sec = level_manager.get_race_time_elapsed()
+		last_gate_sec = race_manager.get_race_time_elapsed()
 
 
 func _try_add_gate(gate: Gate) -> bool:
-	if not level_manager.is_racing_enabled():
+	if not race_manager.is_racing_enabled():
 		return false
 	if gate == track_manager.get_start_gate():
 		if len(completed_laps) == 0 and len(passed_gates) == 0:
@@ -65,7 +65,7 @@ func _try_add_gate(gate: Gate) -> bool:
 			return true
 		elif len(passed_gates) == track_manager.get_gate_count() + 1:
 			#completing a lap
-			completed_laps.append(level_manager.get_race_time_elapsed())
+			completed_laps.append(race_manager.get_race_time_elapsed())
 			passed_gates = []
 			passed_gates.append(gate)
 			lap_completed.emit()
@@ -96,15 +96,15 @@ func get_gates_this_lap() -> int:
 
 func get_last_gate_sec() -> float:
 	if len(passed_gates) == 0:
-		return level_manager.get_race_time_elapsed()
+		return race_manager.get_race_time_elapsed()
 	return last_gate_sec
 
 
 func get_lap_time_sec() -> float:
 	if len(completed_laps) == 0:
-		return level_manager.get_race_time_elapsed()
+		return race_manager.get_race_time_elapsed()
 	else:
-		return level_manager.get_race_time_elapsed() - completed_laps[len(completed_laps) - 1]
+		return race_manager.get_race_time_elapsed() - completed_laps[len(completed_laps) - 1]
 
 
 func get_final_time_string() -> String:
