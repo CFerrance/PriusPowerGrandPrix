@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="InputIconMap" format=3 uid="uid://db1lbu4ki01im"]
+
+[ext_resource type="Script" uid="uid://db0gxldvhci3p" path="res://addons/godot_input_icons/resources/controller_icons.gd" id="1_buyxm"]
+[ext_resource type="Script" uid="uid://dth3wa8g0tv2g" path="res://addons/godot_input_icons/resources/input_icon_map.gd" id="2_we1gq"]
+
+[resource]
+script = ExtResource("2_we1gq")
+metadata/_custom_type_script = "uid://dth3wa8g0tv2g"

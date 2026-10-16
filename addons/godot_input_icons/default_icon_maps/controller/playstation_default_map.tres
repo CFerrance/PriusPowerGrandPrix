@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="ControllerIcons" format=3 uid="uid://y8gohpdojpcc"]
+
+[ext_resource type="Texture2D" uid="uid://tlayu7t63mk2" path="res://addons/godot_input_icons/assets/xelu_icons/PS4/PS4_Dpad_Down.png" id="1_etbvg"]
+[ext_resource type="Texture2D" uid="uid://bdxosl7p14ohj" path="res://addons/godot_input_icons/assets/xelu_icons/PS4/PS4_Dpad_Left.png" id="2_fum6i"]
+[ext_resource type="Texture2D" uid="uid://c2jlculfycqki" path="res://addons/godot_input_icons/assets/xelu_icons/PS4/PS4_Dpad_Right.png" id="3_et860"]
+[ext_resource type="Texture2D" uid="uid://2un3ekfes4an" path="res://addons/godot_input_icons/assets/xelu_icons/PS4/PS4_Dpad_Up.png" id="4_kyk5t"]
+[ext_resource type="Texture2D" uid="uid://d306mh7qm2wr3" path="res://addons/godot_input_icons/assets/xelu_icons/PS4/PS4_Cross.png" id="5_j1dpr"]
+[ext_resource type="Texture2D" uid="uid://pk5fde1ympsn" path="res://addons/godot_input_icons/assets/xelu_icons/PS4/PS4_Square.png" id="6_oehjd"]
+[ext_resource type="Texture2D" uid="uid://ccux7ahkp487o" path="res://addons/godot_input_icons/assets/xelu_icons/PS4/PS4_Circle.png" id="7_5evtu"]
+[ext_resource type="Texture2D" uid="uid://dab5kfywa417b" path="res://addons/godot_input_icons/assets/xelu_icons/PS4/PS4_Triangle.png" id="8_7uuov"]
+[ext_resource type="Texture2D" uid="uid://ck3pt1jbqdhv2" path="res://addons/godot_input_icons/assets/xelu_icons/PS4/PS4_L1.png" id="9_1rthq"]
+[ext_resource type="Texture2D" uid="uid://dhwghs0g34e2p" path="res://addons/godot_input_icons/assets/xelu_icons/PS4/PS4_Left_Stick_Click.png" id="10_wwism"]
+[ext_resource type="Texture2D" uid="uid://ddkds4prlj27w" path="res://addons/godot_input_icons/assets/xelu_icons/PS4/PS4_L2.png" id="11_alpt0"]
+[ext_resource type="Texture2D" uid="uid://crih4cgvdhurd" path="res://addons/godot_input_icons/assets/xelu_icons/PS4/PS4_R1.png" id="12_p4exo"]
+[ext_resource type="Texture2D" uid="uid://b0by7215hyo77" path="res://addons/godot_input_icons/assets/xelu_icons/PS4/PS4_Right_Stick_Click.png" id="13_pk1y5"]
+[ext_resource type="Texture2D" uid="uid://b5d4txg2sbw1q" path="res://addons/godot_input_icons/assets/xelu_icons/PS4/PS4_R2.png" id="14_nufst"]
+[ext_resource type="Texture2D" uid="uid://d2hwlvysf488s" path="res://addons/godot_input_icons/assets/xelu_icons/PS4/PS4_Touch_Pad.png" id="16_0sy5r"]
+[ext_resource type="Script" uid="uid://db0gxldvhci3p" path="res://addons/godot_input_icons/resources/controller_icons.gd" id="16_ya56q"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tnp1c"]
+load_path = "res://.godot/imported/tilemap_packed.png-d6d5a6824ac696b1959924a2068b64d3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70dds"]
+atlas = SubResource("CompressedTexture2D_tnp1c")
+region = Rect2(304, 371, 16, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya56q"]
+atlas = SubResource("CompressedTexture2D_tnp1c")
+region = Rect2(320, 371, 16, 10)
+
+[resource]
+script = ExtResource("16_ya56q")
+face_button_up = ExtResource("8_7uuov")
+face_button_right = ExtResource("7_5evtu")
+face_button_down = ExtResource("5_j1dpr")
+face_button_left = ExtResource("6_oehjd")
+left_bumper = ExtResource("9_1rthq")
+left_trigger = ExtResource("11_alpt0")
+right_bumper = ExtResource("12_p4exo")
+right_trigger = ExtResource("14_nufst")
+dpad_up = ExtResource("4_kyk5t")
+dpad_right = ExtResource("3_et860")
+dpad_down = ExtResource("1_etbvg")
+dpad_left = ExtResource("2_fum6i")
+start_button = SubResource("AtlasTexture_ya56q")
+back_button = SubResource("AtlasTexture_70dds")
+left_stick_in = ExtResource("10_wwism")
+right_stick_in = ExtResource("13_pk1y5")
+touchpad = ExtResource("16_0sy5r")
+metadata/_custom_type_script = "uid://db0gxldvhci3p"

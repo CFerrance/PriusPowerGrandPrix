@@ -4,8 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://n7dsrm7ftq1g" path="res://UI/Art/dashboard.png" id="2_8klgi"]
 [ext_resource type="Texture2D" uid="uid://bdginhskvo4gr" path="res://UI/Art/StartLight.png" id="2_a11i2"]
 [ext_resource type="Theme" uid="uid://bbg3p1op4fcix" path="res://UI/level_ui_theme.tres" id="3_3xbq7"]
+[ext_resource type="Texture2D" uid="uid://d06nig6vqa0pe" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/1_Key_Dark.png" id="5_apc3a"]
+[ext_resource type="Script" uid="uid://d2a2relwnivg5" path="res://addons/godot_input_icons/input_icon_texture_rect.gd" id="6_apc3a"]
+[ext_resource type="Texture2D" uid="uid://c4cod3lyox2ni" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/2_Key_Dark.png" id="7_d60yc"]
 
-[node name="LevelUI" type="CanvasLayer" unique_id=618771844 node_paths=PackedStringArray("hud_parent", "speed_text", "gear_text", "place_text", "lap_text", "race_timer_text", "lap_timer_text", "level_name", "lights", "podium_parent", "standings_parent", "report_parent", "final_time_text", "best_lap_text", "average_lap_text", "continue_button")]
+[node name="LevelUI" type="CanvasLayer" unique_id=618771844 node_paths=PackedStringArray("hud_parent", "speed_text", "gear_text", "place_text", "lap_text", "race_timer_text", "lap_timer_text", "level_name", "lights", "qte_parent", "qte_prompts", "podium_parent", "standings_parent", "report_parent", "final_time_text", "best_lap_text", "average_lap_text", "continue_button")]
 script = ExtResource("1_kxct0")
 hud_parent = NodePath("HUD")
 speed_text = NodePath("HUD/TextureRect/SpeedText")
@@ -19,6 +22,8 @@ light_interval = 0.2
 min_wait = 1.0
 max_wait = 3.0
 lights = [NodePath("StartLights/StartLight"), NodePath("StartLights/StartLight2"), NodePath("StartLights/StartLight3"), NodePath("StartLights/StartLight4"), NodePath("StartLights/StartLight5")]
+qte_parent = NodePath("QuickTimePrompts")
+qte_prompts = [NodePath("QuickTimePrompts/InputIconTextureRect"), NodePath("QuickTimePrompts/InputIconTextureRect2"), NodePath("QuickTimePrompts/InputIconTextureRect3"), NodePath("QuickTimePrompts/InputIconTextureRect4")]
 podium_parent = NodePath("Podium")
 standings_parent = NodePath("Standings")
 report_parent = NodePath("PracticeReport")
@@ -310,5 +315,46 @@ grow_horizontal = 2
 theme = ExtResource("3_3xbq7")
 theme_override_font_sizes/font_size = 64
 text = "Level Name"
+
+[node name="QuickTimePrompts" type="HBoxContainer" parent="." unique_id=41492992]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -100.0
+offset_right = 102.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="InputIconTextureRect" type="TextureRect" parent="QuickTimePrompts" unique_id=1470229628]
+layout_mode = 2
+texture = ExtResource("5_apc3a")
+script = ExtResource("6_apc3a")
+action_name = &"QuickTimeOne"
+metadata/_custom_type_script = "uid://d2a2relwnivg5"
+
+[node name="InputIconTextureRect2" type="TextureRect" parent="QuickTimePrompts" unique_id=1366099779]
+layout_mode = 2
+texture = ExtResource("7_d60yc")
+script = ExtResource("6_apc3a")
+action_name = &"QuickTimeTwo"
+metadata/_custom_type_script = "uid://d2a2relwnivg5"
+
+[node name="InputIconTextureRect3" type="TextureRect" parent="QuickTimePrompts" unique_id=69298251]
+layout_mode = 2
+texture = ExtResource("7_d60yc")
+script = ExtResource("6_apc3a")
+action_name = &"QuickTimeTwo"
+metadata/_custom_type_script = "uid://d2a2relwnivg5"
+
+[node name="InputIconTextureRect4" type="TextureRect" parent="QuickTimePrompts" unique_id=1735626550]
+layout_mode = 2
+texture = ExtResource("7_d60yc")
+script = ExtResource("6_apc3a")
+action_name = &"QuickTimeTwo"
+metadata/_custom_type_script = "uid://d2a2relwnivg5"
 
 [connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

@@ -2,6 +2,8 @@ class_name PlayerCarController extends Car
 
 #signals
 signal gear_changed
+signal on_display_qtes
+signal on_qte_pressed
 
 #enums
 enum InputState {
@@ -29,12 +31,13 @@ enum Gear {
 #variables
 var current_input_state : InputState
 var current_gear: Gear
-var current_qtes: Array[String]
+var current_qtes: Array[StringName]
 var successes: int
 var player_cam: Camera2D
 
 #constants
-const QTEs : Array[String] = ["QuickTimeOne", "QuickTimeTwo", "QuickTimeThree", "QuickTimeFour"]
+const QTEs : Array[StringName] = ["QuickTimeOne", "QuickTimeTwo", "QuickTimeThree", "QuickTimeFour"]
+const QTE_COUNT: int = 4
 
 
 func _ready() -> void:
@@ -118,6 +121,7 @@ func on_pit_entry() -> void:
 	else:
 		print("TOO SLOW, ADMINISTERING PENALTY")
 		current_qtes.clear()
+		on_display_qtes.emit(current_qtes)
 		await get_tree().create_timer(too_slow_penalty).timeout
 		print("PENALTY COMPLETE")
 		_exit_pit()
@@ -187,26 +191,36 @@ func _handle_pit_exit() -> void:
 
 func _generate_quick_time_sequence() -> void:
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-	current_qtes = [QTEs[rng.randi_range(0, len(QTEs) - 1)]]
+	
+	current_qtes = []
+	for i: int in range(QTE_COUNT):
+		current_qtes.append(QTEs[rng.randi_range(0, len(QTEs) - 1)])
+	assert(len(current_qtes) == QTE_COUNT)
+	
 	successes = 0
-	print("TODO: DISPLAY QTE BUTTONS")
-	print(current_qtes)
+	on_display_qtes.emit(current_qtes)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if current_input_state == InputState.PIT_LANE and not current_qtes.is_empty():
-		if event.is_action(current_qtes[successes]):
-			successes += 1
-			print("Success")
-			if successes == len(current_qtes):
-				print("passed QTE")
-				current_qtes = []
+	if current_input_state != InputState.PIT_LANE or current_qtes.is_empty() or not event.is_pressed():
+		return
+	
+	for qte: StringName in QTEs:
+		if event.is_action_pressed(qte):
+			if qte == current_qtes[successes]:
+				successes += 1
+				print("Success")
+				if successes == len(current_qtes):
+					print("passed QTE")
+					current_qtes.clear()
+					on_display_qtes.emit(current_qtes)
+					_exit_pit()
+			else:
+				print("failed QTE")
+				current_qtes.clear()
+				on_display_qtes.emit(current_qtes)
+				await get_tree().create_timer(incorrect_penalty).timeout
 				_exit_pit()
-		else:
-			print("failed QTE")
-			current_qtes.clear()
-			await get_tree().create_timer(incorrect_penalty).timeout
-			_exit_pit()
 
 #endregion
 

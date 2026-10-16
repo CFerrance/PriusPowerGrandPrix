@@ -20,6 +20,10 @@ signal continue_pressed
 @export var max_wait: float
 @export var lights: Array[Control]
 
+@export_category("QTEs")
+@export var qte_parent: Control
+@export var qte_prompts: Array[InputIconTextureRect]
+
 @export_category("Podium")
 @export var podium_parent: Control
 
@@ -41,9 +45,9 @@ var player: PlayerCarController
 var track_manager: TrackManager
 
 
-func bind_dependencies(r_manager: RaceManager, player_: PlayerCarController, t_manager: TrackManager) -> void:
+func bind_dependencies(r_manager: RaceManager, player_controller: PlayerCarController, t_manager: TrackManager) -> void:
 	race_manager = r_manager
-	player = player_
+	player = player_controller
 	track_manager = t_manager
 	
 	lap_text.text = str(1) + "/" + str(track_manager.get_lap_count())
@@ -51,6 +55,7 @@ func bind_dependencies(r_manager: RaceManager, player_: PlayerCarController, t_m
 	player.gear_changed.connect(_set_gear)
 	_set_gear(0)
 	player.lap_completed.connect(_on_lap_completed)
+	player.on_display_qtes.connect(_on_display_qtes)
 
 
 func _process(_delta: float) -> void:
@@ -90,6 +95,18 @@ func _on_lap_completed() -> void:
 	lap_text.text = str(player.get_laps_completed() + 1) + "/" + str(track_manager.get_lap_count())
 #endregion
 
+
+#region qtes
+
+func _on_display_qtes(qtes: Array[StringName]) -> void:
+	if qtes.is_empty():
+		qte_parent.hide()
+	else:
+		qte_parent.show()
+		for i: int in range(len(qtes)):
+			qte_prompts[i].set_action_property_value(qtes[i])
+
+#endregion
 
 func set_level_name(race_name: String) -> void:
 	level_name.text = race_name
