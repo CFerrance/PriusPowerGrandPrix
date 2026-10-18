@@ -1,0 +1,173 @@
+class_name HUD extends Node
+
+#signals
+signal continue_pressed
+
+#exports
+@export_category("HUD")
+@export var hud_parent: Control
+@export var speed_text: Label
+@export var gear_text: Label
+@export var place_text: Label
+@export var lap_text: Label
+@export var race_timer_text: Label
+@export var lap_timer_text: Label
+
+@export_category("Level Start")
+@export var level_name: Label
+@export var light_interval: float
+@export var min_wait: float
+@export var max_wait: float
+@export var lights: Array[Control]
+
+@export_category("QTEs")
+@export var qte_parent: Control
+@export var qte_prompts: Array[InputIconTextureRect]
+
+@export_category("Podium")
+@export var podium_parent: Control
+
+@export_category("Standings")
+@export var standings_parent: Control
+
+@export_category("Practice Report")
+@export var report_parent: Control
+@export var final_time_text: Label
+@export var best_lap_text: Label
+@export var average_lap_text: Label
+
+@export_category("Other")
+@export var continue_button: Button
+
+#dependencies
+var race_manager: RaceManager
+var player: PlayerCarController
+var track_manager: TrackManager
+
+
+func bind_dependencies(r_manager: RaceManager, player_controller: PlayerCarController, t_manager: TrackManager) -> void:
+	race_manager = r_manager
+	player = player_controller
+	track_manager = t_manager
+	
+	lap_text.text = str(1) + "/" + str(track_manager.get_lap_count())
+	
+	player.gear_changed.connect(_set_gear)
+	_set_gear(0)
+	player.lap_completed.connect(_on_lap_completed)
+	player.on_display_qtes.connect(_on_display_qtes)
+
+
+func _process(_delta: float) -> void:
+	_set_speed_text(player.get_speed_cosmetic())
+	if race_manager.is_racing_enabled():
+		_update_lap_time()
+
+
+#region hud
+func toggle_hud(toggle: bool) -> void:
+	if toggle:
+		hud_parent.show()
+	else:
+		hud_parent.hide()
+
+
+func _set_speed_text(speed: float) -> void:
+	speed_text.text = str(roundi(speed))
+
+
+func _update_lap_time() -> void:
+	race_timer_text.text = Utils.sec_to_time_string(race_manager.get_race_time_elapsed())
+	lap_timer_text.text = Utils.sec_to_time_string(player.get_lap_time_sec())
+
+
+func _set_gear(gear: int) -> void:
+	if gear == 0:
+		gear_text.text = "ECO"
+	elif gear == 1:
+		gear_text.text = "NORM."
+	else:
+		gear_text.text = "POWER"
+
+
+func _on_lap_completed() -> void:
+	print("Lap Completed!")
+	lap_text.text = str(player.get_laps_completed() + 1) + "/" + str(track_manager.get_lap_count())
+#endregion
+
+
+#region qtes
+
+func _on_display_qtes(qtes: Array[StringName]) -> void:
+	if qtes.is_empty():
+		qte_parent.hide()
+	else:
+		qte_parent.show()
+		for i: int in range(len(qtes)):
+			qte_prompts[i].set_action_property_value(qtes[i])
+
+#endregion
+
+func set_level_name(race_name: String) -> void:
+	level_name.text = race_name
+
+
+func toggle_level_name(toggle: bool) -> void:
+	if toggle:
+		level_name.show()
+	else:
+		level_name.hide()
+
+
+func handle_start_lights() -> void:
+	for i: int in range(0, len(lights)):
+		await  get_tree().create_timer(light_interval, false).timeout
+		lights[i].show()
+	
+	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+	await get_tree().create_timer(rng.randf_range(min_wait, max_wait), false).timeout
+	
+	for l: Control in lights:
+		l.hide()
+
+
+func populate_podium(standings: StandingsTracker) -> void:
+	
+	pass
+
+
+func toggle_podium(toggle: bool) -> void:
+	if toggle:
+		podium_parent.show()
+		continue_button.show()
+		if Input.get_connected_joypads():
+			continue_button.grab_focus.call_deferred()
+	else:
+		podium_parent.hide()
+
+
+func toggle_standings(toggle: bool) -> void:
+	if toggle:
+		standings_parent.show()
+		continue_button.show()
+		if Input.get_connected_joypads():
+			continue_button.grab_focus.call_deferred()
+	else:
+		standings_parent.hide()
+
+
+func toggle_practice_stats(toggle: bool) -> void:
+	if toggle:
+		report_parent.show()
+		continue_button.show()
+		final_time_text.text = player.get_final_time_string()
+		best_lap_text.text = player.get_best_lap_time_string()
+		average_lap_text.text = player.get_average_lap_time_string()
+		if Input.get_connected_joypads():
+			continue_button.grab_focus.call_deferred()
+	else:
+		report_parent.hide()
+
+
+func _on_continue_button_pressed() -> void:
+	continue_pressed.emit()
