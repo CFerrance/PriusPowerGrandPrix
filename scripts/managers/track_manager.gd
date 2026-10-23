@@ -1,6 +1,9 @@
 class_name TrackManager extends Node
 
 #exports
+@export_category("Track Path")
+@export var track_processor: TrackProcessor
+@export var waypoints: Node
 @export_category("Lap Tracking")
 @export var start_gate: StartGate
 @export var gates: Array[Gate]
@@ -13,6 +16,15 @@ class_name TrackManager extends Node
 
 #vars
 var lap_count: int
+
+
+func _ready() -> void:
+	track_processor.build_waypoints(waypoints)
+	await track_processor.build_completed
+
+
+func get_first_waypoint() -> Waypoint:
+	return track_processor.get_first_waypoint()
 
 
 func get_lap_count() -> int:

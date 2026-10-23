@@ -8,7 +8,7 @@ enum RaceType {
 }
 
 #constants
-const BOT_COUNT: int = 5
+const BOT_COUNT: int = 1
 
 #vars
 var selected_race_type: RaceType
@@ -75,6 +75,7 @@ func _choose_bot_cars(player_palette: CarPalette) -> void:
 			continue
 		
 		car_dict[team.team_name] = available_cars[rng.randi_range(0, len(available_cars) - 1)]
+		palette_dict[team.team_name] = team.preferred_palette
 
 
 func _mount_next_race() -> void:

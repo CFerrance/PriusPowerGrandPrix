@@ -2,16 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://bbnglff553i81" path="res://scenes/cars/car.tscn" id="1_1xaag"]
 [ext_resource type="Script" uid="uid://if7i4l1hgb3i" path="res://scripts/car/bot_car.gd" id="2_c37ki"]
+[ext_resource type="Texture2D" uid="uid://k527oa541lcv" path="res://assets/target.png" id="3_eyssa"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1xaag"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyssa"]
 resource_local_to_scene = true
 radius = 17.0
 height = 78.0
 
-[node name="BotCar" unique_id=1946404089 node_paths=PackedStringArray("car_sprite", "collider") instance=ExtResource("1_1xaag")]
+[node name="BotCar" unique_id=1946404089 node_paths=PackedStringArray("target_sprite", "car_sprite", "collider") instance=ExtResource("1_1xaag")]
 script = ExtResource("2_c37ki")
+target_sprite = NodePath("Sprite2D")
 car_sprite = NodePath("Sprite")
 collider = NodePath("Collider")
 
 [node name="Collider" parent="." index="0" unique_id=1103997873]
-shape = SubResource("CapsuleShape2D_1xaag")
+shape = SubResource("CapsuleShape2D_eyssa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=251509553]
+top_level = true
+position = Vector2(0, -52)
+texture = ExtResource("3_eyssa")

@@ -11,6 +11,7 @@ var track_manager: TrackManager
 var racing_enabled: bool
 var race_time_elapsed: float
 var cars: Array[Car] = []
+var bots: Array[BotCar] = []
 var player_car: PlayerCarController
 var standings_tracker: StandingsTracker 
 var hud: HUD
@@ -66,6 +67,9 @@ func handle_race(race_type: RaceContext.RaceType) -> void:
 	racing_enabled = true
 	race_time_elapsed = 0.0
 	player_car.set_input_state(PlayerCarController.InputState.DRIVING)
+	for bot: BotCar in bots:
+		bot.set_driving_state(BotCar.DrivingState.DRIVING)
+		bot.set_next_waypoint(track_manager.get_first_waypoint())
 	
 	#podium + standings + next race
 	await player_car.race_completed
@@ -89,7 +93,7 @@ func handle_race(race_type: RaceContext.RaceType) -> void:
 func _load_cars() -> void:
 	#instantiate + configure cars
 	cars = []
-	var bots: Array[BotCar] = []
+	bots.clear()
 	var player_team: String = race_context.get_player_team()
 	var car_dict: Dictionary[String, CarData] = race_context.get_car_dict()
 	var palette_dict: Dictionary[String, CarPalette] = race_context.get_palette_dict()
