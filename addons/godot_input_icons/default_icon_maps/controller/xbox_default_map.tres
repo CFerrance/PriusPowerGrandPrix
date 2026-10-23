@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ControllerIcons" format=3 uid="uid://nqd1cqbwctrs"]
+
+[ext_resource type="Texture2D" uid="uid://c7l3tvkqpr83l" path="res://addons/godot_input_icons/assets/xelu_icons/Xbox Series/XboxSeriesX_View.png" id="1_bqe1o"]
+[ext_resource type="Texture2D" uid="uid://dupt0jxd0h5f5" path="res://addons/godot_input_icons/assets/xelu_icons/Xbox Series/XboxSeriesX_Dpad_Down.png" id="2_o44ov"]
+[ext_resource type="Texture2D" uid="uid://cuu31nqr8luas" path="res://addons/godot_input_icons/assets/xelu_icons/Xbox Series/XboxSeriesX_Dpad_Left.png" id="3_mmdom"]
+[ext_resource type="Texture2D" uid="uid://b5tig5qb6djde" path="res://addons/godot_input_icons/assets/xelu_icons/Xbox Series/XboxSeriesX_Dpad_Right.png" id="4_nq7eh"]
+[ext_resource type="Texture2D" uid="uid://bkx4mmc7bkyr6" path="res://addons/godot_input_icons/assets/xelu_icons/Xbox Series/XboxSeriesX_Dpad_Up.png" id="5_tg4am"]
+[ext_resource type="Texture2D" uid="uid://c1yvtbck2rl1n" path="res://addons/godot_input_icons/assets/xelu_icons/Xbox Series/XboxSeriesX_A.png" id="6_hr244"]
+[ext_resource type="Texture2D" uid="uid://c7lis6th4ipxx" path="res://addons/godot_input_icons/assets/xelu_icons/Xbox Series/XboxSeriesX_X.png" id="7_2k4h4"]
+[ext_resource type="Texture2D" uid="uid://dkn374yf6trgr" path="res://addons/godot_input_icons/assets/xelu_icons/Xbox Series/XboxSeriesX_B.png" id="8_rebv8"]
+[ext_resource type="Texture2D" uid="uid://clpiuu2nbaqum" path="res://addons/godot_input_icons/assets/xelu_icons/Xbox Series/XboxSeriesX_Y.png" id="9_6qg0o"]
+[ext_resource type="Texture2D" uid="uid://dgukqn2ewopg5" path="res://addons/godot_input_icons/assets/xelu_icons/Xbox Series/XboxSeriesX_LB.png" id="10_wdm68"]
+[ext_resource type="Texture2D" uid="uid://w7w2ugg4rcqb" path="res://addons/godot_input_icons/assets/xelu_icons/Xbox Series/XboxSeriesX_Left_Stick_Click.png" id="11_i6nsc"]
+[ext_resource type="Texture2D" uid="uid://bttp3hendjeld" path="res://addons/godot_input_icons/assets/xelu_icons/Xbox Series/XboxSeriesX_LT.png" id="12_n8why"]
+[ext_resource type="Texture2D" uid="uid://cqclme671at5c" path="res://addons/godot_input_icons/assets/xelu_icons/Xbox Series/XboxSeriesX_RB.png" id="13_oobr3"]
+[ext_resource type="Texture2D" uid="uid://12rm35qd1ehm" path="res://addons/godot_input_icons/assets/xelu_icons/Xbox Series/XboxSeriesX_Right_Stick_Click.png" id="14_ege8m"]
+[ext_resource type="Texture2D" uid="uid://b0s6ogyyk5tfo" path="res://addons/godot_input_icons/assets/xelu_icons/Xbox Series/XboxSeriesX_RT.png" id="15_k21gn"]
+[ext_resource type="Script" uid="uid://db0gxldvhci3p" path="res://addons/godot_input_icons/resources/controller_icons.gd" id="16_g2owp"]
+[ext_resource type="Texture2D" uid="uid://husduhrsqf63" path="res://addons/godot_input_icons/assets/xelu_icons/Xbox Series/XboxSeriesX_Menu.png" id="17_fmi3o"]
+
+[resource]
+script = ExtResource("16_g2owp")
+face_button_up = ExtResource("9_6qg0o")
+face_button_right = ExtResource("8_rebv8")
+face_button_down = ExtResource("6_hr244")
+face_button_left = ExtResource("7_2k4h4")
+left_bumper = ExtResource("10_wdm68")
+left_trigger = ExtResource("12_n8why")
+right_bumper = ExtResource("13_oobr3")
+right_trigger = ExtResource("15_k21gn")
+dpad_up = ExtResource("5_tg4am")
+dpad_right = ExtResource("4_nq7eh")
+dpad_down = ExtResource("2_o44ov")
+dpad_left = ExtResource("3_mmdom")
+start_button = ExtResource("17_fmi3o")
+back_button = ExtResource("1_bqe1o")
+left_stick_in = ExtResource("11_i6nsc")
+right_stick_in = ExtResource("14_ege8m")
+metadata/_custom_type_script = "uid://db0gxldvhci3p"

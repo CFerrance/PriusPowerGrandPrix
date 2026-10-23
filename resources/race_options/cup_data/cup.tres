@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CupData" format=3 uid="uid://cd1bgo1bna5dj"]
+
+[ext_resource type="Script" uid="uid://b6nkqyjui4lah" path="res://scripts/resource_scripts/cup_data.gd" id="1_direl"]
+[ext_resource type="Script" uid="uid://5q72e4ce2w7w" path="res://scripts/resource_scripts/track_data.gd" id="2_is2nh"]
+[ext_resource type="Resource" uid="uid://4jlsa11mh6n6" path="res://resources/race_options/track_data/track_a.tres" id="3_u426l"]
+[ext_resource type="Resource" uid="uid://c6jdpgbvroprf" path="res://resources/race_options/track_data/track_b.tres" id="4_imec1"]
+[ext_resource type="Resource" uid="uid://ccgtlyvwfs8wq" path="res://resources/race_options/track_data/track_c.tres" id="5_nu3ny"]
+[ext_resource type="Resource" uid="uid://cc6sl1h0lb5bs" path="res://resources/race_options/track_data/track_d.tres" id="6_jlvv5"]
+
+[resource]
+script = ExtResource("1_direl")
+tracks = Array[ExtResource("2_is2nh")]([ExtResource("3_u426l"), ExtResource("4_imec1"), ExtResource("5_nu3ny"), ExtResource("6_jlvv5")])
+name = "Test Cup"
+metadata/_custom_type_script = "uid://b6nkqyjui4lah"

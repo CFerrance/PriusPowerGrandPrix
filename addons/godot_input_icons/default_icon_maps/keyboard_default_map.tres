@@ -1,0 +1,174 @@
+[gd_resource type="Resource" script_class="KeyboardIcons" format=3 uid="uid://dcrdbbhivenx7"]
+
+[ext_resource type="Texture2D" uid="uid://dk8aw86473tmi" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/0_Key_Dark.png" id="1_71vli"]
+[ext_resource type="Texture2D" uid="uid://d06nig6vqa0pe" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/1_Key_Dark.png" id="2_rfj6u"]
+[ext_resource type="Texture2D" uid="uid://c4cod3lyox2ni" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/2_Key_Dark.png" id="3_y3typ"]
+[ext_resource type="Texture2D" uid="uid://i12f0qo5eobp" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/3_Key_Dark.png" id="4_qj0kp"]
+[ext_resource type="Texture2D" uid="uid://dttmpxugt4oro" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/4_Key_Dark.png" id="5_b03kh"]
+[ext_resource type="Texture2D" uid="uid://c5agbjbssiqt1" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/5_Key_Dark.png" id="6_n4av1"]
+[ext_resource type="Texture2D" uid="uid://b3xkj5y5xko0b" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/6_Key_Dark.png" id="7_2a1ot"]
+[ext_resource type="Texture2D" uid="uid://wfaw2kjvx3mw" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/7_Key_Dark.png" id="8_p75om"]
+[ext_resource type="Texture2D" uid="uid://dc0gtqgm2pros" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/8_Key_Dark.png" id="9_elqu5"]
+[ext_resource type="Texture2D" uid="uid://cousbjysw4pn6" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/9_Key_Dark.png" id="10_x22e0"]
+[ext_resource type="Texture2D" uid="uid://dd6mfdlb1i0uj" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/A_Key_Dark.png" id="11_hqlef"]
+[ext_resource type="Texture2D" uid="uid://oyd0kddglhbc" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Alt_Key_Dark.png" id="12_q6jtx"]
+[ext_resource type="Texture2D" uid="uid://7l7oxhltafdn" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Quote_Key_Dark.png" id="13_k6q6c"]
+[ext_resource type="Texture2D" uid="uid://yf37ckie5tpx" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Arrow_Down_Key_Dark.png" id="14_5r14m"]
+[ext_resource type="Texture2D" uid="uid://b10es5bbbaxkf" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Arrow_Left_Key_Dark.png" id="15_0te8o"]
+[ext_resource type="Texture2D" uid="uid://brpmlc2mn723r" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Arrow_Right_Key_Dark.png" id="16_w77xd"]
+[ext_resource type="Texture2D" uid="uid://jrw7fymqivui" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Arrow_Up_Key_Dark.png" id="17_pr5us"]
+[ext_resource type="Texture2D" uid="uid://bg8bn5vyqk3m7" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/B_Key_Dark.png" id="18_ja6iw"]
+[ext_resource type="Texture2D" uid="uid://cgtnsl6jyh3jj" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Slash_Key_Dark.png" id="19_xbfeb"]
+[ext_resource type="Texture2D" uid="uid://ot1gt7y6egsd" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Backspace_Alt_Key_Dark.png" id="20_1al11"]
+[ext_resource type="Texture2D" uid="uid://bmjkyityj2m6l" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Bracket_Left_Key_Dark.png" id="21_pyqja"]
+[ext_resource type="Texture2D" uid="uid://bbbeeyi6dctfo" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Bracket_Right_Key_Dark.png" id="22_inip6"]
+[ext_resource type="Texture2D" uid="uid://djdbgm6fk2g25" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/C_Key_Dark.png" id="23_vji2b"]
+[ext_resource type="Texture2D" uid="uid://bqkhniveqxswt" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Caps_Lock_Key_Dark.png" id="24_oraef"]
+[ext_resource type="Texture2D" uid="uid://d15cv0s2qsocm" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Mark_Left_Key_Dark.png" id="25_vga0c"]
+[ext_resource type="Texture2D" uid="uid://1arljspp0r4m" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Ctrl_Key_Dark.png" id="26_ffuk1"]
+[ext_resource type="Texture2D" uid="uid://dpr32ft42femx" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/D_Key_Dark.png" id="27_ycekv"]
+[ext_resource type="Texture2D" uid="uid://dc5ee16napa5u" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Del_Key_Dark.png" id="28_ivu6d"]
+[ext_resource type="Texture2D" uid="uid://kkf2nbcaevae" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/E_Key_Dark.png" id="29_unbee"]
+[ext_resource type="Texture2D" uid="uid://b5ul47yhw3w6b" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/End_Key_Dark.png" id="30_ytfg5"]
+[ext_resource type="Texture2D" uid="uid://dmtixnbaxllb5" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Enter_Alt_Key_Dark.png" id="31_82r1o"]
+[ext_resource type="Texture2D" uid="uid://n2fh2p7b3tcx" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Plus_Key_Dark.png" id="32_mb6qs"]
+[ext_resource type="Texture2D" uid="uid://blqauskpksyep" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Esc_Key_Dark.png" id="33_inesn"]
+[ext_resource type="Texture2D" uid="uid://ddb0ov2cvqs6l" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/F_Key_Dark.png" id="34_v47e4"]
+[ext_resource type="Texture2D" uid="uid://gkvqpi0fmgfi" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/F1_Key_Dark.png" id="35_7827a"]
+[ext_resource type="Texture2D" uid="uid://bed0roli2ar03" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/F10_Key_Dark.png" id="36_vdjoe"]
+[ext_resource type="Texture2D" uid="uid://cy4adod2yng16" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/F11_Key_Dark.png" id="37_4ywj4"]
+[ext_resource type="Texture2D" uid="uid://g1y34g50125v" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/F12_Key_Dark.png" id="38_8uui6"]
+[ext_resource type="Texture2D" uid="uid://cc8juhkcquqoc" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/F2_Key_Dark.png" id="39_o1dey"]
+[ext_resource type="Texture2D" uid="uid://dp6oi2kjahmq7" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/F3_Key_Dark.png" id="40_gi7ma"]
+[ext_resource type="Texture2D" uid="uid://gvklpto3g67x" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/F4_Key_Dark.png" id="41_d8j0h"]
+[ext_resource type="Texture2D" uid="uid://ntdqgmavq08i" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/F5_Key_Dark.png" id="42_k4ug7"]
+[ext_resource type="Texture2D" uid="uid://fgk273rvp0fd" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/F6_Key_Dark.png" id="43_huamj"]
+[ext_resource type="Texture2D" uid="uid://b3557cwsyurtp" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/F7_Key_Dark.png" id="44_i1xrx"]
+[ext_resource type="Texture2D" uid="uid://iladr6wfv3ex" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/F8_Key_Dark.png" id="45_djw85"]
+[ext_resource type="Texture2D" uid="uid://bv5v4ntctkppy" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/F9_Key_Dark.png" id="46_tohcv"]
+[ext_resource type="Texture2D" uid="uid://d1rinp4d2jrqo" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/G_Key_Dark.png" id="47_oufx4"]
+[ext_resource type="Texture2D" uid="uid://dg45c0bkgvfsi" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/H_Key_Dark.png" id="48_7spk1"]
+[ext_resource type="Texture2D" uid="uid://o608o10rtyxx" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Home_Key_Dark.png" id="49_dnuee"]
+[ext_resource type="Texture2D" uid="uid://cclp2ng53rbpn" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/I_Key_Dark.png" id="50_no4nr"]
+[ext_resource type="Texture2D" uid="uid://u5jg4pmhjrdf" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Insert_Key_Dark.png" id="51_l1lqb"]
+[ext_resource type="Texture2D" uid="uid://6xadyty6p7u2" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/J_Key_Dark.png" id="52_351so"]
+[ext_resource type="Texture2D" uid="uid://bnce6dl0bcie" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/K_Key_Dark.png" id="53_2sdvq"]
+[ext_resource type="Texture2D" uid="uid://hasohlrwis03" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/L_Key_Dark.png" id="54_4drh5"]
+[ext_resource type="Texture2D" uid="uid://21fyrn41k1w" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/M_Key_Dark.png" id="55_emmeg"]
+[ext_resource type="Texture2D" uid="uid://dytof261on5o1" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Minus_Key_Dark.png" id="56_4h5l5"]
+[ext_resource type="Texture2D" uid="uid://bh7vwuc8rg7xl" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/N_Key_Dark.png" id="57_6j6l6"]
+[ext_resource type="Texture2D" uid="uid://2thh3didgs07" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/O_Key_Dark.png" id="58_g07kq"]
+[ext_resource type="Texture2D" uid="uid://xofbuknxerjw" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/P_Key_Dark.png" id="59_wpcyr"]
+[ext_resource type="Texture2D" uid="uid://cfw55qsqnh4ju" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Page_Down_Key_Dark.png" id="60_08bsa"]
+[ext_resource type="Texture2D" uid="uid://dwxuavtr3udhv" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Page_Up_Key_Dark.png" id="61_yvbn4"]
+[ext_resource type="Texture2D" uid="uid://cdhewkxaw3520" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Mark_Right_Key_Dark.png" id="62_1qj67"]
+[ext_resource type="Texture2D" uid="uid://cr3b7vrscea5b" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Print_Screen_Key_Dark.png" id="63_n3t84"]
+[ext_resource type="Script" uid="uid://c3ievetg3ws5h" path="res://addons/godot_input_icons/resources/keyboard_icons.gd" id="64_i1xrx"]
+[ext_resource type="Texture2D" uid="uid://c0fngrhgt07uh" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Q_Key_Dark.png" id="64_pyt7j"]
+[ext_resource type="Texture2D" uid="uid://7r6rtxlgtyes" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Tilda_Key_Dark.png" id="65_an4pl"]
+[ext_resource type="Texture2D" uid="uid://gyw5h4nwfl7j" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/R_Key_Dark.png" id="66_0x3sh"]
+[ext_resource type="Texture2D" uid="uid://b4mnktfi218ct" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/S_Key_Dark.png" id="67_1cvnl"]
+[ext_resource type="Texture2D" uid="uid://ssfc1ofn3pr3" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Semicolon_Key_Dark.png" id="68_kdpv2"]
+[ext_resource type="Texture2D" uid="uid://du7fsvfnjwwng" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Shift_Key_Dark.png" id="69_ojoky"]
+[ext_resource type="Texture2D" uid="uid://br4xgagx408y7" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Question_Key_Dark.png" id="70_wmwn4"]
+[ext_resource type="Texture2D" uid="uid://bm0m5sbdran5m" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Space_Key_Dark.png" id="71_tie8u"]
+[ext_resource type="Texture2D" uid="uid://bgpp38mjw352" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/T_Key_Dark.png" id="72_5qwkr"]
+[ext_resource type="Texture2D" uid="uid://dkmfx5q3h6xyc" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Tab_Key_Dark.png" id="73_qoyvf"]
+[ext_resource type="Texture2D" uid="uid://d2ukch8aus0lq" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/U_Key_Dark.png" id="74_3ofvh"]
+[ext_resource type="Texture2D" uid="uid://y6n2q7n688g0" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/V_Key_Dark.png" id="75_m40kk"]
+[ext_resource type="Texture2D" uid="uid://bjughdyrsfjk2" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/W_Key_Dark.png" id="76_rp6cb"]
+[ext_resource type="Texture2D" uid="uid://d3fxqyf7vhxoe" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/X_Key_Dark.png" id="77_e3nr5"]
+[ext_resource type="Texture2D" uid="uid://b4p7h1xgxrv7" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Y_Key_Dark.png" id="78_tbc3i"]
+[ext_resource type="Texture2D" uid="uid://b8e5fdybek1pr" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Z_Key_Dark.png" id="79_uvxhf"]
+[ext_resource type="Texture2D" uid="uid://btm6y1d1dnf86" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Mouse_Simple_Key_Dark.png" id="80_qarid"]
+[ext_resource type="Texture2D" uid="uid://c7egi5aw012ky" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Mouse_Left_Key_Dark.png" id="81_pgcu7"]
+[ext_resource type="Texture2D" uid="uid://pydy1nhvqbf3" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Mouse_Middle_Key_Dark.png" id="82_rhfak"]
+[ext_resource type="Texture2D" uid="uid://fluvrv3ogik7" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/Mouse_Right_Key_Dark.png" id="83_gd4p4"]
+
+[resource]
+script = ExtResource("64_i1xrx")
+mouse_left_click = ExtResource("81_pgcu7")
+mouse_right_click = ExtResource("83_gd4p4")
+mouse_middle_click = ExtResource("82_rhfak")
+mouse_extra_button1 = ExtResource("80_qarid")
+mouse_extra_button2 = ExtResource("80_qarid")
+key_a = ExtResource("11_hqlef")
+key_b = ExtResource("18_ja6iw")
+key_c = ExtResource("23_vji2b")
+key_d = ExtResource("27_ycekv")
+key_e = ExtResource("29_unbee")
+key_f = ExtResource("34_v47e4")
+key_g = ExtResource("47_oufx4")
+key_h = ExtResource("48_7spk1")
+key_i = ExtResource("50_no4nr")
+key_j = ExtResource("52_351so")
+key_k = ExtResource("53_2sdvq")
+key_l = ExtResource("54_4drh5")
+key_m = ExtResource("55_emmeg")
+key_n = ExtResource("57_6j6l6")
+key_o = ExtResource("58_g07kq")
+key_p = ExtResource("59_wpcyr")
+key_q = ExtResource("64_pyt7j")
+key_r = ExtResource("66_0x3sh")
+key_s = ExtResource("67_1cvnl")
+key_t = ExtResource("72_5qwkr")
+key_u = ExtResource("74_3ofvh")
+key_v = ExtResource("75_m40kk")
+key_w = ExtResource("76_rp6cb")
+key_x = ExtResource("77_e3nr5")
+key_y = ExtResource("78_tbc3i")
+key_z = ExtResource("79_uvxhf")
+key_0 = ExtResource("1_71vli")
+key_1 = ExtResource("2_rfj6u")
+key_2 = ExtResource("3_y3typ")
+key_3 = ExtResource("4_qj0kp")
+key_4 = ExtResource("5_b03kh")
+key_5 = ExtResource("6_n4av1")
+key_6 = ExtResource("7_2a1ot")
+key_7 = ExtResource("8_p75om")
+key_8 = ExtResource("9_elqu5")
+key_9 = ExtResource("10_x22e0")
+key_space = ExtResource("71_tie8u")
+key_tab = ExtResource("73_qoyvf")
+key_escape = ExtResource("33_inesn")
+key_capslock = ExtResource("24_oraef")
+key_home = ExtResource("49_dnuee")
+key_end = ExtResource("30_ytfg5")
+key_page_up = ExtResource("61_yvbn4")
+key_page_down = ExtResource("60_08bsa")
+key_insert = ExtResource("51_l1lqb")
+key_print = ExtResource("63_n3t84")
+key_comma = ExtResource("25_vga0c")
+key_period = ExtResource("62_1qj67")
+key_delete = ExtResource("28_ivu6d")
+key_apostrophe = ExtResource("13_k6q6c")
+key_semicolon = ExtResource("68_kdpv2")
+key_bracketleft = ExtResource("21_pyqja")
+key_bracketright = ExtResource("22_inip6")
+key_minus = ExtResource("56_4h5l5")
+key_equal = ExtResource("32_mb6qs")
+key_slash = ExtResource("70_wmwn4")
+key_backslash = ExtResource("19_xbfeb")
+key_backspace = ExtResource("20_1al11")
+key_enter = ExtResource("31_82r1o")
+key_quoteleft = ExtResource("65_an4pl")
+key_alt = ExtResource("12_q6jtx")
+key_ctrl = ExtResource("26_ffuk1")
+key_shift = ExtResource("69_ojoky")
+key_arrow_up = ExtResource("17_pr5us")
+key_arrow_down = ExtResource("14_5r14m")
+key_arrow_left = ExtResource("15_0te8o")
+key_arrow_right = ExtResource("16_w77xd")
+key_f1 = ExtResource("35_7827a")
+key_f2 = ExtResource("39_o1dey")
+key_f3 = ExtResource("40_gi7ma")
+key_f4 = ExtResource("41_d8j0h")
+key_f5 = ExtResource("42_k4ug7")
+key_f6 = ExtResource("43_huamj")
+key_f7 = ExtResource("44_i1xrx")
+key_f8 = ExtResource("45_djw85")
+key_f9 = ExtResource("46_tohcv")
+key_f10 = ExtResource("36_vdjoe")
+key_f11 = ExtResource("37_4ywj4")
+key_f12 = ExtResource("38_8uui6")
+metadata/_custom_type_script = "uid://c3ievetg3ws5h"

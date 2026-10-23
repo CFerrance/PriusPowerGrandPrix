@@ -8,11 +8,27 @@
 
 config_version=5
 
+[Addons]
+
+ButtonPrompts/prompts/light_themed_keyboard_and_mouse=false
+ButtonPrompts/prompts/positional_controller_button_prompts=false
+ButtonPrompts/optional_supported_controllers/dualshock_4=true
+ButtonPrompts/optional_supported_controllers/dualshock_3=true
+ButtonPrompts/optional_supported_controllers/xbox_one=true
+ButtonPrompts/optional_supported_controllers/xbox_360=true
+ButtonPrompts/optional_supported_controllers/steam_deck=true
+ButtonPrompts/optional_supported_controllers/nintendo_switch=true
+
 [application]
 
 config/name="PriusPowerGrandPrix"
 run/main_scene="uid://cm5pn46nacr77"
 config/features=PackedStringArray("4.6", "Forward Plus")
+
+[autoload]
+
+button_prompts_manager="*uid://cy31x45v8vmkc"
+InputHelper="*uid://cholww48njaeh"
 
 [debug]
 
@@ -23,34 +39,13 @@ gdscript/warnings/unsafe_method_access=1
 gdscript/warnings/unsafe_cast=1
 gdscript/warnings/unsafe_call_argument=1
 
-[file_customization]
+[display]
 
-folder_colors={
-"res://Cars/Art/": "red",
-"res://Cars/Data/": "orange",
-"res://Cars/Palettes/": "red",
-"res://Cars/Palettes/Palette_Data/": "yellow",
-"res://Cars/Scenes/": "yellow",
-"res://Cars/Scripts/": "green",
-"res://Decorations/Barriers/Art/": "red",
-"res://Decorations/Barriers/Scenes/": "yellow",
-"res://Decorations/Environment/Art/": "red",
-"res://Decorations/Grandstands/Art/": "red",
-"res://Decorations/Grandstands/Scenes/": "yellow",
-"res://Misc/Scenes/": "yellow",
-"res://Misc/Scripts/": "green",
-"res://Misc/Shaders/": "pink",
-"res://Teams/Data/": "orange",
-"res://Tracks/Data/": "orange",
-"res://Tracks/Data/Cups/": "orange",
-"res://Tracks/Scripts/": "green",
-"res://Tracks/Track_Art/": "red",
-"res://Tracks/Track_Scenes/": "purple",
-"res://UI/Art/": "red",
-"res://UI/Fonts/": "purple",
-"res://UI/Scenes/": "yellow",
-"res://UI/Scripts/": "green"
-}
+window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_input_icons/plugin.cfg", "res://addons/input_helper/plugin.cfg")
 
 [input]
 

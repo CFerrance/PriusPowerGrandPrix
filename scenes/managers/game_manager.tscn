@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cm5pn46nacr77"]
+
+[ext_resource type="Script" uid="uid://jjow5k64wwu3" path="res://scripts/managers/game_manager.gd" id="1_tf73o"]
+[ext_resource type="Script" uid="uid://c78pyble71xjs" path="res://scripts/resource_scripts/car_data.gd" id="2_5p8nv"]
+[ext_resource type="Resource" uid="uid://2qvi76dhc81p" path="res://resources/car_data/bug.tres" id="3_kw7i1"]
+[ext_resource type="Resource" uid="uid://baao73vptlmx8" path="res://resources/car_data/mini_cooper.tres" id="4_stkq7"]
+[ext_resource type="Resource" uid="uid://dl3xnns4pss8n" path="res://resources/car_data/prius.tres" id="5_kvdjo"]
+[ext_resource type="Script" uid="uid://mtibpa4dn4p0" path="res://scripts/resource_scripts/team_data.gd" id="6_rvede"]
+[ext_resource type="Resource" uid="uid://dey7w3stjn6p6" path="res://resources/team_data/catillac.tres" id="7_yfpbv"]
+[ext_resource type="Resource" uid="uid://dxftspocfjii8" path="res://resources/team_data/furrari.tres" id="8_65px1"]
+[ext_resource type="Resource" uid="uid://cbdgvk5gdkl01" path="res://resources/team_data/jagrawr.tres" id="9_376fu"]
+[ext_resource type="Resource" uid="uid://j0vsth5mrxwn" path="res://resources/team_data/meowclaren.tres" id="10_ikowh"]
+[ext_resource type="Resource" uid="uid://cw2630ajpkjyp" path="res://resources/team_data/meowdi.tres" id="11_ts0ry"]
+[ext_resource type="Resource" uid="uid://bba5nwh1upl2k" path="res://resources/team_data/pawsche.tres" id="12_1nj4m"]
+[ext_resource type="Resource" uid="uid://bjlbj5ce674g8" path="res://resources/team_data/purrcedes.tres" id="13_7gkxs"]
+[ext_resource type="Script" uid="uid://5q72e4ce2w7w" path="res://scripts/resource_scripts/track_data.gd" id="14_rvede"]
+[ext_resource type="Resource" uid="uid://c6jdpgbvroprf" path="res://resources/race_options/track_data/track_b.tres" id="15_yfpbv"]
+[ext_resource type="Resource" uid="uid://4jlsa11mh6n6" path="res://resources/race_options/track_data/track_a.tres" id="16_65px1"]
+[ext_resource type="Resource" uid="uid://ccgtlyvwfs8wq" path="res://resources/race_options/track_data/track_c.tres" id="17_8u2ln"]
+[ext_resource type="Script" uid="uid://b6nkqyjui4lah" path="res://scripts/resource_scripts/cup_data.gd" id="17_376fu"]
+[ext_resource type="Resource" uid="uid://cd1bgo1bna5dj" path="res://resources/race_options/cup_data/cup.tres" id="18_ikowh"]
+[ext_resource type="Resource" uid="uid://cc6sl1h0lb5bs" path="res://resources/race_options/track_data/track_d.tres" id="18_slo7v"]
+[ext_resource type="PackedScene" uid="uid://dubnsi7aywblk" path="res://scenes/misc/fader.tscn" id="21_mcnga"]
+
+[node name="GameManager" type="Node" unique_id=984897483 node_paths=PackedStringArray("fader")]
+script = ExtResource("1_tf73o")
+fader = NodePath("CanvasLayer/Fader")
+available_cars = Array[ExtResource("2_5p8nv")]([ExtResource("3_kw7i1"), ExtResource("4_stkq7"), ExtResource("5_kvdjo")])
+base_teams = Array[ExtResource("6_rvede")]([ExtResource("7_yfpbv"), ExtResource("8_65px1"), ExtResource("9_376fu"), ExtResource("10_ikowh"), ExtResource("11_ts0ry"), ExtResource("12_1nj4m"), ExtResource("13_7gkxs")])
+available_tracks = Array[ExtResource("14_rvede")]([ExtResource("15_yfpbv"), ExtResource("16_65px1"), ExtResource("17_8u2ln"), ExtResource("18_slo7v")])
+available_cups = Array[ExtResource("17_376fu")]([ExtResource("18_ikowh")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1832210389]
+layer = 10
+
+[node name="Fader" parent="CanvasLayer" unique_id=733224154 instance=ExtResource("21_mcnga")]
