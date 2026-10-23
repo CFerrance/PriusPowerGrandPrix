@@ -8,6 +8,8 @@ enum Context {
 }
 
 #exports
+@export var fader: Fader
+@export_category("Available Playables")
 @export var available_cars: Array[CarData]
 @export var base_teams: Array[Team]
 @export var available_tracks: Array[TrackData]
@@ -23,8 +25,7 @@ func _ready() -> void:
 
 
 func mount_main_menu_context() -> void:
-	if current_context:
-		current_context.queue_free()
+	await free_current_context()
 	
 	var main_menu_packed: PackedScene = load("res://scenes/menus/main_menu.tscn")
 	var main_menu: MainMenu = main_menu_packed.instantiate()
@@ -35,11 +36,12 @@ func mount_main_menu_context() -> void:
 	current_context = main_menu
 	current_context_type = Context.MAIN_MENU
 	add_child(current_context)
+	
+	fader.fade_in(0.5)
 
 
 func mount_tutorial_context() -> void:
-	if current_context:
-		current_context.queue_free()
+	await free_current_context()
 	
 	var tutorial_packed: PackedScene = load("res://scenes/contexts/tutorial_context.tscn")
 	var tutorial: TutorialContext = tutorial_packed.instantiate()
@@ -48,13 +50,14 @@ func mount_tutorial_context() -> void:
 	current_context = tutorial
 	current_context_type = Context.TUTORIAL
 	add_child(current_context)
+	
+	fader.fade_in(0.5)
 
 
 func mount_race_context(race_type: RaceContext.RaceType, race_option: RaceOption, player_team: String,
 		car: CarData, palette: CarPalette, laps: int, mirror: bool) -> void:
-	assert(current_context_type == Context.MAIN_MENU and current_context)
 	
-	current_context.queue_free()
+	await free_current_context()
 	
 	var race_context_packed: PackedScene = load("res://scenes/contexts/race_context.tscn")
 	var race_context: RaceContext = race_context_packed.instantiate()
@@ -65,6 +68,14 @@ func mount_race_context(race_type: RaceContext.RaceType, race_option: RaceOption
 	
 	race_context.set_race_choices(race_type, race_option, player_team, car, 
 			palette, laps, mirror)
+	
+	fader.fade_in(0.5)
+
+
+func free_current_context() -> void:
+	if current_context:
+		await fader.fade_to_black(0.5)
+		current_context.queue_free()
 
 
 func get_track_options() -> Array[RaceOption]:

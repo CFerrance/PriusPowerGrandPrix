@@ -15,15 +15,9 @@
 [ext_resource type="Resource" uid="uid://b2t6gxyg31sa7" path="res://resources/palette_data/red_palette.tres" id="12_awvna"]
 [ext_resource type="Resource" uid="uid://crhxa63vaqt6x" path="res://resources/palette_data/yellow_palette.tres" id="13_jygr6"]
 [ext_resource type="FontFile" uid="uid://1scsx7eqnofu" path="res://assets/ui/fonts/chewy/chewy_regular.ttf" id="14_3w8rc"]
+[ext_resource type="PackedScene" uid="uid://dubnsi7aywblk" path="res://scenes/misc/fader.tscn" id="16_vr0hv"]
 
-[node name="MainMenu" type="Control" unique_id=1320039347 node_paths=PackedStringArray("title_text", "background", "title_buttons", "options_menu", "credits", "race_options_parent", "start_screen", "mode_select_screen", "track_select_screen", "car_select_screen", "car_select", "color_select")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_3w8rc")
+[node name="MainMenu" type="CanvasLayer" unique_id=1417005937 node_paths=PackedStringArray("title_text", "background", "title_buttons", "options_menu", "credits", "race_options_parent", "start_screen", "mode_select_screen", "track_select_screen", "car_select_screen", "car_select", "color_select", "fader")]
 script = ExtResource("1_bh4e2")
 title_text = NodePath("StartScreen/TitleText")
 background = NodePath("Background")
@@ -37,9 +31,9 @@ track_select_screen = NodePath("TrackSelectScreen")
 car_select_screen = NodePath("CarSelectScreen")
 car_select = NodePath("CarSelectScreen/CarOptions/CarSelect")
 color_select = NodePath("CarSelectScreen/CarOptions/ColorSelect")
+fader = NodePath("Fader")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1151407728]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -47,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="StartScreen" type="Control" parent="." unique_id=1735440178]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -243,7 +237,7 @@ vertical_alignment = 2
 
 [node name="ModeSelectScreen" type="Control" parent="." unique_id=756382559]
 visible = false
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -291,7 +285,7 @@ alignment = 0
 
 [node name="TrackSelectScreen" type="Control" parent="." unique_id=1459104514]
 visible = false
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -356,7 +350,7 @@ text = "Back"
 
 [node name="CarSelectScreen" type="Control" parent="." unique_id=114481685]
 visible = false
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -409,6 +403,8 @@ offset_bottom = -11.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Back"
+
+[node name="Fader" parent="." unique_id=733224154 instance=ExtResource("16_vr0hv")]
 
 [connection signal="pressed" from="StartScreen/StartButtons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="StartScreen/StartButtons/TutorialButton" to="." method="_on_tutorial_button_pressed"]
