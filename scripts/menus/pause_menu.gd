@@ -5,15 +5,15 @@ class_name PauseMenu extends CanvasLayer
 @export var restart_button: Button
 
 #dependencies
-var race_context: RaceContext
+var game_context: GameContext
 
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
-func bind_dependencies(context: RaceContext) -> void:
-	race_context = context
+func bind_dependencies(context: GameContext) -> void:
+	game_context = context
 
 
 func _process(_delta: float) -> void:
@@ -57,16 +57,16 @@ func _options_button_pressed() -> void:
 
 func _restart_button_pressed() -> void: 
 	get_tree().paused = false
-	race_context.request_level_restart()
+	game_context.request_level_restart()
 
 
 func _quit_to_menu_button_pressed() -> void:
 	get_tree().paused = false
-	race_context.request_quit_to_menu()
+	game_context.request_quit_to_menu()
 
 
 func _quit_button_pressed() -> void:
 	get_tree().paused = false
-	race_context.request_quit()
+	game_context.request_quit()
 
 #endregion

@@ -6,7 +6,7 @@ class_name TrackManager extends Node
 @export var waypoints: Node
 @export_category("Lap Tracking")
 @export var start_gate: StartGate
-@export var gates: Array[Gate]
+@export var gates: Array[Area2D]
 @export_category("Pit Paths")
 @export var pit_entrance: PitGate
 @export var pit_path: Path2D
@@ -43,11 +43,11 @@ func get_gate_count() -> int:
 	return len(gates)
 
 
-func get_gate(index: int) -> Gate:
+func get_gate(index: int) -> Area2D:
 	return gates[index]
 
 
-func get_gate_index(gate: Gate) -> int:
+func get_gate_index(gate: Area2D) -> int:
 	var index: int = gates.find(gate)
 	assert(index != -1)
 	return index

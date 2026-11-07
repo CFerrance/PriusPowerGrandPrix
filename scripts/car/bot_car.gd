@@ -1,4 +1,4 @@
-class_name BotCar extends Car
+class_name BotCar extends CarController
 
 enum DrivingState {
 	IDLE,
@@ -46,11 +46,3 @@ func update_waypoint() -> void:
 
 func set_driving_state(state: DrivingState) -> void:
 	current_driving_state = state
-
-
-func on_pit_entry() -> void:
-	pass
-
-
-func on_race_completed() -> void:
-	pass

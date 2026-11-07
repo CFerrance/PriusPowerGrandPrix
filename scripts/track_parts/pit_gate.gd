@@ -6,10 +6,11 @@ class_name PitGate extends Node2D
 
 
 func _on_body_entered(body: Node2D) -> void:
-	var car: Car = body
-	assert(car == null or car is Car)
-	if car != null:
-		car.on_pit_entry()
+	pass
+	#var car: Car = body
+	#assert(car == null or car is Car)
+	#if car != null:
+	#	car.on_pit_entry()
 
 
 func get_exit_vector() -> Vector2:

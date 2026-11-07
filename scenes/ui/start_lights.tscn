@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://syng5x607b02"]
+
+[ext_resource type="Script" uid="uid://xfq40xnkb7ci" path="res://scripts/ui/start_lights.gd" id="1_lj0c8"]
+[ext_resource type="Texture2D" uid="uid://bdginhskvo4gr" path="res://assets/hud/start_light.png" id="2_oodod"]
+
+[node name="StartLights" type="HBoxContainer" unique_id=1984165328 node_paths=PackedStringArray("lights")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -168.0
+offset_top = 20.0
+offset_right = 168.0
+offset_bottom = 84.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+script = ExtResource("1_lj0c8")
+light_interval = 0.4
+min_wait = 1.0
+max_wait = 3.0
+lights = [NodePath("StartLight"), NodePath("StartLight2"), NodePath("StartLight3"), NodePath("StartLight4"), NodePath("StartLight5")]
+
+[node name="StartLight" type="TextureRect" parent="." unique_id=1593496338]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_oodod")
+
+[node name="StartLight2" type="TextureRect" parent="." unique_id=2025332823]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_oodod")
+
+[node name="StartLight3" type="TextureRect" parent="." unique_id=1834854803]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_oodod")
+
+[node name="StartLight4" type="TextureRect" parent="." unique_id=725600591]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_oodod")
+
+[node name="StartLight5" type="TextureRect" parent="." unique_id=15740720]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_oodod")

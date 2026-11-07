@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://btgel0ie2jgce"]
+
+[ext_resource type="Script" uid="uid://cgg3j6703xd1n" path="res://scripts/ui/race_ui.gd" id="1_kxtid"]
+[ext_resource type="PackedScene" uid="uid://c2fvi1hheb1hx" path="res://scenes/ui/speedometer.tscn" id="2_75s7m"]
+[ext_resource type="PackedScene" uid="uid://wq1s6sf450a7" path="res://scenes/ui/hud_lap_tracker.tscn" id="3_kxtid"]
+[ext_resource type="PackedScene" uid="uid://syng5x607b02" path="res://scenes/ui/start_lights.tscn" id="4_f2huv"]
+[ext_resource type="PackedScene" uid="uid://bb8rdrtxte2cb" path="res://scenes/ui/qte_display.tscn" id="5_kxtid"]
+
+[node name="RaceUI" type="CanvasLayer" unique_id=996316333]
+script = ExtResource("1_kxtid")
+
+[node name="HUD" type="Control" parent="." unique_id=231276633]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0025424862
+
+[node name="Speedometer" parent="HUD" unique_id=2074586729 instance=ExtResource("2_75s7m")]
+layout_mode = 1
+
+[node name="HudLapTracker" parent="HUD" unique_id=389014949 instance=ExtResource("3_kxtid")]
+layout_mode = 0
+
+[node name="StartLights" parent="." unique_id=1984165328 instance=ExtResource("4_f2huv")]
+
+[node name="QteDisplay" parent="." unique_id=628892030 instance=ExtResource("5_kxtid")]

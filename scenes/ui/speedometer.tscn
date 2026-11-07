@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c2fvi1hheb1hx"]
+
+[ext_resource type="Texture2D" uid="uid://n7dsrm7ftq1g" path="res://assets/hud/dashboard.png" id="1_p2ukw"]
+[ext_resource type="Script" uid="uid://d31arn744b7bh" path="res://scripts/ui/hud_speedometer.gd" id="2_1bhqa"]
+[ext_resource type="Theme" uid="uid://bbg3p1op4fcix" path="res://assets/ui/themes/level_ui_theme.tres" id="3_gmyee"]
+
+[node name="Speedometer" type="TextureRect" unique_id=2074586729 node_paths=PackedStringArray("speed_text", "gear_text")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -119.0
+offset_right = 248.0
+grow_vertical = 0
+texture = ExtResource("1_p2ukw")
+stretch_mode = 4
+script = ExtResource("2_1bhqa")
+speed_text = NodePath("SpeedText")
+gear_text = NodePath("GearText")
+
+[node name="SpeedText" type="Label" parent="." unique_id=743861014]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -84.0
+offset_right = 86.0
+offset_bottom = -24.0
+grow_vertical = 0
+theme = ExtResource("3_gmyee")
+theme_override_font_sizes/font_size = 48
+text = "XX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GearText" type="Label" parent="." unique_id=621811376]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 110.73017
+offset_top = -56.662754
+offset_right = 202.84863
+offset_bottom = -9.90213
+grow_vertical = 0
+theme = ExtResource("3_gmyee")
+theme_override_font_sizes/font_size = 24
+text = "GEAR"
+horizontal_alignment = 1
+vertical_alignment = 1

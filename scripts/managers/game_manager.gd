@@ -46,6 +46,7 @@ func mount_tutorial_context() -> void:
 	var tutorial_packed: PackedScene = load("res://scenes/contexts/tutorial_context.tscn")
 	var tutorial: TutorialContext = tutorial_packed.instantiate()
 	tutorial.bind_dependencies(self)
+	tutorial.setup()
 	
 	current_context = tutorial
 	current_context_type = Context.TUTORIAL

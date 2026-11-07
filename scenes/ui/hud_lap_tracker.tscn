@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://wq1s6sf450a7"]
+
+[ext_resource type="Script" uid="uid://wpylf7fogxvy" path="res://scripts/ui/hud_lap_tracking.gd" id="1_es2v0"]
+[ext_resource type="Theme" uid="uid://bbg3p1op4fcix" path="res://assets/ui/themes/level_ui_theme.tres" id="2_kffq4"]
+
+[node name="HudLapTracker" type="Control" unique_id=389014949 node_paths=PackedStringArray("place_text", "lap_text", "race_timer_text", "lap_timer_text")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_es2v0")
+place_text = NodePath("PlaceText")
+lap_text = NodePath("LapText")
+race_timer_text = NodePath("RaceTimer")
+lap_timer_text = NodePath("LapTimer")
+
+[node name="PlaceText" type="Label" parent="." unique_id=1845277531]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 890.0
+offset_top = 545.0
+offset_right = 1000.0
+offset_bottom = 608.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_kffq4")
+theme_override_font_sizes/font_size = 48
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LapText" type="Label" parent="." unique_id=1201229877]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1000.0001
+offset_top = 545.0
+offset_right = 1110.0001
+offset_bottom = 608.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_kffq4")
+theme_override_font_sizes/font_size = 48
+text = "X/X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RaceTimer" type="Label" parent="." unique_id=720716905]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 997.0001
+offset_right = 1112.0001
+offset_bottom = 42.0
+grow_horizontal = 0
+theme = ExtResource("2_kffq4")
+theme_override_font_sizes/font_size = 32
+text = "0:00:00"
+
+[node name="LapTimer" type="Label" parent="." unique_id=358486256]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1020.0001
+offset_top = 44.000004
+offset_right = 1113.0001
+offset_bottom = 76.0
+grow_horizontal = 0
+theme = ExtResource("2_kffq4")
+theme_override_font_sizes/font_size = 24
+text = "0:00:00"

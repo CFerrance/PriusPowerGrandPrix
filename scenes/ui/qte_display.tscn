@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bb8rdrtxte2cb"]
+
+[ext_resource type="Script" uid="uid://d3ungpkcy85yv" path="res://scripts/ui/qte_display.gd" id="1_p5uqp"]
+[ext_resource type="Texture2D" uid="uid://d06nig6vqa0pe" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/1_Key_Dark.png" id="2_l2bl2"]
+[ext_resource type="Script" uid="uid://d2a2relwnivg5" path="res://addons/godot_input_icons/input_icon_texture_rect.gd" id="3_xmrqd"]
+[ext_resource type="Texture2D" uid="uid://c4cod3lyox2ni" path="res://addons/godot_input_icons/assets/xelu_icons/Keyboard & Mouse/Dark/2_Key_Dark.png" id="4_ioptq"]
+
+[node name="QteDisplay" type="HBoxContainer" unique_id=628892030 node_paths=PackedStringArray("prompts")]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -100.0
+offset_right = 102.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_p5uqp")
+prompts = [NodePath("InputIconTextureRect"), NodePath("InputIconTextureRect2"), NodePath("InputIconTextureRect3"), NodePath("InputIconTextureRect4")]
+
+[node name="InputIconTextureRect" type="TextureRect" parent="." unique_id=543939097]
+layout_mode = 2
+texture = ExtResource("2_l2bl2")
+script = ExtResource("3_xmrqd")
+action_name = &"QuickTimeOne"
+metadata/_custom_type_script = "uid://d2a2relwnivg5"
+
+[node name="InputIconTextureRect2" type="TextureRect" parent="." unique_id=1338790783]
+layout_mode = 2
+texture = ExtResource("4_ioptq")
+script = ExtResource("3_xmrqd")
+action_name = &"QuickTimeTwo"
+metadata/_custom_type_script = "uid://d2a2relwnivg5"
+
+[node name="InputIconTextureRect3" type="TextureRect" parent="." unique_id=399179449]
+layout_mode = 2
+texture = ExtResource("4_ioptq")
+script = ExtResource("3_xmrqd")
+action_name = &"QuickTimeTwo"
+metadata/_custom_type_script = "uid://d2a2relwnivg5"
+
+[node name="InputIconTextureRect4" type="TextureRect" parent="." unique_id=1899746060]
+layout_mode = 2
+texture = ExtResource("4_ioptq")
+script = ExtResource("3_xmrqd")
+action_name = &"QuickTimeTwo"
+metadata/_custom_type_script = "uid://d2a2relwnivg5"

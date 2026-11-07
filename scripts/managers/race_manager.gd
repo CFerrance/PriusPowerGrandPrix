@@ -12,9 +12,8 @@ var racing_enabled: bool
 var race_time_elapsed: float
 var cars: Array[Car] = []
 var bots: Array[BotCar] = []
-var player_car: PlayerCarController
+var player_car: PlayerCar
 var standings_tracker: StandingsTracker 
-var hud: HUD
 var pause_menu: PauseMenu
 
 #dependencies
@@ -36,10 +35,10 @@ func set_race_essentials(track: TrackData, laps: int, mirror: bool) -> void:
 	standings_tracker = StandingsTracker.new(cars)
 	
 	var hud_packed: PackedScene = load("res://scenes/hud/hud.tscn")
-	hud = hud_packed.instantiate()
-	add_child(hud)
-	hud.bind_dependencies(self, player_car, track_manager)
-	hud.set_level_name(track.name)
+	#hud = hud_packed.instantiate()
+	#add_child(hud)
+	#hud.bind_dependencies(self, player_car, track_manager)
+	#hud.set_level_name(track.name)
 	
 	var pause_menu_packed: PackedScene = load("res://scenes/menus/pause_menu.tscn")
 	pause_menu = pause_menu_packed.instantiate()
@@ -55,18 +54,18 @@ func _process(delta: float) -> void:
 func handle_race(race_type: RaceContext.RaceType) -> void:
 	#flyby
 	if not SKIP_FLYBY:
-		hud.toggle_level_name(true)
+		#hud.toggle_level_name(true)
 		await track_manager.flyby()
-		hud.toggle_level_name(false)
+		#hud.toggle_level_name(false)
 	
 	#start sequence
-	hud.toggle_hud(true)
+	#hud.toggle_hud(true)
 	player_car.toggle_player_camera(true)
-	player_car.set_input_state(PlayerCarController.InputState.REVVING)
-	await hud.handle_start_lights()
+	#player_car.set_input_state(PlayerCarController.InputState.REVVING)
+	#await hud.handle_start_lights()
 	racing_enabled = true
 	race_time_elapsed = 0.0
-	player_car.set_input_state(PlayerCarController.InputState.DRIVING)
+	#player_car.set_input_state(PlayerCarController.InputState.DRIVING)
 	for bot: BotCar in bots:
 		bot.set_driving_state(BotCar.DrivingState.DRIVING)
 		bot.set_next_waypoint(track_manager.get_first_waypoint())
@@ -74,18 +73,18 @@ func handle_race(race_type: RaceContext.RaceType) -> void:
 	#podium + standings + next race
 	await player_car.race_completed
 	racing_enabled = false
-	hud.toggle_hud(false)
-	if race_type != RaceContext.RaceType.PRACTICE:
-		hud.populate_podium(standings_tracker)
-		hud.toggle_podium(true)
-		await hud.continue_pressed
-		hud.toggle_podium(false)
-		if race_type == RaceContext.RaceType.CUP:
-			hud.toggle_standings(true)
-			await  hud.continue_pressed
-	else:
-		hud.toggle_practice_stats(true)
-		await hud.continue_pressed
+	#hud.toggle_hud(false)
+	#if race_type != RaceContext.RaceType.PRACTICE:
+		#hud.populate_podium(standings_tracker)
+		#hud.toggle_podium(true)
+		#await hud.continue_pressed
+		#hud.toggle_podium(false)
+		#if race_type == RaceContext.RaceType.CUP:
+			#hud.toggle_standings(true)
+			#await  hud.continue_pressed
+	#else:
+		#hud.toggle_practice_stats(true)
+		#await hud.continue_pressed
 	
 	race_completed.emit()
 
@@ -104,7 +103,7 @@ func _load_cars() -> void:
 		if id == player_team:
 			var player_car_packed: PackedScene = load("res://scenes/cars/player_car.tscn")
 			car = player_car_packed.instantiate()
-			player_car = car
+			#player_car = car
 		else:
 			car = bot_car_packed.instantiate()
 			bots.append(car)

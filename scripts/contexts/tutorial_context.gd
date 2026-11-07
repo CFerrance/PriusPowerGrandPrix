@@ -1,16 +1,8 @@
-class_name TutorialContext extends Node
-
-#dependencies
-var game_manager: GameManager
-
-
-func bind_dependencies(manager: GameManager) -> void:
-	game_manager = manager
-	
-	setup()
+class_name TutorialContext extends GameContext
 
 
 func setup() -> void:
 	var driving_school_packed: PackedScene = load("res://scenes/tracks/driving_school.tscn")
-	var driving_school: Node = driving_school_packed.instantiate()
-	add_child(driving_school)
+	var tutorial_manager: TutorialManager = driving_school_packed.instantiate()
+	add_child(tutorial_manager)
+	tutorial_manager.bind_dependencies(self)

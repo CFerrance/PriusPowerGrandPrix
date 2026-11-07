@@ -7,10 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jh01r"]
 size = Vector2(35.3, 20)
 
-[node name="StartGate" type="Area2D" unique_id=661936391 node_paths=PackedStringArray("start_positions")]
+[node name="StartGate" type="Area2D" unique_id=661936391 groups=["gate"]]
 collision_layer = 4
 script = ExtResource("1_0cul3")
-start_positions = [NodePath("Starts/StartSpot"), NodePath("Starts/StartSpot2"), NodePath("Starts/StartSpot3"), NodePath("Starts/StartSpot4"), NodePath("Starts/StartSpot5"), NodePath("Starts/StartSpot6")]
 
 [node name="collider" type="CollisionShape2D" parent="." unique_id=593078535]
 scale = Vector2(12, 1)
@@ -45,5 +44,3 @@ texture = ExtResource("3_mjx46")
 [node name="StartSpot6" type="Sprite2D" parent="Starts" unique_id=15711175]
 position = Vector2(65, 490)
 texture = ExtResource("3_mjx46")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

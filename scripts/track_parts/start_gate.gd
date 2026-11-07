@@ -1,4 +1,4 @@
-class_name StartGate extends Gate
+class_name StartGate extends Node2D
 
 #exports
 @export var start_positions: Array[Node2D]
