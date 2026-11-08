@@ -25,8 +25,7 @@ func toggle_pause() -> void:
 	if get_tree().paused == false:
 		get_tree().paused = true
 		
-		var race_type: RaceContext.RaceType = race_context.get_race_type()
-		if race_type == RaceContext.RaceType.PRACTICE:
+		if game_context.is_restartable():
 			restart_button.show()
 		else:
 			restart_button.hide()
@@ -57,7 +56,7 @@ func _options_button_pressed() -> void:
 
 func _restart_button_pressed() -> void: 
 	get_tree().paused = false
-	game_context.request_level_restart()
+	game_context.request_restart()
 
 
 func _quit_to_menu_button_pressed() -> void:

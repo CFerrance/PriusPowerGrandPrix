@@ -1,12 +1,10 @@
 @abstract
-class_name GameContext extends Node
-
-var game_manager: GameManager
+class_name GameContext extends Context
 
 
-func bind_dependencies(g_manager: GameManager) -> void:
-	game_manager = g_manager
+func request_quit_to_menu() -> void:
+	game_manager.request_quit_to_menu()
 
 
-func request_quit() -> void:
-	game_manager.request_quit()
+@abstract func is_restartable() -> bool
+@abstract func request_restart() -> void

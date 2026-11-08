@@ -1,4 +1,4 @@
-class_name MainMenu extends Node
+class_name MainMenu extends Context
 
 #signals
 signal selections_completed(race_type: RaceContext.RaceType, race_option: RaceOption, player_team: String,
@@ -42,12 +42,9 @@ var selected_race_option: RaceOption
 var selected_car: CarData
 var selected_color: CarPalette
 
-#dependencies
-var game_manager: GameManager
 
-
-func bind_dependencies(manager: GameManager) -> void:
-	game_manager = manager
+func bind_dependencies(game_manager_: GameManager) -> void:
+	super(game_manager_)
 	setup()
 
 
@@ -82,7 +79,7 @@ func _on_credits_button_pressed() -> void:
 
 
 func _on_quit_button_pressed() -> void:
-	game_manager.request_quit()
+	request_quit()
 
 
 func _on_options_back_button_pressed() -> void:

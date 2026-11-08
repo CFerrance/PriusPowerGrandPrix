@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrackData" format=3 uid="uid://bek281ggna5ae"]
+
+[ext_resource type="PackedScene" uid="uid://bmgmdj7o3jjmw" path="res://scenes/tracks/tutorial_track.tscn" id="1_2jg72"]
+[ext_resource type="Script" uid="uid://5q72e4ce2w7w" path="res://scripts/resource_scripts/track_data.gd" id="1_dt0n8"]
+
+[resource]
+script = ExtResource("1_dt0n8")
+scene = ExtResource("1_2jg72")
+description = "A simple ring fit for learning how to race"
+name = "The Indy 5"
+metadata/_custom_type_script = "uid://5q72e4ce2w7w"

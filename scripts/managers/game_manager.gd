@@ -1,12 +1,5 @@
 class_name GameManager extends Node
 
-#enums
-enum Context {
-	MAIN_MENU,
-	TUTORIAL,
-	RACE,
-}
-
 #exports
 @export var fader: Fader
 @export_category("Available Playables")
@@ -16,8 +9,7 @@ enum Context {
 @export var available_cups: Array[CupData]
 
 #children
-var current_context_type: Context
-var current_context: Node
+var current_context: Context
 
 
 func _ready() -> void:
@@ -34,7 +26,6 @@ func mount_main_menu_context() -> void:
 	main_menu.tutorial_selected.connect(mount_tutorial_context)
 	
 	current_context = main_menu
-	current_context_type = Context.MAIN_MENU
 	add_child(current_context)
 	
 	fader.fade_in(0.5)
@@ -49,7 +40,6 @@ func mount_tutorial_context() -> void:
 	tutorial.setup()
 	
 	current_context = tutorial
-	current_context_type = Context.TUTORIAL
 	add_child(current_context)
 	
 	fader.fade_in(0.5)

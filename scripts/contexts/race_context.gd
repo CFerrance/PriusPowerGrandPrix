@@ -1,4 +1,4 @@
-class_name RaceContext extends Node
+class_name RaceContext extends GameContext
 
 #enums
 enum RaceType {
@@ -22,13 +22,6 @@ var start_order: Array[String]
 
 var race_queue: Array[TrackData]
 var current_race_manager: RaceManager 
-
-#dependencies
-var game_manager: GameManager
-
-
-func bind_dependencies(manager: GameManager) -> void:
-	game_manager = manager
 
 
 func set_race_choices(race_type: RaceType, race_option: RaceOption, player_team: String,
@@ -134,7 +127,11 @@ func set_start_order(new: Array[String]) -> void:
 	start_order = new
 
 
-func request_level_restart() -> void:
+func is_restartable() -> bool:
+	return selected_race_type == RaceType.PRACTICE 
+
+
+func request_restart() -> void:
 	assert(selected_race_type == RaceType.PRACTICE)
 	
 	if current_race_manager.race_completed.is_connected(race_finished):
@@ -143,11 +140,3 @@ func request_level_restart() -> void:
 	current_race_manager.queue_free()
 	
 	_mount_next_race()
-
-
-func request_quit_to_menu() -> void:
-	game_manager.request_quit_to_menu()
-
-
-func request_quit() -> void:
-	game_manager.request_quit()
